@@ -7,4 +7,32 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  public conectado: boolean;
+
+
+  constructor( ){
+ 
+    this.conectado = false;
+
+  }
+  public  comprobarlogin(): boolean{
+
+
+    if(this.conectado == true){
+
+    this.conectado = true;
+    console.log(this.conectado);
+        
+     }else{
+
+     this.conectado = false;
+    }
+    return this.conectado; 
+
+   /*  return false; */
+  }
+  
+
 }
+
+

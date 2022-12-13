@@ -1,1 +1,20 @@
-<p>header works!</p>
+
+<div class="header" *ngIf="comprobarlogin() === false; else headerDos">
+
+        <a routerLink="/home" class="home">HOME</a>
+        <a routerLink="/sobrenosotros" class="sobrenosotros">SOBRE NOSOTROS</a>
+        <a routerLink="/register" class="registro">REGISTRARSE</a>
+        <a routerLink="/login" class="login">LOGIN</a>
+</div> 
+
+ <ng-template #headerDos>
+    
+    <nav class="header2">
+
+        <a routerLink="/home" class="home">HOME</a>
+        <a routerLink="/campaigns" class="campañas">CAMPAÑAS</a>
+        <a routerLink="/home" class="logout">LOG OUT</a>
+
+    </nav>
+
+</ng-template> 

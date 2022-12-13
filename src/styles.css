@@ -6,7 +6,7 @@
     padding:0;
     box-sizing: border-box;
 
-    --font-family-almendra: 'Almendra', serif;
+    font-family: 'Almendra', serif;
     --font-color-primary: black;
     --font-color-hover: rgb(218, 193, 105);
     --font-color-warnings: rgb(210, 31, 39);
