@@ -1,1 +1,23 @@
-<p>register works!</p>
+<app-header class="component"></app-header>
+<main class="main">
+    <div class="div--1">
+        REGISTRATE
+    </div>
+    <div class="div--2">
+        <form class="form" action="">
+            <div class="form--div-1">
+                <label for="">correo:</label>
+                <input type="email" #user>
+            </div>
+            <div class="form--div-2">
+                <label for="">contraseña:</label>
+                <input type="password" #pass>
+            </div>
+            <div class="form--div-2">
+                <label for="">confirmar contraseña:</label>
+                <input type="password" #confirmarPass>
+            </div>
+        </form>
+        <button class="button" (click)="addUser(user.value,pass.value,confirmarPass.value)">Registrate</button>
+    </div>
+</main>
