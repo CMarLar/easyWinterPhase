@@ -95,6 +95,7 @@
 }
 .button:hover{
     transform: translate(20px);
+    cursor: pointer;
 }
 .textHide{
     width: auto;
