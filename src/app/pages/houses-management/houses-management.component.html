@@ -1,30 +1,87 @@
-<p>houses-management works!</p>
+<!-- <p>houses-management works!</p> -->
+<app-header class="component"></app-header>
+<div class="supercontainer">
+    <div class="title">
+        <p class="page_title">Creación de casas</p>
+        <p class ="page_subtitle">{{campaignName}}</p>
+    </div>
+<div class="profile_pic">
+    <a routerLink = "/profile"><img [src]="profilePic" alt="" srcset=""></a>
+</div>
+
 
 <div class="maincontainer">
     <div class="left">
-        <div class="carrousel">
-
+        <div class="image_left">
+            <img  src="../../../assets/img/ReinaGinebra 2.png" alt="" srcset="" class="imageleft">
         </div>
     </div>
+
     <div class="right">
-        <div class="title">
-
-        </div>
-        <div class="form-container">
-
-        </div>
-
-        <div class="npc-list">
-
+        <div class="year">
+            <h3>AÑO DE INICIO: </h3>
+            <div class="inputyear">
+                <input type="text" label="Año">
+            </div>
         </div>
 
-        <div class="choose-character">
-
+        <div class="playerlist">
+            <div class="playerOk" *ngFor="let player of players">
+                <div class="playershield">
+                <img [src]="player.escudo" alt="" srcset="">
+                </div>
+                <div class="playername" *ngIf="player.casa!=null;else noHouse">
+                    <p>{{player.jugador}} - Casa {{player.casa}}</p>
+                </div>
+                <ng-template #noHouse>
+                    <div class="playername">
+                    <p><a routerLink = "/createhouse">{{player.jugador}}</a></p>
+                    </div>
+                </ng-template>
+                <div class="skull" *ngIf="player.casa!=null;else noSkull">
+                    <img (click)="deleteHouse(player.id)" src="../../../assets/img/CALAVERA.png" alt="" srcset="">
+                </div>
+                <ng-template #noSkull>
+                    <div class="skull"></div>
+                </ng-template>
+                <div class="quill" *ngIf="player.casa!=null;else noQuill">
+                    <a routerLink = "/createhouse"><img src="../../../assets/img/PLUMA.png" alt="" srcset=""></a>
+                </div>
+                <ng-template #noQuill>
+                    <div class="quill"></div>
+                </ng-template>
         </div>
 
-        <div class="buttons">
-            
-        </div>
+
+        <!-- <div class="playerOk">
+            <div class="playershield">
+                <img [src]="emptyShield" alt="" srcset="">
+                </div>
+            <div class="playername">
+                <p>Irene Becker</p>
+            </div>
+            <div class="emptyoptions"></div>
+        </div> -->
+
+<!-- <ng-container *ngIf="asignedHouse==false";else allHousesAssigned> -->
+
+    <div class="buttons">
+        <button [disabled]="asignedHouse">JUGAR CAMPAÑA</button>
+        <button (click)="goPlace()"> Atrás </button>
     </div>
 
+<!-- </ng-container> -->
+
+<!-- <ng-container #allHousesAssigned>
+
+    <div class="buttons">
+        <button>JUGAR CAMPAÑA</button>
+    </div>
+
+</ng-container> -->
+
+    </div>
+
+</div>
+</div>
 </div>
