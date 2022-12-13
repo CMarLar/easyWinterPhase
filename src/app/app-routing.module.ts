@@ -30,12 +30,14 @@ import { AgingModalComponent } from './component/aging-modal/aging-modal.compone
 import { MarriageLoyaltyModalComponent } from './component/marriage-loyalty-modal/marriage-loyalty-modal.component';
 import { MarriageCourtesyModalComponent } from './component/marriage-courtesy-modal/marriage-courtesy-modal.component';
 import { BirthsModalComponent } from './component/births-modal/births-modal.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
 {path:"",redirectTo:"/home",pathMatch:"full"},
 {path:"home",component:HomeComponent},
 {path:"login",component:LoginComponent},
 {path:"register",component:RegisterComponent},
+{path:"profile",component:ProfileComponent},
 {path:"campaigns",component:CampaignsComponent},
 {path:"addplayers",component:AddPlayersComponent},
 {path:"housesmanagement",component:HousesManagementComponent},

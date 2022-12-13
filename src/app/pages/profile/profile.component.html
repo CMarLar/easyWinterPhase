@@ -1,0 +1,24 @@
+
+<app-header class="component"></app-header>
+<main class="main">
+    <div class="submain">
+        <div class="lacre">
+            <img class="imglacre" src="../../../assets/img/carlos-marina_9131-bw.jpg" alt="">
+        </div>
+        <div class="userInfo">
+            <p>{{user.nombre}}</p>
+            <p>{{user.correo}}</p>
+            <p>{{user.password}}</p>
+            <p>{{user.rol}}</p>
+            <p>CAMPAÑAS FINALIZADAS: {{user.campaignFinish}}</p>
+        </div>
+    </div>
+    <div class="buttonContainer">
+        <button class="backbutton" (click)="goBack()">
+            <p>VOLVER</p>
+        </button>
+        <button class="modifybutton" (click)="goModifyUser()">
+            <p>MODIFICAR USUARIO</p>
+        </button>
+    </div>
+</main>

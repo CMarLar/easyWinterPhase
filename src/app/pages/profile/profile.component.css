@@ -1,0 +1,99 @@
+.component{
+    /* LE DOY POSICION FIJA AL COMPONENTE HEADER */
+    position:absolute;
+    width: 100%;
+    /* border: 2px solid black; */
+}
+.main{
+    width: auto;
+    height: 100vh;
+    background-image: url("../../../assets/backgrounds/bg_yelmos.jpg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* border: 2px solid red; */
+}
+.submain{
+    height: 64%;
+    width: auto;
+    padding: 20px;
+    padding-left: 200px;
+    /* border: 2px solid purple; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 150px;
+}
+.buttonContainer{
+    height: 25%;
+    /* border: 2px solid orange; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.lacre{
+    /* border: 2px solid blue; */
+    width: 400px;
+    height: 400px;
+    margin-top: 50px;
+    background-image: url("../../../assets/img/lacre1.png");
+    background-size: cover;
+}
+.imglacre{
+    width: 270px;
+    height: 270px;
+    background-size: cover;
+    border-radius: 50%;
+    margin-top: 50px;
+    margin-left: 70px;
+}
+.userInfo{
+    color: var(--font-color-hover);
+    font-size: 35px;
+    text-align: center;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.userInfo p {
+    /* border: 2px solid red; */
+}
+.backbutton{
+    height: 60%;
+    width: 400px;
+    background-image: url("../../../assets/img/daga-atras.png");
+    background-size: cover;
+    background-color: transparent;
+    background-position: center;
+    border: none;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+}
+.modifybutton{
+    height: 60%;
+    width: 400px;
+    background-image: url("../../../assets/img/daga-adelante.png");
+    background-size: cover;
+    background-color: transparent;
+    background-position: center;
+    border: none;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+}
+.backbutton:hover{
+    transform: translate(-20px);
+    cursor: pointer;
+}
+.modifybutton:hover{
+    transform: translate(20px);
+    cursor: pointer;
+}
