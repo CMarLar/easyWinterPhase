@@ -96,3 +96,15 @@
 .button:hover{
     transform: translate(20px);
 }
+.textHide{
+    width: auto;
+    height: 35px;
+    color: var(--font-color-warnings);
+    border: 2px solid blue;
+    text-align: center;
+    font-size: 25px;
+    /* position: absolute;
+    bottom: 350px;
+    left: 0;
+    right: 0; */
+}

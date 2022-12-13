@@ -11,14 +11,16 @@ export class LoginComponent {
   public user : string;
   public password : string;
   public usuarioConectado : boolean;
+  public dataOk : boolean;
 
   constructor(private router : Router){
     this.user = "miguelGeneroso@gmail.com";
     this.password = "contraseñaMiguel";
     this.usuarioConectado = false;
+    this.dataOk = true;
   }
 
-  public userValidation(user,password){
+  public userValidate(user,password){
 
     if (user == this.user && password == this.password){
 
@@ -29,6 +31,7 @@ export class LoginComponent {
 
       console.log("Error al introducir el usuario o la contraseña");
       this.usuarioConectado = false;
+      this.dataOk = false;
 
     }
 

@@ -17,6 +17,7 @@
                 <label for="">confirmar contraseña:</label>
                 <input type="password" #confirmarPass>
             </div>
+            <div class="textHide" [hidden]="isHide">{{error}}</div>
         </form>
         <button class="button" (click)="addUser(user.value,pass.value,confirmarPass.value)">Registrate</button>
     </div>
