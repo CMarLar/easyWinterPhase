@@ -1,0 +1,28 @@
+.component{
+    /* LE DOY POSICION FIJA AL COMPONENTE HEADER */
+    position:absolute;
+    width: 100%;
+    /* border: 2px solid black; */
+}
+.main{
+    width: auto;
+    height: 100vh;
+    background-image: url("../../../assets/backgrounds/bg_home.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid red; */
+}
+.h1{
+    font-size: 100px;
+    font-weight: normal;
+    color: var(--font-color-h);
+}
+.h5{
+    font-size: 30px;
+    font-weight: normal;
+    color: var(--font-color-primary);
+}
