@@ -6,7 +6,7 @@
         <p class ="page_subtitle">{{campaignName}}</p>
     </div>
 <div class="profile_pic">
-    <img [src]="profilePic" alt="" srcset="">
+    <a routerLink = "/profile"><img [src]="profilePic" alt="" srcset=""></a>
 </div>
 
 
@@ -26,85 +26,34 @@
         </div>
 
         <div class="playerlist">
-            <div class="playerOk">
+            <div class="playerOk" *ngFor="let player of players">
                 <div class="playershield">
-                <img [src]="shieldImage" alt="" srcset="">
+                <img [src]="player.escudo" alt="" srcset="">
                 </div>
-                <div class="playername">
-                    <p>{{playerName}} - Casa {{houseName}}</p>
+                <div class="playername" *ngIf="player.casa!=null;else noHouse">
+                    <p>{{player.jugador}} - Casa {{player.casa}}</p>
                 </div>
-                <div class="skull">
-                    <img src="../../../assets/img/CALAVERA.png" alt="" srcset="">
+                <ng-template #noHouse>
+                    <div class="playername">
+                    <p><a routerLink = "/createhouse">{{player.jugador}}</a></p>
+                    </div>
+                </ng-template>
+                <div class="skull" *ngIf="player.casa!=null;else noSkull">
+                    <img (click)="deleteHouse(player.id)" src="../../../assets/img/CALAVERA.png" alt="" srcset="">
                 </div>
-                <div class="quill">
-                    <img src="../../../assets/img/PLUMA.png" alt="" srcset="">
-            </div>
+                <ng-template #noSkull>
+                    <div class="skull"></div>
+                </ng-template>
+                <div class="quill" *ngIf="player.casa!=null;else noQuill">
+                    <a routerLink = "/createhouse"><img src="../../../assets/img/PLUMA.png" alt="" srcset=""></a>
+                </div>
+                <ng-template #noQuill>
+                    <div class="quill"></div>
+                </ng-template>
         </div>
 
-        <div class="playerOk">
-            <div class="playershield">
-                <img [src]="shieldImage" alt="" srcset="">
-            </div>
-            <div class="playername">
-                <p>{{playerName}} - Casa {{houseName}}</p>
-            </div>
-            <div class="skull">
-                <img src="../../../assets/img/CALAVERA.png" alt="" srcset="">
-            </div>
-            <div class="quill">
-                <img src="../../../assets/img/PLUMA.png" alt="" srcset="">
-        </div>
-    </div>
 
-
-    <div class="playerOk">
-        <div class="playershield">
-            <img [src]="shieldImage" alt="" srcset="">
-        </div>
-        <div class="playername">
-            <p>{{playerName}} - Casa {{houseName}}</p>
-        </div>
-        <div class="skull">
-            <img src="../../../assets/img/CALAVERA.png" alt="" srcset="">
-        </div>
-        <div class="quill">
-            <img src="../../../assets/img/PLUMA.png" alt="" srcset="">
-    </div>
-</div>
-
-
-<div class="playerOk">
-    <div class="playershield">
-        <img [src]="shieldImage" alt="" srcset="">
-    </div>
-    <div class="playername">
-        <p>{{playerName}} - Casa {{houseName}}</p>
-    </div>
-    <div class="skull">
-        <img src="../../../assets/img/CALAVERA.png" alt="" srcset="">
-    </div>
-    <div class="quill">
-        <img src="../../../assets/img/PLUMA.png" alt="" srcset="">
-</div>
-</div>
-
-<div class="playerOk">
-    <div class="playershield">
-        <img [src]="shieldImage" alt="" srcset="">
-    </div>
-    <div class="playername">
-        <p>{{playerName}} - Casa {{houseName}}</p>
-    </div>
-    <div class="skull">
-        <img src="../../../assets/img/CALAVERA.png" alt="" srcset="">
-    </div>
-    <div class="quill">
-        <img src="../../../assets/img/PLUMA.png" alt="" srcset="">
-</div>
-</div>
-
-
-        <div class="playerempty">
+        <!-- <div class="playerOk">
             <div class="playershield">
                 <img [src]="emptyShield" alt="" srcset="">
                 </div>
@@ -112,12 +61,12 @@
                 <p>Irene Becker</p>
             </div>
             <div class="emptyoptions"></div>
-        </div>
+        </div> -->
 
 <!-- <ng-container *ngIf="asignedHouse==false";else allHousesAssigned> -->
 
     <div class="buttons">
-        <button [disabled]="asignedHouse==false">JUGAR CAMPAÑA</button>
+        <button [disabled]="asignedHouse">JUGAR CAMPAÑA</button>
     </div>
 
 <!-- </ng-container> -->
