@@ -6,14 +6,16 @@
     <div class="div--2">
         <form class="form" action="">
             <div class="form--div-1">
-                <label for="">usuario:</label>
-                <input type="email">
+                <label for="">correo:</label>
+                <input type="email" #mail>
             </div>
             <div class="form--div-2">
                 <label for="">contraseña:</label>
-                <input type="password">
+                <input type="password" #pass>
             </div>
+            
+            <div class="textHide" [hidden]="dataOk">Correo o contraseña incorrectos</div>
         </form>
-        <button class="button">Login</button>
+        <button class="button" (click)="userValidate(pass,mail)">Login</button>
     </div>
 </main>
