@@ -14,19 +14,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 .div--1{
     font-size: 60px;
     color: var(--font-color-hover);
     /* text-decoration:line-through; */
-    border: 2px solid red;
+    /* border: 2px solid red; */
     margin-top: 100px;
     margin-bottom: 100px;
     font-weight: bold;
 }
 .div--2{
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -35,7 +35,7 @@
     gap: 150px;
 }
 .form{
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -84,7 +84,7 @@
 .button{
     width: 30%;
     height: 115px;
-    border: 2px solid orange;
+    /* border: 2px solid orange; */
     color: var(--font-color-hover);
     background-color: transparent;
     background-image: url("../../../assets/img/daga_login_register.png");
@@ -102,7 +102,7 @@
     width: auto;
     height: 35px;
     color: var(--font-color-warnings);
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     text-align: center;
     font-size: 25px;
     /* position: absolute;
