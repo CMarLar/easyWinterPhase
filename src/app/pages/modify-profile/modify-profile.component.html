@@ -1,0 +1,30 @@
+<app-header class="component"></app-header>
+<main class="main">
+
+    <div class="submain">
+        <div class="lacre">
+            <img class="imglacre" src="../../../assets/img/carlos-marina_9131-bw.jpg" alt="">
+            
+        </div>
+        <div class="dataUser">
+            <p>USUARIO</p>
+            <form class="userInfo">
+                <input type="text" placeholder="NOMBRE DE USUARIO" #name>
+                <input type="text" placeholder="CORREO" #mail>
+                <input type="text" placeholder="PASSWORD" #pass>
+            </form>
+        </div>
+    </div>
+
+    <div class="buttonContainer">
+        <button class="backbutton" (click)="goBack()">
+            <p>CANCELAR</p>
+            <img src="../../../assets/img/daga-atras.png" alt="">
+        </button>
+        <button class="modifybutton" (click)="modifyUser(name.value,mail.value,pass.value)">
+            <p>CONFIRMAR</p>
+            <img src="../../../assets/img/daga-adelante.png" alt="">
+        </button>
+    </div>
+
+</main>

@@ -23,7 +23,7 @@ export class ProfileComponent {
   }
 
   public goModifyUser(){
-    this.router.navigateByUrl("/modifyuser")
+    this.router.navigateByUrl("/modifyprofile")
   }
 
 }

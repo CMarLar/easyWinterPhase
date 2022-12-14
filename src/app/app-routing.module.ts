@@ -31,6 +31,7 @@ import { MarriageLoyaltyModalComponent } from './component/marriage-loyalty-moda
 import { MarriageCourtesyModalComponent } from './component/marriage-courtesy-modal/marriage-courtesy-modal.component';
 import { BirthsModalComponent } from './component/births-modal/births-modal.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ModifyProfileComponent } from './pages/modify-profile/modify-profile.component';
 
 const routes: Routes = [
 {path:"",redirectTo:"/home",pathMatch:"full"},
@@ -38,6 +39,7 @@ const routes: Routes = [
 {path:"login",component:LoginComponent},
 {path:"register",component:RegisterComponent},
 {path:"profile",component:ProfileComponent},
+{path:"modifyprofile",component:ModifyProfileComponent},
 {path:"campaigns",component:CampaignsComponent},
 {path:"addplayers",component:AddPlayersComponent},
 {path:"housesmanagement",component:HousesManagementComponent},
