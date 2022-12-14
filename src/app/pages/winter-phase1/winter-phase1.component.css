@@ -75,6 +75,8 @@
         font-size: xx-large;
         font-family: 'Almendra', serif;
         margin-top: 5%;
+        -webkit-text-stroke: 0.75px var(--font-color-hover);
+        /* font-size: 6rem; */
 
     }
 
