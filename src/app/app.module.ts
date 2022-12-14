@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,6 +33,7 @@ import { MarriageLoyaltyModalComponent } from './component/marriage-loyalty-moda
 import { MarriageCourtesyModalComponent } from './component/marriage-courtesy-modal/marriage-courtesy-modal.component';
 import { BirthsModalComponent } from './component/births-modal/births-modal.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ModifyProfileComponent } from './pages/modify-profile/modify-profile.component';
 
 @NgModule({
   declarations: [
@@ -64,11 +66,13 @@ import { ProfileComponent } from './pages/profile/profile.component';
     MarriageLoyaltyModalComponent,
     MarriageCourtesyModalComponent,
     BirthsModalComponent,
-    ProfileComponent
+    ProfileComponent,
+    ModifyProfileComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

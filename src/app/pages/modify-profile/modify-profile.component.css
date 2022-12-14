@@ -1,0 +1,161 @@
+.component{
+    /* LE DOY POSICION FIJA AL COMPONENTE HEADER */
+    position:absolute;
+    width: 100%;
+    /* border: 2px solid black; */
+}
+.main{
+    width: auto;
+    height: 100vh;
+    background-image: url("../../../assets/backgrounds/bg_yelmos.jpg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    /* border: 2px solid red; */
+}
+.submain{
+    height: 64%;
+    width: 80%;
+ 
+    /* border: 2px solid purple; */
+    margin-top: 2%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:4%;
+}
+
+.lacre{
+    /* border: 2px solid blue; */
+    background-image: url("../../../assets/img/lacre1.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 45%;
+
+    position: relative;
+}
+
+    .imglacre{
+        border-radius: 50%;
+        width: 65%;
+
+        position:absolute;
+        left: 18%;
+        top: 16%;
+    
+    }
+
+
+/* data user****************************************** */
+.dataUser{
+    width: 60%;
+    /* border: 2px solid blue; */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 5%;
+}
+    .dataUser p{
+        color: var(--font-color-h);
+        -webkit-text-stroke: 0.75px var(--font-color-hover);
+        font-size: 6rem;
+
+    }
+
+    .userInfo{
+        width: 90%;
+        height:60%;
+        color: var(--font-color-hover);
+        font-size: 35px;
+        text-align: center;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 6%;
+
+        /* border: 2px solid yellow; */
+
+}
+        .userInfo input {
+            background-color: var(--background-color-input);
+            border: none;
+            outline: none;
+            color: var(--font-color-hover);
+            text-align: center;
+            font-size: 25px;
+            width: 90%;
+            height: 15%;
+        
+        }
+
+.buttonContainer{
+   
+    /* border: 2px solid orange; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    
+}
+.backbutton{
+    /* border: 2px solid red; */
+    border: none;
+    background-size: cover;
+    background-color: transparent;
+
+    color: white;
+    font-size: 20px;
+    width:20%;
+}
+.backbutton img{
+    width: 100%;
+}
+
+.modifybutton{
+    width: 20%;
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    /* border: 2px solid red; */
+    color: white;
+    font-size: 20px;
+}
+.modifybutton img{
+    width: 100%;
+}
+.backbutton:hover{
+    transform: translate(-20px);
+    cursor: pointer;
+    color: var(--font-color-hover);
+}
+.modifybutton:hover{
+    transform: translate(20px);
+    cursor: pointer;
+    color: var(--font-color-hover);
+}
+::placeholder{
+    color: var(--font-color-hover);
+    text-align: center;
+}
+
+@media screen and (max-width: 874px){
+    .imglacre{
+        border-radius: 50%;
+        width: 65%;
+
+        position:absolute;
+        left: 18%;
+        top: 38%;
+    
+    }
+}
