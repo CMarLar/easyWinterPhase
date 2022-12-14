@@ -13,12 +13,15 @@
                 <label for="">contraseña:</label>
                 <input type="password" #pass>
             </div>
-            <div class="form--div-2">
+            <div class="form--div-3">
                 <label for="">confirmar contraseña:</label>
                 <input type="password" #confirmarPass>
             </div>
             <div class="textHide" [hidden]="isHide">{{error}}</div>
         </form>
-        <button class="button" (click)="addUser(user.value,pass.value,confirmarPass.value)">Registrate</button>
     </div>
+    <button class="button" (click)="addUser(user.value,pass.value,confirmarPass.value)">
+        <img src="../../../assets/img/daga_login_register.png" alt="">
+        <p>Login</p>
+    </button>
 </main>
