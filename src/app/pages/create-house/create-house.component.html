@@ -1,1 +1,84 @@
-<p>create-house works!</p>
+<!-- <p>create-house works!</p> -->
+<!-- <app-header class="component"></app-header> -->
+<!-- esta no tiene que tener barra -->
+<div class="supercontainer">
+    <div class="title">
+        <p class="page_title">Creación de casa</p>
+        <p class ="page_subtitle">Nombre del jugador</p>
+    </div>
+
+
+<div class="maincontainer">
+    <div class="left">
+<!-- FALTA QUE EL FORMULARIO RECOJA TODOS LOS INPUTS -->
+
+            <label>Nombre de la casa</label><input type="text">
+            <label>Feudo</label><input type="text">
+            <label>Característica familiar</label><input type="text">
+            <label>Nombre de la casa</label><input type="text">
+
+            <label>Nivel de manutención inicial</label>
+            <select name="lenguajes" id="lang">
+                <option value="Indigente">Indigente</option>
+                <option value="Pobre">Pobre</option>
+                <option value="Normal">Normal</option>
+                <option value="Rico">Rico</option>
+                <option value="Muy Rico">Muy Rico</option>
+            </select>
+            <br>
+    <div class="short_inputs">
+        <div class="character_name_input">
+            <label>Personaje jugador</label><input type="text">
+        </div>
+        <div class="character_age_input">
+            <label>Edad</label><input type="text">
+        </div>
+        <div class="squire_name_input">
+            <label>Nombre del escudero</label><input type="text">
+        </div>
+    </div>
+<br>
+
+        <div class="npc_list">
+            <p> {{stringNpcs}} </p>
+        </div>
+<br><br><br>
+        <div class="choose_new_character">
+            <label>Elije un nuevo PJ</label>
+            <select name="lenguajes" id="lang">
+                <option value="Fulanito">Fulanito</option>
+                <option value="Menganito">Menganito</option>
+                <option value="Citanito">Citanito</option>
+            </select>
+        </div>
+<br><br>
+        <div class="buttons">
+            <button>Cancelar</button>
+            <button> PNJ </button>
+            <button [disabled] = "noNPC"> Confirmar </button>
+        </div>
+
+    </div>
+
+    <div class="right">
+        <div class="shield_selector">
+            <img (click)="selectHouseShield(shield1)" [src]="shield1" alt="">
+            <img (click)="selectHouseShield(shield2)"[src]="shield2" alt="">
+            <img (click)="selectHouseShield(shield3)"[src]="shield3" alt="">
+            <img (click)="selectHouseShield(shield4)"[src]="shield4" alt="">
+            <img (click)="selectHouseShield(shield5)"[src]="shield5" alt="">
+            <img (click)="selectHouseShield(shield6)"[src]="shield6" alt="">
+            <img (click)="selectHouseShield(shield7)"[src]="shield7" alt="">
+            <img (click)="selectHouseShield(shield8)"[src]="shield8" alt="">
+            <img (click)="selectHouseShield(shield9)"[src]="shield9" alt="">
+            <img (click)="selectHouseShield(shield10)"[src]="shield10" alt="">
+            <img (click)="selectHouseShield(shield11)"[src]="shield11" alt="">
+            <img (click)="selectHouseShield(shield12)"[src]="shield12" alt="">
+            <img (click)="selectHouseShield(shield13)"[src]="shield13" alt="">
+            <img (click)="selectHouseShield(shield14)"[src]="shield14" alt="">
+            <img (click)="selectHouseShield(shield15)"[src]="shield15" alt="">
+        </div>
+
+    </div>
+</div>
+</div>

@@ -8,7 +8,6 @@ import { RegisterComponent } from './pages/register/register.component';
 import { CampaignsComponent } from './pages/campaigns/campaigns.component';
 import { AddPlayersComponent } from './pages/add-players/add-players.component';
 import { HousesManagementComponent } from './pages/houses-management/houses-management.component';
-import { CreateHouseComponent } from './pages/create-house/create-house.component';
 import { AddNpcToHouseComponent } from './pages/add-npc-to-house/add-npc-to-house.component';
 import { CurrentCampaignComponent } from './pages/current-campaign/current-campaign.component';
 import { WinterPhaseMainComponent } from './pages/winter-phase-main/winter-phase-main.component';
@@ -30,6 +29,7 @@ import { AgingModalComponent } from './component/aging-modal/aging-modal.compone
 import { MarriageLoyaltyModalComponent } from './component/marriage-loyalty-modal/marriage-loyalty-modal.component';
 import { MarriageCourtesyModalComponent } from './component/marriage-courtesy-modal/marriage-courtesy-modal.component';
 import { BirthsModalComponent } from './component/births-modal/births-modal.component';
+import { CreateHouseComponent } from './pages/create-house/create-house.component';
 
 const routes: Routes = [
 {path:"",redirectTo:"/home",pathMatch:"full"},
