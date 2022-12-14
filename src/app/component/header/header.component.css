@@ -28,6 +28,7 @@
     padding: 2%;
     padding-left: 6%;
     text-decoration: none;
+    font-size: x-large;
     
 }
 .home:hover{
@@ -42,6 +43,7 @@
     padding: 2%;
     text-decoration: none;
     margin-right: 30%;
+    font-size: x-large;
    
 }
 .sobrenosotros:hover{
@@ -56,6 +58,7 @@
     padding: 2%;
     padding-right: 5%;
     text-decoration: none;
+    font-size: x-large;
     
 } 
 .login:hover{
@@ -70,6 +73,7 @@
     padding: 2%;
     padding-left: 10%;
     text-decoration: none;
+    font-size: x-large;
 }
 .registro:hover{
 
@@ -83,6 +87,7 @@
     padding: 2%;
     padding-left: 50%;
     text-decoration: none;
+    font-size: x-large;
 }
 .campañas:hover{
 
@@ -96,6 +101,7 @@
     padding: 2%;
     padding-right: 5%;
     text-decoration: none;
+    font-size: x-large;
 } 
 .logout:hover{
 
