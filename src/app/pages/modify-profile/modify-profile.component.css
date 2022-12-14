@@ -73,7 +73,7 @@
         width: 90%;
         height:60%;
         color: var(--font-color-hover);
-        font-size: 35px;
+        font-size: 3rem;
         text-align: center;
 
         display: flex;
@@ -148,7 +148,16 @@
     text-align: center;
 }
 
-@media screen and (max-width: 874px){
+.textHide{
+    width: auto;
+    height: 35px;
+    color: var(--font-color-h);
+    /* border: 2px solid blue; */
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width: 820px){
     .imglacre{
         border-radius: 50%;
         width: 65%;

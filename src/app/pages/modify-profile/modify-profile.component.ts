@@ -11,6 +11,7 @@ export class ModifyProfileComponent {
 
   public user : any = {};
   public error : string;
+  public isHide : boolean;
 
   constructor(public router : Router){
     this.user = {nombre : "Miguel Generoso Valero",
@@ -18,7 +19,8 @@ export class ModifyProfileComponent {
                 password : "contraseñaMiguel_17",
                 rol : "Master",
                 campaignFinish : 3,
-                imgProfile : "../../../assets/img/img_perfil.png"}
+                imgProfile : "../../../assets/img/img_perfil.png"};
+    this.isHide = true;
   }
 
   public goBack(){
@@ -27,11 +29,14 @@ export class ModifyProfileComponent {
 
   public modifyUser(name : string, mail : string, pass : string){
 
+    this.error = "";
+
     if (mail != ""){
       if (this.validateEmail(mail)){
         this.user.correo = mail;
       }else{
-        this.error = "El correo electronico no es valido"
+        this.isHide = false;
+        this.error += "El correo electronico no es valido. "
       }
     }
 
@@ -39,7 +44,8 @@ export class ModifyProfileComponent {
       if (this.validatePass(pass)){
         this.user.password = pass;
       }else{
-        this.error = "La contraseña no es valida"
+        this.isHide = false;
+        this.error += "La contraseña no es valida. "
       }
     }
 

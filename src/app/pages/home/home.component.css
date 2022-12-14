@@ -16,13 +16,21 @@
     align-items: center;
     /* border: 2px solid red; */
 }
-.h1{
-    font-size: 100px;
-    font-weight: normal;
-    color: var(--font-color-h);
-}
-.h5{
-    font-size: 30px;
-    font-weight: normal;
-    color: var(--font-color-primary);
-}
+    .container{
+        /* border: 2px solid red; */
+    }
+        .h1{
+            font-size: 100px;
+            font-weight: normal;
+            color: var(--font-color-h);
+            text-align: center;
+
+            /* border: 2px solid blue; */
+        }
+        .h5{
+            font-size: 30px;
+            font-weight: normal;
+            color: var(--font-color-primary);
+            text-align: center;
+            /* border: 2px solid pink; */
+        }
