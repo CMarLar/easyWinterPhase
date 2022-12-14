@@ -17,7 +17,8 @@ export class ModifyProfileComponent {
                 correo : "gene17051996@gmail.com",
                 password : "contraseñaMiguel_17",
                 rol : "Master",
-                campaignFinish : 3}
+                campaignFinish : 3,
+                imgProfile : "../../../assets/img/img_perfil.png"}
   }
 
   public goBack(){
