@@ -1,1 +1,81 @@
-<p>winter-phase8 works!</p>
+<div class="padre" >
+
+    <div class="main">
+
+            <div class="zonaA">
+
+
+                <div class="zonaA_a">
+
+                        <p class="titulo">FASE DE INVIERNO<br></p>
+                        <p class="nombreUsuario">{{miUsuario.nombre}} {{miUsuario.apellidos}}</p>
+
+                </div>
+
+                <div class="zonaA_b">
+
+                        <div class="cajita"></div>
+
+                        <img class="pergamino" src="../../../assets/img/pergamino-chato.png">
+                            
+                             <div class="caja">
+
+                                  <div class="escudo">
+                                    
+                                            <img class="imagen_escudo" src="{{miUsuario.imagen_escudo}}"> 
+
+                            
+                                           <div class="paso8">
+
+                                            <p><b>Paso 8:</b><br>
+                                                Suma la Gloria<br>
+
+                                           </div>
+
+                                  </div>
+
+                                  <div class="textolargo">
+
+                                    <p class="pasoOpcional"></p>
+                                    <p class="pasoOpcional2">Ya casi hemos terminado. El jugador debe ahora de sumar la gloria obtenida durante el juego.
+
+                                        Además de la gloria obtenida durante el juego y la gloria por la aventura el solitario,  y la gloria anual ten en cuenta esta gloria:<br>
+                                        <br>Gloria por Matrimonio: <span class="numero">{{miUsuario.id_usuario}}.</span>
+
+                                  </div>
+
+                            </div>
+
+                        <div class="cajita"></div>
+
+                </div>
+
+                  
+            </div>
+
+            <div class="zonaB">
+               
+            </div>
+    </div>
+
+     <div class="dagas">
+
+        <div class="back">
+            <a routerLink = "/phase7" class="daga_derecha"><img src="../../../assets/img/daga-atras.png" alt="" ></a>
+            <a routerLink = "/phase7" class="volver">VOLVER</a>
+
+        </div>
+
+        <div class="next">
+            <a routerLink = "/phase9" class="daga_izquierda"><img src="../../../assets/img/daga-adelante.png" alt="" ></a>
+            <a routerLink = "/phase9" class="siguiente">SIGUIENTE</a>
+        </div>
+
+
+    </div>
+
+
+
+</div>
+
+
