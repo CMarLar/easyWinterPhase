@@ -1,0 +1,288 @@
+
+.padre{
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+/*     justify-content: space-around; */
+   
+  background-image: url("../../../assets/img/fondo-caballero-2.png");
+  background-size: cover;
+  background-position: center;
+
+  /*    border:  4px solid orange; */ 
+}
+.main{
+/*     border: 2px solid black; */
+    display: flex;
+    flex-direction: row;
+    height: 85vh;
+}
+
+.zonaA{
+
+    width: 55%;
+    height: 100%;
+  /*   border:  4px solid rgb(255, 0, 0); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+  
+}
+.zonaB{
+   /*  border: 2px solid blueviolet; */
+    width: 45%;
+    height: 100%;
+
+}
+.fondo{
+
+    width: auto;
+    height: 100%;
+   
+}
+.dagas{
+
+    width: 100%;
+    height: 15vh;
+
+  /*   border:  4px solid rgb(255, 255, 255); */
+    font-family: 'Almendra', serif;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.zonaA_a{
+
+    width: 100%;
+    height: 18%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+/*     border:  4px solid pink; */
+
+}
+    .titulo{
+
+        color: var(--background-color-input);
+        font-size: xx-large;
+        font-family: 'Almendra', serif;
+        margin-top: 5%;
+
+    }
+
+.zonaA_b{
+
+    width: 100%;
+    height: 82%;
+    flex-direction: row;
+  /*   border:  4px solid rgb(255, 255, 255); */
+
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+    .pergamino{
+
+        width: 90%;
+        height: 100%;
+        margin-top: 1%;
+
+        position: relative;
+     /*   border:  4px solid rgb(204, 107, 188); */
+    
+     }
+
+.nombreUsuario{
+
+    color:black;
+    font-family: 'Almendra', serif;
+    font-size: x-large;
+    text-align: center;
+}
+.caja{
+
+    width: 30%;
+    height: 50%;
+   /*  border:  4px solid rgb(184, 116, 229); */
+    position: absolute;
+    display: flex;
+    /* flex-direction: ; */
+}
+.escudo{
+
+    width: 100%;
+    height: 50%;
+  /*   border:  4px solid rgb(184, 116, 229); */
+    position: absolute;
+
+    display: flex;
+    flex-direction: row;
+   
+}
+.encabezado{
+
+    width: 100%;
+    height: 50%;
+   /*  border:  4px solid rgb(184, 116, 229); */
+    position: absolute;
+
+    display: flex;
+
+}
+.imagen_escudo{
+
+    display: flex;
+    height: 80%;
+    width: auto;
+    justify-items: center;
+    padding-left: 5%;
+
+   /*  border:  4px solid rgb(229, 189, 116); */
+
+}
+
+.paso1{
+
+    display: flex;
+    height: 90%;
+    width: 50%;
+
+    font-family: 'Almendra', serif;
+    font-size: larger;
+
+    margin: 8%;
+    margin-left: 4%;
+
+/*     border:  4px solid rgb(229, 189, 116); */
+
+}
+.textolargo{
+
+    height: 30%;
+    width: 100%;
+    padding-top: 45%;
+   
+    font-size: small;
+    text-align: flex-end;
+/* 
+   border:  4px solid rgb(202, 204, 107); */
+}
+
+.pasoOpcional{
+
+    color: var(--background-color-input);
+    font-family: 'Almendra', serif;
+    text-align: flex, center;
+    justify-content: center;
+   
+}
+.pasoOpcional2{
+
+    color: black;
+    font-family: 'Almendra', serif;
+    text-align: flex;
+    margin: 3%;
+   
+}
+
+
+.cajita{
+
+    width: 10%;
+    height: 100%;
+  
+}
+
+.back{
+
+    height: 100%;
+    width: 50%;
+  /*   border:  4px solid rgb(229, 189, 116); */
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+
+    padding-left: 5%;
+
+}
+    .daga_derecha{  
+        width: 30%;
+/*         border: 2px solid red; */
+    } 
+    .daga_derecha img{
+        width: 100%;
+    }
+    .volver{
+  /*       border: 2px solid red; */
+        text-decoration: none;
+        color:rgb(159, 170, 187);
+        padding-left: 3%;
+        font-size: smaller;
+    }
+    .volver:hover{
+
+        color: var(--font-color-hover)
+    }
+    .daga_derecha:hover{
+  
+        transform: translate(15px);
+         cursor: pointer;
+    
+    }
+
+.next{
+
+    height: 100%;
+    width: 50%;
+ /*    border:  4px solid rgb(229, 189, 116); */
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    text-align: flex-end;
+    align-items: flex-end;
+    padding-right: 5%;
+
+}
+     .daga_izquierda{  
+        width: 30%;
+     /*    border: 2px solid red; */
+    } 
+     .daga_izquierda img{
+        width: 100%;
+    }
+    .siguiente{
+       /*  border: 2px solid red; */
+        text-decoration: none;
+        color:rgb(159, 170, 187);
+        padding-right: 3%;
+        font-size: smaller;
+       
+    }
+    .siguiente:hover{
+
+        color: var(--font-color-hover)
+    }
+
+     .daga_izquierda:hover{
+  
+         transform: translate(15px);
+         cursor: pointer;
+
+    }
+
+
