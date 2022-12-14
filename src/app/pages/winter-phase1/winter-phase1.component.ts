@@ -13,11 +13,12 @@ WinterPhaseMainComponent: any;
 
  constructor(){
   
-  this.miUsuario = new Usuario( 1, "Irene", "Herrero Becker", "irenisima82@hotmail.com","https://w7.pngwing.com/pngs/993/324/png-transparent-leopard-middle-ages-lion-griffin-heraldry-leopard.png","Serpiente");
+  this.miUsuario = new Usuario( 1, "Irene", "Herrero Becker", "irenisima82@hotmail.com","../../../assets/img/escudo10.png","Serpiente");
 
 
- }
+ 
 
+}
 }
 
 export class Usuario {

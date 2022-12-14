@@ -99,7 +99,7 @@
         width: 90%;
         height: 100%;
         margin-top: 1%;
-
+        display: flex;
         position: relative;
      /*   border:  4px solid rgb(204, 107, 188); */
     
@@ -149,6 +149,7 @@
     width: auto;
     justify-items: center;
     padding-left: 5%;
+    display: flex;
 
    /*  border:  4px solid rgb(229, 189, 116); */
 
@@ -161,7 +162,7 @@
     width: 50%;
 
     font-family: 'Almendra', serif;
-    font-size: larger;
+    font-size: x-large;
 
     margin: 8%;
     margin-left: 4%;
@@ -175,7 +176,7 @@
     width: 100%;
     padding-top: 45%;
    
-    font-size: small;
+    font-size: medium;
     text-align: flex-end;
 /* 
    border:  4px solid rgb(202, 204, 107); */
@@ -185,8 +186,7 @@
 
     color: var(--background-color-input);
     font-family: 'Almendra', serif;
-    text-align: flex, center;
-    justify-content: center;
+    text-align:  center;
    
 }
 .pasoOpcional2{
