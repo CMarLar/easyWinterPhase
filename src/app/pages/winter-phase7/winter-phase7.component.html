@@ -1,1 +1,85 @@
-<p>winter-phase7 works!</p>
+<div class="padre" >
+
+    <div class="main">
+
+            <div class="zonaA">
+
+
+                <div class="zonaA_a">
+
+                        <p class="titulo">FASE DE INVIERNO<br></p>
+                        <p class="nombreUsuario">{{miUsuario.nombre}} {{miUsuario.apellidos}}</p>
+
+                </div>
+
+                <div class="zonaA_b">
+
+                        <div class="cajita"></div>
+
+                        <img class="pergamino" src="../../../assets/img/pergamino-chato.png">
+                            
+                             <div class="caja">
+
+                                  <div class="escudo">
+                                    
+                                            <img class="imagen_escudo" src="{{miUsuario.imagen_escudo}}"> 
+
+                            
+                                           <div class="paso7">
+
+                                            <p><b>Paso 7:</b><br>
+                                                Entrenamiento<br>
+
+                                           </div>
+
+                                  </div>
+
+                                  <div class="textolargo">
+
+                                    <p class="pasoOpcional">Personaje activo</p>
+                                    <p class="pasoOpcional2">El jugador debe de llevar a cabo una de las siguientes tareas en su hoja de personaje activo:<br>
+
+                                       <br> -Opción 1.   
+                                       <br> -Opción 2.
+                                       <br> -Opción 3.<br>
+                                     
+                                     Los siguiente personajes no jugadores reciben 1d3 puntos para aumentar cualquiera de sus habilidades:<br></p>
+                                     
+                                     <p class="Alain">{{miUsuario.nombre}},{{miUsuario.password}}, {{miUsuario.apellidos}}<!-- Alain, Dinaunt, Robert --></p>
+
+                                  </div>
+
+                            </div>
+
+                        <div class="cajita"></div>
+
+                </div>
+
+                  
+            </div>
+
+            <div class="zonaB">
+               
+            </div>
+    </div>
+
+     <div class="dagas">
+
+        <div class="back">
+            <a routerLink = "/phase6b" class="daga_derecha"><img src="../../../assets/img/daga-atras.png" alt="" ></a>
+            <a routerLink = "/phase6b" class="volver">VOLVER</a>
+
+        </div>
+
+        <div class="next">
+            <a routerLink = "/phase8" class="daga_izquierda"><img src="../../../assets/img/daga-adelante.png" alt="" ></a>
+            <a routerLink = "/phase8" class="siguiente">SIGUIENTE</a>
+        </div>
+
+
+    </div>
+
+
+
+</div>
+

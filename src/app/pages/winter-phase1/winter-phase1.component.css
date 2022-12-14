@@ -232,7 +232,7 @@
         text-decoration: none;
         color:rgb(159, 170, 187);
         padding-left: 3%;
-        font-size: smaller;
+        font-size: medium;
     }
     .volver:hover{
 
@@ -272,7 +272,7 @@
         text-decoration: none;
         color:rgb(159, 170, 187);
         padding-right: 3%;
-        font-size: smaller;
+        font-size: medium;
        
     }
     .siguiente:hover{

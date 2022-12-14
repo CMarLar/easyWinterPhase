@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class WinterPhase3Component {
 
-}
+  }
+
