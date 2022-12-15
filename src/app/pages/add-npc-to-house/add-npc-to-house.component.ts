@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AddNpcToHouseComponent {
 
+  public npcs;
+
+  constructor(){
+    this.npcs=
+    [
+      {name:"Ultan",age:10,role:"Hijo/a",status:"Vivo/a"},
+      {name:"Jorge",age:16,role:"Escudero",status:"Muerto/a"},
+
+    ]
+  }
+
 }

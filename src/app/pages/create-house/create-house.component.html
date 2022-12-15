@@ -1,1 +1,98 @@
-<p>create-house works!</p>
+<!-- <p>create-house works!</p> -->
+<!-- <app-header class="component"></app-header> -->
+<!-- esta no tiene que tener barra -->
+<div class="supercontainer">
+    <div class="title">
+        <p class="page_title">Creación de casa</p>
+        <p class ="page_subtitle">Nombre del jugador</p>
+    </div>
+
+<!-- <form #houseForm="ngForm" (ngSubmit)="onSubmit(houseForm)"> -->
+<div class="maincontainer">
+    <div class="left">
+
+<form #houseForm="ngForm" (ngSubmit)="onSubmit(houseForm)" class="houseForm">
+
+            <label>Nombre de la casa</label>
+            <input type="text" name="nombreCasa" [(ngModel)]="house.nombreCasa">
+
+            <label>Feudo</label>
+            <input type="text" name="feudo" [(ngModel)]="house.feudo">
+
+
+            <label>Característica familiar</label>
+            <input type="text" name="caracteristicaFamiliar" [(ngModel)]="house.caracteristicaFamiliar">
+
+            <label>Nivel de manutención inicial</label>
+            <select name="nivelesManutencion" id="lang" [(ngModel)]="house. nivelManutencion">
+                <option *ngFor="let valor of nivelesManutencion" [value]="valor">{{valor}}</option>
+            </select>
+            <br>
+
+    <div class="short_inputs">
+        <div class="character_name_input">
+            <label>Personaje jugador</label>
+            <input type="text" name="nombrePJ" [(ngModel)]="house.nombrePJ">
+        </div>
+        <div class="character_age_input">
+            <label>Edad</label>
+            <input type="text" name="edad" [(ngModel)]="house.edad">
+        </div>
+        <div class="squire_name_input">
+            <label>Nombre del escudero</label>
+            <input type="text" name="nombreEscudero" [(ngModel)]="house.nombreEscudero">
+        </div>
+    </div>
+<br>
+
+        <div class="npc_list">
+            <p> {{stringNpcs}} </p>
+        </div>
+
+<!-- esto tiene que estar hidden -->
+<div *ngIf = "npcs.length==0; else showCharacters" ></div>
+<ng-template #showCharacters>
+        <div class="choose_new_character">
+            <label>Elije un nuevo PJ</label>
+            <select name="npcs" [(ngModel)]="house.npc">
+                <option *ngFor="let valor of npcs" [value]="valor">{{valor}}</option>
+            </select>
+        </div>
+</ng-template>
+
+            <button [disabled] = "noNPC"> Confirmar </button>
+
+    </form>
+        <div class="buttons">
+            <button (click)="goBack()">Cancelar</button>
+            <button (click)="goAddNpcs()"> PNJ </button>
+        </div>
+
+
+    </div>
+
+    <div class="right">
+        <div class="shield_selector">
+            <img (click)="selectHouseShield(shield1)" [src]="shield1" id="1">
+            <img (click)="selectHouseShield(shield2)"[src]="shield2" id="2">
+            <img (click)="selectHouseShield(shield3)"[src]="shield3" id="3">
+            <img (click)="selectHouseShield(shield4)"[src]="shield4" id="4">
+            <img (click)="selectHouseShield(shield5)"[src]="shield5" id="5">
+            <img (click)="selectHouseShield(shield6)"[src]="shield6" id="6">
+            <img (click)="selectHouseShield(shield7)"[src]="shield7" id="7">
+            <img (click)="selectHouseShield(shield8)"[src]="shield8" id="8">
+
+            <!-- <img (click)="selectHouseShield(shield10)"[src]="shield10" id="10">
+            <img (click)="selectHouseShield(shield11)"[src]="shield11" id="11">
+            <img (click)="selectHouseShield(shield12)"[src]="shield12" id="12"> -->
+            <!-- <img (click)="selectHouseShield(shield13)"[src]="shield13" id="13">
+            <img (click)="selectHouseShield(shield14)"[src]="shield14" id="14">
+            <img (click)="selectHouseShield(shield15)"[src]="shield15" id="15"> -->
+        </div>
+        <div class="fade-in">
+            <img [src]="selectedShield" class="selectedShieldimg">
+        </div>
+    </div>
+</div>
+<!-- </form> -->
+</div>

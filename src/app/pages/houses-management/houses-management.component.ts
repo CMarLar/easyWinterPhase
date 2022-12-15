@@ -73,8 +73,12 @@ export class HousesManagementComponent {
 
   }
 
-  public goPlace():void{
+  public goBack():void{
     this.router.navigateByUrl("/addplayers")
+  }
+
+  public goPlace():void{
+    this.router.navigateByUrl("/currentcampaign")
   }
 
 
