@@ -151,7 +151,7 @@
         background-size: cover;
         background-position:right;
 
-        border: 2px solid red;
+        /* border: 2px solid red; */
 
         display: flex;
         justify-content: flex-start;
