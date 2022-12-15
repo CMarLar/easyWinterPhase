@@ -1,1 +1,43 @@
-<p>current-campaign works!</p>
+
+<app-header class="component"></app-header>
+
+<div class="supercontainer">
+    <div class="title">
+        <p class="page_title">{{campaignName}}</p>
+        <p class ="page_subtitle">Hola </p>
+    </div>
+
+<!-- <form #houseForm="ngForm" (ngSubmit)="onSubmit(houseForm)">  -->
+<div class="maincontainer">
+    <div class="left">
+        <label style="color: white;">Notas</label>
+            <textarea rows="40%" maxlength="5000">
+            </textarea>
+    </div>
+
+    <div class="right">
+        <div class="player-list">
+            <div class="npc_list">
+                <!-- Los personajes van apareciendo en esta  -->
+            
+                <!-- Cabecera -->
+                <div class="header">
+                    <span>Editar</span><span>Nombre</span><span>Rol</span><span>Edad</span><span>Estado</span><br>
+                </div>
+                <!-- Personajes -->
+                <div class="character">
+                    <div class="editchar">
+                    <!-- <span class="quill"><img src="../../../assets/img/PLUMA.png"></span> -->
+                    <span class="skull"><img src="../../../assets/img/CALAVERA.png"></span>
+                </div>
+                    <span>Hola</span><span>Hola2</span><span>Hola3</span><span>Hola4</span>
+                </div>
+            
+            
+                </div>
+        </div>
+
+    </div>
+</div>
+<!-- </form> -->
+</div>

@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class CurrentCampaignComponent {
 
+  public campaignName;
+
+    constructor(){
+      this.campaignName="Campaña cojonuda"
+    }
+
 }
