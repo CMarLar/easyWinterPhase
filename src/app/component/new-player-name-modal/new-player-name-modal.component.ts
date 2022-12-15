@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class NewPlayerNameModalComponent {
 
+  public nombreJugador : string;
+
+  constructor(){
+    this.nombreJugador = "Carlos";
+  }
+
+  public changeName(name : string){
+    this.nombreJugador = name;
+  }
 }

@@ -1,1 +1,17 @@
-<p>change-character-modal works!</p>
+<main class="modal">
+    <img src="../../../assets/backgrounds/bg_modal.png" alt="">
+    <div class="modalContain">
+        <form class="formContain">
+            <p>Cambia el personaje</p>
+            <label for="">Seleciona el personaje</label>
+            <select name="data" class="select" [(ngModel)]="house.npc" #data>
+                <option *ngFor="let pnj of npc" [value]="pnj">{{pnj}}</option>
+            </select>
+        </form>
+        <div class="buttonContain">
+            <button class="small_button" (click)="changePJ(data.value)">OK</button>
+        </div>
+        
+
+    </div>
+</main>
