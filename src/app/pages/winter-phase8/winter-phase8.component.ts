@@ -14,7 +14,7 @@ export class WinterPhase8Component {
   
    constructor(){
     
-    this.miUsuario = new Usuario( 200, "Irene", "Herrero Becker", "irenisima82@hotmail.com","../../../assets/img/escudo10.png","Serpiente");
+    this.miUsuario = new Usuario( 200, "Irene", "Herrero Becker", "irenisima82@hotmail.com","../../../assets/img/escudo1g","Serpiente");
 
    }
   
