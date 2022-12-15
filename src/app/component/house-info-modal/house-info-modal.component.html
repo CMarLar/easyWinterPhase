@@ -1,1 +1,25 @@
-<p>house-info-modal works!</p>
+<main class="modal">
+    <img src="../../../assets/backgrounds/bg_modal.png" alt="">
+    <div class="modalContain">
+        <img src="{{house.feudo}}" alt="">
+        <p class="nombreCasa">{{house.nombreCasa}}</p>
+        <p class="info">de {{house.nombreJugador}}</p>
+        <p class="info">{{house.caracteristicaFamiliar}}</p>
+        <p class="pj">Personaje activo: <span class="pj2">Sir {{house.nombrePJ}}</span></p>
+        <p>-Otros miembros de la casa-<br></p>
+        <div [(ngModel)]="house.npc" class="contenedorTexto">
+            <div *ngFor="let pnj of house.npc" >
+                <div    *ngIf="pnj.estado === true; else muerto">
+                    <p class="vivo">{{pnj.nombre}}, {{pnj.rol}}</p>
+                </div>
+                <ng-template #muerto>
+                    <p class="muerto" >{{pnj.nombre}}, {{pnj.rol}}</p>
+                </ng-template>
+                
+                
+            </div>
+        </div>
+        
+    </div>
+
+</main>
