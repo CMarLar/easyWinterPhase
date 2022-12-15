@@ -1,0 +1,165 @@
+.component{
+    /* LE DOY POSICION FIJA AL COMPONENTE HEADER */
+    position:absolute;
+    width: 100%;
+    /* border: 2px solid black; */
+}
+.main{
+    width: auto;
+    height: 100vh;
+    background-image: url(../../../assets/backgrounds/bg_add_players.png);
+    background-size: cover;
+    background-position: center;
+    /* border: 2px solid red; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    
+}
+.submain{
+    width: 100%;
+    height: 92%;
+    /* border: 2px solid orange; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap:2%
+}
+    .titleContain{
+        /* border: 2px solid blue; */
+        width: 50%;
+        height: 20%;
+
+        display: flex;
+        flex-direction: row;
+
+    }
+    .fotoPerfil{
+        /* border: 2px solid black; */
+        height: 100%;
+        width: 30%;
+
+        background-image: url("../../../assets/img/lacre1.png");
+        background-size:contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+    }
+        .fotoPerfil img{
+            /* border: 2px solid red; */
+            height: 65%;
+            border-radius: 50%;
+            position: absolute;
+            top: 14%;
+            left: 30%;
+            cursor: pointer;
+        }
+    .titleText{
+        width: 70%;
+        /* border: 2px solid brown; */
+        
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 8%;
+    }
+    .titleText h1{
+        width: 100%;
+        height: 80%;
+        text-align: center;
+        /* word-wrap: break-word; */
+        font-weight: normal;
+        color: var(--font-color-h);
+        -webkit-text-stroke: 0.75px var(--font-color-hover);
+        font-size: 4rem;
+        /* border: 2px solid red; */
+    }
+    .titleText p{
+        width: 100%;
+        height: 20%;
+        text-align: center;
+        color: var(--font-color-hover);
+        font-size: 1.8rem;
+    }
+.inputplayers{
+    /* border: 2px solid orangered; */
+    width: 50%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5%;
+}
+.inputplayers input{
+    width: 80%;
+    height: 16.66%;
+    background-color: var(--background-color-input);
+    color: var(--font-color-hover);
+    text-align: center;
+    /* border: none; */
+}
+.textHide{
+    font-size: 1.5rem;
+    color: var(--font-color-warnings);
+    position: absolute;
+    top: 40%;
+    left: 30%;
+}
+.buttonContainer{
+    /* border: 2px solid blue; */
+    width: 80%;
+    height: 20%;
+
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+}
+.btnCrearBlock{
+    width: 30%;
+    background-color: gray;
+    border-radius: 1rem;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+}
+.btnCancelar{
+    width: 25%;
+    background-color: var(--background-color-input);
+    border-radius: 1rem;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+}
+.btnCancelar:hover{
+    border: 1px solid var(--font-color-hover);
+    color: var(--font-color-hover);
+}
+.btnCrear{
+    width: 30%;
+    background-color: var(--background-color-input);
+    border-radius: 1rem;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+}
+.btnCrear:hover{
+    border: 1px solid var(--font-color-hover);
+    color: var(--font-color-hover);
+}
+    
+@media screen and (max-width: 1367px){
+.fotoPerfil img{
+    border-radius: 55%;
+    height: 66%;
+    position: absolute;
+    top: 14%;
+    left: 28%;
+}
+}
