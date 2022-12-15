@@ -30,18 +30,18 @@
     gap:2%
 }
     .titleContain{
-        /* border: 2px solid blue; */
+        border: 2px solid blue;
         width: 50%;
-        height: 20%;
+        height: 22%;
 
         display: flex;
         flex-direction: row;
 
     }
     .fotoPerfil{
-        /* border: 2px solid black; */
+        border: 2px solid black;
         height: 100%;
-        width: 30%;
+        width: 20%;
 
         background-image: url("../../../assets/img/lacre1.png");
         background-size:contain;
@@ -54,35 +54,35 @@
             height: 65%;
             border-radius: 50%;
             position: absolute;
-            top: 14%;
-            left: 30%;
+            top: 13%;
+            left: 18%;
             cursor: pointer;
         }
     .titleText{
-        width: 70%;
+        width: 80%;
         /* border: 2px solid brown; */
         
 
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: space-between;
         align-items: center;
-        gap: 8%;
+        /* gap: 8%; */
     }
     .titleText h1{
         width: 100%;
-        height: 80%;
+        height: 75%;
         text-align: center;
         /* word-wrap: break-word; */
         font-weight: normal;
         color: var(--font-color-h);
         -webkit-text-stroke: 0.75px var(--font-color-hover);
-        font-size: 4rem;
-        /* border: 2px solid red; */
+        font-size: 2rem;
+        border: 2px solid red;
     }
     .titleText p{
         width: 100%;
-        height: 20%;
+        /* height: 20%; */
         text-align: center;
         color: var(--font-color-hover);
         font-size: 1.8rem;
@@ -155,11 +155,31 @@
 }
     
 @media screen and (max-width: 1367px){
-.fotoPerfil img{
-    border-radius: 55%;
-    height: 66%;
-    position: absolute;
-    top: 14%;
-    left: 28%;
+    .fotoPerfil img{
+        border-radius: 55%;
+        height: 60%;
+        position: absolute;
+        top: 17%;
+        left: 15%;
+    }
+    .titleText h1{
+        font-size: 2.5rem;
+    }
 }
+@media screen and (max-width: 820px){
+    .fotoPerfil img{
+        border-radius: 50%;
+        height: 38%;
+        position: absolute;
+        top: 20%;
+        left: 10%;
+    }
+    .titleText h1{
+        font-size: 2.5rem;
+    }
+}
+@media screen and (max-width: 1536px){
+    .titleText h1{
+        font-size: 2.3rem;
+    }
 }
