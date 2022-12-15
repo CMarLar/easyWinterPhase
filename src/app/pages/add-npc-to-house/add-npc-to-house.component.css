@@ -31,8 +31,8 @@
     display: flex;
     flex-direction: column;
     width: auto;
-    height: auto;
-    padding-top: 7vh;
+    height: 100vh;
+    padding-top: 3%;
     background-image: url(../../../assets/backgrounds/bg_pergamino_1.jpg);
     background-size:cover;
     background-repeat: no-repeat;
@@ -43,7 +43,7 @@
     display: flex;
     flex-direction: row;
     /* border: 5px solid red; */
-    min-height: 70vh;
+    height: 100%;
     width: auto;
     padding-bottom: 1.95vh;
 
@@ -64,8 +64,8 @@
     display: flex;
     flex-direction: column;
     width: 50%;
-    height: 65%;
-    padding-left: 5%;
+    height: 100%;
+    padding-left: 3%;
     /* border: 5px solid pink; */
     margin-bottom: 13vh;
     padding-right: 2%;
@@ -80,7 +80,7 @@
         flex-direction: row;
         justify-content: center;
         gap:15px;
-        border: 2px solid blueviolet
+        /* border: 2px solid blueviolet */
 
     }
 
@@ -118,21 +118,43 @@
             flex-direction: row;
             justify-content: space-evenly;
             flex-wrap: wrap;
-            border:2px solid red
+            padding-bottom: 5px;
+            /* border:2px solid red */
         }
+        
+            .header span{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                width: 20%;
+                /* border:2px solid orangered */
+            }
 
         .character{
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
             flex-wrap: wrap;
-            border:2px solid blue
+            /* border:2px solid blue */
         }
+
+            .character span{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                width: 20%;
+                /* border:2px solid orangered */
+            }
 
         .editchar{
             display: flex;
             flex-direction: row;
-            border:2px solid green
+            /* border:2px solid green; */
+            justify-content: center;
+            align-items: center;
+            width: 20%;
         }
 
     .choose_new_character{
@@ -148,23 +170,27 @@
     flex-direction: column;
     justify-content: space-between;
     width: 50%;
-    height: 65%;
-    padding-right: 5%;
-    /* border: 5px solid black; */
+    height: 100%;
+    /* padding-right: 5%; */
+    border: 5px solid black;
 }
 
 .shield_selector{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
     flex-wrap: wrap;
-    gap:15px;
-    /* border: 5px solid red; */
+    /* gap:15px; */
+    /* border: 5px solid violet; */
 }
 
 .shield_selector img{
-    
-    height: 120px;
+    display: flex;
+    flex-direction: row;
+    max-width: 40%;
     /* border: 5px solid brown; */
 }
 
