@@ -1,66 +1,63 @@
-<p>add-npc-to-house works!</p>
-<!-- <p>create-house works!</p> -->
-<!-- <app-header class="component"></app-header> -->
-<!-- esta no tiene que tener barra -->
-asdfkhjasdflkjasdflkjfasdljkñfasdjlk
 <div class="supercontainer">
     <div class="title">
-        <p class="page_title">Creación de casa</p>
-        <p class ="page_subtitle">Nombre del jugador</p>
+        <p class="page_title">Creación de PNJs</p>
+        <p class ="page_subtitle">{{houseName}} </p>
     </div>
 
 <!-- <form #houseForm="ngForm" (ngSubmit)="onSubmit(houseForm)">  -->
 <div class="maincontainer">
     <div class="left">
+<form #charForm="ngForm" (ngSubmit)="onSubmit(charForm)" class="charForm">
         <div class="short_inputs">
+
             <div class="character_name_input">
-                <label>Nombre</label><input type="text">
+                <label>Nombre</label>
+                <input type="text" name="name" [(ngModel)]="formNpc.name">
             </div>
             <div class="character_age_input">
-                <label>Edad</label><input type="text">
+                <label>Edad</label>
+                <input type="text" name="age" [(ngModel)]="formNpc.age">
             </div>
             <div class="squire_name_input">
                 <label>Sexo</label>
-                <select name="lenguajes" id="lang">
-                    <option value="Hombre">Hombre</option>
-                    <option value="Mujer">Mujer</option>
+                <select id="lang" name="sex" [(ngModel)]="formNpc.sex">
+                    <option *ngFor="let valor of sex" [value]="valor">{{valor}}</option>
                 </select>
             </div>
         </div>
+
             <br>
     <div class="short_inputs">
         <div class="character_name_input">
             <label>Rol</label>
-            <select name="lenguajes" id="lang">
-                <option value="Hijo-a">Hijo</option>
-                <option value="Esposa">Esposa</option>
-                <option value="Amante">Amante</option>
-                <option value="Escudero">Escudero</option>
+            <select name="role" id="lang" [(ngModel)]="formNpc.role">
+                <option *ngFor="let valor of role" [value]="valor">{{valor}}</option>
             </select>
         </div>
         <div class="squire_name_input">
-            <label>Otro rol</label><input type="text">
+            <!-- Igual tienes que cambiar el name -->
+            <label>Otro rol</label><input type="text" name="otherRole" [(ngModel)]="formNpc.role">
         </div>
         <div class="character_age_input">
             <label>Confirmar</label>
             <button class="small_button">Añadir PNJ</button>
         </div>
     </div>
+</form>
 <br>
-
+<form #selecetedCharForm="ngForm" (ngSubmit)="onSelect(selecetedCharForm)" class="selecetedCharForm">
         <div class="choose_new_character">
             <label>Elije un nuevo PJ</label>
-            <select name="lenguajes" id="lang">
-                <option value="Fulanito">Fulanito</option>
-                <option value="Menganito">Menganito</option>
-                <option value="Citanito">Citanito</option>
+            <select name="characters" id="lang" #selectedChar [(ngModel)]="activeChar">
+                <option *ngFor="let valor of npcs" [value]="valor">{{valor.name}} </option>
             </select>
+            <button class="small_button" >Ok</button>
         </div>
-
+</form>
         <div class="buttons">
-            <button >Cancelar</button>
-            <button > PNJ </button>
-            <button > Confirmar </button>
+            <button (click)="cancel()">Cancelar</button>
+            <!-- <button > PNJ </button> -->
+            <button [disabled] = "noNpcs" (click)="goBack()"> Confirmar </button>
         </div>
 <br>
     <div class="npc_list">
@@ -68,14 +65,15 @@ asdfkhjasdflkjasdflkjfasdljkñfasdjlk
 
     <!-- Cabecera -->
     <div class="header">
-        <span>Editar</span><span>Nombre</span><span>Rol</span><span>Edad</span><span>Estado</span><br>
+        <span style="font-size: larger;">Editar</span><span style="font-size: larger;">Nombre</span><span style="font-size: larger;">Rol</span><span style="font-size: larger;">Edad</span><span style="font-size: larger;">Estado</span><br>
     </div>
     <!-- Personajes -->
-    <div class="character">
+    <div class="character" *ngFor= "let npc of npcs">
         <div class="editchar">
-        <span class="quill"><img src="../../../assets/img/PLUMA.png"></span><span class="skull"><img src="../../../assets/img/CALAVERA.png"></span>
+        <!-- <span class="quill"><img src="../../../assets/img/PLUMA.png"></span> -->
+        <span class="skull" (click)="deleteChar(npc.id)"><img src="../../../assets/img/CALAVERA.png"></span>
     </div>
-        <span>Benedicto</span><span>Hijo/a </span><span>20</span><span>Vivo/a</span>
+        <span>{{npc.name}}</span><span>{{npc.role}}</span><span>{{npc.age}}</span><span>{{npc.status}}</span>
     </div>
 
 
