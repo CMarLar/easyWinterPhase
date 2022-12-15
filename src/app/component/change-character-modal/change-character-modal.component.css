@@ -1,0 +1,66 @@
+.modal{
+    width: 30vw;
+    height: 70vh;
+    background-size: cover;
+    border: 2px solid red;
+    position: relative;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+    .modal img{
+        width: 100%;
+        height: 100%;
+    }
+    .modalContain{
+        width: 60%;
+        height: 80%;
+        border: 2px solid orange;
+        position: absolute;
+        top: 15%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        /* justify-content: center; */
+        gap: 3%;
+    }
+    .formContain{
+        width: 100%;
+        height: 70%;
+        border: 2px solid blue;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8%;
+    }
+        .formContain p{
+            font-size: 2.5rem;
+            text-align: center;
+            color: var(--font-color-h);
+        }
+        .select{
+            background-color: var(--background-color-input);
+            height: 15%;
+            width: 80%;
+            border-radius: 0.3rem;
+            font-size: larger;
+            text-align: center;
+        }
+        .buttonContain{
+            width: 100%;
+            border: 2px solid black;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        .small_button{
+            border: 2px solid pink;
+            background-color: var(--font-color-h);
+            font-size: large;
+            /* border: none; */
+            border-radius: 3px;
+            padding: 5px 10px;
+        }

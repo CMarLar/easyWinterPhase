@@ -2,8 +2,8 @@
     <img src="../../../assets/backgrounds/bg_modal.png" alt="">
     <div class="modalContain">
         <p>Introduce un nuevo nombre para el jugador</p>
-        <input class="input" type="text" name="" id="" placeholder="Nombre de Jugador">
-        <button class="small_button">OK</button>
+        <input class="input" type="text" name="" id="" placeholder="Nombre de Jugador" #nombre>
+        <button class="small_button" (click)="changeName(nombre.value)">OK</button>
     </div>
 
 </main>
