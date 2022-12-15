@@ -1,1 +1,78 @@
-<p>winter-phase3 works!</p>
+<div class="padre" >
+
+    <div class="main">
+
+          <!-- hijo 1 MAIN -->
+        <div class="contenido">
+
+            <div class="zonaB">
+
+                <div class="zonaB_a">
+
+                        <p class="titulo">FASE DE INVIERNO<br></p>
+                        <p class="nombreUsuario">{{informacion.nombre}} {{informacion.apellidos}}</p>
+
+                </div>
+
+                <div class="zonaB_b">
+
+                        <!-- <img class="pergamino" src="../../../assets/img/pergamino-chato.png"> -->
+                            
+                             <div class="caja">
+
+                                  <div class="escudo">
+                                        <div class="caja_escudo"> 
+                                            <img src="{{informacion.imagen_escudo}}">
+                                        </div>
+                            
+                                        <div class="paso">
+                                            <p>Paso 3:</p>
+                                            <p>Envejecimiento</p>  
+                                        </div>
+
+                                  </div>
+
+                                  <div class="prologo"> 
+
+                                        <p class="frase1">Todos los personajes envejecen un año.</p>
+                                        <p class="frase2">La edad de tu personaje ahora es : <span class="numero">{{informacion.edad}} años.</span></p>
+                                        <button class="boton" onclick="">Envejecimiento Automático</button>
+                                        <p class="frase2">Otros personajes:</p> 
+                                        <p class="numero">{{informacion.personaje}}:{{informacion.edad + 1}} &nbsp; &nbsp;<span><button class="boton2" onclick=""> Auto </button></span></p>
+                                        <p class="frase2">- Si un personaje tiene una característica en 3 o menos, debes retirarlo.<br>
+                                        -Si un persojaje tiene una característica en 0, el personaje ha muerto.<br></p>
+                                        <span class="frase2">{{informacion.infoEscudero}}</span>
+                                        <span class="colorNombre">Nombre: </span><input class="input">
+                                  </div>
+
+                            </div> 
+                        
+
+                </div>  
+            </div>
+        </div>  
+
+    </div>
+
+    <!-- hijo 2 -->
+
+     <div class="dagas">
+
+        <div class="back">
+            <a routerLink = "/phase2" class="daga_derecha"><img src="../../../assets/img/daga-atras.png" alt="" ></a>
+            <a routerLink = "/phase2" class="volver">VOLVER</a>
+
+        </div>
+
+        <div class="next">
+            <a routerLink = "/phase4" class="daga_izquierda"><img src="../../../assets/img/daga-adelante.png" alt="" ></a>
+            <a routerLink = "/phase4" class="siguiente">SIGUIENTE</a>
+        </div>
+
+
+    </div>
+
+
+
+</div>
+
