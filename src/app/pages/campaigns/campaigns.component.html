@@ -1,1 +1,36 @@
-<p>campaigns works!</p>
+<app-header class="component"></app-header>
+<main class="main">
+    <div class="submain">
+        <div class="titleContain">
+            <div class="fotoPerfil">
+                <img src="../../../assets/img/img_perfil.png" alt="" routerLink="/profile">
+            </div>
+            <div class="titleText">
+                <h1>CAMPAÑAS</h1>
+                <p>{{user.nombre}}</p>
+            </div>
+        </div>
+        <div class="banderasdiv" *ngFor="let campaign of user.campaigns">
+            <div class="banderascontainer">
+                <button class="banderas" (click)="selectCampaign(campaign)">
+                    <img src="../../../assets/img/cintas_rojas.png" alt="">
+                    <p #campaign>{{campaign}}</p>
+                </button>
+                <span class="calavera">
+                    <button (click)="deleteCampaign(campaign)">
+                        <img src="../../../assets/img/CALAVERA.png" alt="">
+                    </button>
+                </span>
+            </div>   
+            
+        </div>
+        <button class="btnCrear" (click)="goAddCampaign()">
+            <img src="../../../assets/img/img_espada.png" alt="">
+            <div>
+                CREAR CAMPAÑA
+            </div>
+            <p class="textHide" [hidden]="isHide">No puedes tener mas de 6 campañas</p>
+        </button>
+    </div>
+    
+</main>

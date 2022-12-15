@@ -20,8 +20,16 @@ export class LoginComponent {
     this.dataOk = true;
   }
 
-  public userValidate(user,password){
+  public userValidate(user : string,password : string){
 
+    console.log(this.user);
+    console.log(this.password);
+    
+    
+    console.log(user);
+    console.log(password);
+    
+    
     if (user == this.user && password == this.password){
 
       this.router.navigateByUrl('/campaigns');

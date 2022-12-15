@@ -17,7 +17,7 @@
             <div class="textHide" [hidden]="dataOk">Correo o contraseña incorrectos</div>
         </form>
     </div>
-    <button class="button" (click)="userValidate(pass,mail)">
+    <button class="button" (click)="userValidate(mail.value,pass.value)">
         <img src="../../../assets/img/daga_login_register.png" alt="">
         <p>Login</p>
     </button>
