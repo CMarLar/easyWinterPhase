@@ -1,0 +1,361 @@
+.padre{
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+/*     justify-content: space-around; */
+   
+  background-image: url("../../../assets/img/fondo-imperioso.png");
+  background-size: cover;
+  background-position: center;
+
+  /*    border:  4px solid orange; */ 
+}
+
+
+.main{
+/*     border: 2px solid black; */
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+}
+
+    .contenido{
+        width: 100%;
+        height: 100%;
+       /*  border: 3px solid yellow; */
+
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+
+.zonaB{
+/*     border: 2px solid blueviolet; */
+    width: 55%;
+    height: 100%;
+    display: flex; 
+    flex-direction: column;
+}
+
+.zonaB_a{
+
+    width: 100%;
+    height: 18%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3%;
+ 
+
+}
+       .titulo{
+
+            color: var(--background-color-input);
+            font-size: xx-large;
+            font-family: 'Almendra', serif;
+            
+            -webkit-text-stroke: 0.75px var(--font-color-hover);
+            font-size: 3em;
+
+        }
+        .nombreUsuario{/* cambio de tono al de las figuras */
+
+            color: rgb(161, 156, 141);
+            font-family: 'Almendra', serif;
+            font-size: x-large;
+            font-size: 2em;
+         }
+
+.zonaB_b{
+
+    width: 100%;
+    height: 82%;
+    flex-direction: row;
+  /*   border:  4px solid rgb(255, 255, 255); */
+
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url('../../../assets/img/pergamino-chato.png');
+    background-repeat: no-repeat;
+    background-position: 50% 6%;
+    background-size: 74%;
+   
+}
+    .pergamino{
+        width: 85%;
+        height: 95%;
+     }
+
+        .caja{
+            width: 53%;
+            height:83%;
+         /*   border:  4px solid rgb(229, 116, 116); */
+            
+            display: flex;
+            flex-direction: column;
+        } 
+                    .escudo{
+                         width: 100%;
+                         height: 35%;
+                       /*   border:  4px solid red; */ 
+
+                         display: flex;
+                         flex-direction: row;
+
+                    }
+/* ESCUDO */
+.caja_escudo{
+    height: 100%;
+    width: 40%;
+/*    border:  2px solid blueviolet;  */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+    .caja_escudo img{
+        width: 70%;
+    }
+
+    .paso{
+        height: 100%;
+        width: 60%;
+
+        font-family: 'Almendra', serif;
+        font-size: x-large;
+        padding-left: 2%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+/* 
+        border:  4px solid rgb(244, 12, 12); */
+    }
+
+/* termina ESCUDO */
+
+/* empieza PROLOGO (HIJO DE CAJA --> hijo de pergamino) */
+.prologo{
+
+    height: 65%;
+    width: 100%;
+    font-size: medium;
+   /*  position: absolute; */
+    text-align: center;
+
+    /* border:  3px solid rgb(23, 215, 13); */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+                 
+                  .prologo1{
+
+                    width: 100%;
+                    height: 30%;
+                   /*  border:  5px solid rgb(215, 13, 198); */
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+
+                  }
+                        .frase1{
+
+                            color: black;
+                            font-family: 'Almendra', serif;
+                            text-align: justify;
+                            font-size: 0.9em;
+                   
+                        }
+                        .frase2{
+        
+                            color: black;
+                            font-family: 'Almendra', serif;
+            
+                            font-size: small;
+                   
+                          /*   padding-left: 5%;  */
+               
+                          display: flex;
+                          flex-direction: row;
+                         
+                       }
+                       .numero{
+               
+                           color: var(--background-color-input);
+                           text-align: justify;
+                           font-size: 1.5em;
+                       }
+
+                
+                  .prologo2{
+                    width: 100%;
+                    height: 20%;
+                   /*  border:  5px solid rgb(215, 191, 13);  */
+                    align-items: center;
+                    text-align: center;
+                    justify-content: center;
+                    flex-direction: column;
+
+                  }
+                        .boton{
+
+                            width: 20%;
+                            height: 60%;
+                            margin-left: 3%;
+                            border-radius: 15px;
+                            border-style: none;
+                            background-color: var(--background-color-input);
+                            text-align: center;
+                            align-items: center;
+                            font-size:smaller;
+                           /*   color:var(--font-color-hover); */
+                            align-self: center;
+                            justify-content: center;
+                        }
+                        .boton:hover{
+
+                             color: var(--font-color-hover);
+                        }
+                        .input{
+                        
+                            width: 10%;
+                            height: 60%;
+                            margin-right: 3%;
+                            border: none;
+                            text-align: center;
+                            text-decoration: none;
+                            background-color: var(--background-color-input);
+                            font-size: larger;
+                       
+                         }
+                  .prologo3{
+
+                    width: 100%;
+                    height: 50%;
+                   /*  border:  5px solid rgb(53, 13, 215); */
+                    line-height: 120%;
+                    overflow-y: scroll; /* para los caballos */
+
+                  }
+
+/* DAGAS  */
+.dagas{
+
+    width: 100%;
+    height: 15vh;
+
+  /*   border:  4px solid rgb(255, 255, 255); */
+    font-family: 'Almendra', serif;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.back{
+
+    height: 100%;
+    width: 50%;
+  /*   border:  4px solid rgb(229, 189, 116); */
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+
+    padding-left: 5%;
+
+}
+    .daga_derecha{  
+        width: 30%;
+/*         border: 2px solid red; */
+    } 
+    .daga_derecha img{
+        width: 100%;
+    }
+    .volver{
+  /*       border: 2px solid red; */
+        text-decoration: none;
+        color:rgb(159, 170, 187);
+        padding-left: 3%;
+        font-size: medium;
+    }
+    .volver:hover{
+
+        color: var(--font-color-hover)
+    }
+    .daga_derecha:hover{
+  
+        transform: translate(15px);
+         cursor: pointer;
+    
+    }
+
+.next{
+
+    height: 100%;
+    width: 50%;
+ /*    border:  4px solid rgb(229, 189, 116); */
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    text-align: flex-end;
+    align-items: flex-end;
+    padding-right: 5%;
+
+}
+     .daga_izquierda{  
+        width: 30%;
+     /*    border: 2px solid red; */
+    } 
+     .daga_izquierda img{
+        width: 100%;
+    }
+    .siguiente{
+       /*  border: 2px solid red; */
+        text-decoration: none;
+        color:rgb(159, 170, 187);
+        padding-right: 3%;
+        font-size: medium;
+       
+    }
+    .siguiente:hover{
+
+        color: var(--font-color-hover)
+    }
+
+     .daga_izquierda:hover{
+  
+         transform: translate(15px);
+         cursor: pointer;
+
+    }
+
+    .indigente{
+
+        background-color: var(--background-color-input);
+    }
+
+/*     @media screen and (max-width: 820px){
+        .caja_escudo img{
+        
+            position:absolute;
+         /*    left: 18%; */
+  /*           width: 65%;
+    
+        }
+      
+    }  */

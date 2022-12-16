@@ -6,39 +6,38 @@ import { Component } from '@angular/core';
   styleUrls: ['./winter-phase4.component.css']
 })
 export class WinterPhase4Component {
-  public informacion: Informacion;
+
+  public nombre: string
+  public apellidos: string
+  public foto_escudo : string
+
+  public malTiempo: number
+  public modificadores: number 
+  public administracion: number
+  public modificadores2: number
+  public calcular: number
+
+
   WinterPhaseMainComponent: any;
   
    constructor(){
     
-    this.informacion = new Informacion( 37, "Irene", "Herrero Becker", "Jules","../../../assets/img/escudo10.png","La edad de tu escudero es: 21 años. Ya es mayor de edad, así que necesitas un nuevo escudero de 15 años", "Belengarius");
+    this.nombre = "Irene",
+    this.apellidos = "Herrero Becker"
+    this.foto_escudo = "../../../assets/img/escudo10.png"
 
    }
   
   }
-  
-  export class Informacion {
-  
-    public edad: number
-    public nombre: string
-    public apellidos: string
-    public nombreAmante:string
-    public imagen_escudo: string
-    public infoEscudero: string
-    public personaje: string
-  
-  
-    constructor(edad: number, nombre: string, apellidos: string, nombreAmante: string, imagen_escudo: string,  infoEscudero: string, personaje: string){
-  
-        this.edad = edad;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.nombreAmante = nombreAmante;
-        this.imagen_escudo = imagen_escudo;
-        this.infoEscudero = infoEscudero;
-        this.personaje = personaje;
-  
-    }
+
+  /* funcion para calcular nivel de manutención// NO SE QUE FÓRMULA// preguntar a Carlos*/
+  function calcularNivelManutencion(malTiempo: number, modificadore: number, administracion: number, modificadores2: number){
+
+    let calcular = malTiempo + modificadore + administracion + modificadores2;
+
+    /* return calcular; */
+
+ 
   }
 
 

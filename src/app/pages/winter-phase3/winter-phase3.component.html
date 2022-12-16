@@ -10,7 +10,7 @@
                 <div class="zonaB_a">
 
                         <p class="titulo">FASE DE INVIERNO<br></p>
-                        <p class="nombreUsuario">{{informacion.nombre}} {{informacion.apellidos}}</p>
+                        <p class="nombreUsuario">{{nombre}} {{apellidos}}</p>
 
                 </div>
 
@@ -22,7 +22,7 @@
 
                                   <div class="escudo">
                                         <div class="caja_escudo"> 
-                                            <img src="{{informacion.imagen_escudo}}">
+                                            <img src="{{foto_escudo}}">
                                         </div>
                             
                                         <div class="paso">
@@ -35,14 +35,14 @@
                                   <div class="prologo"> 
 
                                         <p class="frase1">Todos los personajes envejecen un año.</p>
-                                        <p class="frase2">La edad de tu personaje ahora es : <span class="numero">{{informacion.edad}} años.</span></p>
-                                        <button class="boton" onclick="">Envejecimiento Automático</button>
+                                        <p class="frase2">La edad de tu personaje ahora es : <span class="numero">{{edad_personaje}} años.</span></p>
+                                        <button class="boton" onclick="envejecimientoAuto()">Envejecimiento Automático</button>
                                         <p class="frase2">Otros personajes:</p> 
-                                        <p class="numero">{{informacion.personaje}}:{{informacion.edad + 1}} &nbsp; &nbsp;<span><button class="boton2" onclick=""> Auto </button></span></p>
+                                        <p class="numero">{{personaje2}} &nbsp; {{edad_personaje2 + 1}} &nbsp;<span><button class="boton2" onclick="envejecimiento_pnj()"> Auto </button></span></p>
                                         <p class="frase2">- Si un personaje tiene una característica en 3 o menos, debes retirarlo.<br>
                                         -Si un persojaje tiene una característica en 0, el personaje ha muerto.<br></p>
-                                        <span class="frase2">{{informacion.infoEscudero}}</span>
-                                        <span class="colorNombre">Nombre: </span><input class="input">
+                                        <p class="frase2">{{nombre_pnj}}</p>
+                                        <p class="colorNombre">Nombre: <span><input class="input"></span></p>
                                   </div>
 
                             </div> 

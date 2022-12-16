@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { parseJsonConfigFileContent } from 'typescript';
 
 @Component({
   selector: 'app-winter-phase3',
@@ -7,41 +8,37 @@ import { Component } from '@angular/core';
 })
 export class WinterPhase3Component {
 
-  public informacion: Informacion;
-  WinterPhaseMainComponent: any;
   
+  WinterPhaseMainComponent: any;
+  public nombre: string
+  public apellidos: string
+  public foto_escudo : string
+
+  public personaje: string
+  public edad_personaje: number
+  public personaje2: string
+  public edad_personaje2: number
+  public nombre_pnj: string
+
    constructor(){
     
-    this.informacion = new Informacion( 37, "Irene", "Herrero Becker", "Jules","../../../assets/img/escudo10.png","La edad de tu escudero es: 21 años. Ya es mayor de edad, así que necesitas un nuevo escudero de 15 años", "Belengarius");
+    this.nombre = "Irene",
+    this.apellidos = "Herrero Becker"
+    this.foto_escudo = "../../../assets/img/escudo10.png"
+    this.edad_personaje = 34
+    this.edad_personaje2 = 36
+    this.personaje = "Espartacus"
+    this.personaje2 = "Belengarius"
+    this.nombre_pnj = "Julian"
 
    }
   
   }
-  
-  export class Informacion {
-  
-    public edad: number
-    public nombre: string
-    public apellidos: string
-    public nombreAmante:string
-    public imagen_escudo: string
-    public infoEscudero: string
-    public personaje: string
-  
-  
-    constructor(edad: number, nombre: string, apellidos: string, nombreAmante: string, imagen_escudo: string,  infoEscudero: string, personaje: string){
-  
-        this.edad = edad;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.nombreAmante = nombreAmante;
-        this.imagen_escudo = imagen_escudo;
-        this.infoEscudero = infoEscudero;
-        this.personaje = personaje;
-  
-    }
-  }
+/* envejecimiento otros personaje (Belengarius 38) */
+function envejecimientoAuto(edad_personaje: number){
 
+  return (edad_personaje + 1);
+}
 
 
 
