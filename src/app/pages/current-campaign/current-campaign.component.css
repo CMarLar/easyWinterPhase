@@ -3,7 +3,7 @@
     /* Meter este código donde haya header */
     position:absolute;
     width: 100%;
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
 
 .component{
@@ -40,18 +40,18 @@
     flex-direction: column;
     width: auto;
     height: 100vh;
-    padding-top: 3%;
+    padding-top: 6%;
     background-image: url(../../../assets/backgrounds/bg_yelmos.jpg);
     background-size:cover;
     background-repeat: no-repeat;
     /* padding-bottom: 5vh; */
-    border: 5px solid blue;
+    /* border: 5px solid blue; */
 }
 .maincontainer{
     display: flex;
     flex-direction: row;
-    border: 5px solid red;
-    height: 100%;
+    /* border: 5px solid red; */
+    height: 65%;
     width: auto;
 
 
@@ -60,6 +60,7 @@
 .page_title{
     color: var(--font-color-h);
     font-size: 400%;
+    -webkit-text-stroke: 0.75px var(--font-color-hover);
 }
 
 .page_subtitle{
@@ -74,7 +75,7 @@
     width: 30%;
     height: 100%;
     padding-left: 3%;
-    border: 5px solid pink;
+    /* border: 5px solid pink; */
     margin-bottom: 13vh;
     padding-right: 2%;
 }
@@ -88,7 +89,7 @@
         flex-direction: row;
         justify-content: center;
         gap:15px;
-        border: 2px solid blueviolet
+        /* border: 2px solid blueviolet */
 
     }
 
@@ -118,16 +119,17 @@
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        flex-wrap: wrap;
-        border:2px solid white;
+        width: 90%;
+
+        /* border:2px solid white; */
     }
 
         .header{
             display: flex;
             flex-direction: row;
-            justify-content: space-evenly;
+            justify-content: flex-start;
             flex-wrap: wrap;
-            border:2px solid red
+            /* border:2px solid green; */
         }
         
             .header span{
@@ -135,16 +137,19 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                width: 20%;
-                border:2px solid orangered
+                width: 30%;
+                /* border:2px solid orangered; */
+                font-size: larger;
+                color:white;
+                text-decoration: underline;
             }
 
         .character{
             display: flex;
             flex-direction: row;
-            justify-content: space-evenly;
+            justify-content: flex-start;
             flex-wrap: wrap;
-            border:2px solid blue
+            border:1px solid black
         }
 
             .character span{
@@ -152,17 +157,51 @@
                 flex-direction: row;
                 justify-content: center;
                 align-items: center;
-                width: 20%;
-                border:2px solid orangered
+                width: 30%;
+                /* border:2px solid orangered */
+            }
+
+            .character span:hover{
+                cursor: pointer;
+                color: white;
             }
 
         .editchar{
             display: flex;
             flex-direction: row;
-            border:2px solid green;
+            /* border:2px solid green; */
             justify-content: center;
             align-items: center;
-            width: 20%;
+        
+        }
+            .editchar img{
+                width: 60%;
+            }
+            .editarIcon{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                width: 10%;
+                /* border: 2px solid black; */
+            }
+
+        .emptycharacter{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            border:1px solid black;
+            min-height: 40px;
+        }
+
+        /* .emptycharacter span{
+            color:antiquewhite
+        } */
+
+        .emptycharacter span:hover{
+            color:white;
+            cursor:pointer
         }
 
     .choose_new_character{
@@ -181,7 +220,7 @@
     width: 70%;
     height: 100%;
     /* padding-right: 5%; */
-    border: 5px solid black;
+    /* border: 5px solid black; */
 }
 
 .shield_selector{
@@ -193,7 +232,7 @@
     width: 100%;
     flex-wrap: wrap;
     /* gap:15px; */
-    border: 5px solid violet;
+    /* border: 5px solid violet; */
 }
 
 .shield_selector img{
@@ -213,21 +252,28 @@
     cursor:pointer
 }
 
-.player_list{
+.player-list{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
     align-items: center;
-    border:5px solid purple
+    /* border:2px solid purple */
 }
 
+.year-title-cont{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* border: 2px solid teal; */
+}
 
 .title{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-right: 200px;
+    /* padding-right: 200px; */
     /* border: 5px solid brown; */
 }
 
@@ -247,13 +293,6 @@
     /* border: 5px solid blue; */
 }
 
-.playerlist{
-    /* border: 5px solid yellow; */
-}
-    .playerlist img{
-        /* width: 64px;
-        height: 64px; */
-    }
 
 
 .playerempty{
@@ -317,6 +356,14 @@
         }
 
 
+.campaignYear{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* border:2px solid salmon; */
+}
+
 .year{
     /* border: 5px solid purple; */
     display: flex;
@@ -333,7 +380,8 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
+    position:relative;
+    bottom:-20px;
     gap:20px;
     /* border: 5px solid orangered; */
     padding-top: 5%;
@@ -390,27 +438,14 @@ select{
     font-size: larger
 }
 
-table{
-    border: 2px solid red;   
-    width: 80%;
+
+.arrow-left:hover{
+    cursor: pointer;
 }
 
-    th{
-        text-align: center;
-    }
-
-    td{
-        text-align: center;
-        border: 2px solid blue;   
-    }
-
-.tableselect{
-    width:50%;
-    background-color: var(--background-color-input);
-    border-radius: 4px; 
-
+.arrow-right:hover{
+    cursor: pointer;
 }
-
 
 h3{
     color: var(--font-color-primary);
@@ -423,4 +458,11 @@ h3{
 
 .quill img:hover{
     cursor: pointer;
+}
+
+
+textarea{
+    color: whitesmoke;
+    background-color: var(--background-color-input);
+    opacity: 60%;
 }
