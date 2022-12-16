@@ -1,8 +1,16 @@
 <main class="modal">
     <img src="../../../assets/backgrounds/bg_modal.png" alt="">
     <div class="modalContain">
-    <p>Tu envejecimiento afecta a las siguientes caracteristicas</p>
-    <div></div>
+        <p class="text">Tu envejecimiento afecta a las siguientes caracteristicas:</p>
+        <div class="contenedorInfo">
+            <div *ngFor="let stat of statschanges">
+                <p *ngIf="stat != 'No hay perdida' && stat != 'Ninguna caracteristica se ha visto afectada'; else sinPerdida">-Reduce en 1 tu <span class="span">{{stat}}</span></p>
+                <ng-template #sinPerdida>
+                    <p class="sinPerdida">-{{stat}}</p>
+                </ng-template>
+            </div>
+                    
+        </div>
     </div>
 
 </main>
