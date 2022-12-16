@@ -2,16 +2,32 @@
 <app-header class="component"></app-header>
 
 <div class="supercontainer">
-    <div class="title">
-        <p class="page_title">{{campaignName}}</p>
-        <p class ="page_subtitle">Hola </p>
-    </div>
 
+    <div class="year-title-cont">
+        <div class="title">
+            <p class="page_title">{{campaignName}}</p>
+            <p class ="page_subtitle">Pantalla principal </p>
+        </div>
+
+        <div class="campaignYear" #yearsInBetween>
+
+            <img (click)="previousYear()" src="../../../assets/img/left-arrow.png" style="scale: 0.3;" class="arrow-left" *ngIf="actualYear.isFirstYear==false">
+
+            <h1>{{actualYear.yearNumber}}</h1>
+
+            <img (click)="nextYear()" src="../../../assets/img/right-arrow.png" style="scale: 0.3;" class="arrow-right" *ngIf="actualYear.isLastYear==false">
+
+        </div>
+
+
+
+
+    </div>
 <!-- <form #houseForm="ngForm" (ngSubmit)="onSubmit(houseForm)">  -->
 <div class="maincontainer">
     <div class="left">
         <label style="color: white;">Notas</label>
-            <textarea rows="40%" maxlength="5000">
+            <textarea rows="33%" maxlength="5000">{{actualYear.notes}}
             </textarea>
     </div>
 
@@ -22,22 +38,94 @@
             
                 <!-- Cabecera -->
                 <div class="header">
-                    <span>Editar</span><span>Nombre</span><span>Rol</span><span>Edad</span><span>Estado</span><br>
+                    <span>Jugador</span><span>Personaje activo</span><span>Casa</span><span style="width: 6%;">Editar</span>
                 </div>
+
+
                 <!-- Personajes -->
-                <div class="character">
-                    <div class="editchar">
-                    <!-- <span class="quill"><img src="../../../assets/img/PLUMA.png"></span> -->
-                    <span class="skull"><img src="../../../assets/img/CALAVERA.png"></span>
+                <div class="character" style="background-color: rgb(130, 23, 25,0.6);" *ngIf="actualYear.players[0].id != null; else emptyPlayer">
+                    <span>{{actualYear.players[0].name}}</span>
+                    <span>{{actualYear.players[0].activeChar}}</span>
+                    <span>{{actualYear.players[0].house}}</span>
+                    <span class="editarIcon" style="width: 6%;">                    
+                        <div class="editchar">
+                            <img (click)="goCreateHouse()"src="../../../assets/img/PLUMA.png">
+                        </div>
+                    </span>
                 </div>
-                    <span>Hola</span><span>Hola2</span><span>Hola3</span><span>Hola4</span>
+
+                <div class="character" style="background-color: rgb(218, 193, 105,0.6);" *ngIf="actualYear.players[1].id != null; else emptyPlayer">
+                    <span>{{actualYear.players[1].name}}</span>
+                    <span>{{actualYear.players[1].activeChar}}</span>
+                    <span>{{actualYear.players[1].house}}</span>
+                    <span class="editarIcon" style="width: 6%;">                    
+                        <div class="editchar">
+                            <img (click)="goCreateHouse()" src="../../../assets/img/PLUMA.png">
+                        </div>
+                    </span>
                 </div>
-            
-            
+
+                <div class="character" style="background-color: rgb(152, 37, 37,0.6);" *ngIf="actualYear.players[2].id != null; else emptyPlayer">
+                    <span>{{actualYear.players[2].name}}</span>
+                    <span>{{actualYear.players[2].activeChar}}</span>
+                    <span>{{actualYear.players[2].house}}</span>
+                    <span class="editarIcon" style="width: 6%;">                    
+                        <div class="editchar">
+                            <img (click)="goCreateHouse()" src="../../../assets/img/PLUMA.png">
+                        </div>
+                    </span>
+                </div>
+
+                <div class="character" style="background-color: rgb(218, 193, 105,0.6);"*ngIf="actualYear.players[3].id != null; else emptyPlayer">
+                    <span>{{actualYear.players[3].name}}</span>
+                    <span>{{actualYear.players[3].activeChar}}</span>
+                    <span>{{actualYear.players[3].house}}</span>
+                    <span class="editarIcon" style="width: 6%;">                    
+                        <div class="editchar">
+                            <img (click)="goCreateHouse()" src="../../../assets/img/PLUMA.png">
+                        </div>
+                    </span>
+                </div>
+
+                <div class="character" style="background-color: rgb(152, 37, 37,0.6);"*ngIf="actualYear.players[4].id != null; else emptyPlayer">
+                    <span>{{actualYear.players[4].name}}</span>
+                    <span>{{actualYear.players[4].activeChar}}</span>
+                    <span>{{actualYear.players[4].house}}</span>
+                    <span class="editarIcon" style="width: 6%;">                    
+                        <div class="editchar">
+                            <img (click)="goCreateHouse()" src="../../../assets/img/PLUMA.png">
+                        </div>
+                    </span>
+                </div>
+
+                <div class="character" style="background-color: rgb(218, 193, 105,0.6);"*ngIf="actualYear.players[5].id != null; else emptyPlayer">
+                    <span>{{actualYear.players[5].name}}</span>
+                    <span>{{actualYear.players[5].activeChar}}</span>
+                    <span>{{actualYear.players[5].house}}</span>
+                    <span class="editarIcon" style="width: 6%;">                    
+                        <div class="editchar">
+                            <img (click)="goCreateHouse()" src="../../../assets/img/PLUMA.png">
+                        </div>
+                    </span>
+                </div>
+
+
+
+            <ng-template #emptyPlayer>
+                <div class="emptycharacter" style="background-color: rgb(224, 219, 201,0.6);" >
+                    <span (click)="goNewPlayer()">AÑADIR NUEVO JUGADOR</span>
+                </div>
+            </ng-template>
+
                 </div>
         </div>
-
+        <div class="buttons">
+            <button (click)="goNext()">Comenzar Fase de Invierno</button>
+        </div>
     </div>
+
+
+
 </div>
 <!-- </form> -->
 </div>
