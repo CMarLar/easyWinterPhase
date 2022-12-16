@@ -1,4 +1,5 @@
 
+
 .padre{
 
     width: 100%;
@@ -62,7 +63,7 @@
             font-family: 'Almendra', serif;
             
             -webkit-text-stroke: 0.75px var(--font-color-hover);
-            font-size: 4em;
+            font-size: 3em;
 
         }
         .nombreUsuario{
@@ -88,6 +89,7 @@
     background-image: url('../../../assets/img/pergamino-chato.png');
     background-repeat: no-repeat;
     background-position: 50% 6%;
+    background-size: 74%;
    
 }
     .pergamino{
@@ -123,7 +125,7 @@
     justify-content: center;
 }
     .caja_escudo img{
-        width: 80%;
+        width: 70%;
     }
 
     .paso{
@@ -152,7 +154,7 @@
    /*  position: absolute; */
     text-align: center;
 /*     border:  3px solid rgb(23, 215, 13);  */
-    line-height: 170%;
+    line-height: 152%;
 }
                   .prueba{
 
@@ -208,6 +210,10 @@
              align-self: center;
 
         }
+        .boton:hover{
+
+            color: var(--font-color-hover);
+        }
          .boton2{
 
              width: 10%;
@@ -227,6 +233,10 @@
             /*   color:var(--font-color-hover); */
 
         }
+        .boton2:hover{
+
+            color: var(--font-color-hover);
+        }
         .input{
 
             width: 20%;
@@ -234,8 +244,25 @@
             background-color: var(--background-color-input);
             color: black;
             border: none;
+            text-align: center;
             text-decoration: none;
+
+            
         }
+/*         input{
+    background-color: var(--background-color-input);
+    height:40px;
+    border-radius: 4px;
+    font-size: larger
+} */
+
+input label{
+    color: var(--font-color-label-input);
+}
+
+label{
+    color: var(--font-color-label-input);
+}
 
 /* DAGAS  */
 .dagas{
@@ -330,14 +357,3 @@
          cursor: pointer;
 
     }
-
-/*     @media all and (max-width: 840px) {
-        a.menu{
-            margin:0px;
-            padding:0px;
-            padding-left:5%;
-            display:block;
-            float:none;
-            text-align:left;
-        }
-    } */

@@ -6,36 +6,39 @@ import { Component } from '@angular/core';
   styleUrls: ['./winter-phase4.component.css']
 })
 export class WinterPhase4Component {
-  public miUsuario: Usuario;
+  public informacion: Informacion;
   WinterPhaseMainComponent: any;
   
    constructor(){
     
-    this.miUsuario = new Usuario( 37, "Irene", "Herrero Becker", "irenisima82@hotmail.com","../../../assets/img/escudo10.png","Serpiente");
-  
-  
+    this.informacion = new Informacion( 37, "Irene", "Herrero Becker", "Jules","../../../assets/img/escudo10.png","La edad de tu escudero es: 21 años. Ya es mayor de edad, así que necesitas un nuevo escudero de 15 años", "Belengarius");
+
    }
   
   }
   
-  export class Usuario {
+  export class Informacion {
   
-    public id_usuario: number
+    public edad: number
     public nombre: string
     public apellidos: string
-    public correo:string
+    public nombreAmante:string
     public imagen_escudo: string
-    public password: string
+    public infoEscudero: string
+    public personaje: string
   
   
-    constructor(id_usuario: number, nombre: string, apellidos: string, correo: string, imagen_escudo: string, password: string){
+    constructor(edad: number, nombre: string, apellidos: string, nombreAmante: string, imagen_escudo: string,  infoEscudero: string, personaje: string){
   
-        this.id_usuario = id_usuario;
+        this.edad = edad;
         this.nombre = nombre;
         this.apellidos = apellidos;
-        this.correo = correo;
+        this.nombreAmante = nombreAmante;
         this.imagen_escudo = imagen_escudo;
-        this.password = password
+        this.infoEscudero = infoEscudero;
+        this.personaje = personaje;
   
     }
   }
+
+

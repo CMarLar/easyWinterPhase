@@ -2,60 +2,87 @@
 
     <div class="main">
 
-            <div class="zonaA">
-               
-            </div>
-            <div class="zonaB">
+          <!-- hijo 1 MAIN -->
+        <div class="contenido">
 
+            <div class="zonaB">
 
                 <div class="zonaB_a">
 
                         <p class="titulo">FASE DE INVIERNO<br></p>
-                        <p class="nombreUsuario">{{miUsuario.nombre}} {{miUsuario.apellidos}}</p>
+                        <p class="nombreUsuario">{{informacion.nombre}} {{informacion.apellidos}}</p>
 
                 </div>
 
                 <div class="zonaB_b">
 
-                        <div class="cajita"></div><!-- vacía -->
-
-                        <img class="pergamino" src="../../../assets/img/pergamino-chato.png">
+                        <!-- <img class="pergamino" src="../../../assets/img/pergamino-chato.png"> -->
                             
                              <div class="caja">
 
                                   <div class="escudo">
-                                    
-                                            <div class="caja_escudo"> 
-                                                   
-                                                   <img clas="imagen_escudo" src="{{miUsuario.imagen_escudo}}">
-                                            </div>
+                                        <div class="caja_escudo"> 
+                                            <img src="{{informacion.imagen_escudo}}">
+                                        </div>
                             
-                                           <div class="paso">
-
-                                            <p><b>Paso 4:</b><br>
-                                                Circunstancias<br>
-                                                Económicas<br>
-
-                                           </div>
+                                        <div class="paso">
+                                            <p>Paso 4:</p>
+                                            <p>Circunstancias Económicas</p>  
+                                        </div>
 
                                   </div>
 
-                                  <div class="prologo">
+                                  <div class="prologo"> 
 
-                                          <!-- <p> -->
 
-                                  </div> 
+                                    <div class="prologo1"><!-- hijo 1 prólogo -->
 
-                            </div>
+                                         <div class="texto">
+                                              <p class="colorNombre">Base de mal tiempo inicial (1d20)</p>
+                                              <p class="colorNombre">Valor de modificadores</p>
+                                              <p class="colorNombre">Nivel de administración</p> 
+                                              <p class="colorNombre">Valor de modificadores</p>  
+                                         </div>
+                                         <div class="inputs">
+
+                                             <input class="input">
+                                             <input class="input">
+                                             <input class="input">
+                                             <input class="input">
+                                         </div>
+
+                                    </div><!-- cierra prologo 1 -->
+
+                                    <div class="prologo1"><!-- hijo 2 prólogo -->
+                                        <p></p><button class="boton" onclick="">Calcular</button><br><br><!-- arreglar con css -->
+                                    </div>
+
+                                    <div class="prologo1"><!-- hijo 2 prólogo -->
+                                        <label class="nivelManutencon" for="nivel-manutencion"></label>
+                                        <select class="desplegable" name="nivel-manutencion"id="nivel-manutencion">
+                                             <option value="nivelMauntencion">NIVEL DE MANUTENCIÓN</option>
+                                             <option value="indigente">Indigente</option>
+                                             <option value="pobre">Pobre</option>
+                                             <option value="rico">Rico</option>
+                                             <option value="muyrico">Muy Rico</option>
+   
+                                         
+                                        </select>
+                                    </div>
+                                        
+                                        
+                                  </div>
+
+                            </div> 
                         
 
-                        <div class="cajita"></div><!-- vacía -->
-
-                </div>
-
-                  
+                </div>  
             </div>
+        </div>  
+
     </div>
+
+    <!-- hijo 2 -->
 
      <div class="dagas">
 
@@ -76,5 +103,3 @@
 
 
 </div>
-
-
