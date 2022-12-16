@@ -7,37 +7,21 @@ import { Component } from '@angular/core';
 })
 export class WinterPhase8Component {
 
-
-  public miUsuario: Usuario;
   WinterPhaseMainComponent: any;
-  jugadores: any;
+  public nombre: string
+  public apellidos: string
+  public foto_escudo : string
+  public gloria: number
   
    constructor(){
     
-    this.miUsuario = new Usuario( 200, "Irene", "Herrero Becker", "irenisima82@hotmail.com","../../../assets/img/escudo1g","Serpiente");
+    this.nombre = "Irene",
+    this.apellidos = "Herrero Becker"
+    this.foto_escudo = "../../../assets/img/escudo10.png"
+    this.gloria = 200
 
    }
   
   }
   
-  export class Usuario {
   
-    public id_usuario: number
-    public nombre: string
-    public apellidos: string
-    public correo:string
-    public imagen_escudo: string
-    public password: string
-  
-  
-    constructor(id_usuario: number, nombre: string, apellidos: string, correo: string, imagen_escudo: string, password: string){
-  
-        this.id_usuario = id_usuario;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.correo = correo;
-        this.imagen_escudo = imagen_escudo;
-        this.password = password
-  
-    }
-  }

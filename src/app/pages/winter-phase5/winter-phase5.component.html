@@ -1,1 +1,92 @@
-<p>winter-phase5 works!</p>
+<div class="padre" >
+
+    <div class="main">
+
+          <!-- hijo 1 MAIN -->
+        <div class="contenido">
+
+            <div class="zonaB">
+
+                <div class="zonaB_a">
+
+                        <p class="titulo">FASE DE INVIERNO<br></p>
+                        <p class="nombreUsuario">{{nombre}} {{apellidos}}</p>
+
+                </div>
+
+                <div class="zonaB_b">
+
+                        <!-- <img class="pergamino" src="../../../assets/img/pergamino-chato.png"> -->
+                            
+                             <div class="caja">
+
+                                  <div class="escudo">
+                                        <div class="caja_escudo"> 
+                                            <img src="{{foto_escudo}}">
+                                        </div>
+                            
+                                        <div class="paso">
+                                            <p>Paso 5:</p>
+                                            <p>Tirada de Establo</p>  
+                                        </div>
+
+                                  </div>
+
+                                  <div class="prologo"> 
+
+
+                                    <div class="prologo1"><!-- hijo 1 prólogo -->
+
+                                       
+                                              <p class="frase1">Haz una tirada por cada caballo que tenga el jugador.</p>
+                                              <p class="frase2">Ten en cuenta tu modificador de circunstancia económica: <span class="numero">{{circunstancia_economica}}</span></p>
+                                    </div><!-- cierra prologo 1 -->
+
+                                    <div class="prologo2"><!-- hijo 2 prólogo -->
+                                        <span><input class="input" #calculaCaballos></span><button class="boton" onclick="calculaCaballos()">Calcular</button>
+                                    </div>
+
+                                    <div class="prologo3"><!-- hijo 2 prólogo -->
+                                        <p class="frase1">RESULTADOS:</p><br>
+                                       <!--  *ngFor="let caballo of caballos"(CUANDO TENGA CLASES)  -->
+                                            <p class="frase1" >{{caballos[1]}}
+                                            <p class="frase1">{{caballos[2]}}
+                                            <p class="frase1">{{caballos[3]}}
+                                            <p class="frase1">{{caballos[4]}}
+                                    
+
+                                    </div>
+                                        
+                                        
+                                  </div>
+
+                            </div> 
+                        
+
+                </div>  
+            </div>
+        </div>  
+
+    </div>
+
+    <!-- hijo 2 -->
+
+     <div class="dagas">
+
+        <div class="back">
+            <a routerLink = "/phase4" class="daga_derecha"><img src="../../../assets/img/daga-atras.png" alt="" ></a>
+            <a routerLink = "/phase4" class="volver">VOLVER</a>
+
+        </div>
+
+        <div class="next">
+            <a routerLink = "/phase6a" class="daga_izquierda"><img src="../../../assets/img/daga-adelante.png" alt="" ></a>
+            <a routerLink = "/phase6a" class="siguiente">SIGUIENTE</a>
+        </div>
+
+
+    </div>
+
+
+
+</div>

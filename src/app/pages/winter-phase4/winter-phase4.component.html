@@ -10,7 +10,7 @@
                 <div class="zonaB_a">
 
                         <p class="titulo">FASE DE INVIERNO<br></p>
-                        <p class="nombreUsuario">{{informacion.nombre}} {{informacion.apellidos}}</p>
+                        <p class="nombreUsuario">{{nombre}} {{apellidos}}</p>
 
                 </div>
 
@@ -22,7 +22,7 @@
 
                                   <div class="escudo">
                                         <div class="caja_escudo"> 
-                                            <img src="{{informacion.imagen_escudo}}">
+                                            <img src="{{foto_escudo}}">
                                         </div>
                             
                                         <div class="paso">
@@ -45,16 +45,17 @@
                                          </div>
                                          <div class="inputs">
 
-                                             <input class="input">
-                                             <input class="input">
-                                             <input class="input">
-                                             <input class="input">
+                                             <input class="input" #malTiempo>
+                                             <input class="input" #modificadores>
+                                             <input class="input" #administración>
+                                             <input class="input" #modificadores2>
                                          </div>
 
                                     </div><!-- cierra prologo 1 -->
 
                                     <div class="prologo1"><!-- hijo 2 prólogo -->
-                                        <p></p><button class="boton" onclick="">Calcular</button><br><br><!-- arreglar con css -->
+                                        <p></p><button class="boton" onclick="calcularNivelManutencion()">Calcular</button><span class="resultado">{{calcular}}</span><br><br><!-- arreglar con css -->
+
                                     </div>
 
                                     <div class="prologo1"><!-- hijo 2 prólogo -->
