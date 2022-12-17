@@ -56,6 +56,7 @@ export class WinterPhaseMainComponent {
 
           this.playersNotReady = true;
           console.log(`Falta por completar la FI de al menos un jugador: ${this.playersNotReady}`);
+          break;//no se lo contéis a Jose.
 
         }else{
 
