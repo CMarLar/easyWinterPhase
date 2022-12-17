@@ -21,6 +21,9 @@ export class AddNpcToHouseComponent {
   //Estado del personaje: vivo o muerto
   public status;
 
+  //Transforma true o false en un string
+  public deadOrAliveString:string;
+
   //Rol del personaje
   public role;
 
@@ -45,10 +48,11 @@ export class AddNpcToHouseComponent {
 
     this.npcs=
     [
-      {id: 1, name:"Ultan",age:10,role:"Hijo/a",sex:"Hombre",status:"Vivo/a"},
-      {id: 2, name:"Jorge",age:16,role:"Escudero",sex:"Hombre",status:"Muerto/a"},
-      {id: 3, name:"Wanda",age:20,role:"Hermano",sex:"Hombre",status:"Vivo/a"},
+      {id: 1, name:"Ultan",age:10,role:"Hijo/a",sex:"Hombre",status:true},
+      {id: 2, name:"Jorge",age:16,role:"Escudero",sex:"Hombre",status:false},
+      {id: 3, name:"Wanda",age:20,role:"Hermano",sex:"Hombre",status:true},
     ]
+    //status true = vivo
 
     this.formNpc = {id: 1000, name:"",age:0,role:"",sex:"",status:this.status[0]};
 
@@ -57,6 +61,7 @@ export class AddNpcToHouseComponent {
 
     this.checkNpcs()
 
+
   }
   //Borra personaje EN EL FRONT
   public deleteChar(id:number){
@@ -64,6 +69,22 @@ export class AddNpcToHouseComponent {
     console.log(this.npcs);
     if(this.npcs.length==0){this.noNpcs=true}
     
+  }
+
+    //Cambia el Estado de un personaje de vivo a muerto.
+
+  public deadOrAlive(id:number){
+    console.log("click");
+    
+    if(this.npcs[id-1].status==true){
+
+      this.npcs[id-1].status=false
+
+    }else if(this.npcs[id-1].status==false){
+
+      this.npcs[id-1].status=true
+
+    }
   }
 
   public modifyChar(id:number){

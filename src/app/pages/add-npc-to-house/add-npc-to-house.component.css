@@ -59,6 +59,9 @@
     font-size: 200%;
 }
 
+/* form{
+    border: 5px solid rebeccapurple;
+} */
 
 .left{
     display: flex;
@@ -78,9 +81,9 @@
     .short_inputs{
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-evenly;
         gap:15px;
-        /* border: 2px solid blueviolet */
+        /* border: 2px solid teal */
 
     }
 
@@ -88,12 +91,17 @@
                 display: flex;
                 flex-direction: column;
                 gap:5px;
+                /* border:2px solid green; */
+                width: 25%;
             }
 
             .character_age_input{
                 display: flex;
                 flex-direction: column;
+                align-items: center;
                 gap:5px;
+                /* border:2px solid green; */
+                width: 25%;
             }
 
                 .character_age_input input{
@@ -104,7 +112,38 @@
                 display: flex;
                 flex-direction: column;
                 gap:5px;
+                /* border:2px solid green; */
+                width: 25%;
             }
+
+            .character_role_input{
+                display: flex;
+                flex-direction: column;
+                gap:5px;
+                /* border:2px solid green; */
+                width: 25%;
+            }
+
+            .character_otherRole_input{
+                display: flex;
+                flex-direction: column;
+                gap:5px;
+                /* border:2px solid green; */
+                width: 25%;
+            }
+
+            .character_confirm_button{
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                gap:15px;
+                /* border:2px solid red;  */
+                width: 25%;
+            }
+
+
+
 
     .npc_list{
         display: flex;
@@ -172,7 +211,7 @@
     width: 50%;
     height: 100%;
     /* padding-right: 5%; */
-    border: 5px solid black;
+    /* border: 5px solid black; */
 }
 
 .shield_selector{
@@ -190,7 +229,7 @@
 .shield_selector img{
     display: flex;
     flex-direction: row;
-    max-width: 40%;
+    max-width: 25%;
     /* border: 5px solid brown; */
 }
 
@@ -297,6 +336,25 @@
         .quill img{
             width: 35px;
         }
+
+    /* .npc_status{
+        border: 2px solid red;
+    } */
+
+    .npc_status:hover{
+        cursor:pointer;
+        color: var(--font-color-hover);
+        
+    }
+
+    .status_header{
+        font-size: large;
+    }
+
+    .status_header:hover{
+        cursor: pointer;
+        color: var(--font-color-hover);
+    }
 
 
 .year{
