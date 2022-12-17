@@ -75,7 +75,7 @@
     font-family: 'Almendra', serif;
     margin-top: 5%;
     -webkit-text-stroke: 0.75px var(--font-color-hover);
-    /* font-size: 6rem; */
+    font-size: 3em;
 
 }
 
@@ -96,7 +96,7 @@
     .pergamino{
 
         width: 100%;
-        height: 110%;
+        height: 105%;
         margin-top: 1%;
         display: flex;
         position: relative;
@@ -106,9 +106,9 @@
 
 .nombreUsuario{
 
-    color:black;
+    color: rgb(161, 156, 141);
     font-family: 'Almendra', serif;
-    font-size: x-large;
+    font-size: 2em;
     text-align: center;
 }
 .caja{
@@ -176,6 +176,7 @@
    
     font-size: medium;
     text-align: flex-end;
+    line-height: 150%;
 /* 
    border:  4px solid rgb(202, 204, 107); */
 }
@@ -192,7 +193,8 @@
 
     color:var( --background-color-input);
     font-family: 'Almendra', serif;
-    font-size: large;
+    font-size: larger;
+    font-style: bold;
 
 }
 
@@ -282,4 +284,9 @@
          transform: translate(15px);
          cursor: pointer;
 
+    }
+    .bold{
+
+        font-size: larger;
+        font-style: bold;
     }

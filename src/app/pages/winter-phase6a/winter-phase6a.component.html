@@ -1,1 +1,78 @@
-<p>winter-phase6a works!</p>
+<div class="padre" >
+
+    <div class="main">
+
+          <!-- hijo 1 MAIN -->
+        <div class="contenido">
+
+            <div class="zonaB">
+
+                <div class="zonaB_a">
+
+                        <p class="titulo">FASE DE INVIERNO<br></p>
+                        <p class="nombreUsuario">{{nombre}} {{apellidos}}</p>
+
+                </div>
+
+                <div class="zonaB_b">
+
+                        <!-- <img class="pergamino" src="../../../assets/img/pergamino-chato.png"> -->
+                            
+                             <div class="caja">
+
+                                  <div class="escudo">
+                                        <div class="caja_escudo"> 
+                                            <img src="{{foto_escudo}}">
+                                        </div>
+                            
+                                        <div class="paso">
+                                            <p>Paso 6a:</p>
+                                            <p>Familia</p>  
+                                        </div>
+
+                                  </div>
+
+                                  <div class="prologo"> 
+
+
+                                    <div class="prologo1"><!-- hijo 1 prólogo -->
+                                        <p class="frase1">Casamientos:</p>
+                                        <button class="boton" onclick="matrimonioLealtad()">Matrimonio por lealtad/Señor</button>
+                                             
+                                    </div>
+
+                                    <div class="prologo2"><!-- hijo 2 prólogo -->
+                                        <button class="boton2" onclick="matrimonioCortesia()">Matrimonio por cortesía</button>
+                                    </div>
+                                        
+                                        
+                                  </div>
+
+                            </div> <!-- cierre CAJA -->
+                        
+
+                </div>  <!-- CIERRE PERGAMINO -->
+            </div><!-- CIERRE ZONA B -->
+        </div> <!-- CIERRE CONTENIDO --> 
+
+    </div><!-- CIERRE MAIN -->
+
+    <!-- hijo 2 -->
+
+     <div class="dagas">
+
+        <div class="back">
+            <a routerLink = "/phase5" class="daga_derecha"><img src="../../../assets/img/daga-atras.png" alt="" ></a>
+            <a routerLink = "/phase5" class="volver">VOLVER</a>
+
+        </div>
+
+        <div class="next">
+            <a routerLink = "/phase6b" class="daga_izquierda"><img src="../../../assets/img/daga-adelante.png" alt="" ></a>
+            <a routerLink = "/phase6b" class="siguiente">SIGUIENTE</a>
+        </div>
+
+
+    </div><!-- cierre dagas -->
+
+</div><!-- CIERRE PADRE -->
