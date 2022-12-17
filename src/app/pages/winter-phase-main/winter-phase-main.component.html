@@ -1,1 +1,90 @@
-<p>winter-phase-main works!</p>
+
+<div class="padre" >
+
+    <div class="main">
+        <div class="zonaA">
+
+            <div class="zonaA_b">
+
+                <div class="zonaA_a">
+
+                    <p class="titulo">{{campaignName}}</p>
+                    <p class="subtitulo">Fase de Invierno</p>
+                    <p class="message">Completa las fases de invierno de todos los jugadores para pasar al año siguiente.</p>
+
+                </div>
+
+                    <!-- Cabecera -->
+                    <div class="header">
+                        <span class="shield_span"><p>Escudo</p></span>
+                        <span>Casa</span>
+                        <span>Jugador</span>
+                        <span>Fase de invierno</span>
+                    </div>
+
+                    <!-- Jugadores -->
+
+                    <ng-container *ngFor="let player of actualYear.players">
+                    <div class="players" *ngIf="player.id!=null;else noplayer">
+                        
+                        <span class="shield_img"><img [src]="player.shield"></span>
+                        <span>{{player.house}}</span>
+                        <span>{{player.name}}</span>
+                        <span *ngIf="player.winterPhaseDone==false;else winterPhaseFinished">
+                            <button class="small_button" (click)="doWinterPhase()">
+                                Comenzar
+                            </button>
+                        </span>
+
+                    </div>
+                    </ng-container>
+                    <ng-template #winterPhaseFinished>
+                        <span class="complete">
+                            ¡Completada!
+                        </span>
+                    </ng-template>
+
+
+                    <!-- Template sin jugador -->
+                    <ng-template #noPlayer>
+                        <div></div>
+                    </ng-template>
+
+            <div class="buttons">
+                <!-- ver comentarios en ts -->
+                <button [disabled]="playersNotReady" (click)="nextYear()">Siguiente año</button>
+            </div>
+
+            </div>
+
+        </div>
+
+        <div class="zonaB">
+        
+        </div>
+    </div>
+
+     <div class="dagas">
+
+        <div class="back">
+        <!-- Si se ha completado al menos la fase de invierno de un jugador y se quiere ir hacia atrás, habría que poner una validación que pusiera una campaña intermedia de aviso.
+
+        Algo con un texto tipo ¿Estás seguro que quieres volver a la campaña? No se guardarán las fases de invierno que hayas completado y tendrás que empezar de nuevo. -->
+
+
+            <a routerLink = "/currentcampaign" class="daga_derecha"><img src="../../../assets/img/daga-atras.png" alt="" ></a>
+            <a routerLink = "/currentcampaign" class="volver">VOLVER</a>
+
+        </div>
+
+        <!-- <div class="next">
+            <a routerLink = "/phase2" class="daga_izquierda"><img src="../../../assets/img/daga-adelante.png" alt="" ></a>
+            <a routerLink = "/phase2" class="siguiente">SIGUIENTE</a>
+        </div> -->
+
+
+    </div>
+
+
+
+</div>
