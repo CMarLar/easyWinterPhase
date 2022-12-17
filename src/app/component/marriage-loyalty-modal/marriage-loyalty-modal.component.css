@@ -1,0 +1,138 @@
+.modal{
+    width: 30vw;
+    height: 70vh;
+    background-size: cover;
+    /* border: 2px solid red; */
+    position: relative;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+    .modal img{
+        width: 100%;
+        height: 100%;
+    }
+    .modalContain{
+        width: 70%;
+        height: 75%;
+        border: 2px solid black;
+        position: absolute;
+        top: 14%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 3%;
+    }
+    .plumaButton{
+        border: 2px solid purple;
+        width: 20%;
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        right: 0%;
+        bottom: 0%;
+
+    }
+        .plumaButton p{
+            position: absolute;
+            bottom: 5%;
+            left: 5%;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        .inputContain{
+            border: 2px solid red;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+            label{
+                border: 2px solid blue;
+                width: 60%;
+                font-size: 1.2rem;
+                color: var(--font-color-label-input);
+            }
+            input{
+                width: 30%;
+                text-align: center;
+                font-size: 1.5rem;
+                background-color: var(--background-color-input);
+            }
+        .small_button{
+            background-color: var(--font-color-h);
+            font-size: large;
+            border-radius: 3px;
+            padding: 5px 10px;
+            border: none;
+        }
+        .resultados{
+            border: 2px solid orange;
+            width: 100%;
+            height: 70%;
+        }
+        .resultadoExito{
+            height: 100%;
+            width: 100%;
+
+            border: 2px solid red;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 3%;
+        }
+            .formContainer{
+                width: 100%;
+                height: 40%;
+                border: 2px solid blue;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 10%;
+            }
+                .form{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+        .resultadoFallo{
+            border: 2px solid purple;
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+            .resultadoFallo p{
+                text-align: center;
+                font-weight: bolder;
+                font-size: 1.5rem;
+            }
+        .sinValor{
+            color: var(--font-color-warning);
+        }
+        .resultadoCentrado{
+            border: 2px solid purple;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .botones{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 3%;
+        }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
