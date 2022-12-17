@@ -185,7 +185,7 @@
                             height: 30%;
                             border-radius: 15px;
                             border-style: none;
-                            background-color: var(--background-color-input);
+                            background-color: var(--backgoud-color-button);
                             text-align: center;
                             font-size:medium;
                            /*  color:var(--font-color-hover); */
@@ -216,7 +216,7 @@
                             height: 30%;
                             border-radius: 15px;
                             border-style: none;
-                            background-color: var(--background-color-input);
+                            background-color: var(--backgoud-color-button);
                             text-align: center;
                             font-size:medium;
                            /*  color:var(--font-color-hover); */
@@ -274,7 +274,7 @@
     }
     .volver:hover{
 
-        color: var(--background-color-input);
+        color: var(--backgoud-color-button);
     }
     .daga_derecha:hover{
   
@@ -315,7 +315,7 @@
     }
     .siguiente:hover{
 
-        color: var(--background-color-input);
+        color: var(--backgoud-color-button);
     }
 
      .daga_izquierda:hover{

@@ -193,7 +193,7 @@
                        }
                        .numero{
                
-                           color: var(--background-color-input);
+                           color: var(--backgoud-color-button);
                            text-align: justify;
                            font-size: 1.5em;
                        }
@@ -216,7 +216,7 @@
                             margin-left: 3%;
                             border-radius: 15px;
                             border-style: none;
-                            background-color: var(--background-color-input);
+                            background-color: var(--backgoud-color-button);
                             text-align: center;
                             align-items: center;
                             font-size:smaller;
@@ -293,7 +293,7 @@
     }
     .volver:hover{
 
-        color: var(--background-color-input);
+        color: var(--backgoud-color-button);
     }
     .daga_derecha:hover{
   
@@ -334,7 +334,7 @@
     }
     .siguiente:hover{
 
-        color: var(--background-color-input);
+        color: var(--backgoud-color-button);
     }
 
      .daga_izquierda:hover{

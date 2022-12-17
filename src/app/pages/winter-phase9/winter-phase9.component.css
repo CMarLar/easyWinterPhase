@@ -279,7 +279,7 @@
     }
     .volver:hover{
 
-        color: var(--background-color-input);
+        color: var(--backgoud-color-button);
     }
     .daga_derecha:hover{
   
@@ -320,7 +320,7 @@
     }
     .siguiente:hover{
 
-        color: var(--background-color-input);
+        color: var(--backgoud-color-button);
     }
 
      .daga_izquierda:hover{
@@ -337,11 +337,6 @@
         }
       
     }   */
-
-    .indigente{
-
-        background-color: var(--background-color-input);
-    }
 
 /*     @media screen and (max-width: 820px){
         .caja_escudo img{

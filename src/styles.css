@@ -13,7 +13,10 @@
     --font-color-warnings: rgb(210, 31, 39);
     --font-color-h: rgb(130, 23, 25);
     --font-color-label-input: rgb(24, 22, 112);
-    --background-color-input: rgb(152, 37, 37);
+    --background-color-input:  rgb(152, 37, 37,.6);
+    --backgoud-color-button:  rgb(152, 37, 37);
+
+  
 
 
 }
