@@ -41,7 +41,7 @@ export class CampaignsComponent {
       if (this.user.campaigns[i] == campaña){
         this.user.campaigns.splice(i,1);
         this.user.campaigns;
-
+        this.isHide = true;
       }
     }
   }
