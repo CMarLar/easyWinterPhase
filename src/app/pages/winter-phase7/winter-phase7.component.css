@@ -192,7 +192,7 @@
 
            .Alain{/* es provisional */
 
-                 color: var(--background-color-input);
+                 color: var(--backgoud-color-button);
                  font-family: 'Almendra', serif;
                  text-align: flex;
                  font-size: large;
@@ -260,7 +260,7 @@
     }
     .volver:hover{
 
-        color: var(--background-color-input);
+        color: var(--backgoud-color-button);
     }
     .daga_derecha:hover{
   
@@ -301,7 +301,7 @@
     }
     .siguiente:hover{
 
-        color: var(--background-color-input);
+        color: var(--backgoud-color-button);
     }
 
      .daga_izquierda:hover{

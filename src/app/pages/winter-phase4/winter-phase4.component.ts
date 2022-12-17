@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { WinterPhaseMainComponent } from '../winter-phase-main/winter-phase-main.component';
 
 @Component({
   selector: 'app-winter-phase4',
@@ -16,7 +17,8 @@ export class WinterPhase4Component {
   public administracion: number
   public modificadores2: number
   public calcular: number
-
+  public nivelesManutencion: any[]/* [{nivel:"Indigente"},{nivel:"Pobre"},{nivel:"Rico"},{nivel:"Muy Rico"}] */
+  public nivel: string
 
   WinterPhaseMainComponent: any;
   
@@ -26,6 +28,7 @@ export class WinterPhase4Component {
     this.apellidos = "Herrero Becker"
     this.foto_escudo = "../../../assets/img/escudo10.png"
 
+    this.nivelesManutencion = [{nivel:"Indigente"},{nivel:"Pobre"},{nivel:"Rico"},{nivel:"Muy Rico"}]
    }
   
   }

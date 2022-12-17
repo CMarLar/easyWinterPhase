@@ -187,12 +187,12 @@
         }
         .numero{
 
-            color: var(--background-color-input);
+            color: var( --backgoud-color-button);
             text-align: justify;
         }
         .colorNombre{
 
-            color: var( --font-color-label-input);
+            color:var( --backgoud-color-button);
             font-size: smaller;
         }
 
@@ -202,12 +202,13 @@
              height: 8%;
              border-radius: 15px;
              border-style: none;
-             background-color: var(--background-color-input);
+             color: black;
              text-align: center;
              align-items: center;
              font-size:smaller;
             /*   color:var(--font-color-hover); */
              align-self: center;
+             background-color:var( --backgoud-color-button);
 
         }
         .boton:hover{
@@ -219,7 +220,8 @@
              width: 10%;
              height: 8%;
              border-radius: 8px;
-             background-color: var(--background-color-input);
+             color:black;
+             background-color:var( --backgoud-color-button);
 
            /*   display: flex;
              justify-content:center;
@@ -307,7 +309,7 @@ label{
     }
     .volver:hover{
 
-        color: var(--background-color-input);
+        color:var( --backgoud-color-button);
     }
     .daga_derecha:hover{
   
@@ -348,7 +350,7 @@ label{
     }
     .siguiente:hover{
 
-        color: var(--background-color-input);
+        color:var( --backgoud-color-button);
     }
 
      .daga_izquierda:hover{
