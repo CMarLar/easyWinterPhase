@@ -115,7 +115,7 @@
 
     width: 30%;
     height: 50%;
-   /*  border:  4px solid rgb(184, 116, 229); */
+ /*   border:  4px solid rgb(184, 116, 229); */
     position: absolute;
     display: flex;
     /* flex-direction: ; */
@@ -123,8 +123,8 @@
 .escudo{
 
     width: 100%;
-    height: 0%;
-  /*   border:  4px solid rgb(184, 116, 229); */
+    height: 50%;
+    /* border:  4px solid rgb(184, 116, 229); */
     position: absolute;
 
     display: flex;
@@ -137,7 +137,7 @@
     height: 50%;
    /*  border:  4px solid rgb(184, 116, 229); */
     position: absolute;
-
+/*     border: 4ch solid rgb(211, 26, 6); */
     display: flex;
 
 }
@@ -149,7 +149,7 @@
     justify-items: center;
     padding-left: 5%;
 
-   /*  border:  4px solid rgb(229, 189, 116); */
+ /*    border:  4px solid rgb(163, 54, 191); */
 
 }
 

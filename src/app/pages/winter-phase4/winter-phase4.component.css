@@ -7,7 +7,7 @@
     flex-direction: column;
 /*     justify-content: space-around; */
    
-  background-image: url("../../../assets/img/FONDO-MONEDAS.png");
+  background-image: url(../../../assets/img/FONDO-MONEDAS.png);
   background-size: cover;
   background-position: center;
 
