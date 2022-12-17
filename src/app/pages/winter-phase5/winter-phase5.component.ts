@@ -24,7 +24,7 @@ export class WinterPhase5Component {
     this.apellidos = "Herrero Becker"
     this.foto_escudo = "../../../assets/img/escudo10.png"
     this.circunstancia_economica = -2
-    this.caballos = [("El caballo 1 está sano"),("El caballo 2 está sano."),("El caballo 3 está muerto o es inutil."),("El caballo 4 está sano.")]
+    this.caballos = ["El caballo 1 está sano","El caballo 2 está sano.","El caballo 3 está muerto o es inutil.","El caballo 4 está sano."]
 
    }
 

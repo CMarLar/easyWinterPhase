@@ -45,7 +45,7 @@
                                      
                                      Los siguiente personajes no jugadores reciben 1d3 puntos para aumentar cualquiera de sus habilidades:<br></p>
                                      
-                                     <p class="Alain">{{nombre}},{{apellidos}}, {{apellidos}}</p>
+                                     <p class="Alain" *ngFor="let name of personajes" [value]="name">{{name}}</p>
 
                                   </div>
 

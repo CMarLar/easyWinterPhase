@@ -28,7 +28,7 @@ export class WinterPhase4Component {
     this.apellidos = "Herrero Becker"
     this.foto_escudo = "../../../assets/img/escudo10.png"
 
-    this.nivelesManutencion = [{nivel:"Indigente"},{nivel:"Pobre"},{nivel:"Rico"},{nivel:"Muy Rico"}]
+    this.nivelesManutencion = ["Indigente", "Pobre", "Rico", "Muy Rico"]
    }
   
   }

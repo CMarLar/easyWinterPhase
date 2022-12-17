@@ -47,14 +47,9 @@
                                     </div>
 
                                     <div class="prologo3"><!-- hijo 2 prólogo -->
-                                        <p class="frase1">RESULTADOS:</p><br>
-                                       <!--  *ngFor="let caballo of caballos"(CUANDO TENGA CLASES)  -->
-                                            <p class="frase1" >{{caballos[1]}}
-                                            <p class="frase1">{{caballos[2]}}
-                                            <p class="frase1">{{caballos[3]}}
-                                            <p class="frase1">{{caballos[4]}}
-                                    
-
+                                        <p class="frase1" >RESULTADOS</p>
+                                        <p class="frase2" *ngFor="let caballo of caballos" [value]="caballo">{{caballo}}</p>
+                                
                                     </div>
                                         
                                         

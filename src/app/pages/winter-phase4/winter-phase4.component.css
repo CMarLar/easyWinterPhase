@@ -237,7 +237,7 @@
                             background-color: var(--backgoud-color-button);
                             text-align: center;
                             align-items: center;
-                            font-size:smaller;
+                            font: size 1.5rem;
                             margin-left: 35%;
                            /*   color:var(--font-color-hover); */
                             align-self: center;
@@ -272,9 +272,10 @@
 
                        .desplegable{
 
-                        width: 85%;
+                        width: 48%;
                         height: 40%;
-                        padding-left: 3%;
+                        margin-left: 3%;
+                     
                         /* border-radius: 5px; */
                         border-style: none;
                         background-color: var(--backgoud-color-button);

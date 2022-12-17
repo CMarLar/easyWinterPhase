@@ -197,6 +197,8 @@
                  text-align: flex;
                  font-size: large;
                  font-style: bold;
+                 display: inline-flex;
+                 margin-left: 3%;
    
             }
 

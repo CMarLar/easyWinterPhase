@@ -57,18 +57,13 @@
                                         <p></p><button class="boton" onclick="calcularNivelManutencion()">Calcular</button><span class="resultado">{{calcular}}</span><br><br><!-- arreglar con css -->
 
                                     </div>
-
+         
                                     <div class="prologo1"><!-- hijo 2 prólogo -->
-                                        <label class="nivelManutencon" for="nivel-manutencion"></label>
-                                        <select class="desplegable" name="nivel-manutencion"id="nivel-manutencion">
-                                             <option value="nivelMauntencion">NIVEL DE MANUTENCIÓN</option>
-                                            <!--  <option *ngFor="let nivel of nivelesManutencion" value="nivel">{{nivelesManutencion.nivel}}</option>  -->
-                                            
-                                             <option value="indigente">Indigente</option><!-- CON EL NGFOR ME SALEN LOS CAMPOS TRANSPARENTES, ASÍ QUE VUELVO A DESPLEGABLE TRADICIONAL HASTA QUE SEPA SOLUCIONARLO -->
-                                             <option value="pobre">Pobre</option>
-                                             <option value="rico">Rico</option>
-                                             <option value="muyrico">Muy Rico</option> 
-                                        </select>
+
+                                             <label class="desplegable">NIVEL DE MANUTENCIÓN</label>
+                                             <select class="desplegable" name="nivelManutencon" >
+                                             <option  *ngFor="let nivel of nivelesManutencion" [value]="nivel">{{nivel}}</option>
+                                             </select>
                                     </div>
                                         
                                         

@@ -11,12 +11,16 @@ export class WinterPhase7Component {
   public nombre: string
   public apellidos: string
   public foto_escudo : string
+
+  public personajes: string[]
   
    constructor(){
     
     this.nombre = "Irene",
     this.apellidos = "Herrero Becker"
     this.foto_escudo = "../../../assets/img/escudo10.png"
+
+    this.personajes = ["Alain", "Robert", "Belengarius"]
 
    }
   
