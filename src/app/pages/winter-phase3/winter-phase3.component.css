@@ -9,7 +9,7 @@
     flex-direction: column;
 /*     justify-content: space-around; */
    
-  background-image: url("../../../assets/img/fondo-reloj-arena.png");
+  background-image: url("../../../assets/img/fondo_phase3.png");
   background-size: cover;
   background-position: center;
 
@@ -89,7 +89,7 @@
     background-image: url('../../../assets/img/pergamino-chato.png');
     background-repeat: no-repeat;
     background-position: 50% 6%;
-    background-size: 74%;
+    background-size: 72%;
    
 }
     .pergamino{
@@ -301,17 +301,17 @@ label{
     .volver{
   /*       border: 2px solid red; */
         text-decoration: none;
-        color:rgb(159, 170, 187);
+        color: var(--font-color-hover);
         padding-left: 3%;
         font-size: medium;
     }
     .volver:hover{
 
-        color: var(--font-color-hover)
+        color: var(--background-color-input);
     }
     .daga_derecha:hover{
   
-        transform: translate(15px);
+        transform: translate(20px);
          cursor: pointer;
     
     }
@@ -341,19 +341,19 @@ label{
     .siguiente{
        /*  border: 2px solid red; */
         text-decoration: none;
-        color:rgb(159, 170, 187);
+        color: var(--font-color-hover);
         padding-right: 3%;
         font-size: medium;
        
     }
     .siguiente:hover{
 
-        color: var(--font-color-hover)
+        color: var(--background-color-input);
     }
 
      .daga_izquierda:hover{
   
-         transform: translate(15px);
+         transform: translate(20px);
          cursor: pointer;
 
     }

@@ -88,7 +88,7 @@
     background-image: url('../../../assets/img/pergamino-chato.png');
     background-repeat: no-repeat;
     background-position: 50% 6%;
-    background-size: 74%;
+    background-size: 72%;
    
 }
     .pergamino{
@@ -273,17 +273,17 @@
     .volver{
   /*       border: 2px solid red; */
         text-decoration: none;
-        color:rgb(159, 170, 187);
+        color: var(--font-color-hover);
         padding-left: 3%;
         font-size: medium;
     }
     .volver:hover{
 
-        color: var(--font-color-hover)
+        color: var(--background-color-input);
     }
     .daga_derecha:hover{
   
-        transform: translate(15px);
+        transform: translate(20px);
          cursor: pointer;
     
     }
@@ -313,22 +313,30 @@
     .siguiente{
        /*  border: 2px solid red; */
         text-decoration: none;
-        color:rgb(159, 170, 187);
+        color: var(--font-color-hover);
         padding-right: 3%;
         font-size: medium;
        
     }
     .siguiente:hover{
 
-        color: var(--font-color-hover)
+        color: var(--background-color-input);
     }
 
      .daga_izquierda:hover{
   
-         transform: translate(15px);
+         transform: translate(20px);
          cursor: pointer;
 
     }
+
+/*     @media screen and (max-width: 820px){
+        .ZonaB_b{
+        
+            background-size: auto;
+        }
+      
+    }   */
 
     .indigente{
 
