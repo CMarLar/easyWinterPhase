@@ -1,1 +1,39 @@
-<p>marriage-loyalty-modal works!</p>
+<main class="modal">
+    <img src="../../../assets/backgrounds/bg_modal.png" alt="">
+    <div class="modalContain">
+        <div class="inputContain">
+            <label>Introduce el valor de lealtad (Señor)</label>
+            <input class="" type="number" #valorInput>
+        </div>
+
+        <button class="small_button" (click)="calcularMatrimonioLealtad(valorInput.value)">Calcular</button>
+        
+        <!-- <div *ngIf="isHidden " class="resultados"> -->
+            <div *ngIf="resultadoFinal == 'Exito' && isHidden == true" class="resultadoExito">
+                <p>Resultado exito: {{resultadoTirada}}</p>
+                <p>+{{gloria}} para el personaje activo.</p>
+                <p>+{{libras}} para el personaje activo.</p>
+                <div class="formContainer">
+                    <div class="form">
+                        <label for="">Esposa:</label>
+                        <input type="text" placeholder="Nombre">
+                    </div>
+                    <div class="form">
+                        <label for="">Edad:</label>
+                        <input class="inoutnumber" type="number" placeholder="Edad">
+                    </div>
+                </div>
+                <button class="plumaButton">
+                    <img src="../../../assets/img/PLUMA.png" alt="">
+                    <p>Ok</p>
+                </button>
+            </div>
+            <div *ngIf="resultadoFinal == 'Fallo' && isHidden == true" class="resultadoFallo">
+                    <p>Tu señor te niega el matrimonio</p>
+                    <button class="plumaButton">
+                        <img src="../../../assets/img/PLUMA.png" alt="">
+                        <p>Ok</p>
+                    </button>
+            </div>
+    </div>
+</main>
