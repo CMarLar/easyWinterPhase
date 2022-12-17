@@ -28,18 +28,18 @@
 
             <br>
     <div class="short_inputs">
-        <div class="character_name_input">
+        <div class="character_role_input">
             <label>Rol</label>
             <select name="role" id="lang" [(ngModel)]="formNpc.role">
                 <option *ngFor="let valor of role" [value]="valor">{{valor}}</option>
             </select>
         </div>
-        <div class="squire_name_input">
+        <div class="character_otherRole_input">
             <!-- Igual tienes que cambiar el name -->
             <label>Otro rol</label><input type="text" name="otherRole" [(ngModel)]="formNpc.role">
         </div>
-        <div class="character_age_input">
-            <label>Confirmar</label>
+        <div class="character_confirm_button">
+            <label>Confirmar:</label>
             <button class="small_button">Añadir PNJ</button>
         </div>
     </div>
@@ -65,7 +65,11 @@
 
     <!-- Cabecera -->
     <div class="header">
-        <span style="font-size: larger;">Editar</span><span style="font-size: larger;">Nombre</span><span style="font-size: larger;">Rol</span><span style="font-size: larger;">Edad</span><span style="font-size: larger;">Estado</span><br>
+        <span style="font-size: larger;">Editar</span>
+        <span style="font-size: larger;">Nombre</span>
+        <span style="font-size: larger;">Rol</span>
+        <span style="font-size: larger;">Edad</span>
+        <span class="status_header" style="font-size: larger;">Estado <sub style="font-size: small;">?</sub></span><br>
     </div>
     <!-- Personajes -->
     <div class="character" *ngFor= "let npc of npcs">
@@ -73,7 +77,20 @@
         <!-- <span class="quill"><img src="../../../assets/img/PLUMA.png"></span> -->
         <span class="skull" (click)="deleteChar(npc.id)"><img src="../../../assets/img/CALAVERA.png"></span>
     </div>
-        <span>{{npc.name}}</span><span>{{npc.role}}</span><span>{{npc.age}}</span><span>{{npc.status}}</span>
+        <span>{{npc.name}}</span>
+        <span>{{npc.role}}</span>
+        <span>{{npc.age}}</span>
+        <span class="npc_status" (click)="deadOrAlive(npc.id)">
+
+            <ng-container *ngIf="npc.status==true">
+            Vivo/a
+            </ng-container>
+
+            <ng-container *ngIf="npc.status==false">
+            Muerto/a
+            </ng-container>
+
+        </span>
     </div>
 
 
