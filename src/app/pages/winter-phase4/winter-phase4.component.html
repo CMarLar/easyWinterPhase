@@ -37,13 +37,13 @@
                             <div class="prologo1"><!-- hijo 1 prólogo -->
 
                                 <div class="texto">
-                                    <p class="colorNombre">Base de mal tiempo inicial (1d20)</p>
-                                    <p class="colorNombre">Valor de modificadores</p>
-                                    <p class="colorNombre">Nivel de administración</p> 
-                                    <p class="colorNombre">Valor de modificadores</p>  
+                                    <p class="colorNombre">Mal tiempo inicial</p>
+                                    <p class="colorNombre">Mod. mal tiempo</p>
+                                    <p class="colorNombre">Hab. Administración</p> 
+                                    <p class="colorNombre">Mod. Admin</p>  
                                 </div>
                             <div class="inputs">
-
+                                    <label></label>
                                     <input class="input" type="number" #malTiempo>
                                     <input class="input" type="number" #modificadores>
                                     <input class="input" type="number" #administracion>
@@ -57,19 +57,27 @@
                                 
                                 <span class="resultado">
                                     
-                                    {{nivel}}
+                                    <p style="font-size: small;">{{nivel}}</p>
 
                                 </span><!-- arreglar con css -->
                         </div>
 
-                                <div class="desplegable_container"><!-- hijo 2 prólogo -->
+<div class="selector_container">
+<form #selectNivel="ngForm" (ngSubmit)="onSelect(selectNivel)" class="selecetedCharForm">
+        <div class="desplegable_container">
 
-                                        <label>NIVEL DE MANUTENCIÓN</label>
-                                        <select class="desplegable" name="nivelManutencon" >
-                                            <option  *ngFor="let nivel of nivelesManutencion" [value]="nivel">{{nivel}}</option>
-                                        </select>
-                                </div>
-                                    
+                <label>NIVEL DE MANUTENCIÓN</label>
+                <select class="desplegable" name="nivelManutencion" [(ngModel)]="nivelesModel.nivel">
+                    <!-- creo que el nivelesModel no se utiliza -->
+                    <option  *ngFor="let nivel of nivelesManutencion" [value]="nivel">{{nivel}}</option>
+                </select>
+
+        </div>
+
+        <button class="small_button">Aplicar</button>
+
+</form>
+</div>
                                     
                             </div>
 

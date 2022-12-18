@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { WinterPhaseMainComponent } from '../winter-phase-main/winter-phase-main.component';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-winter-phase4',
@@ -20,19 +21,31 @@ export class WinterPhase4Component {
   public nivelesManutencion: any[]/* [{nivel:"Indigente"},{nivel:"Pobre"},{nivel:"Rico"},{nivel:"Muy Rico"}] */
   public nivel: string
 
-  WinterPhaseMainComponent: any;
+  //Modelo para que funcione el ngForm
+
+  public nivelesModel;
+
+  public WinterPhaseMainComponent: any;
   
+
     constructor(){
     
     this.nombre = "Irene",
     this.apellidos = "Herrero Becker"
     this.foto_escudo = "../../../assets/img/escudo10.png"
 
+    
+
     this.nivelesManutencion = ["Indigente", "Pobre","Normal", "Rico", "Muy Rico"]
 
-    this.nivel = "A la espera del cálculo. Alternativamente, puedes escoger un nivel del desplegable"
+    this.nivel = "Introduce los valores y pulsa en calcular o selecciona el nivel directamente"
 
+    this.nivelesModel = 
+    {
+      nivel:"",
     }
+
+    }//fin constructor
   
   public calcularNivelManutencion(malTiempo:number, modMalTiempo:number, administracion:number, modAdmin:number){
     //Importante: para que haga la suma de los números y no los concatene hay que añadir + delante del número (ej: +12 + +16), o como está aquí en calcular con variables
@@ -177,7 +190,14 @@ export class WinterPhase4Component {
 
     this.nivel = resultadoFinal;
 
+  }//fin CalcularNivelManutencion
+
+  public onSelect(form:NgForm){
+    console.log(form.value.nivelManutencion);
+    this.nivel = form.value.nivelManutencion;
   }
+
+
 
 }
 
