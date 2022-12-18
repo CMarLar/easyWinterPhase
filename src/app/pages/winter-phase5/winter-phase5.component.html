@@ -39,16 +39,17 @@
 
                                        
                                               <p class="frase1">Haz una tirada por cada caballo que tenga el jugador.</p>
-                                              <p class="frase2">Ten en cuenta tu modificador de circunstancia económica: <span class="numero">{{circunstancia_economica}}</span></p>
+                                              <p class="frase2">Ten en cuenta tu modificador de {{modificador}} : <span class="numero">{{circunstanciaEconomica}}</span></p>
                                     </div><!-- cierra prologo 1 -->
 
                                     <div class="prologo2"><!-- hijo 2 prólogo -->
-                                        <span><input class="input" #calculaCaballos></span><button class="boton" onclick="calculaCaballos()">Calcular</button>
+                                        <span> <input class="input" #ncaballo>Introduce nº de Caballo </span>& tirada de Dado  &nbsp; <span><input class="input" #valorDado></span>
+                                        <button class="boton" (click)="calcularSaludCaballo(ncaballo.value, valorDado.value)">Calcular</button>
                                     </div>
 
                                     <div class="prologo3"><!-- hijo 2 prólogo -->
                                         <p class="frase1" >RESULTADOS</p>
-                                        <p class="frase2" *ngFor="let caballo of caballos" [value]="caballo">{{caballo}}</p>
+                                        <p class="frase2" *ngFor="let caballito of caballos" [value]="caballito">{{caballito}}</p>
                                 
                                     </div>
                                         
