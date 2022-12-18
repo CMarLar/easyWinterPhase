@@ -140,11 +140,11 @@
     }
 
     .btnCrear{
-        /* border: 1px solid blue; */
-        height: 20%;
-        width: 50%;
+       /*  border: 1px solid blue; */
+        height: 30%;
+        width: 48%;
         background-color: transparent;
-        /* border: none; */
+        border: none; 
         position: relative;
 
     }
@@ -171,8 +171,8 @@
         color: var(--font-color-warnings);
         font-weight: bolder;
         position: absolute;
-        top: 37%;
-        left: 30%;
+        top: 40%;
+        left: 28%;
     }
         
 @media screen and (max-width: 1367px){

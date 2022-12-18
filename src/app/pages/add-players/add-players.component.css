@@ -7,7 +7,7 @@
 .main{
     width: auto;
     height: 100vh;
-    background-image: url(../../../assets/backgrounds/bg_add_players.png);
+    background-image: url(../../../assets/backgrounds/fondo_addplayers_claro.png);
     background-size: cover;
     background-position: center;
     /* border: 2px solid red; */
@@ -30,7 +30,7 @@
     gap:2%
 }
     .titleContain{
-        border: 2px solid blue;
+       /*  border: 2px solid blue; */
         width: 50%;
         height: 22%;
 
@@ -39,7 +39,7 @@
 
     }
     .fotoPerfil{
-        border: 2px solid black;
+       /*  border: 2px solid black; */
         height: 100%;
         width: 20%;
 
@@ -78,7 +78,7 @@
         color: var(--font-color-h);
         -webkit-text-stroke: 0.75px var(--font-color-hover);
         font-size: 2rem;
-        border: 2px solid red;
+      /*   border: 2px solid red; */
     }
     .titleText p{
         width: 100%;
@@ -102,8 +102,9 @@
     height: 16.66%;
     background-color: var(--background-color-input);
     color: var(--font-color-hover);
+    font-size: larger;
     text-align: center;
-    /* border: none; */
+    border-color: rgb(78, 86, 84);
 }
 .textHide{
     font-size: 1.5rem;
@@ -121,33 +122,55 @@
     justify-content: center;
     gap: 5%;
 }
+/* CÓDIGO: APUNTES CARLOS */
+/* button{
+    background-color: var(--font-color-h);
+    font-size: larger;
+    border-radius: 3px;
+    padding: 15px 32px;
+    color: white;
+}
+
+button:hover{
+    color: var(--font-color-hover);
+    cursor: pointer;
+}
+
+button:disabled{
+    background-color: grey;
+    color:black;
+    cursor:default
+} */
 .btnCrearBlock{
     width: 30%;
-    background-color: gray;
-    border-radius: 1rem;
+    background-color: grey;
+    border-radius: 3px;
     border: none;
-    color: white;
-    font-size: 1.5rem;
+    color: black;
+    font-size: larger;
 }
 .btnCancelar{
-    width: 25%;
-    background-color: var(--background-color-input);
-    border-radius: 1rem;
-    border: none;
+    background-color: var(--font-color-h);
+    font-size: larger;
+    border-radius: 3px;
+    padding: 15px 32px;
     color: white;
-    font-size: 1.5rem;
+    
 }
 .btnCancelar:hover{
     border: 1px solid var(--font-color-hover);
     color: var(--font-color-hover);
+    cursor: pointer;
 }
 .btnCrear{
     width: 30%;
-    background-color: var(--background-color-input);
-    border-radius: 1rem;
-    border: none;
+    background-color:var(--font-color-h);
+   /*  font-size: 1.5rem; */
+    cursor: default;
+    font-size: larger;
+    border-radius: 3px;
+    padding: 15px 32px;
     color: white;
-    font-size: 1.5rem;
 }
 .btnCrear:hover{
     border: 1px solid var(--font-color-hover);
