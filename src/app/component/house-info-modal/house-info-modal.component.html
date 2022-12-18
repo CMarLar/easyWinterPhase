@@ -11,12 +11,23 @@
         </div>
         
         <div [ngClass]="'prueba'" [(ngModel)]="house.npc" class="contenedorTexto">
+            <div class="header">
+                <span class="name_header">Nombre</span>
+                <span class="role_header">Rol</span>
+            </div>
+
             <div *ngFor="let pnj of house.npc" >
                 <div *ngIf="pnj.estado === true; else muerto">
-                    <p [ngClass]="'vivo'">{{pnj.nombre}}, {{pnj.rol}}</p>
+                <div class="char_container">
+                    <span class="char_name" [ngClass]="'vivo'">{{pnj.nombre}}</span>
+                    <span class="char_role"> {{pnj.rol}}</span>
+                </div>
                 </div>
                 <ng-template #muerto>
-                    <p class="muerto" >{{pnj.nombre}}, {{pnj.rol}}</p>
+                <div class="char_container">
+                    <span class="char_name"> <p class="muerto">{{pnj.nombre}}</span>
+                    <span class="char_role">{{pnj.rol}}</span>
+                </div>
                 </ng-template>
             </div>
         </div>

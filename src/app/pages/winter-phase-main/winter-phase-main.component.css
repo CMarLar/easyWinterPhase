@@ -1,3 +1,10 @@
+.modal {
+    position: absolute;
+    top: 15%;
+    right: 10%;
+
+}
+
 
 .padre{
 
@@ -185,11 +192,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 90%;
     flex-wrap: wrap;
     padding-top: 1%;
     padding-bottom: 1%;
+    padding-left: 20%;
+    padding-right: 20%;
     color:var(--font-color-h);
     font-weight: bold;
+    /* border:2px solid yellowgreen */
 }
 
 .caja{
