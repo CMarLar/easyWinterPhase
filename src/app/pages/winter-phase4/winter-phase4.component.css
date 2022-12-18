@@ -176,15 +176,16 @@
 
                 
 
-                     .texto{
+                    .texto{
                         display: flex;
                         flex-direction: column;
                         width: 85%;
                         height: 100%;
+                        padding-left: 5%;
                         /* border:  5px solid rgb(13, 215, 212); */
                         font-size: small;
 
-                     }
+                    }
 
                      .inputs{
 
