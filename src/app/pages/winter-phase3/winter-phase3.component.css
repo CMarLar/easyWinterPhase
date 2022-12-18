@@ -359,3 +359,13 @@ label{
          cursor: pointer;
 
     }
+    .prologo select{
+        width: 30%;
+        background-color: var(--background-color-input);
+    }
+    .modal {
+        position: absolute;
+        top: 15%;
+        left: 10%;
+    
+    }
