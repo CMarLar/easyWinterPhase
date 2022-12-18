@@ -20,6 +20,7 @@ export class MarriageCourtesyModalComponent {
   public objeto : any;
   public botonPulsado : boolean;
   public noSeCasa: string;
+  public datos : any;
 
   constructor(){
     this.isHidden = true;
@@ -124,5 +125,15 @@ export class MarriageCourtesyModalComponent {
   public noMarriage(){
     this.noSeCasa = "No";
     this.botonPulsado = true;
+  }
+
+  public guardarDatos(){
+
+    if(this.resultadoFinal == "Exito"){
+
+      this.datos = {
+        rol : this.rol,
+      }
+    }
   }
 }

@@ -156,33 +156,33 @@
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 }
                  
                   .prologo1{
 
                     width: 100%;
-                    height: 50%;
-                   /*  border:  5px solid rgb(215, 13, 198); */
+                    height: 30%;
+                    /* border:  5px solid rgb(215, 13, 198); */
 
                     display: flex;
-                    flex-direction: column;
+                    flex-direction: row;
                     justify-content: space-around;
 
                   }
                         .frase1{
-
+                            /* border: 2px solid black; */
                             color: black;
                             font-family: 'Almendra', serif;
-                            text-align: justify;
+                            /* text-align: center; */
                             font-size: 1em;
                             padding-left: 10%;
                    
                         }
                         .boton{
 
-                            width: 60%;
-                            height: 30%;
+                            width: 40%;
+                            height: 60%;
                             border-radius: 15px;
                             border-style: none;
                             background-color: var(--backgoud-color-button);
@@ -332,3 +332,10 @@
         }
       
     }   */
+
+    .modal {
+        position: absolute;
+        top: 15%;
+        left: 10%;
+    
+    }

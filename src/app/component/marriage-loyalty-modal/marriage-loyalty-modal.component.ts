@@ -15,6 +15,7 @@ export class MarriageLoyaltyModalComponent {
   public resultadoFinal : string;
   public gloria : number;
   public libras : string;
+  public datos : any;
 
   constructor(){
     this.isHidden = true;
@@ -43,6 +44,20 @@ export class MarriageLoyaltyModalComponent {
     }
 
     this.isHidden = true;
+  }
+
+  public guardarDatos(name : string, age : string){
+    
+    if(this.resultadoFinal == "Exito"){
+
+      this.datos = {
+        nombreEsposa : name,
+        edadEsposa : age,
+        gloria : this.gloria,
+        libras : this.libras
+      }
+    }
+    
   }
   
 }

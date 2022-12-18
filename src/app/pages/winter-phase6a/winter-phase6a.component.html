@@ -34,18 +34,22 @@
 
                                   <div class="prologo"> 
 
-
+                                    <p class="frase1">Casamientos:</p>  
                                     <div class="prologo1"><!-- hijo 1 prólogo -->
-                                        <p class="frase1">Casamientos:</p>
-                                        <button class="boton" onclick="matrimonioLealtad()">Matrimonio por lealtad/Señor</button>
-                                             
-                                    </div>
-
-                                    <div class="prologo2"><!-- hijo 2 prólogo -->
-                                        <button class="boton2" onclick="matrimonioCortesia()">Matrimonio por cortesía</button>
-                                    </div>
                                         
-                                        
+                                        <button class="boton" (click)="matrimonioLealtad()">Matrimonio por lealtad  </button>
+                                        <button class="boton" (click)="matrimonioCortesia()">Matrimonio por cortesía</button>
+                                    </div>                                        
+                                        <div [hidden]="isHide">
+                                            <div *ngIf="newmarried.isMarried == true; else noEstaCasado">
+                                                <p>Nombre: {{newmarried.nombre}}</p>
+                                                <p>Edad: {{newmarried.edad}}</p>
+                                            </div>
+                                            <ng-template #noEstaCasado>
+                                                Tu señor te niega el casamiento
+                                            </ng-template>
+                                        </div>
+                                       
                                   </div>
 
                             </div> <!-- cierre CAJA -->
@@ -69,10 +73,13 @@
 
         <div class="next">
             <a routerLink = "/phase6b" class="daga_izquierda"><img src="../../../assets/img/daga-adelante.png" alt="" ></a>
-            <a routerLink = "/phase6b" class="siguiente">SIGUIENTE</a>
+            <a routerLink = "/phase6b" class="siguiente" (click)="guardarEsposa()">SIGUIENTE</a>
         </div>
 
 
     </div><!-- cierre dagas -->
 
 </div><!-- CIERRE PADRE -->
+
+<app-marriage-courtesy-modal class="modal" [hidden]="isHideCourtesy"></app-marriage-courtesy-modal>
+<app-marriage-loyalty-modal class="modal" [hidden]="isHideLoyalty"></app-marriage-loyalty-modal>
