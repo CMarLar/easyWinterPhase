@@ -31,7 +31,7 @@
     display: flex;
     flex-direction: column;
     width: auto;
-    height: auto;
+    height: 100vh;
     padding-top: 7vh;
     background-image: url(../../../assets/backgrounds/bg_pergamino_1.jpg);
     background-size:cover;
@@ -42,7 +42,7 @@
     display: flex;
     flex-direction: row;
     /* border: 5px solid red; */
-    min-height: 70vh;
+    height: 100%;
     width: auto;
     padding-bottom: 10vh;
 
@@ -102,17 +102,18 @@
 
 }
 
-.container{
-    /* border: 5px solid blue; */
-}
+/* .container{
+    border: 5px solid blue;
+} */
 
 .playerlist{
     /* border: 5px solid yellow; */
+    margin-top: 5%;
 }
-    .playerlist img{
-        /* width: 64px;
-        height: 64px; */
-    }
+    /* .playerlist img{
+        width: 64px;
+        height: 64px;
+    } */
 
 
 .playerempty{
