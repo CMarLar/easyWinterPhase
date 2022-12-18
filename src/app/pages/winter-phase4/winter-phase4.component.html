@@ -2,95 +2,85 @@
 
     <div class="main">
 
-        <!-- hijo 1 MAIN -->
+          <!-- hijo 1 MAIN -->
         <div class="contenido">
 
-        <div class="zonaB">
+            <div class="zonaB">
 
-            <div class="zonaB_a">
+                <div class="zonaB_a">
 
-                <p class="titulo">FASE DE INVIERNO<br></p>
-                <p class="nombreUsuario">{{nombre}} {{apellidos}}</p>
+                        <p class="titulo">FASE DE INVIERNO<br></p>
+                        <p class="nombreUsuario">{{nombre}} {{apellidos}}</p>
 
+                </div>
+
+                <div class="zonaB_b">
+
+                        <!-- <img class="pergamino" src="../../../assets/img/pergamino-chato.png"> -->
+                            
+                             <div class="caja">
+
+                                  <div class="escudo">
+                                        <div class="caja_escudo"> 
+                                            <img src="{{foto_escudo}}">
+                                        </div>
+                            
+                                        <div class="paso">
+                                            <p>Paso 4:</p>
+                                            <p>Circunstancias Económicas</p>  
+                                        </div>
+
+                                  </div>
+
+                                  <div class="prologo"> 
+
+
+                                    <div class="prologo1"><!-- hijo 1 prólogo -->
+
+                                         <div class="texto">
+                                              <p class="colorNombre">Base de mal tiempo inicial (1d20)</p>
+                                              <p class="colorNombre">Valor de modificadores</p>
+                                              <p class="colorNombre">Nivel de administración</p> 
+                                              <p class="colorNombre">Valor de modificadores</p>  
+                                         </div>
+                                         <div class="inputs">
+
+                                             <input class="input" #malTiempo>
+                                             <input class="input" #modificadores>
+                                             <input class="input" #administración>
+                                             <input class="input" #modificadores2>
+                                         </div>
+
+                                    </div><!-- cierra prologo 1 -->
+
+                                    <div class="prologo1"><!-- hijo 2 prólogo -->
+                                        <p></p><button class="boton" onclick="calcularNivelManutencion()">Calcular</button><span class="resultado">{{calcular}}</span><br><br><!-- arreglar con css -->
+
+                                    </div>
+         
+                                    <div class="prologo1"><!-- hijo 2 prólogo -->
+
+                                             <label class="desplegable">NIVEL DE MANUTENCIÓN</label>
+                                             <select class="desplegable" name="nivelManutencon" >
+                                             <option  *ngFor="let nivel of nivelesManutencion" [value]="nivel">{{nivel}}</option>
+                                             </select>
+                                    </div>
+                                        
+                                        
+                                  </div>
+
+                            </div> 
+                        
+
+                </div>  
             </div>
-
-            <div class="zonaB_b">
-
-                <!-- <img class="pergamino" src="../../../assets/img/pergamino-chato.png"> -->
-                    
-                    <div class="caja">
-
-                        <div class="escudo">
-                                <div class="caja_escudo"> 
-                                    <img src="{{foto_escudo}}">
-                                </div>
-                    
-                                <div class="paso">
-                                    <p>Paso 4:</p>
-                                    <p>Circunstancias Económicas</p>  
-                                </div>
-
-                            </div>
-
-                        <div class="prologo"> 
-
-                            <div class="prologo1"><!-- hijo 1 prólogo -->
-
-                                <div class="texto">
-                                    <p class="colorNombre">Mal tiempo inicial</p>
-                                    <p class="colorNombre">Mod. mal tiempo</p>
-                                    <p class="colorNombre">Hab. Administración</p> 
-                                    <p class="colorNombre">Mod. Admin</p>  
-                                </div>
-                            <div class="inputs">
-                                    <label></label>
-                                    <input class="input" type="number" #malTiempo>
-                                    <input class="input" type="number" #modificadores>
-                                    <input class="input" type="number" #administracion>
-                                    <input class="input" type="number" #modificadores2>
-                            </div>
-
-                        </div><!-- cierra prologo 1 -->
-
-                        <div class="buttons"><!-- hijo 2 prólogo -->
-                                <button class="small_button" (click)="calcularNivelManutencion(malTiempo.value,modificadores.value,administracion.value,modificadores2.value)">Calcular</button>
-                                
-                                <span class="resultado">
-                                    
-                                    <p style="font-size: small;">{{nivel}}</p>
-
-                                </span><!-- arreglar con css -->
-                        </div>
-
-<div class="selector_container">
-<form #selectNivel="ngForm" (ngSubmit)="onSelect(selectNivel)" class="selecetedCharForm">
-        <div class="desplegable_container">
-
-                <label>NIVEL DE MANUTENCIÓN</label>
-                <select class="desplegable" name="nivelManutencion" [(ngModel)]="nivelesModel.nivel">
-                    <!-- creo que el nivelesModel no se utiliza -->
-                    <option  *ngFor="let nivel of nivelesManutencion" [value]="nivel">{{nivel}}</option>
-                </select>
-
-        </div>
-
-        <button class="small_button">Aplicar</button>
-
-</form>
-</div>
-                                    
-                            </div>
-
-                        </div> 
-            </div>  
-        </div>
         </div>  
 
     </div>
 
     <!-- hijo 2 -->
 
-    <div class="dagas">
+     <div class="dagas">
 
         <div class="back">
             <a routerLink = "/phase3" class="daga_derecha"><img src="../../../assets/img/daga-atras.png" alt="" ></a>

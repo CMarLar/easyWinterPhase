@@ -1,17 +1,17 @@
 .padre{
 
-    width: 100vw;
+    width: 100%;
     height: 100vh;
 
     display: flex;
     flex-direction: column;
 /*     justify-content: space-around; */
+   
+  background-image: url(../../../assets/img/fondo_phase4.png);
+  background-size: cover;
+  background-position: center;
 
-    background-image: url(../../../assets/img/fondo_phase4.png);
-    background-size: cover;
-    background-position: center;
-
-    /* border:  4px solid orange;  */
+  /*    border:  4px solid orange; */ 
 }
 
 
@@ -25,7 +25,7 @@
     .contenido{
         width: 100%;
         height: 100%;
-        /* border: 3px solid yellow; */
+       /*  border: 3px solid yellow; */
 
         display: flex;
         flex-direction: row;
@@ -34,8 +34,8 @@
 
 
 .zonaB{
-    /* border: 2px solid blueviolet; */
-    width: 65%;
+/*     border: 2px solid blueviolet; */
+    width: 55%;
     height: 100%;
     display: flex; 
     flex-direction: column;
@@ -45,7 +45,7 @@
 
     width: 100%;
     height: 18%;
-    /* border: 10px solid teal; */
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -77,7 +77,7 @@
     width: 100%;
     height: 82%;
     flex-direction: row;
-    /* border:  4px solid white; */
+  /*   border:  4px solid rgb(255, 255, 255); */
 
     display: flex;
     flex-direction:column;
@@ -86,8 +86,8 @@
 
     background-image: url('../../../assets/img/pergamino-chato.png');
     background-repeat: no-repeat;
-    background-position:center;
-    background-size:contain;
+    background-position: 50% 6%;
+    background-size: 72%;
    
 }
     .pergamino{
@@ -98,47 +98,48 @@
         .caja{
             width: 53%;
             height:83%;
-            /* border:  4px solid pink; */
+           /*  border:  4px solid rgb(229, 116, 116); */
+            
             display: flex;
             flex-direction: column;
-            justify-content: center;
         } 
+                    .escudo{
+                         width: 100%;
+                         height: 35%;
+                       /*   border:  4px solid red; */ 
 
-    .escudo{
-        width: 100%;
-        height: 25%;
-        /* border:  2px dotted red;  */
-        display: flex;
-        flex-direction: row;
-    }
+                         display: flex;
+                         flex-direction: row;
+
+                    }
 /* ESCUDO */
-        .caja_escudo{
-            height: 90%;
-            width: 35%;
-            /* border:  2px solid blueviolet; */
+.caja_escudo{
+    height: 100%;
+    width: 40%;
+   /*  border:  2px solid blueviolet; */
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-            .caja_escudo img{
-                width: 70%;
-            }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+    .caja_escudo img{
+        width: 70%;
+    }
 
-            .paso{
-                height: 90%;
-                width: 65%;
+    .paso{
+        height: 100%;
+        width: 60%;
 
-                font-family: 'Almendra', serif;
-                font-size: x-large;
-                padding-left: 2%;
+        font-family: 'Almendra', serif;
+        font-size: x-large;
+        padding-left: 2%;
 
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
-                /* border:  4px solid rgb(3, 2, 2); */
-            }
+        /* border:  4px solid rgb(3, 2, 2); */
+    }
 
 /* termina ESCUDO */
 
@@ -151,7 +152,7 @@
    /*  position: absolute; */
     text-align: center;
 
-    /* border:  3px solid rgb(23, 215, 13);  */
+   /*  border:  3px solid rgb(23, 215, 13);  */
     line-height: 180%;
 
     display: flex;
@@ -165,32 +166,31 @@
                    /*  border:  10px solid rgb(215, 13, 198); */
                   }
                   .prologo1{
+
+                    width: 100%;
+                    height: 50%;
+/*                     border:  5px solid rgb(215, 13, 198); */
+
                     display: flex;
                     flex-direction: row;
                     justify-content: space-around;
-                    width: 100%;
-                    height: 50%;
-                    /* border:  5px solid rgb(215, 13, 198); */
-                    margin-bottom: 2%;
+
                   }
 
-                
-
                      .texto{
-                        display: flex;
-                        flex-direction: column;
-                        width: 85%;
+
+                        width: 80%;
                         height: 100%;
+                        padding-left: 10%;
                         /* border:  5px solid rgb(13, 215, 212); */
-                        font-size: small;
 
                      }
 
                      .inputs{
 
-                        width: 15%;
+                        width: 20%;
                         height: 100%;
-                        /* border:  5px solid rgb(13, 215, 212); */
+                       /*  border:  5px solid rgb(13, 215, 212); */
 
                         display: flex;
                         justify-content: space-between;
@@ -213,9 +213,8 @@
                      }
                         .colorNombre{
                             color: var( --font-color-label-input);
-                            font-size: small;
+                            font-size: medium;
                             text-align: justify;
-                            width:50%;
                           
                         }
 
@@ -223,68 +222,14 @@
                   .prologo2{
                     width: 100%;
                     height: 30%;
-                    /* border:  5px solid rgb(215, 191, 13); */
+         /*            border:  5px solid rgb(215, 191, 13); */
                     align-items: center;
                     text-align: center;
                     justify-content: center;
-                    }
 
+                  }
+                        .boton{
 
-                    .buttons{
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        align-items: center;
-                        height: 40%;
-                        /* border:2px solid green; */
-                        }
-
-                    
-                    .resultado{
-
-                        width: 100%;
-                        height: 50%;
-
-                        color:black;
-                        border-style: none;
-                        text-align: center;
-                        align-items: center;
-                        font-size: large;
-                        /*   color:var(--font-color-hover); */
-                        align-self: center;
-                        justify-content: center;
-                        /* border:2px solid red; */
-                        gap:0px;
-
-                    }
-
-                    button{
-                        background-color: var(--font-color-h);
-                        font-size: larger;
-                        border-radius: 3px;
-                        padding: 15px 32px;
-                        color: white;
-                    }
-                
-                        .small_button{
-                            background-color: var(--font-color-h);
-                            font-size: large;
-                            border-radius: 3px;
-                            padding: 5px 10px;
-                        }
-                
-                    button:hover{
-                        color: var(--font-color-hover);
-                        cursor: pointer;
-                    }
-                
-                    button:disabled{
-                        background-color: grey;
-                        color:black;
-                        cursor:default
-                    }
-
-                        /* .boton{
                             width: 20%;
                             height: 50%;
                             border-radius: 15px;
@@ -294,20 +239,29 @@
                             align-items: center;
                             font: size 1.5rem;
                             margin-left: 35%;
-                            color:var(--font-color-hover);
+                           /*   color:var(--font-color-hover); */
                             align-self: center;
                             justify-content: center;
-                            border:2px solid yellow
                         }
-
                         .boton:hover{
 
-                            color: var(--font-color-hover);
-                        } */
+                             color: var(--font-color-hover);
+                        }
+                        .resultado{
 
+                            width: 20%;
+                            height: 50%;
 
-
-
+                            color:black;
+                            border-radius: 15px;
+                            border-style: none;
+                            text-align: center;
+                            align-items: center;
+                            font-size: large;
+                           /*   color:var(--font-color-hover); */
+                            align-self: center;
+                            justify-content: center;
+                        }
                   .prologo3{
 
                     width: 100%;
@@ -316,43 +270,26 @@
 
                   }
 
-                    .desplegable{
+                       .desplegable{
 
-                    width: 48%;
-                    height: 40%;
-                    margin-left: 3%;
-                    /* border-radius: 5px; */
-                    border-style: none;
-                    background-color: var(--backgoud-color-button);
-                    text-align: center;
-                    align-items: center;
-                    font-size:smaller;
-                    /*   color:var(--font-color-hover); */
-                    align-self: center;
-                    text-decoration: none;
-                    justify-content: center;
-                    border: none;
-                    }
-
-                    .desplegable_container{
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
+                        width: 48%;
+                        height: 40%;
+                        margin-left: 3%;
+                     
+                        /* border-radius: 5px; */
+                        border-style: none;
+                        background-color: var(--backgoud-color-button);
+                        text-align: center;
                         align-items: center;
-                        width: 100%;
-                        /* border:  2px solid black; */
-                        margin-bottom: 2%;
-                    }
-
-                    .selector_container{
-                        display: flex;
-                        flex-direction: row;
-                        width: 100%;
-                        /* border:  5px solid white; */
+                        font-size:smaller;
+                       /*   color:var(--font-color-hover); */
+                        align-self: center;
+                        text-decoration: none;
                         justify-content: center;
-                        align-items: center;
-                    }
-
+                        border: none;
+    
+            
+                       }
                        .dropdown-content{
                         background-color: var(--background-color-input);
                         width: 90%;
@@ -455,18 +392,10 @@
 
     }
 
-    @media screen and (max-width: 1045px){
-        .caja_escudo{
+/*     @media screen and (max-width: 820px){
+        .ZonaB_b{
         
-            display:none;
-
-        }
-
-        .paso{
-            width: 100%;
-        }
-        .texto{
-            font-size: smaller;
+            background-size: auto;
         }
       
-    }  
+    }   */
