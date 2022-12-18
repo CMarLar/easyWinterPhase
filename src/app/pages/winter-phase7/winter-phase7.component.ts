@@ -13,6 +13,8 @@ export class WinterPhase7Component {
   public foto_escudo : string
 
   public personajes: string[]
+
+  public houseCharacters;
   
    constructor(){
     
@@ -20,8 +22,22 @@ export class WinterPhase7Component {
     this.apellidos = "Herrero Becker"
     this.foto_escudo = "../../../assets/img/escudo10.png"
 
-    this.personajes = ["Alain", "Robert", "Belengarius"]
+    this.personajes = ["Alain", "Robert", "Belengarius"];
 
+    this.houseCharacters = 
+    {
+      characters:
+      [
+        {name:"Alain",role:"Hermano",age:14,sex:"Hombre"},
+        {name:"Robert",role:"Hijo/a",age:21,sex:"Hombre"},
+        {name:"Gwynneth",role:"Hijo/a",age:14,sex:"Woman"},
+        {name:"Richard",role:"Escudero",age:18,sex:"Hombre"},
+      ]
+    }
+
+    console.log(this.houseCharacters);
+    console.log(this.houseCharacters.name);
+    
    }
   
   }

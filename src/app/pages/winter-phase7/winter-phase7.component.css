@@ -313,10 +313,45 @@
 
     }
 
-/*     @media screen and (max-width: 820px){
-        .ZonaB_b{
+    .list{
+        display: flex;
+        flex-direction: column;
+        padding-left: 5%;
+        font-size: small;
+    }
+
+    @media screen and (max-width: 1187px){
+        .imagen_escudo{
         
-            background-size: auto;
+            display:none;
         }
       
-    }   */
+    }  
+
+    @media screen and (max-width: 730px){
+        .imagen_escudo{
+        
+            display:none;
+        }
+
+        .paso7{
+            font-size: large;
+        }
+      
+        .titulo{
+            font-size: 2rem;
+        }
+
+        .nombreUsuario{
+            font-size: 1rem;
+        }
+
+        .textolargo{
+            font-size: small;
+        }
+
+        .Alain{
+            display:block;
+            font-size: medium;
+        }
+    }  

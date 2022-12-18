@@ -36,16 +36,18 @@
 
                                   <div class="textolargo">
 
-                                    <p class="pasoOpcional">Personaje activo</p>
-                                    <p class="pasoOpcional2">El jugador debe de llevar a cabo una de las siguientes tareas en su hoja de personaje activo:
-
-                                       <br> -Opción 1.   
-                                       <br> -Opción 2.
-                                       <br> -Opción 3.<br>
+                                    <p class="pasoOpcional">Personaje jugador</p>
+                                    <p class="pasoOpcional2">El jugador debe de llevar a cabo <span style="font-weight: bold;">solo una</span> de las siguientes tareas en su hoja de personaje:</p>
+                                <div class="list">
+                                    <ul>
+                                        <li> Ganar 1d6+1 puntos en habilidades (hasta un máximo de 15).   
+                                        <li> Ganar un punto en una habilidad (hasta un máximo de 20).
+                                        <li> Mejorar  una  característica,  rasgo  de  personalidad  o  pasión.<br>
+                                    </ul>
+                                </div>
+                                    <p>Los siguiente <span style="font-weight: bold;">PNJ</span> reciben 1d3 puntos para aumentar cualquiera de sus habilidades:<br></p>
                                      
-                                     Los siguiente personajes no jugadores reciben 1d3 puntos para aumentar cualquiera de sus habilidades:<br></p>
-                                     
-                                     <p class="Alain" *ngFor="let name of personajes" [value]="name">{{name}}</p>
+                                     <p class="Alain" *ngFor="let character of houseCharacters.characters" [value]="name">{{character.name}}</p>
 
                                   </div>
 
