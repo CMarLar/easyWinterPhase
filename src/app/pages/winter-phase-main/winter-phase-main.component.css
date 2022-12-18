@@ -7,33 +7,35 @@
     display: flex;
     flex-direction: column;
     /*     justify-content: space-around; */
-    background-image: url("../../../assets/backgrounds/bg_login_register.jpg");
+    background-image: url("../../../assets/backgrounds/fondo_whinterphase_main.png");
     background-size: cover;
     background-position: center;
     /* border:  4px solid orange;  */
     }
 .main{
-/*     border: 2px solid black; */
+   /*  border: 2px solid rgb(178, 15, 15); */
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     height: 85vh;
 }
 
 .zonaA{
-    width: 55%;
+    width: 70%;
     height: 100%;
-    /* border:  4px solid rgb(255, 0, 0); */
+ /*    border:  4px solid rgb(252, 149, 149); */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
-.zonaB{
-    /* border: 2px solid blueviolet; */
+/* .zonaB{
+    border: 2px solid blueviolet;
     width: 45%;
     height: 100%;
 
-}
+} */
 .fondo{
     width: auto;
     height: 100%;
@@ -41,7 +43,7 @@
 .dagas{
 
     width: 100%;
-    height: 15vh;
+    height: 12vh;
 
     /* border:  4px solid rgb(255, 255, 255); */
     font-family: 'Almendra', serif;
@@ -59,7 +61,7 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    /* border:  4px solid brown; */
+   /*  border:  4px solid brown; */
     margin-top: 7%;
     position:relative
 }
@@ -68,10 +70,13 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    font-style: bold ;
+    padding-right: 2%;
+    margin: 0.5%;
     gap:2%;
-    width: 70%;
+    width: 65%;
     flex-wrap: wrap;
-    /* border:2px solid green; */
+/*  border:2px solid green;  */
 }
 
     .header span{
@@ -82,10 +87,11 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    padding-right: 3%;
     gap:2%;
-    width: 70%;
+    width: 65%;
     flex-wrap: wrap;
-    /* border:2px solid red; */
+   /*  border:2px solid red; */
 }
 
     .players span{
@@ -98,11 +104,12 @@
         flex-direction: row;
         align-items: center;
         justify-content: flex-end;
+        margin: 0.3%;
         /* border: 1px solid orange; */
     }
 
         .shield_img img{
-            width: 40%;
+            width: 30%;
 
         }
 
@@ -123,18 +130,20 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        color: var(--background-color-input);
+        color: var(--backgoud-color-button);
         /* font-size: x-large; */
         font-family: 'Almendra', serif;
-        -webkit-text-stroke: 0.75px var(--font-color-hover);
+        -webkit-text-stroke: 0.75px black;
         font-size: 3rem;
+        font-style: bold;
         /* border:2px solid yellow */
 
     }
 
     .complete{
         color: var(--font-color-h);
-        font-size: larger;
+        font-size: medium;
+        font-style: bold;
     }
 
 
@@ -142,7 +151,7 @@
 .zonaA_b{
 
     width: 100%;
-    height: 82%;
+    height: 95%;
     flex-direction: row;
     /* border:  4px solid white; */
 
@@ -176,8 +185,9 @@
     align-items: center;
     color:black;
     font-family: 'Almendra', serif;
-    font-size: x-large;
+    font-size: 2rem;
     text-align: center;
+    
     /* border:2px solid yellowgreen */
 }
 
@@ -196,7 +206,7 @@
 
     width: 30%;
     height: 50%;
-    /* border:  4px solid green; */
+   /*  border:  4px solid green;  */
     position: absolute;
     display: flex;
     /* flex-direction: ; */
@@ -247,7 +257,7 @@
     margin: 8%;
     margin-left: 4%;
 
-    /* border:  4px solid rgb(229, 189, 116); */
+  /*    border:  4px solid rgb(229, 189, 116); */
 
 }
 .textolargo{
@@ -309,17 +319,17 @@
     .volver{
   /*       border: 2px solid red; */
         text-decoration: none;
-        color:rgb(159, 170, 187);
+        color:var(--font-color-hover);
         padding-left: 3%;
         font-size: medium;
     }
     .volver:hover{
 
-        color: var(--font-color-hover)
+        color: var(--backgoud-color-button)
     }
     .daga_derecha:hover{
   
-        transform: translate(15px);
+        transform: translate(20px);
          cursor: pointer;
     
     }
@@ -349,19 +359,19 @@
     .siguiente{
         /* border: 2px solid red; */
         text-decoration: none;
-        color:rgb(159, 170, 187);
+        color:var(--font-color-hover);
         padding-right: 3%;
         font-size: medium;
        
     }
     .siguiente:hover{
 
-        color: var(--font-color-hover)
+        color: var(--backgoud-color-button)
     }
 
      .daga_izquierda:hover{
   
-         transform: translate(15px);
+         transform: translate(20px);
          cursor: pointer;
 
     }
