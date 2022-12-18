@@ -32,10 +32,12 @@ import { MarriageCourtesyModalComponent } from './component/marriage-courtesy-mo
 import { BirthsModalComponent } from './component/births-modal/births-modal.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ModifyProfileComponent } from './pages/modify-profile/modify-profile.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 const routes: Routes = [
 {path:"",redirectTo:"/home",pathMatch:"full"},
 {path:"home",component:HomeComponent},
+{path:"aboutus", component: AboutUsComponent},
 {path:"login",component:LoginComponent},
 {path:"register",component:RegisterComponent},
 {path:"profile",component:ProfileComponent},
