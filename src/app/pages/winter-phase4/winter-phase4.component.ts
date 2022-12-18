@@ -22,25 +22,163 @@ export class WinterPhase4Component {
 
   WinterPhaseMainComponent: any;
   
-   constructor(){
+    constructor(){
     
     this.nombre = "Irene",
     this.apellidos = "Herrero Becker"
     this.foto_escudo = "../../../assets/img/escudo10.png"
 
-    this.nivelesManutencion = ["Indigente", "Pobre", "Rico", "Muy Rico"]
-   }
+    this.nivelesManutencion = ["Indigente", "Pobre","Normal", "Rico", "Muy Rico"]
+
+    this.nivel = "A la espera del cálculo. Alternativamente, puedes escoger un nivel del desplegable"
+
+    }
   
+  public calcularNivelManutencion(malTiempo:number, modMalTiempo:number, administracion:number, modAdmin:number){
+    //Importante: para que haga la suma de los números y no los concatene hay que añadir + delante del número (ej: +12 + +16), o como está aquí en calcular con variables
+    let calcular:number;
+    calcular = +malTiempo + +modMalTiempo + +administracion + +modAdmin;
+
+    let tiradaAdmin = Math.floor(Math.random()*20);
+    let tiradaMaltiempo = Math.floor(Math.random()*20);
+    let sumaMalTiempo = +malTiempo + +modMalTiempo;
+    let sumaAdmin = +administracion + +modAdmin;
+    let resultadoTiradaAdmin;
+    let resultadoTiradaMalTiempo;
+
+    let resultadoFinal:string;
+
+
+    if((+tiradaAdmin <= +sumaAdmin)&&((+tiradaAdmin) < 20)){
+
+      resultadoTiradaAdmin = "Éxito";
+      console.log("Tirada del jugador: " + resultadoTiradaAdmin);
+
+    }else if((+tiradaAdmin > sumaAdmin)&&((+tiradaAdmin) < 20)){
+      
+      resultadoTiradaAdmin = "Fallo"
+      console.log("Tirada del jugador: "+ resultadoTiradaAdmin);
+
+
+    }else if((+tiradaAdmin == sumaAdmin)&&(tiradaAdmin < 20)){
+
+      resultadoTiradaAdmin = "Crítico"
+      console.log("Tirada del jugador: "+ resultadoTiradaAdmin);
+
+    }else if((+tiradaAdmin == 20) && (+sumaAdmin < 20)){
+
+      resultadoTiradaAdmin = "Pifia"
+      console.log("Tirada del jugador: "+ resultadoTiradaAdmin);
+
+    }else if((+tiradaAdmin == 20) && (+sumaAdmin > 20)){
+
+      resultadoTiradaAdmin = "Crítico"
+      console.log("Tirada del jugador: "+ resultadoTiradaAdmin);
+    }
+
+
+
+    if((+tiradaMaltiempo <= +sumaMalTiempo)&&((+tiradaMaltiempo) < 20)){
+
+      resultadoTiradaMalTiempo = "Éxito";
+      console.log("Tirada de mal tiempo: " + resultadoTiradaMalTiempo);
+
+    }else if((+tiradaMaltiempo > sumaMalTiempo)&&((+tiradaMaltiempo) < 20)){
+      
+      resultadoTiradaMalTiempo = "Fallo"
+      console.log("Tirada de mal tiempo: "+ resultadoTiradaMalTiempo);
+
+
+    }else if((+tiradaMaltiempo == sumaMalTiempo)&&(tiradaMaltiempo < 20)){
+
+      resultadoTiradaMalTiempo = "Crítico"
+      console.log("Tirada de mal tiempo: "+ resultadoTiradaMalTiempo);
+
+    }else if((+tiradaMaltiempo == 20) && (+sumaMalTiempo < 20)){
+
+      resultadoTiradaMalTiempo = "Pifia"
+      console.log("Tirada de mal tiempo: "+ resultadoTiradaMalTiempo);
+
+    }else if((+tiradaMaltiempo == 20) && (+sumaMalTiempo > 20)){
+
+      resultadoTiradaMalTiempo = "Crítico"
+      console.log("Tirada de mal tiempo: "+ resultadoTiradaMalTiempo);
+
+    }
+
+
+    if(resultadoTiradaAdmin == resultadoTiradaMalTiempo){
+
+      console.log("Normal");
+      resultadoFinal="Normal";
+      
+    }else if (resultadoTiradaAdmin == "Crítico" && resultadoTiradaMalTiempo == "Éxito"){
+
+      console.log("Rico");
+      resultadoFinal="Rico";
+
+    }else if (resultadoTiradaAdmin == "Crítico" && resultadoTiradaMalTiempo == "Fallo"){
+
+      console.log("Muy Rico");
+      resultadoFinal="Muy Rico";
+
+    }else if (resultadoTiradaAdmin == "Crítico" && resultadoTiradaMalTiempo == "Pifia"){
+
+      console.log("Muy Rico. Además, el caballero vive por encima de los medios de uno de los caballeros más ricos de su estación, ganando al menos 16 £ por año");
+      resultadoFinal="Muy Rico. Además, el caballero vive por encima de los medios de uno de los caballeros más ricos de su estación, ganando al menos 16 £ por año";
+
+    }else if (resultadoTiradaAdmin == "Éxito" && resultadoTiradaMalTiempo == "Crítico"){
+
+      console.log("Pobre");
+      resultadoFinal="Pobre";
+
+    }else if (resultadoTiradaAdmin == "Éxito" && resultadoTiradaMalTiempo == "Fallo"){
+
+      console.log("Rico");
+      resultadoFinal="Rico";
+
+    }else if (resultadoTiradaAdmin == "Éxito" && resultadoTiradaMalTiempo == "Pifia"){
+
+      console.log("Muy Rico");
+      resultadoFinal="Muy Rico";
+
+
+    }else if (resultadoTiradaAdmin == "Fallo" && resultadoTiradaMalTiempo == "Crítico"){
+
+      console.log("Indigente");
+      resultadoFinal="Indigente";
+
+    }else if (resultadoTiradaAdmin == "Fallo" && resultadoTiradaMalTiempo == "Éxito"){
+
+      console.log("Pobre");
+      resultadoFinal="Pobre";
+
+    }else if (resultadoTiradaAdmin == "Fallo" && resultadoTiradaMalTiempo == "Pifia"){
+
+      console.log("Rico");
+      resultadoFinal="Rico";
+
+    }else if (resultadoTiradaAdmin == "Pifia" && resultadoTiradaMalTiempo == "Crítico"){
+
+      console.log("Indigente");
+      resultadoFinal="Indigente";
+
+    }else if (resultadoTiradaAdmin == "Pifia" && resultadoTiradaMalTiempo == "Éxito"){
+
+      console.log("Indigente");
+      resultadoFinal="Indigente";
+
+    }else if (resultadoTiradaAdmin == "Pifia" && resultadoTiradaMalTiempo == "Fallo"){
+
+      console.log("Pobre");
+      resultadoFinal="Pobre"
+
+    }
+
+    this.nivel = resultadoFinal;
+
   }
 
-  /* funcion para calcular nivel de manutención// NO SE QUE FÓRMULA// preguntar a Carlos*/
-  function calcularNivelManutencion(malTiempo: number, modificadore: number, administracion: number, modificadores2: number){
-
-    let calcular = malTiempo + modificadore + administracion + modificadores2;
-
-    /* return calcular; */
-
- 
-  }
+}
 
 
