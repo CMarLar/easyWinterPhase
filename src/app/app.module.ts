@@ -36,6 +36,7 @@ import { MarriageCourtesyModalComponent } from './component/marriage-courtesy-mo
 import { BirthsModalComponent } from './component/births-modal/births-modal.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ModifyProfileComponent } from './pages/modify-profile/modify-profile.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { ModifyProfileComponent } from './pages/modify-profile/modify-profile.co
     MarriageCourtesyModalComponent,
     BirthsModalComponent,
     ProfileComponent,
-    ModifyProfileComponent
+    ModifyProfileComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
