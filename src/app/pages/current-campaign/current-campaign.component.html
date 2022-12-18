@@ -119,9 +119,16 @@
 
                 </div>
         </div>
-        <div class="buttons">
+
+
+        <div class="buttons" *ngIf="actualYear.isLastYear==true; else noNext">
             <button (click)="goNext()">Comenzar Fase de Invierno</button>
         </div>
+
+
+        <ng-template #noNext>
+            <div></div>
+        </ng-template>
     </div>
 
 

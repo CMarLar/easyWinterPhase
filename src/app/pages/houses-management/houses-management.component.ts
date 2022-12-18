@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AddPlayersComponent } from '../add-players/add-players.component';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-houses-management',
@@ -15,9 +16,12 @@ export class HousesManagementComponent {
   public emptyShield:string;
   public playerName:string;
   public houseName:string;
-  public asignedHouse:boolean;
+  public housesNotAsigned:boolean;
 
-  public players;
+  public players:any;
+
+  public year:any;
+  public yearEmpty:boolean
 
 
   constructor(public router:Router){
@@ -28,7 +32,7 @@ export class HousesManagementComponent {
     this.profilePic="../../../assets/img/carlos-marina_9131-bw.jpg"
 
     //Valida para cambiar el botón
-    this.asignedHouse=true
+    this.housesNotAsigned=true
 
     this.players=[
       
@@ -40,7 +44,13 @@ export class HousesManagementComponent {
       {id: 6, jugador:"Miguel",casa:"López",escudo:this.shieldImage},
     ]
     this.checkPlayersReady()
+    this.checkYear()
 
+    this.year={yearNumber:null};
+
+    this.yearEmpty=true
+    console.log(this.yearEmpty);
+    
   }
 
   //Esta función cambia las casas a null, en ngIf del html hace que si es null, borre la pluma y la calavera.
@@ -65,12 +75,24 @@ export class HousesManagementComponent {
 //arr.reduce((acumulador, valorActual[, índice[, array]]) =>[, valorInicial])
 
   public checkPlayersReady():void{
-    this.asignedHouse = !this.players.reduce((acc,current)=>{
+    this.housesNotAsigned = !this.players.reduce((acc,current)=>{
       return acc && current.casa!=null},true)
 
-    console.log(this.asignedHouse);
-    
+    console.log(this.housesNotAsigned);
+  }
 
+  public checkYear():void{
+    if(this.year!="" || this.year!=null){
+      this.yearEmpty = false;
+    }
+  }
+  
+  public onSubmit(form:NgForm){
+    console.log("Resultado");
+    
+    console.log(form.value);
+    this.checkYear()
+    console.log(this.yearEmpty);
   }
 
   public goBack():void{

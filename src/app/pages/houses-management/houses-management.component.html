@@ -18,12 +18,16 @@
     </div>
 
     <div class="right">
-        <div class="year">
-            <h3>AÑO DE INICIO: </h3>
-            <div class="inputyear">
-                <input type="text" label="Año">
+        <form #yearForm="ngForm" (ngSubmit)="onSubmit(yearForm)" class="yearForm">
+            <div class="year">
+                <h3>AÑO DE INICIO: </h3>
+                <div class="inputyear">
+                    <input type="number" label="Año" name="year" >
+
+                     <!--@Miguel intenté añadir esto, pero nada: "[(ngModel)]="year.yearNumber" [ngClass]="{ 'is-invalid' : year.pristine && year.invalid}" required" -->
+
+                </div>
             </div>
-        </div>
 
         <div class="playerlist">
             <div class="playerOk" *ngFor="let player of players">
@@ -51,6 +55,7 @@
                     <div class="quill"></div>
                 </ng-template>
         </div>
+        </div>
 
 
         <!-- <div class="playerOk">
@@ -65,10 +70,19 @@
 
 <!-- <ng-container *ngIf="asignedHouse==false";else allHousesAssigned> -->
 
+
     <div class="buttons">
-        <button [disabled]="asignedHouse" (click)="goPlace()">JUGAR CAMPAÑA</button>
+        <button  [disabled]="housesNotAsigned" style="padding: 30px 60px; font-size:xx-large">JUGAR CAMPAÑA</button>
+        <!-- @Miguel, intento añadir "&& (year.dirty || year.invalid)", pero no me lo coge, de hecho, es como si desvalidara el anterior disable -->
+    </div>
+
+
+</form>
+
+    <div class="buttons">
         <button (click)="goBack()"> Atrás </button>
     </div>
+
 
 <!-- </ng-container> -->
 
@@ -82,6 +96,5 @@
 
     </div>
 
-</div>
 </div>
 </div>
