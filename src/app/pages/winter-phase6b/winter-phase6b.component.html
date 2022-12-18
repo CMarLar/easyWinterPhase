@@ -15,66 +15,55 @@
                 </div>
 
                 <div class="zonaB_b">
-
-                        <!-- <img class="pergamino" src="../../../assets/img/pergamino-chato.png"> -->
                             
-                             <div class="caja">
+                    <div class="caja">
 
-                                  <div class="escudo">
-                                        <div class="caja_escudo"> 
-                                            <img src="{{foto_escudo}}">
-                                        </div>
+                        <div class="escudo">
+                            <div class="caja_escudo"> 
+                                <img src="{{foto_escudo}}">
+                            </div>
+                
+                            <div class="paso">
+                                <p>Paso 6b:</p>
+                                <p>Familia</p>  
+                            </div>
+
+                        </div>
+
+                        <div class="prologo"> 
+
+
+                            <div class="prologo1"><!-- hijo 1 prólogo -->
+                                <p class="frase">Nacimientos</p>
+                                <p class="frase1">Modificador: Circunstancia Económica: <span class="numero">{{cisrcunstanciaEconomica}}</span></p>
+                                <p class="frase1">Modificador: Edad de la madre: <span class="numero">{{edadMadre}}</span></p>
+
+                            </div>
+
+                            <div class="prologo3"><!-- hijo 3 prólogo -->
+                                <div class="esposa" *ngIf="pj.isMarried == true">
+                                    <p>Esposa: {{pj.esposa.nombre}}</p>
+                                    <button (click)="calcularNacimientosEsposa()" class="boton">Calcular</button>
+                                </div>
+                                <div class="hijito">
+                                    <p>Amantes:</p>
+                                    <div>
+                                        <select name="" id="" #valorAmantes class="input">
+                                            <option value="{{amantes.nombre}}" *ngFor="let amantes of pj.amantes">{{amantes.nombre}}</option>
+                                        </select>
+                                        <button (click)="calcularNacimientos(valorAmantes.value)" class="boton2">Calcular</button>    
+                                    </div>
+                                    </div>
+                            </div>
+                            <div class="prologo4"><!-- hijo 4 prólogo -->
+                                <p class="eventosFamiliares">EVENTOS FAMILIARES</p>
+                                <p class="frase1">Haz tirada de dados acorde con la tabla...</p>
+                            </div>
                             
-                                        <div class="paso">
-                                            <p>Paso 6b:</p>
-                                            <p>Familia</p>  
-                                        </div>
+                            
+                        </div>
 
-                                  </div>
-
-                                  <div class="prologo"> 
-
-
-                                    <div class="prologo1"><!-- hijo 1 prólogo -->
-                                        <p class="frase">Nacimientos</p>
-                                    </div>
-
-                                    <div class="prologo2"><!-- hijo 2 prólogo -->
-                                        <p class="frase1">Modificador: Circunstancia Económica: <span class="numero">{{cisrcunstanciaEconomica}}</span></p>
-                                        <p class="frase1">Modificador: Edad de la madre: <span class="numero">{{edadMadre}}</span></p>
-
-                                    </div>
-
-                                    <div class="prologo3"><!-- hijo 3 prólogo -->
-
-                                        <div class="hijito">
-
-                                           <p class="frase">{{mujerRol[0]}}:  &nbsp;{{mujer[0]}}</p>
-                                           <p class="frase">{{mujerRol[1]}}: &nbsp;{{mujer[1]}}</p>
-                                           <p class="frase">{{mujerRol[1]}}: &nbsp;{{mujer[2]}}</p>
-                                        </div>
-                                        <div class="hijito2">
-
-                                           <input class="input" value="INTRODUCE TIRADA" #tiradaDados>
-                                           <input class="input" value="INTRODUCE TIRADA" #tiradaDados>
-                                           <input class="input" value="INTRODUCE TIRADA" #tiradaDados>
-                                        </div>
-                                        <div class="hijito3">
-
-                                           <button class="boton" onclick="calcularNacimientos()">Calcular</button>
-                                           <button class="boton" onclick="calcularNacimientos()">Calcular</button>
-                                           <button class="boton" onclick="calcularNacimientos()">Calcular</button>
-                                        </div>
-                                    </div>
-                                    <div class="prologo4"><!-- hijo 4 prólogo -->
-                                        <p class="eventosFamiliares">EVENTOS FAMILIARES</p>
-                                        <p class="frase1">Haz tirada de dados acorde con la tabla...</p>
-                                    </div>
-                                        
-                                        
-                                  </div>
-
-                            </div> <!-- cierre CAJA -->
+                </div> <!-- cierre CAJA -->
                         
 
                 </div>  <!-- CIERRE PERGAMINO -->
@@ -102,3 +91,5 @@
     </div><!-- cierre dagas -->
 
 </div><!-- CIERRE PADRE -->
+
+<app-births-modal class="modal" [hidden]="isHide"></app-births-modal>

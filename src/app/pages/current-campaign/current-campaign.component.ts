@@ -19,12 +19,24 @@ export class CurrentCampaignComponent {
   //Añade un año más u otro año más.
   public yearSelectors:number;
 
+  //Modales
+  public isChangeCharacterHide : boolean;
+  public isnewPlayerNameHide : boolean;
+  public isHouseInfoHide : boolean;
+
+
 
     constructor(public router:Router){
       this.campaignName="Campaña cojonuda"      
       
+      this.isChangeCharacterHide = true;
+      this.isnewPlayerNameHide = true;
+      this.isHouseInfoHide = true;
+
       this.years = 
       [
+
+        
         //Esto sería más o menos un año tipo. Los años que se van sucediendo en la se añaden al array years cuando todos los jugadores completan la fase de invierno.
         {yearid:1,
         yearNumber:485,
@@ -146,6 +158,39 @@ export class CurrentCampaignComponent {
 
     public goCreateHouse(){
       this.router.navigateByUrl("/createhouse")
+    }
+
+    public showModalPlayer(){
+
+      if(this.isnewPlayerNameHide == true){
+        this.isnewPlayerNameHide = false;
+      }else{
+        this.isnewPlayerNameHide = true
+      }
+
+      
+
+    }
+
+    public showModalHouse(){
+
+      if(this.isHouseInfoHide == true){
+        this.isHouseInfoHide = false;
+      }else{
+        this.isHouseInfoHide = true
+      }
+      
+      
+    }
+
+    public showModalCharacter(){
+
+      if(this.isChangeCharacterHide == true){
+        this.isChangeCharacterHide = false;
+      }else{
+        this.isChangeCharacterHide = true
+      }
+      
     }
 
 }
