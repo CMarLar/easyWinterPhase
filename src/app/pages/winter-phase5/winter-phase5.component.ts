@@ -18,71 +18,77 @@ export class WinterPhase5Component {
   public modificador : string
   public circunstanciaEconomica : number
   public caballos : string[]
-  public caballosSanos : string[]
-  public caballosInsanos : string[]
+  // public caballosSanos : string[]
+  // public caballosInsanos : string[]
   public valorDado: number
-  public ncaballo: number
+
+  public ncaballo: number//número de caballos que introduce el usuario
+
+  public caballosOutput:string[]//caballos con los resultados
+
   public result: string;
 
   
-   constructor(){
+    constructor(){
 
-    this.nombre = "Irene",
-    this.apellidos = "Herrero Becker"
-    this.foto_escudo = "../../../assets/img/escudo10.png"
-    this.modificador = "Circunstancia Económica"
+    this.nombre = "Irene";
+    this.apellidos = "Herrero Becker";
+    this.foto_escudo = "../../../assets/img/escudo10.png";
+    this.modificador = "Circunstancia Económica";
     this.circunstanciaEconomica = -2
-    this.caballos = ["El caballo 1 está sano","El caballo 2 está sano.","El caballo 3 está muerto o es inutil.","El caballo 4 está sano."]
+    this.caballos = [];
+    this.caballosOutput = [];
 
   }
-  public calcularSaludCaballo(valorDado: number, ncaballo: number){
+  public calcularSaludCaballo(ncaballo: number){
 
-    this.caballosSanos = ["El caballo 1 está sano", "El caballo 2 está sano", "El caballo 3 está sano","El caballo 4 está sano","El caballo 5 está sano","El caballo 6 está sano"]
-    this.caballosInsanos = ["El caballo 1 está muerto o inútil", "El caballo 1 está muerto o inútil", "El caballo 1 está muerto o inútil","El caballo 1 está muerto o inútil","El caballo 1 está muerto o inútil","El caballo 1 está muerto o inútil"]
-  
+    let caballosInput:string[]=[]
+    let caballoString:string ="Caballo "
+    let modificador:number = this.circunstanciaEconomica;
+    // let tirada = Math.floor(Math.random()*20)
+    let appendMuere:string = ": muere o queda inútil."
+    let appendVive:string = ": está sano."
+    this.caballosOutput = [];
 
-    if(this.valorDado <= 2){
 
-      this.result = this.caballosInsanos.push[ncaballo - 1];
-
-    }if(this.valorDado >= 3){
-
-      this.result = this.caballosSanos.push[ncaballo  -1];
+    for (let i = 0; i < ncaballo; i++) {
+      caballosInput.push(caballoString + (i+1))
     }
-         return this.result;
-}
-}
 
-/*   public calcularSaludCaballo(valorDado: number, ncaballo: number){
+    console.log(caballosInput);
 
-    this.caballosSanos = ["El caballo 1 está sano", "El caballo 2 está sano", "El caballo 3 está sano","El caballo 4 está sano","El caballo 5 está sano","El caballo 6 está sano"]
-    this.caballosInsanos = ["El caballo 1 está muerto o inútil", "El caballo 1 está muerto o inútil", "El caballo 1 está muerto o inútil","El caballo 1 está muerto o inútil","El caballo 1 está muerto o inútil","El caballo 1 está muerto o inútil"]
-  
+    for (let i = 0; i < caballosInput.length; i++) {
 
-    if(this.valorDado <= 2){
+      let tirada = Math.floor((Math.random()*20)+1)
+      let modificado = tirada + modificador;
+      
+      console.log("Tirada: ");
+      
+      console.log(tirada);
 
-      this.result = this.caballosInsanos.push[ncaballo - 1];
+      console.log("Modificado");
+      
 
-    }if(this.valorDado >= 3){
+      console.log(modificado);
+      
+      
 
-      this.result = this.caballosSanos.push[ncaballo  -1];
+      if((tirada + modificador) <= 2){
+
+        this.caballosOutput.push(caballosInput[i] + appendMuere);
+
+      }else if((tirada + modificador) > 2){
+
+        this.caballosOutput.push(caballosInput[i] + appendVive);
+
+      }
+      
     }
-         return this.result;
-} 
+
+    console.log(this.caballosOutput);
     
+
+  }
+
+
 }
-  /* let caballos = [("El caballo 1 está sano"),("El caballo 2 está sano."),("El caballo 3 está muerto o es inutil."),("El caballo 4 está sano.")] */
-
-/* function calcular(calcularCaballos: number)
-{
-     let resultado = Math.floor((Math.random() * (calcularCaballos + 1)));
-
-    if(resultado <= 2){
-      console.log( "El Caballo muere o queda inútil");
-    }else{
-
-      console.log("El Caballo está sano");
-    }
-    return (resultado);
-
-    }  */
