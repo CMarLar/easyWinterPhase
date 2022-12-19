@@ -16,47 +16,50 @@
 
                 <div class="zonaB_b">
 
-                        <!-- <img class="pergamino" src="../../../assets/img/pergamino-chato.png"> -->
-                            
-                             <div class="caja">
+        <!-- <img class="pergamino" src="../../../assets/img/pergamino-chato.png"> -->
+            
+                <div class="caja">
 
-                                  <div class="escudo">
-                                        <div class="caja_escudo"> 
-                                            <img src="{{foto_escudo}}">
-                                        </div>
-                            
-                                        <div class="paso">
-                                            <p>Paso 5:</p>
-                                            <p>Tirada de Establo</p>  
-                                        </div>
+                    <div class="escudo">
+                        <div class="caja_escudo"> 
+                            <img src="{{foto_escudo}}">
+                        </div>
+            
+                        <div class="paso">
+                            <p>Paso 5:</p>
+                            <p>Tirada de Establo</p>  
+                        </div>
 
-                                  </div>
+                </div>
 
-                                  <div class="prologo"> 
+                <div class="prologo"> 
 
 
-                                    <div class="prologo1"><!-- hijo 1 prólogo -->
+                    <div class="prologo1"><!-- hijo 1 prólogo -->
 
-                                       
-                                              <p class="frase1">Haz una tirada por cada caballo que tenga el jugador.</p>
-                                              <p class="frase2">Ten en cuenta tu modificador de {{modificador}} : <span class="numero">{{circunstanciaEconomica}}</span></p>
-                                    </div><!-- cierra prologo 1 -->
+                    
+                            <p class="frase1">Haz una tirada por cada caballo que tenga el jugador.</p>
+                            <p class="frase2">Ten en cuenta tu modificador de {{modificador}} : <span class="numero">{{circunstanciaEconomica}}</span></p>
+                    </div><!-- cierra prologo 1 -->
 
-                                    <div class="prologo2"><!-- hijo 2 prólogo -->
-                                        <span> <input class="input" #ncaballo>Introduce nº de Caballo </span>& tirada de Dado  &nbsp; <span><input class="input" #valorDado></span>
-                                        <button class="boton" (click)="calcularSaludCaballo(ncaballo.value, valorDado.value)">Calcular</button>
-                                    </div>
+                    <div class="prologo2"><!-- hijo 2 prólogo -->
 
-                                    <div class="prologo3"><!-- hijo 2 prólogo -->
-                                        <p class="frase1" >RESULTADOS</p>
-                                        <p class="frase2" *ngFor="let caballito of caballos" [value]="caballito">{{caballito}}</p>
-                                
-                                    </div>
-                                        
-                                        
-                                  </div>
+                            <input class="input" #ncaballo>Introduce nº de Caballo 
 
-                            </div> 
+
+                        <button class="boton" (click)="calcularSaludCaballo(ncaballo.value)">Calcular</button>
+                    </div>
+
+                    <div class="prologo3"><!-- hijo 2 prólogo -->
+                        <p class="frase1" >RESULTADOS</p>
+                        <p class="frase2" *ngFor="let caballito of caballosOutput" [value]="caballito">{{caballito}}</p>
+                
+                    </div>
+                        
+                        
+                    </div>
+
+            </div> 
                         
 
                 </div>  

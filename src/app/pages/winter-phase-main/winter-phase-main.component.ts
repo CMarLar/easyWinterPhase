@@ -27,8 +27,8 @@ export class WinterPhaseMainComponent {
         notes:"Mamasé, mamasá, mamá cusá",
         players:
           [
-          {id:1, name:"Carlos",activeChar:"Sir Balin",house:"Salisbury",shield:"../../../assets/img/escudo1.png",winterPhaseDone:true},
-          {id:2, name: "Irene", activeChar:"Sir Edward of Cambridge",house:"Cambridge",shield:"../../../assets/img/escudo2.png",winterPhaseDone:true},
+          {id:1, name:"Carlos",activeChar:"Sir Balin",house:"Salisbury",shield:"../../../assets/img/escudo1.png",winterPhaseDone:false},
+          {id:2, name: "Irene", activeChar:"Sir Edward of Cambridge",house:"Cambridge",shield:"../../../assets/img/escudo2.png",winterPhaseDone:false},
           {id:3, name: "Miguel", activeChar:"Sir Manfred",house:"Newton",shield:"../../../assets/img/escudo3.png",winterPhaseDone:true},
           {id:4, name: "María José", activeChar:"Lord Grey",house:"Grey",shield:"../../../assets/img/escudo4.png",winterPhaseDone:true},
           {id:null, name: null, activeChar:null,house:null,shield:"../../../assets/img/escudo5.png",winterPhaseDone:false},

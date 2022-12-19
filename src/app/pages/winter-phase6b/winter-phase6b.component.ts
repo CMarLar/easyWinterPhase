@@ -25,6 +25,10 @@ export class WinterPhase6bComponent {
 
   constructor(){
 
+    this.nombre = "Irene"
+    this.apellidos= "Herrero Becker"
+    this.foto_escudo = "../../../assets/img/escudo10.png"
+
     this.mujerRol = ["Esposa", "Amante"]
 
     this.pj = {nombre : "Irene",
