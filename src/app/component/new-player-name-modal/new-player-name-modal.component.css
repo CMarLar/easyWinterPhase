@@ -2,7 +2,7 @@
     width: 30vw;
     height: 70vh;
     background-size: cover;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     position: relative;
     
     display: flex;
@@ -16,7 +16,7 @@
     .modalContain{
         width: 60%;
         height: 70%;
-        border: 2px solid red;
+        /* border: 2px solid red; */
         position: absolute;
         top: 15%;
 

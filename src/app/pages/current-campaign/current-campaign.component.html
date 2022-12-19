@@ -44,9 +44,9 @@
 
                 <!-- Personajes -->
                 <div class="character" style="background-color: rgb(130, 23, 25,0.6);" *ngIf="actualYear.players[0].id != null; else emptyPlayer">
-                    <span>{{actualYear.players[0].name}}</span>
-                    <span>{{actualYear.players[0].activeChar}}</span>
-                    <span>{{actualYear.players[0].house}}</span>
+                    <span (click)="showModalPlayer()">{{actualYear.players[0].name}}</span>
+                    <span (click)="showModalCharacter()">{{actualYear.players[0].activeChar}}</span>
+                    <span (click)="showModalHouse()">{{actualYear.players[0].house}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
                             <img (click)="goCreateHouse()"src="../../../assets/img/PLUMA.png">
@@ -55,9 +55,9 @@
                 </div>
 
                 <div class="character" style="background-color: rgb(218, 193, 105,0.6);" *ngIf="actualYear.players[1].id != null; else emptyPlayer">
-                    <span>{{actualYear.players[1].name}}</span>
-                    <span>{{actualYear.players[1].activeChar}}</span>
-                    <span>{{actualYear.players[1].house}}</span>
+                    <span (click)="showModalPlayer()">{{actualYear.players[1].name}}</span>
+                    <span (click)="showModalCharacter()">{{actualYear.players[1].activeChar}}</span>
+                    <span (click)="showModalHouse()">{{actualYear.players[1].house}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
                             <img (click)="goCreateHouse()" src="../../../assets/img/PLUMA.png">
@@ -66,9 +66,9 @@
                 </div>
 
                 <div class="character" style="background-color: rgb(152, 37, 37,0.6);" *ngIf="actualYear.players[2].id != null; else emptyPlayer">
-                    <span>{{actualYear.players[2].name}}</span>
-                    <span>{{actualYear.players[2].activeChar}}</span>
-                    <span>{{actualYear.players[2].house}}</span>
+                    <span (click)="showModalPlayer()">{{actualYear.players[2].name}}</span>
+                    <span (click)="showModalCharacter()">{{actualYear.players[2].activeChar}}</span>
+                    <span (click)="showModalHouse()">{{actualYear.players[2].house}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
                             <img (click)="goCreateHouse()" src="../../../assets/img/PLUMA.png">
@@ -77,9 +77,9 @@
                 </div>
 
                 <div class="character" style="background-color: rgb(218, 193, 105,0.6);"*ngIf="actualYear.players[3].id != null; else emptyPlayer">
-                    <span>{{actualYear.players[3].name}}</span>
-                    <span>{{actualYear.players[3].activeChar}}</span>
-                    <span>{{actualYear.players[3].house}}</span>
+                    <span (click)="showModalPlayer()">{{actualYear.players[3].name}}</span>
+                    <span (click)="showModalCharacter()">{{actualYear.players[3].activeChar}}</span>
+                    <span (click)="showModalHouse()">{{actualYear.players[3].house}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
                             <img (click)="goCreateHouse()" src="../../../assets/img/PLUMA.png">
@@ -88,9 +88,9 @@
                 </div>
 
                 <div class="character" style="background-color: rgb(152, 37, 37,0.6);"*ngIf="actualYear.players[4].id != null; else emptyPlayer">
-                    <span>{{actualYear.players[4].name}}</span>
-                    <span>{{actualYear.players[4].activeChar}}</span>
-                    <span>{{actualYear.players[4].house}}</span>
+                    <span (click)="showModalPlayer()">{{actualYear.players[4].name}}</span>
+                    <span (click)="showModalCharacter()">{{actualYear.players[4].activeChar}}</span>
+                    <span (click)="showModalHouse()">{{actualYear.players[4].house}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
                             <img (click)="goCreateHouse()" src="../../../assets/img/PLUMA.png">
@@ -99,9 +99,9 @@
                 </div>
 
                 <div class="character" style="background-color: rgb(218, 193, 105,0.6);"*ngIf="actualYear.players[5].id != null; else emptyPlayer">
-                    <span>{{actualYear.players[5].name}}</span>
-                    <span>{{actualYear.players[5].activeChar}}</span>
-                    <span>{{actualYear.players[5].house}}</span>
+                    <span (click)="showModalPlayer()">{{actualYear.players[5].name}}</span>
+                    <span (click)="showModalCharacter()">{{actualYear.players[5].activeChar}}</span>
+                    <span (click)="showModalHouse()">{{actualYear.players[5].house}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
                             <img (click)="goCreateHouse()" src="../../../assets/img/PLUMA.png">
@@ -136,3 +136,7 @@
 </div>
 <!-- </form> -->
 </div>
+
+<app-change-character-modal class="modal" [hidden]="isChangeCharacterHide"></app-change-character-modal>
+<app-new-player-name-modal class="modal" [hidden]="isnewPlayerNameHide"></app-new-player-name-modal>
+<app-house-info-modal class="modal" [hidden]="isHouseInfoHide"></app-house-info-modal>
