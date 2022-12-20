@@ -164,7 +164,7 @@
                   .prologo1{
 
                     width: 100%;
-                    height: 33.33%;
+                    height: 66.66%;
                    /*  border:  5px solid rgb(215, 13, 198); */
 
                     display: flex;
@@ -189,19 +189,7 @@
                             font-size: 1.5em;
                         } */
         
-                  .prologo2{
-                    width: 100%;
-                    height: 33.33%;
-                   /*  border:  5px solid rgb(215, 191, 13); */
-                    align-items: center;
-                    text-align: center;
-                    justify-content: center;
-                    flex-direction: column;
-                    line-height: 110%; 
-                   /*  overflow-y: scroll;/* por si hay muchos modificadores */ 
-
-                  }
-                 .prologo3{
+                 .prologo2{
                     width: 100%;
                     height: 33.33%;
                   /*   border:  5px solid rgb(215, 13, 158); */
