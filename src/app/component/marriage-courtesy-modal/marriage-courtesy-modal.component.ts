@@ -30,10 +30,12 @@ export class MarriageCourtesyModalComponent {
     this.noRelleno = true;
     this.botonPulsado = false;
     this.noSeCasa = ""
+    this.modMarriage = 0
     this.objeto = {
       rol : this.rol,
       gloria : this.gloria,
-      libras : this.libras
+      libras : this.libras,
+      modMarriage : this.modMarriage
     }
 
   }
