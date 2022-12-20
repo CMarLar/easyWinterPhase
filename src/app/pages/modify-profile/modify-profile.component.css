@@ -7,7 +7,7 @@
 .main{
     width: auto;
     height: 100vh;
-    background-image: url("../../../assets/backgrounds/bg_yelmos.jpg");
+    background-image: url("../../../assets/backgrounds/fondo_yeloms_oscuro.png");
     background-size: cover;
     display: flex;
     flex-direction: column;

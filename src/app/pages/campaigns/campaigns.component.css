@@ -8,7 +8,7 @@
     width: auto;
     height: 100vh;
     max-height: 100vh;
-    background-image: url(../../../assets/backgrounds/bg_yelmos.jpg);
+    background-image: url(../../../assets/backgrounds/fondo_yeloms_oscuro.png);
     background-size: cover;
     background-position: center;
     /* border: 2px solid red; */
@@ -122,7 +122,7 @@
         }
         .calavera button{
             background-color: transparent;
-            border: none;
+            border:none;
             cursor:not-allowed;
         }
         .calavera button img{
@@ -140,9 +140,9 @@
     }
 
     .btnCrear{
-       /*  border: 1px solid blue; */
-        height: 30%;
-        width: 48%;
+      /*  border: 1px solid blue;  */
+        height: 22%;
+        width: 46%;
         background-color: transparent;
         border: none; 
         position: relative;
@@ -164,7 +164,7 @@
         font-weight: bold;
         position: absolute;
         top: 15%;
-        left: 50%;
+        left: 48%;
     }
     .textHide{
         font-size: 1.5rem;

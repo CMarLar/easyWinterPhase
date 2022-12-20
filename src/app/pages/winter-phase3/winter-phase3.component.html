@@ -42,7 +42,7 @@
                                         
                                         <p class="frase2">Otros personajes:</p> 
                                         <select name="" id="">
-                                            <option value=""[selected]="">Selecciona un PNJ</option>
+                                            <option class="input" value=""[selected]="">Selecciona PNJ</option>
                                                 <option value="{{npc.nombre}}" *ngFor="let npc of pnj">{{npc.nombre}} {{npc.edad + 1}}</option>
                                         </select>
                                         <button class="boton2" (click)="envejecimientoAutomatico()"> Auto </button>
@@ -68,7 +68,7 @@
 
     <!-- hijo 2 -->
 
-     <div class="dagas">
+    <!--  <div class="dagas">
 
         <div class="back">
             <a routerLink = "/phase2" class="daga_derecha"><img src="../../../assets/img/daga-atras.png" alt="" ></a>
@@ -82,7 +82,7 @@
         </div>
 
 
-    </div>
+    </div> -->
 
 
 
