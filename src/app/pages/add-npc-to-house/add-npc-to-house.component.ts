@@ -54,7 +54,8 @@ export class AddNpcToHouseComponent {
     ]
     //status true = vivo
 
-    this.formNpc = {id: 1000, name:"",age:0,role:"",sex:"",status:this.status[0]};
+    //El id de este personaje es 1000, su id será autoincrementado
+    this.formNpc = {id: 4, name:"",age:0,role:"",sex:"",status:true};
 
     this.activeChar={id: 2000, name:"",age:0,role:"",sex:"",status:""}
     this.noNpcs=true
@@ -94,8 +95,27 @@ export class AddNpcToHouseComponent {
   public onSubmit(form:NgForm){
     console.log(form.value);
 
-    this.npcs.push(this.formNpc);
-    console.log(this.npcs);  
+    if(form.value.role == form.value.otherRole){
+
+      delete form.value.otherRole;
+      console.log("Elegido role del selector:");
+      console.log(form.value);
+      
+    }else{
+
+      form.value.role = form.value.otherRole;
+      delete form.value.otherRole;
+      console.log("Aplicado nuevo role del campo");
+      console.log(form.value);
+      
+    }
+    
+    let formNpcCopy = {...this.formNpc}
+
+    this.npcs.push(formNpcCopy);
+    console.log(this.npcs); 
+    console.log(formNpcCopy);
+    
     
   }
   //Marca a un personaje como el personaje activo
