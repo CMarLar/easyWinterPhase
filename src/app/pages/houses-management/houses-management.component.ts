@@ -18,6 +18,8 @@ export class HousesManagementComponent {
   public houseName:string;
   public housesNotAsigned:boolean;
 
+  public notYear : boolean
+
   public players:any;
 
   public year:any;
@@ -33,6 +35,7 @@ export class HousesManagementComponent {
 
     //Valida para cambiar el botón
     this.housesNotAsigned=true
+    this.notYear = true;
 
     this.players=[
       
@@ -93,6 +96,7 @@ export class HousesManagementComponent {
     console.log(form.value);
     this.checkYear()
     console.log(this.yearEmpty);
+    this.router.navigateByUrl("/currentcampaign")
   }
 
   public goBack():void{
