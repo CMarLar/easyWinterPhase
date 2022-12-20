@@ -18,11 +18,11 @@
     </div>
 
     <div class="right">
-        <form #yearForm="ngForm" (ngSubmit)="onSubmit(yearForm)" class="yearForm">
+        <form #yearForm="ngForm" (ngSubmit)="onSubmit(yearForm)" class="yearForm" >
             <div class="year">
                 <h3>AÑO DE INICIO: </h3>
                 <div class="inputyear">
-                    <input type="number" label="Año" name="year" >
+                    <input type="number" label="Año" name="year" [(ngModel)]="year.yearNumber" #year1="ngModel" [ngClass]="{ 'is-invalid' : year1.pristine && year1.invalid}" required>
 
                      <!--@Miguel intenté añadir esto, pero nada: "[(ngModel)]="year.yearNumber" [ngClass]="{ 'is-invalid' : year.pristine && year.invalid}" required" -->
 
@@ -72,7 +72,7 @@
 
 
     <div class="buttons">
-        <button  [disabled]="housesNotAsigned" style="padding: 30px 60px; font-size:xx-large">JUGAR CAMPAÑA</button>
+        <button  [disabled]="housesNotAsigned || year1.invalid" style="padding: 30px 60px; font-size:xx-large">JUGAR CAMPAÑA</button>
         <!-- @Miguel, intento añadir "&& (year.dirty || year.invalid)", pero no me lo coge, de hecho, es como si desvalidara el anterior disable -->
     </div>
 
