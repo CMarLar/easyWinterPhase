@@ -21,12 +21,12 @@
             [disabled]="jugador5.pristine || jugador5.invalid">
             <div class="buttonContainer" *ngIf="jugador1.pristine; else Vacio">
                 <button class="btnCancelar" (click)="goBack()">CANCELAR</button>
-                <button class="btnCrearBlock" [disabled]="playersForm.invalid">CREAR CAMPAÑA</button>
+                <button class="btnCrearBlock" [disabled]="playersForm.invalid">AÑADIR JUGADORES</button>
             </div>
             <ng-template #Vacio>
                 <div class="buttonContainer">
                     <button class="btnCancelar" (click)="goBack()">CANCELAR</button>
-                    <button class="btnCrear" [disabled]="playersForm.invalid">CREAR CAMPAÑA</button>
+                    <button class="btnCrear" [disabled]="playersForm.invalid">AÑADIR JUGADORES</button>
                 </div>
             </ng-template>
             

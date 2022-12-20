@@ -16,8 +16,6 @@
     --background-color-input:  rgb(152, 37, 37,.6);
     --backgoud-color-button:  rgb(152, 37, 37);
 
-  
-
 
 }
 
@@ -25,5 +23,9 @@ a:visited{
     text-decoration: none;
     color: black;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+  margin: 0;
 
-
+}

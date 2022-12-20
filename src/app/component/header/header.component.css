@@ -24,7 +24,7 @@
 
 .home{
 
-    color: var(--font-color-primary);
+    color: var(--font-color-h);
     padding: 2%;
     padding-left: 6%;
     text-decoration: none;
@@ -33,13 +33,13 @@
 }
 .home:hover{
 
-    color: var(--background-color-input)
+    color: var(--font-color-hover)
 
 }
 
 .sobrenosotros{
 
-    color: var(--font-color-primary);
+    color: var( --font-color-h);
     padding: 2%;
     text-decoration: none;
     margin-right: 30%;
@@ -48,13 +48,13 @@
 }
 .sobrenosotros:hover{
 
-    color: var(--background-color-input)
+    color: var(--font-color-hover)
 
 }
 
 .login{
 
-    color: var(--font-color-primary);
+    color: var(--font-color-h);
     padding: 2%;
     padding-right: 5%;
     text-decoration: none;
@@ -63,13 +63,13 @@
 } 
 .login:hover{
 
-    color: var(--background-color-input)
+    color: var(--font-color-hover)
 
 }
 
 .registro{
 
-    color: var(--font-color-primary);
+    color: var( --font-color-h);
     padding: 2%;
     padding-left: 10%;
     text-decoration: none;
@@ -77,13 +77,13 @@
 }
 .registro:hover{
 
-    color: var(--background-color-input)
+    color: var(--font-color-hover)
 
 }
 
 .campañas{
 
-    color: var(--font-color-primary);
+    color: var( --font-color-h);
     padding: 2%;
     padding-left: 50%;
     text-decoration: none;
@@ -91,13 +91,13 @@
 }
 .campañas:hover{
 
-    color: var(--background-color-input)
+    color: var(--font-color-hover)
 
 }
 
 .logout{
 
-    color: var(--font-color-primary);
+    color: var( --font-color-h);
     padding: 2%;
     padding-right: 5%;
     text-decoration: none;
@@ -105,6 +105,6 @@
 } 
 .logout:hover{
 
-    color: var(--background-color-input)
+    color: var(--font-color-hover)
 
 }
