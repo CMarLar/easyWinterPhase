@@ -21,6 +21,7 @@ export class MarriageCourtesyModalComponent {
   public botonPulsado : boolean;
   public noSeCasa: string;
   public datos : any;
+  public modMarriage : number;
 
   constructor(){
     this.isHidden = true;
@@ -65,33 +66,33 @@ export class MarriageCourtesyModalComponent {
     let dadoHija : number;
     let dadoHermanos : number;
 
-      if(parseInt(value) <= 5){
+      if(parseInt(value) + this.modMarriage <= 5){
 
       this.rol = "Plebeya adinerada";
       this.gloria = 0;
       this.libras = "3d6 + 6£";
       
-    }else if (parseInt(value) >= 6 && parseInt(value) <= 8){
+    }else if (parseInt(value) + this.modMarriage >= 6 && parseInt(value) + this.modMarriage <= 8){
 
       dadoHija = Math.floor((Math.random() * 6) + 1);
       this.rol = "Hija " + dadoHija + " de un escudero";
       this.gloria = 10;
       this.libras = "3£";
 
-    }else if (parseInt(value) >= 9 && parseInt(value) <= 10){
+    }else if (parseInt(value) + this.modMarriage >= 9 && parseInt(value) + this.modMarriage <= 10){
 
       dadoHija = Math.floor((Math.random() * 6) + 1);
       this.rol = "Hija " + dadoHija + "de caballero mantenido";
       this.gloria = 50;
       this.libras = "1d6 £";
 
-    }else if (parseInt(value) == 11){
+    }else if (parseInt(value) + this.modMarriage == 11){
 
       this.rol = "Hija mayor de caballero vasallo adinerado";
       this.gloria = 100;
       this.libras = "1d3 + 6£";
 
-    }else if (parseInt(value) >= 12 && parseInt(value) <= 20){
+    }else if (parseInt(value) + this.modMarriage >= 12 && parseInt(value) + this.modMarriage <= 20){
 
       dadoHija = Math.floor((Math.random() * 6) + 1);
       dadoHermanos = Math.floor((Math.random() * 6) + 1);
@@ -99,20 +100,20 @@ export class MarriageCourtesyModalComponent {
       this.gloria = 100;
       this.libras = "1d6 £";
 
-    }else if (parseInt(value) >= 21 && parseInt(value) <= 25){
+    }else if (parseInt(value) + this.modMarriage >= 21 && parseInt(value) + this.modMarriage <= 25){
 
       this.rol = "Heredera de caballero vasallo";
       this.gloria = 100;
       this.libras = "1 señorío, 1d6+ 10£";
 
     }
-    else if (parseInt(value) >= 26 && parseInt(value) <= 27){
+    else if (parseInt(value) + this.modMarriage >= 26 && parseInt(value) + this.modMarriage <= 27){
 
       this.rol = "Heredera de caballero vasallo adinerado";
       this.gloria = 300;
       this.libras = "2 señoríos, 1d6 £";
 
-    }else if (parseInt(value) >= 28){
+    }else if (parseInt(value) + this.modMarriage >= 28){
 
       this.rol = "Hija más joven de un barón";
       this.gloria = 250;
@@ -125,6 +126,7 @@ export class MarriageCourtesyModalComponent {
   public noMarriage(){
     this.noSeCasa = "No";
     this.botonPulsado = true;
+    this.modMarriage += 1;
   }
 
   public guardarDatos(){

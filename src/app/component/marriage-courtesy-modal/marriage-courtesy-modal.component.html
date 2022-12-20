@@ -17,16 +17,20 @@
                         <button class="small_button" (click)="casarseResult()">Si</button>
                         <button class="small_button" #noSeCasa (click)="noMarriage()">No</button>
                     </div>
-                    <div *ngIf="casarse == true;" style="display: flex; flex-direction: column; align-items: center;">
+                    <div *ngIf="casarse == true;" style="display: flex; flex-direction: column; align-items: center;height: 100%;">
                         <div class="inputContain">
                             <label>Tirada de matrimonio</label>
                             <input class="" type="number" #valorInput>
                         </div>
                         <button class="small_button" (click)="esposaResult(valorInput.value)">Calcular</button>
-                        <div *ngIf="casadoCon == true">
+                        <div *ngIf="casadoCon == true" class="resultContainer">
                             <p>Resultado: {{rol}}</p>
                             <p>+{{gloria}} de gloria para el personaje activo</p>
                             <p>+{{libras}} libras para el personaje activo</p>
+                            <div class="inputEsp">
+                                <input class="nombreEsp" type="text" placeholder="Nombre">
+                                <input class="edadEsp" type="text" placeholder="Edad">
+                            </div>
                             <button class="plumaButton" (click)="guardarDatos()">
                                 <img src="../../../assets/img/PLUMA.png" alt="">
                                 <p>Ok</p>
