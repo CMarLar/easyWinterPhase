@@ -3,12 +3,12 @@
     height: 70vh;
     background-size: cover;
     /* border: 2px solid red; */
-    /* border: 2px solid red; */
     position: relative;
     
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
     .modal img{
         width: 100%;
@@ -17,24 +17,26 @@
     .modalContain{
         width: 60%;
         height: 80%;
-        /* border: 2px solid black; */
-        /* border: 2px solid black; */
+    /*     border: 2px solid black; */
         position: absolute;
-        top: 10%;
+       /*  top: 14%; */
 
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-between;
+        /* justify-items: flex-end; */
+        justify-content: center;
     }
     .nombreCasa{
         font-size: 2rem;
         color: var(--font-color-h);
         text-align: center;
+        margin-top: 2%;
     }
     .info{
         font-size: 0.7rem;
         text-align: center;
+        
     }
     .pj{
         font-weight: bold;
@@ -64,10 +66,9 @@
             padding: 5px 10px;
         }
     .infoContain{
-        /* border: 2px solid red; */
-        /* border: 2px solid red; */
+       /*  border: 2px solid red; */
         width: 100%;
-        height: 45%;
+        height: 50%;
 
         display: flex;
         flex-direction: column;
@@ -75,18 +76,17 @@
     }
     .infoContain img{
         width: 30%;
-        height: 40%;
-        /* border: 2px solid red; */
+        /* height: 40%; */
         /* border: 2px solid red; */
     }
     .prueba{
-        border: 0px  blue !important;
-        width: 80%;
-        min-height: 55%;
+        border: 0px blue !important;
+        width: 86%;
+        height: 40%;
         /* max-height: 55%; */
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-around;
         flex-wrap: wrap;
 
         overflow-y: scroll;
@@ -98,39 +98,36 @@
         display: flex;
         flex-direction: row;
         /* border: 2px solid yellow; */
-        justify-content: center;
-        margin-bottom: 5%;
+        justify-content: space-between;
+        /* margin-bottom: 5%; */
     }
 
         .name_header{
-            /* border:2px solid black; */
+           /*  border:2px solid black; */
             display: flex;
-            flex-wrap:wrap;
+           /*  flex-wrap:wrap; */
             width: 49%;
             justify-content: center;
             font-weight: bold;
         }
 
         .role_header{
-            /* border:2px solid white; */
+           /*  border:2px solid white;  */
             display: flex;
             flex-wrap:wrap;
             width: 49%;
             justify-content: center;
             font-weight: bold;
         }
-
-
-
     .char_container{
         width: 100%;
         display: flex;
         flex-direction: row;
-        /* border: 2px solid yellow */
+       /*  border: 2px solid yellow;  */
     }
 
         .char_name{
-            /* border:2px solid red; */
+           /*  border:2px solid red;  */
             display: flex;
             flex-wrap:wrap;
             width: 49%;

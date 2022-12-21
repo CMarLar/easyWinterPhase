@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: column;
    
-  background-image: url("../../../assets/backgrounds/fondo_dobleDragon2.png");
+  background-image: url("../../../assets/backgrounds/fondo_dragon_oscuro.png");
   background-size: cover;
   background-position: center;
   
@@ -18,15 +18,16 @@
    /*  border: 2px solid rgb(167, 95, 150); */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center; */
+    justify-content: space-between;
     height: 72vh;
 }
 
     .contenido{
-        width: 80%;
+        width: 68%;
         height: 100%;
        /*  border: 3px solid yellow; */
+        padding-left: 10%;
 
         display: flex;
         flex-direction: row;
@@ -36,8 +37,8 @@
 
 
 .zonaB{
-/*     border: 2px solid blueviolet; */
-    width: 80%;
+   /*  border: 2px solid blueviolet; */
+    width: 100%;
     height: 100%;
     display: flex; 
     flex-direction: column;
@@ -47,12 +48,12 @@
 
     width: 100%;
     height: 20%;
-  /*   border: 2px solid rgb(43, 226, 153); */
+  /*  border: 2px solid rgb(43, 226, 153);  */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
+   
 }
        .titulo{
             font-family: 'Almendra', serif;
@@ -60,12 +61,13 @@
             -webkit-text-stroke: 0.75px var(--font-color-hover);
             color:rgb(139, 35, 35);
             font-size: 2.7em;
+            padding-right: 50%;
 
         }
  .zonaB_b{
 
     width: 100%;
-    height: 90%;
+    height: 80%;
     flex-direction: row;
     /*  border:  4px solid rgb(255, 255, 255);  */
 /*      padding-left: 2%; */
@@ -94,11 +96,11 @@
                 align-items: center;
                 position: relative;
        
-               /*  border:  4px solid rgb(119, 12, 138); */
+                /*  border:  4px solid rgb(119, 12, 138);  */
              }
                 .foto{
 
-                    height: 80%;
+                    height: 70%;
                     position: absolute;
                     border-radius: 50%;
                     border:  5px black;
@@ -107,13 +109,13 @@
              .caja_texto{
                 width: 75%;
                 height: 100%;
-                /* border:  4px solid rgb(146, 203, 223); */
+               /*  border:  4px solid rgb(146, 203, 223);  */
 
              }
                     .nombre{
                         font-size: 1.2rem ;
                         font-style: bold;
-                        padding: 3%;
+                        
                         color:rgb(159, 14, 14);
                         -webkit-text-stroke: 1px var(--font-color-hover);
                      }
@@ -121,8 +123,8 @@
                         
 
                         color: whitesmoke;
-                        padding-left: 4%;
                         font-family: "Almendra", serif;
+                        font-size: smaller;
         
                     }
         

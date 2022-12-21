@@ -8,7 +8,7 @@
     flex-direction: column;
 /*     justify-content: space-around; */
    
-  background-image: url("../../../assets/img/fondo_phase2.png");
+  background-image: url("../../../assets/backgrounds/fondo_phase2.png");
   background-size: cover;
   background-position: center;
 
@@ -198,12 +198,10 @@
   
 }
 
-.back{
+/* .back{
 
     height: 100%;
     width: 50%;
-  /*   border:  4px solid rgb(229, 189, 116); */
-   
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -214,13 +212,13 @@
 }
     .daga_derecha{  
         width: 30%;
-/*         border: 2px solid red; */
+
     } 
     .daga_derecha img{
         width: 100%;
     }
     .volver{
-  /*       border: 2px solid red; */
+
         text-decoration: none;
         color: var(--font-color-hover);
         padding-left: 3%;
@@ -241,7 +239,6 @@
 
     height: 100%;
     width: 50%;
- /*    border:  4px solid rgb(229, 189, 116); */
    
     display: flex;
     flex-direction: column;
@@ -254,13 +251,13 @@
 }
      .daga_izquierda{  
         width: 30%;
-     /*    border: 2px solid red; */
+
     } 
      .daga_izquierda img{
         width: 100%;
     }
     .siguiente{
-       /*  border: 2px solid red; */
+      
         text-decoration: none;
         color: var(--font-color-hover);
         padding-right: 3%;
@@ -277,4 +274,4 @@
          transform: translate(20px);
          cursor: pointer;
 
-    }
+    } */
