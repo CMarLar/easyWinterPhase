@@ -30,7 +30,7 @@ export class LoginComponent {
       console.log(data);
       if(data[0] != undefined){
 
-        this.userService.user = new User(data[0].password,data[0].email,data[0].avatar,data[0].username,data[0].id_user);
+        this.userService.user = new User(data[0].password,data[0].email,data[0].avatar,data[0].username,data[0].user_id);
         this.userService.logueado = true;
         console.log("LOGUEADO");
         this.goPlace();
