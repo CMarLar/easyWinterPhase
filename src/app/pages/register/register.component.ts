@@ -35,6 +35,7 @@ export class RegisterComponent {
             .subscribe(function (data){
               console.log(data);
             })
+            console.log(this.userService.user);
             
             this.goPlace();
 

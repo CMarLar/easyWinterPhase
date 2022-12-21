@@ -4,7 +4,7 @@ export class User {
         public email : string,
         public avatar : string,
         public username : string,
-        public id_user : number = 0){
+        public user_id : number = 0){
 
     }
 

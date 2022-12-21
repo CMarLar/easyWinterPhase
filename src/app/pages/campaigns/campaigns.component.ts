@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 //importados para hacer servicios
 import { CampaignService } from 'src/app/shared/campaign.service';
 import { Campaign } from 'src/app/models/campaign';
+import { UserService } from 'src/app/shared/user.service';
+import { User } from 'src/app/models/user';
 
 
 @Component({
@@ -18,9 +20,13 @@ export class CampaignsComponent {
   public currentCampaign : string;
   public isHide : boolean;
 
+  //Servicio y usuario actual
+  
+  public currentUser: User;
+
   public campaignsOfUser:any;//creada para hacer los servicios.
 
-  constructor(public router : Router, public campaignService:CampaignService){
+  constructor(public router : Router, public campaignService:CampaignService,public userService: UserService){
     this.user = {nombre : "Miguel Generoso Valero",
                 correo : "gene17051996@gmail.com",
                 password : "contraseñaMiguel_17",
@@ -31,10 +37,12 @@ export class CampaignsComponent {
 
     this.isHide = true;
 
+    this.currentUser = this.userService.user;
+
 
     //debería mostrar esto por pantalla
-    this.campaignsOfUser=this.getCampaigns(1);
-    console.log(this.getCampaigns(1));
+    this.campaignsOfUser=this.getCampaigns(this.currentUser.user_id);
+    console.log(this.getCampaigns(this.currentUser.user_id));
 
     //HAY que cambiarlo cuando se autentifique el usuario
     
