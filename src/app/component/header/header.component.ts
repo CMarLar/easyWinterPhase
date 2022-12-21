@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-header',
@@ -10,12 +11,12 @@ export class HeaderComponent {
   public conectado: boolean;
 
 
-  constructor( ){
+  constructor(private userService : UserService){
  
-    this.conectado = false;
+    this.conectado = this.userService.logueado;
 
   }
-  public  comprobarlogin(): boolean{
+  public comprobarlogin(): boolean{
 
 
     if(this.conectado == true){
@@ -29,7 +30,12 @@ export class HeaderComponent {
     }
     return this.conectado; 
 
-   /*  return false; */
+  }
+
+  public logOut(){
+
+    this.userService.logueado = false;
+    this.userService.user=null;
   }
   
 
