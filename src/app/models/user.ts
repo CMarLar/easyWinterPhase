@@ -1,10 +1,10 @@
 export class User {
 
-    constructor(public password : String,
-        public email : String,
-        public avatar : String,
-        public username : String,
-        public id_user : Number = 0){
+    constructor(public password : string,
+        public email : string,
+        public avatar : string,
+        public username : string,
+        public user_id : number = 0){
 
     }
 
