@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-register',
@@ -8,44 +10,61 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
 
-  public user : {};
   public isHide : boolean;
   public error : string;
-  constructor(private router : Router){
+
+  constructor(private router : Router, private userService : UserService){
     this.isHide = true
   }
 
-  public addUser(mail : string,pass : string,confirmPass : string){
+  public addUser(user : string, mail : string,pass : string,confirmPass : string){
 
-    if(this.validateEmail(mail)){
-
-      console.log("Correo electronico valido");
-      if(this.validatePass(pass)){
-        
-        if(pass == confirmPass){
-
-          this.user = {correo : mail, contraseña : pass};
-          this.goPlace();
-
-        }else{
-          console.log("las contraseñas no coinciden");
-          this.isHide = false;
-          this.error = "las contraseñas no coinciden";
+    console.log(user);
+    
+    if(user != ""){
+      // console.log("PASO");
       
+      if(this.validateEmail(mail)){
+
+        // console.log("Correo electronico valido");
+        if(this.validatePass(pass)){
           
+          if(pass == confirmPass){
+  
+            this.userService.register(this.userService.user = new User(pass,mail,"../../../assets/img/img_perfil.png",user))
+            .subscribe(function (data){
+              console.log(data);
+            })
+            
+            this.goPlace();
+
+          }else{
+            // console.log("las contraseñas no coinciden");
+            this.isHide = false;
+            this.error = "las contraseñas no coinciden";
+        
+            
+          }
+        }else{
+          // console.log("La contraseña debe contener al menos una minuscula, una mayuscula, un digito y un caracter especial");
+          this.isHide = false;
+          this.error = "La contraseña debe contener al menos una minuscula, una mayuscula, un digito y un caracter especial";
         }
+  
       }else{
-        console.log("La contraseña debe contener al menos una minuscula, una mayuscula, un digito y un caracter especial");
+        // console.log("Correo electronico invalido");
         this.isHide = false;
-        this.error = "La contraseña debe contener al menos una minuscula, una mayuscula, un digito y un caracter especial";
+        this.error = "Correo electronico no valido";
+        
       }
 
     }else{
+      // console.log("NO PASO");
       this.isHide = false;
-      this.error = "Correo electronico no valido";
-      console.log("Correo electronico invalido");
-      
+      this.error = "Debes introducir un nombre de usuario"
     }
+
+    
 
 
   }

@@ -6,8 +6,12 @@
     <div class="div--2">
         <form class="form" action="">
             <div class="form--div-1">
+                <label for="">nombre de usuario:</label>
+                <input type="email" #userName>
+            </div>
+            <div class="form--div-1">
                 <label for="">correo:</label>
-                <input type="email" #user>
+                <input type="email" #correo>
             </div>
             <div class="form--div-2">
                 <label for="">contraseña:</label>
@@ -20,7 +24,7 @@
             <div class="textHide" [hidden]="isHide">{{error}}</div>
         </form>
     </div>
-    <button class="button" (click)="addUser(user.value,pass.value,confirmarPass.value)">
+    <button class="button" (click)="addUser(userName.value,correo.value,pass.value,confirmarPass.value)">
         <img src="../../../assets/img/daga_login_register.png" alt="">
         <p>Guardar</p>
     </button>
