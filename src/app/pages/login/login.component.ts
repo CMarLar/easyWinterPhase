@@ -23,11 +23,6 @@ export class LoginComponent {
   }
 
   public userValidate(email : string,password : string){
-
-    // console.log(this.user);
-    // console.log(this.password);
-    // console.log(user);
-    // console.log(password);
     
     this.userService.login(new User(password,email,null,null,null))
     .subscribe((data : User[]) => {
@@ -49,23 +44,6 @@ export class LoginComponent {
       }
       
     })
-    
-
-
-
-
-    // if (email == this.user && password == this.password){
-
-    //   this.router.navigateByUrl('/campaigns');
-    //   this.usuarioConectado = true;
-
-    // }else{
-
-    //   console.log("Error al introducir el usuario o la contraseña");
-    //   this.usuarioConectado = false;
-    //   this.dataOk = false;
-
-    // }
 
   }
 
