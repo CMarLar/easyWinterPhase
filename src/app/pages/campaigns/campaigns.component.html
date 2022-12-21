@@ -10,14 +10,14 @@
                 <p>{{user.nombre}}</p>
             </div>
         </div>
-        <div class="banderasdiv" *ngFor="let campaign of user.campaigns">
+        <div class="banderasdiv" *ngFor="let campaign of campaignsOfUser">
             <div class="banderascontainer">
-                <button class="banderas" (click)="selectCampaign(campaign)">
+                <button class="banderas" (click)="selectCampaign(campaign.campaign_id)">
                     <img src="../../../assets/img/cintas_rojas.png" alt="">
-                    <p #campaign>{{campaign}}</p>
+                    <p #campaign>{{campaign.campaign_name}}</p>
                 </button>
                 <span class="calavera">
-                    <button (click)="deleteCampaign(campaign)">
+                    <button (click)="deleteCampaign(campaign.campaign_id)">
                         <img src="../../../assets/img/CALAVERA.png" alt="">
                     </button>
                 </span>

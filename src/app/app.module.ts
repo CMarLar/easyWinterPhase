@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 //FORMULARIOS TEMPLATE DRIVEN//
 import { FormsModule } from '@angular/forms';
-//HTTP CLIENT MODULE//
+
+//PARA SERVICIOS://
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -80,7 +81,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     AppRoutingModule,
     //FORMULARIOS TEMPLATE DRIVEN:
     FormsModule,
-    //HTTP CLIENT MODULE
+    //HttpClientModule para servicios
     HttpClientModule
   ],
   providers: [],
