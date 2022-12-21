@@ -20,4 +20,9 @@ export class UserService {
     
     return this.http.post(this.url,user);
   }
+
+  public login(user : User){
+    this.url = "http://localhost:3000/login";
+    return this.http.post(this.url,user);
+  }
 }
