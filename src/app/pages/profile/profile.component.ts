@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/shared/user.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-profile',
@@ -8,15 +10,11 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent {
 
-  public user : any = {};
+  public user : User;
 
-  constructor(public router : Router){
-    this.user = {nombre : "Miguel Generoso Valero",
-                correo : "gene17051996@gmail.com",
-                password : "contraseñaMiguel_17",
-                rol : "Master",
-                campaignFinish : 3,
-                imgProfile : "../../../assets/img/img_perfil.png"}
+  constructor(public router : Router, private userService : UserService){
+
+    this.user = this.userService.user;
   }
 
   public goBack(){
