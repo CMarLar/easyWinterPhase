@@ -12,15 +12,17 @@ export class CampaignService {
 
   public campaigns: Campaign[];
 
-  //Es la campaña logueada
-  public currentCampaign;
+  //Es la campaña logueada. Falta por implementar.
+  public currentCampaign: Campaign;
 
   constructor(private http:HttpClient) 
   {
+    //Hardcodeado para pruebas
     let newCampaignTest = new Campaign(null,"Campaña de prueba 3",1)
     let newCampaignTest2 = new Campaign(null,"Otra campaña 2022",1)
 
-    this.campaigns=[newCampaignTest,newCampaignTest2]
+    this.campaigns=[]//Recoge todas las campañas del usuario
+    
   }
 
 // GET CAMPAIGNS
@@ -44,5 +46,21 @@ public deleteCampaign(campaign_id:number) {
 
 }
 
+
+//POST  NEW CAMPAIGN
+public postCampaign(campaign:Campaign){
+  this.url = "http://localhost:3000/campaigns"
+
+  return this.http.post(this.url,campaign)
+
+}
+
+//PUT CAMPAIGN
+
+public modifyCampaign(campaign:Campaign){
+  this.url = "http://localhost:3000/campaigns"
+
+  return this.http.put(this.url,campaign)
+}
 
 }//fin servicio

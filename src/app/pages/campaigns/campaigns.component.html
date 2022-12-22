@@ -7,7 +7,7 @@
             </div>
             <div class="titleText">
                 <h1>CAMPAÑAS</h1>
-                <p>{{user.nombre}}</p>
+                <p>{{currentUser.username}}</p>
             </div>
         </div>
         <div class="banderasdiv" *ngFor="let campaign of campaignsOfUser">
@@ -24,7 +24,8 @@
             </div>   
             
         </div>
-        <button class="btnCrear" (click)="goAddCampaign()">
+        <!-- Nueva campaña debe ir a añadir jugadores de esa campaña -->
+        <button class="btnCrear" (click)="createNewCampaign()">
             <img src="../../../assets/img/img_espada.png" alt="">
             <div>
                 NUEVA CAMPAÑA
@@ -32,5 +33,9 @@
             <p class="textHide" [hidden]="isHide">No puedes tener mas de 6 campañas</p>
         </button>
     </div>
+<!-- Modal -->
+    <div class="modal" [hidden]="hiddenModal">
+    <app-campaign-name-modal></app-campaign-name-modal>
+    </div> 
     
 </main>
