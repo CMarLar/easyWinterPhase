@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/shared/user.service';
+import { getLocalePluralCase } from '@angular/common';
 
 @Component({
   selector: 'app-modify-profile',
@@ -9,17 +12,12 @@ import { NgForm } from '@angular/forms';
 })
 export class ModifyProfileComponent {
 
-  public user : any = {};
+  public user : User;
   public error : string;
   public isHide : boolean;
 
-  constructor(public router : Router){
-    this.user = {nombre : "Miguel Generoso Valero",
-                correo : "gene17051996@gmail.com",
-                password : "contraseñaMiguel_17",
-                rol : "Master",
-                campaignFinish : 3,
-                imgProfile : "../../../assets/img/img_perfil.png"};
+  constructor(public router : Router, private userService : UserService){
+    this.user = this.userService.user;
     this.isHide = true;
   }
 
@@ -30,14 +28,17 @@ export class ModifyProfileComponent {
   public modifyUser(name : string, mail : string, pass : string){
 
     this.error = "";
+    this.user.user_id = this.userService.user.user_id;
 
     if (mail != ""){
       if (this.validateEmail(mail)){
-        this.user.correo = mail;
+        this.user.email = mail;
       }else{
         this.isHide = false;
         this.error += "El correo electronico no es valido. "
       }
+    }else{
+      this.user.email = this.userService.user.email;
     }
 
     if (pass != ""){
@@ -47,13 +48,23 @@ export class ModifyProfileComponent {
         this.isHide = false;
         this.error += "La contraseña no es valida. "
       }
+    }else{
+      this.user.password = this.userService.user.password;
     }
 
     if (name != ""){
-      this.user.nombre = name;
+      this.user.username = name;
+    }else{
+      this.user.username = this.userService.user.username;
     }
 
+    this.userService.update(this.user = new User(this.user.password,this.user.email,this.user.avatar,this.user.username,this.userService.user.user_id))
+    .subscribe(function (data){
+
+    })
     
+    
+    this.goPlace();
     
   }
 
@@ -81,5 +92,9 @@ export class ModifyProfileComponent {
     console.log("REGEX CORREO VALUE: " + regExp.test(email));
     
     return regExp.test(email);
+  }
+
+  public goPlace(){
+    this.router.navigateByUrl("/profile");
   }
 }

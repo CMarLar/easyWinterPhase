@@ -25,4 +25,9 @@ export class UserService {
     this.url = "http://localhost:3000/login";
     return this.http.post(this.url,user);
   }
+
+  public update(user : User){
+    this.url = "http://localhost:3000/modifyprofile";
+    return this.http.put(this.url,user)
+  }
 }
