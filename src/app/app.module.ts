@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule} from "@angular/common/http";
 
 //FORMULARIOS TEMPLATE DRIVEN//
 import { FormsModule } from '@angular/forms';
@@ -72,12 +73,14 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     ProfileComponent,
     ModifyProfileComponent,
     AboutUsComponent
+  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     //FORMULARIOS TEMPLATE DRIVEN:
     FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
