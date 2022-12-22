@@ -82,10 +82,9 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     AppRoutingModule,
     //FORMULARIOS TEMPLATE DRIVEN:
     FormsModule,
-<<<<<<< HEAD
+
     //HttpClientModule para servicios
-=======
->>>>>>> tarea27
+
     HttpClientModule
   ],
   providers: [],
