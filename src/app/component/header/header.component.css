@@ -1,8 +1,6 @@
  .header{
-
     width: 100%;
     height: 30%;
-
     display: flex;
     flex-direction: row;
     justify-content: space-between; 
@@ -10,20 +8,8 @@
    /*  border:  3px solid orange; */
 }
 
-.header2{
-
-    width: 100%;
-    height: 30%;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; 
-    font-family: 'Almendra', serif;  
-/*     border:  3px solid orange; */
-}
 
 .home{
-
     color: var(--font-color-h);
     padding: 2%;
     padding-left: 6%;
@@ -32,13 +18,11 @@
     
 }
 .home:hover{
-
     color: var(--font-color-hover)
 
 }
 
 .sobrenosotros{
-
     color: var( --font-color-h);
     padding: 2%;
     text-decoration: none;
@@ -47,13 +31,11 @@
    
 }
 .sobrenosotros:hover{
-
     color: var(--font-color-hover)
 
 }
 
 .login{
-
     color: var(--font-color-h);
     padding: 2%;
     padding-right: 5%;
@@ -62,13 +44,11 @@
     
 } 
 .login:hover{
-
     color: var(--font-color-hover)
 
 }
 
 .registro{
-
     color: var( --font-color-h);
     padding: 2%;
     padding-left: 10%;
@@ -76,35 +56,71 @@
     font-size: x-large;
 }
 .registro:hover{
-
     color: var(--font-color-hover)
 
 }
-
-.campañas{
-
-    color: var( --font-color-h);
-    padding: 2%;
-    padding-left: 50%;
-    text-decoration: none;
-    font-size: x-large;
-}
-.campañas:hover{
-
-    color: var(--font-color-hover)
-
+.header2{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; 
+    font-family: 'Almendra', serif;  
+   /*  border:  3px solid orange;  */
 }
 
-.logout{
+           .campañas{
 
-    color: var( --font-color-h);
-    padding: 2%;
-    padding-right: 5%;
-    text-decoration: none;
-    font-size: x-large;
-} 
-.logout:hover{
+            width: 15%;
+            height: 100%;
+            
+                color: var( --font-color-h);
+                padding: 2%;
+                text-decoration: none;
+                font-size: x-large;
+                text-align: center;
+/*                 border:  3px solid rgb(209, 153, 208);  */
+            }
+            .campañas:hover{
+                 color: var(--font-color-hover)
 
-    color: var(--font-color-hover)
+            }
+            .espacio{
+                width: 60%;
+                height: 100%;
+            }
 
-}
+             .logout{
+                width: 15%;
+                height: 100%;
+
+                 color: var( --font-color-h);
+                 padding: 2%;
+                 text-align: center;
+                 text-decoration: none;
+                 font-size: x-large;
+                 /* border:  3px solid rgb(211, 13, 201); */ 
+            } 
+            .logout:hover{
+                 color: var(--font-color-hover)
+
+            }
+    
+             .profile{
+
+                width: 10%;
+                height: 100%; 
+
+                color: var( --font-color-h);
+                padding: 2%;
+                text-align: center;
+                justify-content: flex-end;
+                text-decoration: none;
+                font-size: x-large;
+                /* border:  3px solid rgb(255, 0, 38); */ 
+            } 
+            .profile:hover{
+                color: var(--font-color-hover)
+
+            }
