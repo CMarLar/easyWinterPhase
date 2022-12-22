@@ -20,6 +20,9 @@ export class CampaignsComponent {
   public currentCampaign : string;
   public isHide : boolean;
 
+    //Modal para meter el nombre de la campaña
+    public hiddenModal:boolean;
+
   //Servicio y usuario actual
   
   public currentUser: User;
@@ -37,6 +40,8 @@ export class CampaignsComponent {
 
     this.isHide = true;
 
+    this.hiddenModal = true;
+
     this.currentUser = this.userService.user;
 
 
@@ -44,8 +49,8 @@ export class CampaignsComponent {
     this.campaignsOfUser=this.getCampaigns(this.currentUser.user_id);
     console.log(this.getCampaigns(this.currentUser.user_id));
 
-    //HAY que cambiarlo cuando se autentifique el usuario
-    
+
+    this.campaignService.campaigns = this.campaignsOfUser
     
   }
 
@@ -55,9 +60,10 @@ public getCampaigns(user_id:number){
 
   this.campaignService.getCampaigns(user_id).subscribe((data:Campaign[])=>{
     this.campaignsOfUser=data;
+    this.campaignService.campaigns=this.campaignsOfUser;
     console.log(data);
     
-  })
+  })//sin sucribe
 
 }
 
@@ -89,25 +95,41 @@ public deleteCampaign(campaign_id:number){
   })
 }
 
+  //Función nueva
+  public createNewCampaign(){
 
+    
+
+    if(this.campaignsOfUser.length == 6){
+
+      this.isHide = false;
+
+    }else{
+
+      // console.log(this.campaignService.currentCampaign);
+
+      this.hiddenModal = false;
+
+    }
+
+
+  }
 
 
 
 
 
 //FALTA CAMBIAR CON EL ROUTING. SE HA CREADO UN ATRIBUTO EN SERVICIO LLAMADO CURRENCAMPAIGN
-  public selectCampaign(campaña : string){
-    console.log(campaña);
-    this.currentCampaign = campaña;
+  public selectCampaign(campaign_id:number){
+    console.log("Campaña seleccionada con id: ");
+    
+    console.log(campaign_id);
+
+    //Falta implementar el get en las campañas.
+    // this.currentCampaign = campaña;
     this.router.navigateByUrl("/currentcampaign")
   }
 
-  public removeCampaignFromList (campaign_id){
-    console.log(campaign_id);
-    console.log(this.campaignsOfUser);
-
-
-  }
 
   public deleteCampaign2(campaign_id : number){//nombre cambiado para que me funcione a mí, lol
     console.log(campaign_id);
@@ -124,7 +146,7 @@ public deleteCampaign(campaign_id:number){
       }
     }
   }
-
+  //Función antigua
   public goAddCampaign(){
     
     if(this.user.campaigns.length == 6){
@@ -133,7 +155,8 @@ public deleteCampaign(campaign_id:number){
     }else{
       this.router.navigateByUrl("/addplayers");
     }
-
     
   }
+
+
 }

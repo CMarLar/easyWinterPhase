@@ -4,6 +4,12 @@
     width: 100%;
     /* border: 2px solid black; */
 }
+
+.modal{
+    position: absolute;
+    bottom:10%;
+}
+
 .main{
     width: auto;
     height: 100vh;

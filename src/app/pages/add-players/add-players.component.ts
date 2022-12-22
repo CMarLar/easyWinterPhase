@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms'
+import { NgForm } from '@angular/forms';
+import { CampaignService } from 'src/app/shared/campaign.service';
+import { Player } from 'src/app/models/player';
+import { PlayerService } from 'src/app/shared/player.service';
+import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-add-players',
@@ -9,7 +14,7 @@ import { NgForm } from '@angular/forms'
 })
 export class AddPlayersComponent {
 
-  public user : any = {};
+  public currentUser : User;
   public campaigns : any = [];
   public currentCampaign : string;
   public jugadores : string[];
@@ -20,17 +25,27 @@ export class AddPlayersComponent {
   public jugador5 : any;
   public jugador6 : any;
 
+  public players:Player[]
 
-  constructor(public router : Router){
 
-    this.currentCampaign = "LA GRAN CAMPAÑA DE PENDRAGON";
-    this.user = {nombre : "Miguel Generoso Valero",
-                correo : "gene17051996@gmail.com",
-                password : "contraseñaMiguel_17",
-                rol : "Master",
-                campaignFinish : 3,
-                imgProfile : "../../../assets/img/img_perfil.png",
-                campaigns : ["Campaña 1","Campaña 2","Campaña 3","Campaña 4","Campaña 5","Campaña 6"]};
+  constructor(public router : Router, public campaignService:CampaignService, public userService:UserService, public playerService:PlayerService){
+
+    //Cambiar por la campaña de servicio
+    console.log(this.campaignService.currentCampaign);
+    
+    // this.currentCampaign = this.campaignService.currentCampaign.campaign_name;
+
+    this.currentUser = this.userService.user;
+
+    // this.players = [];
+
+    // this.currentUser = {nombre : "Miguel Generoso Valero",
+    //             correo : "gene17051996@gmail.com",
+    //             password : "contraseñaMiguel_17",
+    //             rol : "Master",
+    //             campaignFinish : 3,
+    //             imgProfile : "../../../assets/img/img_perfil.png",
+    //             campaigns : ["Campaña 1","Campaña 2","Campaña 3","Campaña 4","Campaña 5","Campaña 6"]};
 
     this.jugadores = [];
     this.jugador1 = {nombre : ""};
@@ -46,6 +61,8 @@ export class AddPlayersComponent {
     
     this.jugadores.push(form.value)
     console.log("JUGADORES: " + JSON.stringify(this.jugadores));
+    // console.log(this.jugadores.length);
+    
     
     this.router.navigateByUrl("housesmanagement")
   }

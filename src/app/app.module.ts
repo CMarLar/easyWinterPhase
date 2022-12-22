@@ -40,6 +40,7 @@ import { BirthsModalComponent } from './component/births-modal/births-modal.comp
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ModifyProfileComponent } from './pages/modify-profile/modify-profile.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { CampaignNameModalComponent } from './component/campaign-name-modal/campaign-name-modal.component';
 
 @NgModule({
   declarations: [
@@ -74,8 +75,8 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     BirthsModalComponent,
     ProfileComponent,
     ModifyProfileComponent,
-    AboutUsComponent
-  
+    AboutUsComponent,
+    CampaignNameModalComponent
   ],
   imports: [
     BrowserModule,

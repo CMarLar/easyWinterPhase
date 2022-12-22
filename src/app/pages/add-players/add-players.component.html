@@ -6,14 +6,14 @@
                 <img src="../../../assets/img/img_perfil.png" alt="" routerLink="/profile">
             </div>
             <div class="titleText">
-                <h1>{{currentCampaign}}</h1>
+                <h1>{{campaignService.currentCampaign.campaign_name}}</h1>
                 <p>Jugadores (maximo 6)</p>
             </div>
         </div>
         <form class="inputplayers" #playersForm="ngForm" (ngSubmit)="onSubmit(playersForm)">
             <input type="text" name="jugador1" [(ngModel)]="jugador1.nombre" #jugador1="ngModel" [ngClass]="{ 'is-invalid' : jugador1.pristine && jugador1.invalid}" required>
             <input type="text" name="jugador2" [(ngModel)]="jugador2.nombre" #jugador2="ngModel" [ngClass]="{ 'is-invalid' : jugador2.pristine &&jugador2.invalid}" [disabled]="jugador1.pristine || jugador1.invalid">
-            <input type="text" name="jugador3" [(ngModel)]="jugador3.nombre" #jugador3="ngModel" [ngClass]="{ 'is-invalid' : jugador3.dirty &&jugador3.invalid}"[disabled]="jugador2.pristine || jugador2.invalid">
+            <input type="text" name="jugador3" [(ngModel)]="jugador3.nombre" #jugador3="ngModel" [ngClass]="{ 'is-invalid' : jugador3.pristine &&jugador3.invalid}"[disabled]="jugador2.pristine || jugador2.invalid">
             <input type="text" name="jugador4" [(ngModel)]="jugador4.nombre" #jugador4="ngModel" [ngClass]="{ 'is-invalid' : jugador4.dirty &&jugador4.invalid}"
             [disabled]="jugador3.pristine || jugador2.invalid">
             <input type="text" name="jugador5" [(ngModel)]="jugador5.nombre" #jugador5="ngModel" [ngClass]="{ 'is-invalid' : jugador5.dirty &&jugador5.invalid}"[disabled]="jugador4.pristine || jugador4.invalid">
