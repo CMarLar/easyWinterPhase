@@ -11,13 +11,13 @@
             </div>
         </div>
         <form class="inputplayers" #playersForm="ngForm" (ngSubmit)="onSubmit(playersForm)">
-            <input type="text" name="jugador1" [(ngModel)]="jugador1.nombre" #jugador1="ngModel" [ngClass]="{ 'is-invalid' : jugador1.pristine && jugador1.invalid}" required>
-            <input type="text" name="jugador2" [(ngModel)]="jugador2.nombre" #jugador2="ngModel" [ngClass]="{ 'is-invalid' : jugador2.pristine &&jugador2.invalid}" [disabled]="jugador1.pristine || jugador1.invalid">
-            <input type="text" name="jugador3" [(ngModel)]="jugador3.nombre" #jugador3="ngModel" [ngClass]="{ 'is-invalid' : jugador3.pristine &&jugador3.invalid}"[disabled]="jugador2.pristine || jugador2.invalid">
-            <input type="text" name="jugador4" [(ngModel)]="jugador4.nombre" #jugador4="ngModel" [ngClass]="{ 'is-invalid' : jugador4.dirty &&jugador4.invalid}"
+            <input type="text" name="jugador1" [(ngModel)]="jugador1.player_name" #jugador1="ngModel" [ngClass]="{ 'is-invalid' : jugador1.pristine && jugador1.invalid}" required>
+            <input type="text" name="jugador2" [(ngModel)]="jugador2.player_name" #jugador2="ngModel" [ngClass]="{ 'is-invalid' : jugador2.pristine &&jugador2.invalid}" [disabled]="jugador1.pristine || jugador1.invalid">
+            <input type="text" name="jugador3" [(ngModel)]="jugador3.player_name" #jugador3="ngModel" [ngClass]="{ 'is-invalid' : jugador3.pristine &&jugador3.invalid}"[disabled]="jugador2.pristine || jugador2.invalid">
+            <input type="text" name="jugador4" [(ngModel)]="jugador4.player_name" #jugador4="ngModel" [ngClass]="{ 'is-invalid' : jugador4.dirty &&jugador4.invalid}"
             [disabled]="jugador3.pristine || jugador2.invalid">
-            <input type="text" name="jugador5" [(ngModel)]="jugador5.nombre" #jugador5="ngModel" [ngClass]="{ 'is-invalid' : jugador5.dirty &&jugador5.invalid}"[disabled]="jugador4.pristine || jugador4.invalid">
-            <input type="text" name="jugador6" [(ngModel)]="jugador6.nombre" #jugador6="ngModel" [ngClass]="{ 'is-invalid' : jugador6.dirty &&jugador6.invalid}"
+            <input type="text" name="jugador5" [(ngModel)]="jugador5.player_name" #jugador5="ngModel" [ngClass]="{ 'is-invalid' : jugador5.dirty &&jugador5.invalid}"[disabled]="jugador4.pristine || jugador4.invalid">
+            <input type="text" name="jugador6" [(ngModel)]="jugador6.player_name" #jugador6="ngModel" [ngClass]="{ 'is-invalid' : jugador6.dirty &&jugador6.invalid}"
             [disabled]="jugador5.pristine || jugador5.invalid">
             <div class="buttonContainer" *ngIf="jugador1.pristine; else Vacio">
                 <button class="btnCancelar" (click)="goBack()">CANCELAR</button>

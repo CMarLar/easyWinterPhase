@@ -17,13 +17,13 @@ export class AddPlayersComponent {
   public currentUser : User;
   public campaigns : any = [];
   public currentCampaign : string;
-  public jugadores : string[];
-  public jugador1 : any;
-  public jugador2 : any;
-  public jugador3 : any;
-  public jugador4 : any;
-  public jugador5 : any;
-  public jugador6 : any;
+  // public jugadores : string[];
+  public jugador1 : Player;
+  public jugador2 : Player;
+  public jugador3 : Player;
+  public jugador4 : Player;
+  public jugador5 : Player;
+  public jugador6 : Player;
 
   public players:Player[]
 
@@ -47,21 +47,42 @@ export class AddPlayersComponent {
     //             imgProfile : "../../../assets/img/img_perfil.png",
     //             campaigns : ["Campaña 1","Campaña 2","Campaña 3","Campaña 4","Campaña 5","Campaña 6"]};
 
-    this.jugadores = [];
-    this.jugador1 = {nombre : ""};
-    this.jugador2 = {nombre : ""};
-    this.jugador3 = {nombre : ""};
-    this.jugador4 = {nombre : ""};
-    this.jugador5 = {nombre : ""};
-    this.jugador6 = {nombre : ""};
+    
+    this.jugador1 = {player_id:null,house_id:null,campaign_id:this.campaignService.currentCampaign.campaign_id,player_name : "",winterPhaseDone:false};
+    this.jugador2 = {player_id:null,house_id:null,campaign_id:this.campaignService.currentCampaign.campaign_id,player_name : "",winterPhaseDone:false};
+    this.jugador3 = {player_id:null,house_id:null,campaign_id:this.campaignService.currentCampaign.campaign_id,player_name : "",winterPhaseDone:false};
+    this.jugador4 = {player_id:null,house_id:null,campaign_id:this.campaignService.currentCampaign.campaign_id,player_name : "",winterPhaseDone:false};
+    this.jugador5 = {player_id:null,house_id:null,campaign_id:this.campaignService.currentCampaign.campaign_id,player_name : "",winterPhaseDone:false};
+    this.jugador6 = {player_id:null,house_id:null,campaign_id:this.campaignService.currentCampaign.campaign_id,player_name : "",winterPhaseDone:false};
+
+    this.players = [];//array de objetos jugadores
+
+
   }
 
   public onSubmit(form : NgForm){
-    console.log(form.value);
-    
-    this.jugadores.push(form.value)
-    console.log("JUGADORES: " + JSON.stringify(this.jugadores));
+    // console.log(form.value);//hacer bucle para que entren
+
+    for (let values in form.value) {
+      console.log(form.value[values]);//Esto se hace porque estaba metiendo las claves, no el valor.
+      console.log("------------------------------");
+      console.log(values);
+      
+
+      if(form.value[values] != undefined){
+
+        this.players.push(new Player(null,null,this.campaignService.currentCampaign.campaign_id,form.value[values],false))
+
+      }
+
+    }
+
+    console.log(this.players);
     // console.log(this.jugadores.length);
+    this.playerService.playersOfCampaign = this.players;
+
+    console.log(this.playerService.playersOfCampaign);
+    
     
     
     this.router.navigateByUrl("housesmanagement")
