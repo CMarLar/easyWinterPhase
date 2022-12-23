@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { TextService } from 'src/app/shared/text.service';
 import { Text } from 'src/app/models/text';
+import { Player } from 'src/app/models/player';
+import { PlayerService } from "src/app/shared/player.service"
 import { json } from 'express';
+import { idText } from 'typescript';
 
 
 @Component({
@@ -13,20 +16,19 @@ import { json } from 'express';
 export class WinterPhase1Component{
 
 WinterPhaseMainComponent: any;
-public nombre: string
-public apellidos: string
-public foto_escudo : string
-/* public texto2: string */
 
+public foto_escudo : string
+
+public jugadores: Player [];
 public textos: Text [];
 
- constructor(private textosService: TextService){
+ constructor(private textosService: TextService, private jugadorService: PlayerService ){
 
-/*   this.texto2 = "Escoge una aventura en solitario  del libro básico de Pendragó juégala. Asegúrate que apunta en su hoja de personaje los puntos de gloria, atributos,rasgos, habilidades, etcétera que haya ganado y pulsa siguiente." */
-  
-  this.nombre = "Irene",
-  this.apellidos = "Herrero Becker"
-  this.foto_escudo = "../../../assets/img/escudo10.png"
+  this.foto_escudo = "../../../assets/img/escudo10.png"/* provisional */
+
+  this.mostrarNombreJugador(1)
+  this.jugadores = []
+
   this.mostrarTextos(1) 
   this.textos = []
 
@@ -43,22 +45,16 @@ public mostrarTextos(id: number){
   })
 } 
 
-}
+public mostrarNombreJugador(id: number){  
 
-/*   public searchBooks(inputBookId:string){//los campos siempre devuelven strings
-    if(inputBookId == ""){
-      this.libroService.getAllBooks(this.usuarioService.usuario.id_usuario)//coge el id del usuario logueado
-      .subscribe((data: Libro[]) =>{//data es el mismo tipo que el observable que viene de la api
-        this.libros = data;
-      })
-    }else{
-      this.libroService.getOneBook(this.usuarioService.usuario.id_usuario,parseInt(inputBookId))
-      .subscribe((data: Libro[]) =>{
-        this.libros = data;
-      })
-      // this.libros = [this.libroService.getOne(parseInt(inputBookId))]
-    }
-  } */
+  this.jugadorService.getPlayers(id).subscribe((data: Player[])=>{
+  
+  this.jugadores = data;
+  console.log(data)
+  
+  })
+} 
+}
 
 
 

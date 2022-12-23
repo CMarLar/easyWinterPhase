@@ -32,6 +32,13 @@ export class PlayerService {
     return this.http.post(this.url,player);
   }
 
+  public getPlayers(player_id:number){  ///revisar que ENDPOINT PONER Y CAMBIAR BACK
+    
+    let id= player_id;
+    this.url = "http://localhost:3000/phases";
 
+    return this.http.get(this.url + "?id=" + id);
+  }
 
 }
+
