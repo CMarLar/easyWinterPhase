@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { TextService } from 'src/app/shared/text.service';
 import { Text } from 'src/app/models/text';
+import { PlayerService } from 'src/app/shared/player.service';
+import { Player } from 'src/app/models/player';
 
 @Component({
   selector: 'app-winter-phase2',
@@ -16,13 +18,15 @@ export class WinterPhase2Component {
 
   WinterPhaseMainComponent: any;
 
+  public jugadores: Player [];
   public textos: Text [];
   
-   constructor(private textosService: TextService){
+   constructor(private textosService: TextService, private jugadorService: PlayerService ){
     
-    this.nombre = "Irene",
-    this.apellidos = "Herrero Becker"
-    this.foto_escudo = "../../../assets/img/escudo10.png"
+    this.foto_escudo = "../../../assets/img/escudo10.png"/* provisional */
+
+    this.mostrarNombreJugador(1)
+    this.jugadores = []
 
     this.mostrarTextos(2) 
     this.textos = []
@@ -35,6 +39,15 @@ export class WinterPhase2Component {
       this.textos = data;
       console.log(data)
       console.log(JSON.stringify(data))
+    })
+  } 
+  public mostrarNombreJugador(id: number){  
+
+    this.jugadorService.getPlayers(id).subscribe((data: Player[])=>{
+    
+    this.jugadores = data;
+    console.log(data)
+    
     })
   } 
   

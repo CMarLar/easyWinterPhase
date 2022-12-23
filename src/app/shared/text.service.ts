@@ -32,14 +32,3 @@ public getAllTexts (text_id:number){//GET “/phases?id=1”
 }
 }
 
-
-
-/* public getAllBooks (id_usuario:number){//GET “/libros?id_usuario=Pepe”
-  //get me pide un string:
-  let id = id_usuario
-  return this.http.get(this.url + "libros?id_usuario=" + id)//retorna observable
-}
-
-public getOneBook (id_usuario:number, id_libro:number){
-  return this.http.get(this.url + "libro?id_usuario=" + id_usuario + "&id_libro=" + id_libro)
-} */
