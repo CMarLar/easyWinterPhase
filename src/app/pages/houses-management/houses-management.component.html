@@ -32,23 +32,23 @@
         <div class="playerlist">
             <div class="playerOk" *ngFor="let player of players">
                 <div class="playershield">
-                <img [src]="player.escudo" alt="" srcset="">
+                    <img [src]="player.escudo" alt="" srcset="">
                 </div>
-                <div class="playername" *ngIf="player.casa!=null;else noHouse">
-                    <p>{{player.jugador}} - Casa {{player.casa}}</p>
+                <div class="playername" *ngIf="player.house_id!=null;else noHouse">
+                    <p (click)="goToCreateHouse()">{{player.player_name}} - Casa <!--{{player.casa}}--></p>
                 </div>
                 <ng-template #noHouse>
                     <div class="playername">
-                    <p><a routerLink = "/createhouse">{{player.jugador}}</a></p>
+                    <p><a (click)="goToCreateHouse(player.player_id)">{{player.player_name}}</a></p>
                     </div>
                 </ng-template>
-                <div class="skull" *ngIf="player.casa!=null;else noSkull">
+                <div class="skull" *ngIf="player.house_id!=null;else noSkull">
                     <img (click)="deleteHouse(player.id)" src="../../../assets/img/CALAVERA.png" alt="" srcset="">
                 </div>
                 <ng-template #noSkull>
                     <div class="skull"></div>
                 </ng-template>
-                <div class="quill" *ngIf="player.casa!=null;else noQuill">
+                <div class="quill" *ngIf="player.house_id!=null;else noQuill">
                     <a routerLink = "/createhouse"><img src="../../../assets/img/PLUMA.png" alt="" srcset=""></a>
                 </div>
                 <ng-template #noQuill>
