@@ -18,6 +18,7 @@ export class PlayerService {
 
   //Campaña logueada, apunta al servicio campaña, no es necesaria meterla aquí
   public currentCampaign;
+  public currentPlayer : Player; //PARA EL JUGADOR ACTUAL
 
   constructor(private http:HttpClient) 
   {

@@ -22,7 +22,7 @@ export class HeaderComponent {
     if(this.conectado == true){
 
     this.conectado = true;
-    console.log(this.conectado);
+    // console.log(this.conectado);
         
      }else{
 
