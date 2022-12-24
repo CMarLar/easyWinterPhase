@@ -82,6 +82,11 @@ export class AddPlayersComponent {
     this.playerService.playersOfCampaign = this.players;
 
     console.log(this.playerService.playersOfCampaign);
+
+    this.playerService.postPlayer(this.players)
+    .subscribe(function (data){
+      //PROBLEMA AQUI CON EL ID DE PLAYERS
+    })
     
     
     

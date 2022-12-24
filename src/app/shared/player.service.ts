@@ -27,7 +27,7 @@ export class PlayerService {
   }
 
 
-  public postPlayer(player:Player){
+  public postPlayer(player:Player[]){
     this.url = "http://localhost:3000/addplayers";
 
     return this.http.post(this.url,player);
@@ -39,6 +39,12 @@ export class PlayerService {
     this.url = "http://localhost:3000/phases";
 
     return this.http.get(this.url + "?id=" + id);
+  }
+
+  public putPlayer(player:Player){
+    this.url = "http://localhost:3000/housesmanagement";
+
+    return this.http.put(this.url,player);
   }
 
 }

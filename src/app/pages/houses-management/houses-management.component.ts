@@ -35,7 +35,7 @@ export class HousesManagementComponent {
   //
   //
 
-  constructor(public router:Router,private playerService : PlayerService, private houseService : HouseService){
+  constructor(public router:Router,private playerService : PlayerService, public houseService : HouseService){
 
     this.campaignName="Campaña de Carlos"
     this.shieldImage="../../../assets/img/escudo1.png"
@@ -111,26 +111,51 @@ export class HousesManagementComponent {
   }
 
   public goToCreateHouse(id : number){
-    console.log(id);
+    console.log("ID:" + id);
+    let newHouse : House;
+    
 
+    this.houseService.postHouse(newHouse = new House(null,null,null,null,null,null)).subscribe(function(data : any){
+      console.log("DATA: " + data.insertId);
+      newHouse.house_id = data.insertId;  
+      console.log("CASA " + JSON.stringify(newHouse));
+      
+      
+      
+      
+    })
+
+    //ESTE FOR RECORRE AL HACER CLICK EL ARRAY DE JUGADORES DE PLAYER SERVICE
+    //ENCUENTRA EL ID DEL ARRAY PLAYERS Y GUARDA ESE PLAYER EN CURRENTPLAYER
+    //Y AÑADIMOS A ESE PLAYER EL ID DE LA NUEVA CASA
     for (let i = 0; i < this.playerService.playersOfCampaign.length; i++){
 
       if (this.playerService.playersOfCampaign[i].player_id == id){
 
+        //BUSCAMOS EL JUGADOR EN EL ARRAY Y LO METEMOS EN CURRENTPLAYYER
         this.playerService.currentPlayer = this.playerService.playersOfCampaign[i];
-        //CARLOS HAZ ALGO PARECIDO A ESTO PARA LAS CASAS
+
+        //CAMBIAMOS EN CURRENTPLAYER Y EN EL ARRAY DE PLAYER EL ID DE ESE PLAYER
+        this.playerService.playersOfCampaign[i].house_id = newHouse.house_id;
+        this.playerService.currentPlayer.house_id = newHouse.house_id;
+
+        console.log("JUGADOR ACTUAL: " + JSON.stringify(this.playerService.currentPlayer));
+        
+
+        //AQUI LLAMOS AL PUT Y LE PASAMOS EL OBJETO DE CURRENT PLAYER
+        this.playerService.putPlayer(this.playerService.currentPlayer)
+        .subscribe(function (data : any){
+          console.log("DATOS DE PUT^PLAYER: " + data);
+          
+        })
+        //MIGUEL HAZ ALGO PARECIDO A ESTO PARA LAS CASAS
       }
     }
 
-    this.houseService.postHouse(new House(null,null,null,null,null,null))
-    .subscribe((data : any) => {
-      // this.houseService.currentHouse = data;
-      console.log(data);
-      
-      // console.log(this.houseService.currentHouse);
-      
-    })
-
+    this.houseService.currentHouse = newHouse;
+    console.log(this.houseService.currentHouse);
+    
+    // console.log(this.houseService.currentHouse);
     //ESTE FOR ES PARA CAMBIAR EL ID DE LOS JUGADORES
     // for (let i = 0; i < this.players.length; i++){
     //   this.players[i].house_id = i;
