@@ -35,7 +35,7 @@
                     <img [src]="player.escudo" alt="" srcset="">
                 </div>
                 <div class="playername" *ngIf="player.house_id!=null;else noHouse">
-                    <p (click)="goToCreateHouse(player.player_id)">{{player.player_name}} - Casa <!--{{player.casa}}--></p>
+                    <p>{{player.player_name}} - Casa <!--{{player.casa}}--></p>
                 </div>
                 <ng-template #noHouse>
                     <div class="playername">
@@ -43,7 +43,7 @@
                     </div>
                 </ng-template>
                 <div class="skull" *ngIf="player.house_id!=null;else noSkull">
-                    <img (click)="deleteHouse(player.id)" src="../../../assets/img/CALAVERA.png" alt="" srcset="">
+                    <img (click)="deleteHouse(player.player_id)" src="../../../assets/img/CALAVERA.png" alt="" srcset="">
                 </div>
                 <ng-template #noSkull>
                     <div class="skull"></div>

@@ -12,10 +12,12 @@ export class HouseService {
   public currentPlayer : Player;
   private url : string;
   public currentHouse : House;
+  public housesOfCamapaign : House[];
   
   constructor(private playerService : PlayerService,private http:HttpClient) {
 
     this.currentPlayer = this.playerService.currentPlayer;
+    this.housesOfCamapaign = [];
    }
 
    public postHouse(house:House){

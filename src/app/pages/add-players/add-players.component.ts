@@ -61,7 +61,6 @@ export class AddPlayersComponent {
   }
 
   public onSubmit(form : NgForm){
-    // console.log(form.value);//hacer bucle para que entren
 
     for (let values in form.value) {
       console.log(form.value[values]);//Esto se hace porque estaba metiendo las claves, no el valor.
@@ -84,13 +83,36 @@ export class AddPlayersComponent {
     console.log(this.playerService.playersOfCampaign);
 
     this.playerService.postPlayer(this.players)
-    .subscribe(function (data){
+    .subscribe((data : any) => {
+      console.log(data);
+      let id = data.insertId;
+      console.log(this.players.length);
+      
+      this.sumarId(data.insertId)
+      for (let i = 0; i < this.players.length ; i++){
+        
+        console.log("LONGITUD DE PLAYERS: " + this.players.length);
+        console.log("I = " + i);
+  
+        this.players[i].player_id = id + i;
+        this.playerService.playersOfCampaign[i].player_id = id + i;
+  
+        console.log(this.players[i]);
+          
+        }
       //PROBLEMA AQUI CON EL ID DE PLAYERS
     })
     
     
     
+    
+    
     this.router.navigateByUrl("housesmanagement")
+  }
+  
+  public sumarId(id:number){
+    console.log(id);
+    
   }
 
   public goBack(){

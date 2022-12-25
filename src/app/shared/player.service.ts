@@ -43,6 +43,8 @@ export class PlayerService {
 
   public putPlayer(player:Player){
     this.url = "http://localhost:3000/housesmanagement";
+    console.log("ESTE ES EL JUGADOR A MODIFICAR" + player);
+    
 
     return this.http.put(this.url,player);
   }
