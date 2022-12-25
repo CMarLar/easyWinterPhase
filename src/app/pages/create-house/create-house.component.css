@@ -369,6 +369,13 @@
         color: white;
     }
 
+        .small_button{
+            background-color: var(--font-color-h);
+            font-size: large;
+            border-radius: 3px;
+            padding: 5px 10px;
+        }
+
     button:hover{
         color: var(--font-color-hover);
         cursor: pointer;
