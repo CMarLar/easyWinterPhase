@@ -180,6 +180,8 @@ export class HousesManagementComponent {
           this.playerService.playersOfCampaign[i].house_id = data.insertId;
           this.playerService.currentPlayer.house_id = data.insertId;
           console.log("NEW HOUSE ID: " + this.newHouse.house_id);
+
+            this.houseService.currentHouseId = this.newHouse.house_id// @Miguel, he metido esta línea para recogerla en createhouse
           
           console.log("JUGADOR ACTUAL: " + JSON.stringify(this.playerService.currentPlayer));
           

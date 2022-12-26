@@ -81,7 +81,7 @@ export class CreateHouseComponent {
     //Mostrar el escudo seleccionado:
     this.selectedShield
   
-  //MANIPULA ESTO PARA METER PERSONAJES
+  //esto es antiguo, era para que se vieran los personajes, la función de abajo también.
       this.npcs=[];
 
     //Hace el strgin de personajes y ejecuta checkNPC.
@@ -101,14 +101,18 @@ export class CreateHouseComponent {
       
       this.nivelesManutencion= ["Indigente","Pobre","Normal","Rico","Muy Rico"]
 
-      this.currentHouseId = 76;//pruebas
+      this.currentHouseId = this.houseService.currentHouseId//debería coger el id de la casa en concreto
+      console.log("Current House ID: " + this.currentHouseId);
+      
 
 
-      this.actualHouse = new House(this.house_name,null,this.holding_name,this.familyCharactersitic,this.selectedShield,null);
+      this.actualHouse = new House(this.house_name,null,this.holding_name,this.familyCharactersitic,this.selectedShield,this.currentHouseId);
 
-      this.knight = new Character(null,this.currentHouseId,null,this.knightName,this.knightAge,true,false,0,0,null);
+      // this.casa = new House()
 
-      this.squire = new Character(null,this.currentHouseId,null,this.squireName,this.squireAge,true,false,0,0,"Escudero");
+      this.knight = new Character(null,this.currentHouseId,null,this.knightName,this.knightAge,1,0,0,0,null);
+
+      this.squire = new Character(null,this.currentHouseId,null,this.squireName,this.squireAge,1,0,0,0,"Escudero");
 
       this.alreadyAdded = false;
 
@@ -173,23 +177,33 @@ public submitPlayerInfo(form:NgForm){;
 
 
   this.knightName = form.value.knight_name;
-  this.knightAge = parseInt(form.value.knight_age);//para que no lo coja como string la edad
+  this.knightAge = parseInt(form.value.knight_age);//para que no coja como string la edad
   this.squireName = form.value.squire_name;
 
   console.log(this.knight);
   console.log(this.squire);
 
-  //Crea caballero
-  this.characterService.newCharacter(this.knight).subscribe((data) =>{
+  this.characterService.currentHouseChars.push(this.knight);
+  this.characterService.currentHouseChars.push(this.squire);
 
-    console.log(data);
+
+  for (let i = 0; i <  this.characterService.currentHouseChars.length; i++) {
+    console.log("Array de personajes de la casa, posición " + i  + ": " + this.characterService.currentHouseChars[i].char_name);
+  }
+  
+
+
+  //Crea caballero
+  this.characterService.newCharacter(new Character(null,this.currentHouseId,null,this.knightName,this.knightAge,1,0,0,0,null)).subscribe((data1) =>{
+
+    console.log("Data del caballero: " + data1);
 
   })
 
   //Crea escudero
-  this.characterService.newCharacter(this.squire).subscribe((data) =>{
+  this.characterService.newCharacter(new Character (null,this.currentHouseId,null,this.squireName,this.squireAge,1,0,0,0,"Escudero")).subscribe((data2) =>{
 
-    console.log(data);
+    console.log("Data del escudero: " + data2);
 
   })
   

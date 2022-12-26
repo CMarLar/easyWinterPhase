@@ -13,6 +13,8 @@ export class HouseService {
   private url : string;
   public currentHouse : House;
   public housesOfCamapaign : House[];
+
+  public currentHouseId:number;//recoge el id para pasárselo a createhouse
   
   constructor(private playerService : PlayerService,private http:HttpClient) {
 
