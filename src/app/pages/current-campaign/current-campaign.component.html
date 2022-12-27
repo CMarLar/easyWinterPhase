@@ -4,23 +4,28 @@
 <div class="supercontainer">
 
     <div class="year-title-cont">
-        <div class="title">
+     <!--    <div class="title">
             <p class="page_title">{{campaignName}}</p>
             <p class ="page_subtitle">Pantalla principal </p>
-        </div>
+        </div> -->
 
         <div class="campaignYear" #yearsInBetween>
 
             <div class="flechita">
-                <img (click)="previousYear()" src="../../../assets/img/left-arrow.png" style="scale: 0.3;" class="arrow-left" *ngIf="actualYear.isFirstYear==false">
+                <img (click)="previousYear()" src="../../../assets/img/left-arrow.png" style="scale: 0.4;" class="arrow-left" *ngIf="actualYear.isFirstYear==false">
             </div>
             <div class="numeritos">
                 <p>{{actualYear.yearNumber}}</p>
             </div>
             <div class="flechita">
-                <img (click)="nextYear()" src="../../../assets/img/right-arrow.png" style="scale: 0.3;" class="arrow-right" *ngIf="actualYear.isLastYear==false">
+                <img (click)="nextYear()" src="../../../assets/img/right-arrow (1).png" style="scale: 0.4;" class="arrow-right" *ngIf="actualYear.isLastYear==false">
             </div>
         </div><!-- cierra campaing year -->
+
+        <div class="title">
+            <p class="page_title">{{campaignName}}</p>
+            <p class ="page_subtitle">Pantalla principal </p>
+        </div>
 
 
 
@@ -29,8 +34,8 @@
 <!-- <form #houseForm="ngForm" (ngSubmit)="onSubmit(houseForm)">  -->
 <div class="maincontainer">
     <div class="left">
-        <label style="color: white;font-size: larger;">Notas</label>
-            <textarea rows="33%" maxlength="5000" style="border: none">{{actualYear.notes}}
+        <label class="header">NOTAS:</label>
+            <textarea rows="33%" maxlength="5000" style="border: none; margin: 1%; font-style: oblique;padding-left: 1%;">{{actualYear.notes}}
             </textarea>
     </div>
 
@@ -41,7 +46,7 @@
             
                 <!-- Cabecera -->
                 <div class="header">
-                    <span>Jugador</span><span>Personaje activo</span><span>Casa</span><span style="width: 6%;">Editar</span>
+                    <span>JUGADOR</span><span>PERSONAJE ACTIVO</span><span>CASA</span><span style="width: 6%;">EDITAR</span>
                 </div>
 
 
@@ -115,7 +120,7 @@
 
 
             <ng-template #emptyPlayer>
-                <div class="emptycharacter" style="background-color: rgb(224, 219, 201,0.6);" >
+                <div class="emptycharacter" style="background-color: rgb(152, 37, 37,0.6);" >
                     <span (click)="goNewPlayer()">AÑADIR NUEVO JUGADOR</span>
                 </div>
             </ng-template>
@@ -125,7 +130,7 @@
 
 
         <div class="buttons" *ngIf="actualYear.isLastYear==true; else noNext">
-            <button (click)="goNext()">Comenzar Fase de Invierno</button>
+            <button (click)="goNext()">JUGAR CAMPAÑA</button>
         </div>
 
 

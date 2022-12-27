@@ -15,8 +15,6 @@
     --font-color-label-input: rgb(24, 22, 112);
     --background-color-input:  rgb(152, 37, 37,.6);
     --backgoud-color-button:  rgb(152, 37, 37);
-
-
 }
 
 a:visited{
@@ -29,3 +27,26 @@ input::-webkit-inner-spin-button {
   margin: 0;
 
 }
+/*  button{
+        background-color: var(--font-color-h);
+        font-size: 1.5rem;
+        font-weight: bold;
+        height: 90%;
+        width: 45%;
+        border-radius: 15px;
+        border: none;
+        text-decoration: none;
+        /* padding: 15px 32px; */
+       /*  color: var(--font-color-hover);
+    }
+
+    button:hover{
+        color: var(--font-color-hover);
+        cursor: pointer;
+    }
+
+    button:disabled{
+        background-color: rgb(62, 72, 57);
+        color:black;
+        cursor:default
+    } */

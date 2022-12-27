@@ -3,8 +3,8 @@
 <!-- esta no tiene que tener barra -->
 <div class="supercontainer">
     <div class="title">
-        <p class="page_title">Creación de casa</p>
-        <p class ="page_subtitle">Nombre del jugador</p>
+        <p class="page_title">CREACIÓN DE CASAS</p>
+        <p class="page_subtitle">Nombre del jugador</p>
     </div>
 
 <!-- <form #houseForm="ngForm" (ngSubmit)="onSubmit(houseForm)"> -->
@@ -13,39 +13,39 @@
 
 <form #houseForm="ngForm" (ngSubmit)="onSubmit(houseForm)" class="houseForm">
 
-            <label>Nombre de la casa</label>
-            <input type="text" name="nombreCasa" [(ngModel)]="house.nombreCasa">
+            <label class="text">Nombre De La Casa</label>
+            <input class="input_text" type="text" name="nombreCasa" [(ngModel)]="house.nombreCasa">
 
-            <label>Feudo</label>
-            <input type="text" name="feudo" [(ngModel)]="house.feudo">
+            <label  class="text">Feudo</label>
+            <input class="input_text" type="text" name="feudo" [(ngModel)]="house.feudo">
 
 
-            <label>Característica familiar</label>
-            <input type="text" name="caracteristicaFamiliar" [(ngModel)]="house.caracteristicaFamiliar">
+            <label  class="text">Característica Familiar</label>
+            <input class="input_text" type="text" name="caracteristicaFamiliar" [(ngModel)]="house.caracteristicaFamiliar">
 
-            <label>Nivel de manutención inicial</label>
-            <select name="nivelesManutencion" id="lang" [(ngModel)]="house. nivelManutencion">
+            <label  class="text">Situación Económica Inicial</label>
+            <select class="input_text" name="nivelesManutencion" id="lang" [(ngModel)]="house. nivelManutencion">
                 <option *ngFor="let valor of nivelesManutencion" [value]="valor">{{valor}}</option>
             </select>
             <br>
 
     <div class="short_inputs">
         <div class="character_name_input">
-            <label>Personaje jugador</label>
-            <input type="text" name="nombrePJ" [(ngModel)]="house.nombrePJ">
+            <label  class="text">Personaje Jugador</label>
+            <input class="input_text" type="text" name="nombrePJ" [(ngModel)]="house.nombrePJ">
         </div>
         <div class="character_age_input">
-            <label>Edad</label>
-            <input type="text" name="edad" [(ngModel)]="house.edad">
+            <label  class="text">Edad</label>
+            <input class="input_text" type="text" name="edad" [(ngModel)]="house.edad">
         </div>
         <div class="squire_name_input">
-            <label>Nombre del escudero</label>
-            <input type="text" name="nombreEscudero" [(ngModel)]="house.nombreEscudero">
+            <label  class="text">Nombre Del Escudero</label>
+            <input class="input_text" type="text" name="nombreEscudero" [(ngModel)]="house.nombreEscudero">
         </div>
     </div>
 <br>
 
-    <!--     <div class="npc_list">
+        <!--  <div class="npc_list">
             <p> {{stringNpcs}} </p>
         </div> -->
 
@@ -53,19 +53,20 @@
 <div *ngIf = "npcs.length==0; else showCharacters" ></div>
 <ng-template #showCharacters>
         <div class="choose_new_character">
-            <label>Elije un nuevo PJ</label>
+            <label class="text">Elije un nuevo PJ</label>
             <select name="npcs" [(ngModel)]="house.npc">
                 <option *ngFor="let valor of npcs" [value]="valor">{{valor}}</option>
             </select>
         </div>
 </ng-template>
 
-            <button [disabled] = "noNPC"> Confirmar </button>
+            <!-- <button [disabled] = "noNPC"> Confirmar </button> -->
 
     </form>
         <div class="buttons">
             <button (click)="goBack()">Cancelar</button>
             <button (click)="goAddNpcs()"> PNJ </button>
+            <button [disabled] = "noNPC"> Confirmar </button><!-- nuevo diseño, aquí -->
         </div>
 
 
