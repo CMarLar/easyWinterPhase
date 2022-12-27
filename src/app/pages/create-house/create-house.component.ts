@@ -21,13 +21,16 @@ export class CreateHouseComponent {
     public holding_name:string;
     public familyCharactersitic:string;
     public currentHouseId:number;
+    public activeChar:number;
   
   public knight:Character;
     public knightName:string;
     public knightAge:number;
+    public knightId:number;
   public squire:Character;
     public squireName:string;
     public squireAge:number = 15;
+    public squireId:number;
 
   public alreadyAdded:boolean;//hace disabled el botón añadir cuando se crean los dos personajes
 
@@ -110,11 +113,14 @@ export class CreateHouseComponent {
 
       // this.casa = new House()
 
-      this.knight = new Character(null,this.currentHouseId,null,this.knightName,this.knightAge,1,0,0,0,null);
+      this.knight = new Character(null,this.currentHouseId,null,this.knightName,this.knightAge,1,0,0,0,null,"Hombre");
 
-      this.squire = new Character(null,this.currentHouseId,null,this.squireName,this.squireAge,1,0,0,0,"Escudero");
+      this.squire = new Character(null,this.currentHouseId,null,this.squireName,this.squireAge,1,0,0,0,"Escudero","Hombre");
 
       this.alreadyAdded = false;
+
+      console.log("Current house: " + this.houseService.currentHouse);
+      
 
     }
 
@@ -157,7 +163,7 @@ public onSubmit(form:NgForm){
   this.houseService.updateHouse(
     this.actualHouse = new House(
       this.actualHouse.house_name,
-      null,
+      this.activeChar,
       this.actualHouse.holding_name,
       this.actualHouse.familyCharacteristic,
       this.selectedShield,this.currentHouseId))
@@ -165,13 +171,14 @@ public onSubmit(form:NgForm){
 
         console.log(data);
     
+        this.houseService.currentHouse = this.actualHouse;
       })
 
   // this.goBack(); //Reactiva este routing cuando termines
   
 }
 
-public submitPlayerInfo(form:NgForm){;
+public submitCharInfo(form:NgForm){;
   
   console.log(form.value);//pasa un objeto con los nombres del caballero y el escudero y la edad del caballero
 
@@ -194,16 +201,22 @@ public submitPlayerInfo(form:NgForm){;
 
 
   //Crea caballero
-  this.characterService.newCharacter(new Character(null,this.currentHouseId,null,this.knightName,this.knightAge,1,0,0,0,null)).subscribe((data1) =>{
+  this.characterService.newCharacter(new Character(null,this.currentHouseId,null,this.knightName,this.knightAge,1,0,0,0,null,"Hombre")).subscribe((data1:any) =>{
 
-    console.log("Data del caballero: " + data1);
+    console.log("Data del caballero: " + JSON.stringify(data1));
+
+    this.activeChar = data1.insertId;// esto hace que la casa modificada tenga un activeChar.
+    
+    this.characterService.currentHouseChars[0].character_id = data1.insertId//cambia el id del objeto en el front para la pantalla npcs
 
   })
 
   //Crea escudero
-  this.characterService.newCharacter(new Character (null,this.currentHouseId,null,this.squireName,this.squireAge,1,0,0,0,"Escudero")).subscribe((data2) =>{
+  this.characterService.newCharacter(new Character (null,this.currentHouseId,null,this.squireName,this.squireAge,1,0,0,0,"Escudero","Hombre")).subscribe((data2:any) =>{
 
-    console.log("Data del escudero: " + data2);
+    console.log("Data del escudero: " + JSON.stringify(data2));
+
+    this.characterService.currentHouseChars[1].character_id = data2.insertId//cambia el id del objeto en el front para la pantalla npcs
 
   })
   
@@ -214,8 +227,22 @@ public submitPlayerInfo(form:NgForm){;
 //Va a la página de añadir pnjs al pulsar el botón añadir pnjs.
 public goAddNpcs(){
 
+  this.houseService.updateHouse(
+    this.actualHouse = new House(
+      this.actualHouse.house_name,
+      null,
+      this.actualHouse.holding_name,
+      this.actualHouse.familyCharacteristic,
+      this.selectedShield,this.currentHouseId))
+      .subscribe((data)=>{
 
-  // this.router.navigateByUrl("/addnpc"); //reactivalo cuando termines
+        console.log(data);
+    
+        this.houseService.currentHouse = this.actualHouse;
+      })
+
+
+  this.router.navigateByUrl("/addnpc"); //reactivalo cuando termines
 }
 
 //Va atrás sin guardar los cambios al pulsar el botón cancelar

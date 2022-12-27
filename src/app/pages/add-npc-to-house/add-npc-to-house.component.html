@@ -1,7 +1,7 @@
 <div class="supercontainer">
     <div class="title">
         <p class="page_title">Creación de PNJs</p>
-        <p class ="page_subtitle">{{houseName}} </p>
+        <p class ="page_subtitle">{{currentHouseName}}</p>
     </div>
 
 <!-- <form #houseForm="ngForm" (ngSubmit)="onSubmit(houseForm)">  -->
@@ -12,15 +12,16 @@
 
             <div class="character_name_input">
                 <label>Nombre</label>
-                <input type="text" name="name" [(ngModel)]="formNpc.name">
+                <input type="text" name="char_name" [(ngModel)]="newCharacter.char_name">
             </div>
             <div class="character_age_input">
                 <label>Edad</label>
-                <input type="text" name="age" [(ngModel)]="formNpc.age">
+                <input type="text" name="age" [(ngModel)]="newCharacter.age">
             </div>
             <div class="squire_name_input">
                 <label>Sexo</label>
-                <select id="lang" name="sex" [(ngModel)]="formNpc.sex">
+                <!-- FALTA EL SEXO EN LOS PERSONAJES -->
+                <select id="lang" name="sex" [(ngModel)]="newCharacter.sex">
                     <option *ngFor="let valor of sex" [value]="valor">{{valor}}</option>
                 </select>
             </div>
@@ -30,13 +31,13 @@
     <div class="short_inputs">
         <div class="character_role_input">
             <label>Rol</label>
-            <select name="role" id="lang" [(ngModel)]="formNpc.role">
+            <select name="role" id="lang" [(ngModel)]="newCharacter.role">
                 <option *ngFor="let valor of role" [value]="valor">{{valor}}</option>
             </select>
         </div>
         <div class="character_otherRole_input">
             <!-- Igual tienes que cambiar el name -->
-            <label>Otro rol</label><input type="text" name="otherRole" [(ngModel)]="formNpc.role">
+            <label>Otro rol</label><input type="text" name="otherRole" [(ngModel)]="newCharacter.role">
         </div>
         <div class="character_confirm_button">
             <label>Confirmar:</label>
@@ -45,11 +46,11 @@
     </div>
 </form>
 <br>
-<form #selecetedCharForm="ngForm" (ngSubmit)="onSelect(selecetedCharForm)" class="selecetedCharForm">
+<form #selectedCharForm="ngForm" (ngSubmit)="onSelect(selectedCharForm)" class="selectedCharForm">
         <div class="choose_new_character">
             <label>Elije un nuevo PJ</label>
             <select name="characters" id="lang" #selectedChar [(ngModel)]="activeChar">
-                <option *ngFor="let valor of npcs" [value]="valor">{{valor.name}} </option>
+                <option *ngFor="let valor of currentHouseChars" [value]="valor">{{valor.char_name}} </option>
             </select>
             <button class="small_button" >Ok</button>
         </div>
@@ -72,21 +73,21 @@
         <span class="status_header" style="font-size: larger;">Estado <sub style="font-size: small;">?</sub></span><br>
     </div>
     <!-- Personajes -->
-    <div class="character" *ngFor= "let npc of npcs">
+    <div class="character" *ngFor= "let char of currentHouseChars">
         <div class="editchar">
         <!-- <span class="quill"><img src="../../../assets/img/PLUMA.png"></span> -->
-        <span class="skull" (click)="deleteChar(npc.id)"><img src="../../../assets/img/CALAVERA.png"></span>
+        <span class="skull" (click)="deleteChar(char.character_id)"><img src="../../../assets/img/CALAVERA.png"></span>
     </div>
-        <span>{{npc.name}}</span>
-        <span>{{npc.role}}</span>
-        <span>{{npc.age}}</span>
-        <span class="npc_status" (click)="deadOrAlive(npc.id)">
+        <span>{{char.char_name}}</span>
+        <span>{{char.role}}</span>
+        <span>{{char.age}}</span>
+        <span class="npc_status" (click)="deadOrAlive(char.character_id)">
 
-            <ng-container *ngIf="npc.status==true">
+            <ng-container *ngIf="char.char_status==1">
             Vivo/a
             </ng-container>
 
-            <ng-container *ngIf="npc.status==false">
+            <ng-container *ngIf="char.char_status==0">
             Muerto/a
             </ng-container>
 
@@ -101,7 +102,7 @@
 
     <div class="right">
         <div class="shield_selector">
-            <img src="../../../assets/img/escudo3.png" alt="" srcset="">
+            <img [src]="currentHouseShield" alt="" srcset="">
         </div>
 
     </div>

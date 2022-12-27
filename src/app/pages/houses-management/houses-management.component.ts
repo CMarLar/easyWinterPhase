@@ -181,8 +181,12 @@ export class HousesManagementComponent {
           this.playerService.currentPlayer.house_id = data.insertId;
           console.log("NEW HOUSE ID: " + this.newHouse.house_id);
 
-            this.houseService.currentHouseId = this.newHouse.house_id// @Miguel, he metido esta línea para recogerla en createhouse
+
+            this.houseService.currentHouse = this.newHouse
+            this.houseService.currentHouseId = this.newHouse.house_id// @Miguel, he metido estas líneas para recogerla en createhouse
           
+            console.log("HOUSE SERVICE: " + JSON.stringify(this.houseService.currentHouse));
+            
           console.log("JUGADOR ACTUAL: " + JSON.stringify(this.playerService.currentPlayer));
           
           //CREO ESTA FUNCION PARA REALIZAR OTRO OBSERVABLE EN EL CUAL SE ACTUALIZARAN LOS
