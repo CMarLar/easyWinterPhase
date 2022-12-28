@@ -63,7 +63,7 @@ public getCampaigns(user_id:number){
     this.campaignService.campaigns=this.campaignsOfUser;
     console.log(data);
     
-  })//sin sucribe
+  })//sin suscribe
 
 }
 
