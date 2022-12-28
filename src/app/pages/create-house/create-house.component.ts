@@ -93,14 +93,7 @@ export class CreateHouseComponent {
       // this.checkNPC()
       // console.log(this.noNPC);
       
-      this.house = {nombreCasa:this.nombreCasa,
-                    feudo:this.feudo,
-                    caracteristicaFamiliar:this.caracteristicaFamiliar,
-                    nivelManutencion:this.nivelManutencion,
-                    nombrePJ:this.nombrePJ,
-                    edad:this.edad,
-                    nombreEscudero:this.nombreEscudero,
-                    npc:this.npc}
+
       
       this.nivelesManutencion= ["Indigente","Pobre","Normal","Rico","Muy Rico"]
 
@@ -155,15 +148,20 @@ public changeNpcString(){
 }
 //Formulario, guardar cambios, volver a página de asignación de casas
 public onSubmit(form:NgForm){
-  console.log(form.value);
+
   form.value.shield = this.selectedShield;//funciona para meter el escudo seleccionado
   form.value.house_id = this.currentHouseId; //puesto el id directamente para probar
-  console.log(form.value);
+  
+  console.log("Form value: " + form.value);
+  console.log("Id del caballero, que se debería meter como id de personaje activo:" + this.characterService.currentHouseChars[0].character_id);
+
+  
+
 
   this.houseService.updateHouse(
     this.actualHouse = new House(
       this.actualHouse.house_name,
-      this.activeChar,
+      this.characterService.currentHouseChars[0].character_id,//mete el id del personaje activo
       this.actualHouse.holding_name,
       this.actualHouse.familyCharacteristic,
       this.selectedShield,this.currentHouseId))
@@ -172,6 +170,11 @@ public onSubmit(form:NgForm){
         console.log(data);
     
         this.houseService.currentHouse = this.actualHouse;
+
+        console.log(this.houseService.currentHouse);
+        console.log(this.actualHouse);
+        
+        
       })
 
   // this.goBack(); //Reactiva este routing cuando termines
@@ -204,11 +207,12 @@ public submitCharInfo(form:NgForm){;
   this.characterService.newCharacter(new Character(null,this.currentHouseId,null,this.knightName,this.knightAge,1,0,0,0,null,"Hombre")).subscribe((data1:any) =>{
 
     console.log("Data del caballero: " + JSON.stringify(data1));
-
-    this.activeChar = data1.insertId;// esto hace que la casa modificada tenga un activeChar.
     
-    this.characterService.currentHouseChars[0].character_id = data1.insertId//cambia el id del objeto en el front para la pantalla npcs
+    this.characterService.currentHouseChars[0].character_id = data1.insertId//cambia el id del objeto en el front para la pantalla npcs, pero no lo manda a la base de datos, no obstante, los personajes que se han creado tienen este ID
 
+    this.activeChar = data1.insertId//igualo también con activechar
+    console.log("Id del caballero, el mismo que el del activeChar de la casa, en teoría: " + this.activeChar);
+    
   })
 
   //Crea escudero
@@ -227,22 +231,29 @@ public submitCharInfo(form:NgForm){;
 //Va a la página de añadir pnjs al pulsar el botón añadir pnjs.
 public goAddNpcs(){
 
-  this.houseService.updateHouse(
-    this.actualHouse = new House(
-      this.actualHouse.house_name,
-      null,
-      this.actualHouse.holding_name,
-      this.actualHouse.familyCharacteristic,
-      this.selectedShield,this.currentHouseId))
-      .subscribe((data)=>{
+  // console.log("Id de la casa al pinchar en pnj" + this.currentHouseId);
+  
 
-        console.log(data);
+  // this.houseService.updateHouse(
+  //   this.actualHouse = new House(
+  //     this.actualHouse.house_name,
+  //     this.characterService.currentHouseChars[0].character_id,//no añade el activechar
+  //     this.actualHouse.holding_name,
+  //     this.actualHouse.familyCharacteristic,
+  //     this.selectedShield,this.currentHouseId))//NO RECONOCE EL PUTO ID
+  //     .subscribe((data)=>{
+
+  //       console.log(data);
     
-        this.houseService.currentHouse = this.actualHouse;
-      })
+  //       this.houseService.currentHouse = this.actualHouse;//iguala la casa del front
 
+  //       console.log("Casa en el servicio una vez modificada: " + this.houseService.currentHouse);
+        
 
-  this.router.navigateByUrl("/addnpc"); //reactivalo cuando termines
+  //     })
+
+this.router.navigateByUrl("/addnpc");
+ //reactivalo cuando termines
 }
 
 //Va atrás sin guardar los cambios al pulsar el botón cancelar

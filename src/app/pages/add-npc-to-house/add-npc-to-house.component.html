@@ -46,11 +46,13 @@
     </div>
 </form>
 <br>
+
+<!-- SELECTOR DE PERSONAJE PRINCIPAL O PJ -->
 <form #selectedCharForm="ngForm" (ngSubmit)="onSelect(selectedCharForm)" class="selectedCharForm">
         <div class="choose_new_character">
             <label>Elije un nuevo PJ</label>
-            <select name="characters" id="lang" #selectedChar [(ngModel)]="activeChar">
-                <option *ngFor="let valor of currentHouseChars" [value]="valor">{{valor.char_name}} </option>
+            <select name="activeChar" id="lang" #selectedChar [(ngModel)]="currentHouse.activeChar">
+                <option *ngFor="let valor of currentHouseChars" [value]="valor.character_id">{{valor.char_name}} </option>
             </select>
             <button class="small_button" >Ok</button>
         </div>
@@ -61,6 +63,8 @@
             <button [disabled] = "noNpcs" (click)="goBack()"> Confirmar </button>
         </div>
 <br>
+
+
     <div class="npc_list">
     <!-- Los personajes van apareciendo en esta  -->
 

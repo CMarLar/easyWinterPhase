@@ -52,7 +52,20 @@ export class AddNpcToHouseComponent {
 
   constructor(public router:Router, public characterService:CharacterService, public houseService:HouseService){
 
-    this.houseName="Casa Salisbury"
+    console.log("Casa actual en el servicio: " + JSON.stringify(this.houseService.currentHouse));
+    
+    this.currentHouse = this.houseService.currentHouse;//se lleva la casa del servicio 
+
+    console.log("Casa actual en el componente: " + JSON.stringify(this.currentHouse));
+
+    console.log("Id del personaje activo en el servicio" + this.houseService.currentHouse.activeChar);
+    console.log ("Id de la casa en el servicio: " + this.houseService.currentHouse.house_id)
+    
+    // console.log("Id del personaje activo en el componente: " + this.currentHouse.activeChar);
+
+
+
+    // console.log(this.showHouseChars(this.currentHouse.house_id));//da undefined
 
     this.status = ["Vivo/a","Muerto/a"];
 
@@ -60,28 +73,16 @@ export class AddNpcToHouseComponent {
 
     this.sex = ["Hombre","Mujer"]
 
-    this.npcs=
-    [
-      {id: 1, name:"Ultan",age:10,role:"Hijo/a",sex:"Hombre",status:1},
-      {id: 2, name:"Jorge",age:16,role:"Escudero",sex:"Hombre",status:0},
-      {id: 3, name:"Wanda",age:20,role:"Hermano",sex:"Hombre",status:1},
-    ]
-    //status true = vivo
 
-    //El id de este personaje es 1000, su id será autoincrementado
-    this.formNpc = {id: 4, name:"",age:0,role:"",sex:"",status:true};
-
-    this.activeChar={id: 2000, name:"",age:0,role:"",sex:"",status:""}
-    
+      
     this.noNpcs=false//al principio sí hay al menos dos personajes
-
-    ///////VALORES AÑADIDOS PARA CONECTAR CON EL BACK (las de arriba son fake)//////    
     
-    this.currentHouse = this.houseService.currentHouse;//se lleva la casa del servicio 
 
-    this.currentHouseId = this.houseService.currentHouseId;//se lleva el ID de la casa
+    this.currentHouseId = this.houseService.currentHouse.house_id;//se lleva el ID de la casa
 
-    this.currentHouseChars = this.characterService.currentHouseChars//Recoge los personajes del array de personajes con el caballero y el escudero
+    // this.currentHouseChars = this.characterService.currentHouseChars//Recoge los personajes del array de personajes con el caballero y el escudero
+
+    this.showHouseChars(this.currentHouseId)
 
     this.currentHouseName = this.houseService.currentHouse.house_name;//recoge el nombre de la casa
 
@@ -89,22 +90,56 @@ export class AddNpcToHouseComponent {
 
     this.newCharacter = new Character(null,this.currentHouseId,null,null,null,1,0,0,0,null,null)//se tiene que rellenar con el form
 
-    console.log("Casa actual: " + this.currentHouse);
 
-    console.log("Id del personaje activo: " + this.currentHouse.activeChar);
     
-    this.checkNpcs()
 
+
+
+
+
+
+    // this.checkNpcs()
   }
-  //Borra personaje EN EL FRONT
+
+
+  //Recibe los personajes de la base de datos
+  public showHouseChars (id){
+
+    this.characterService.getCharacters(id).subscribe((data:Character[])=>{
+      console.log("Data de showHouseChars: " + JSON.stringify(data));
+      
+      this.currentHouseChars = data;//creo que lo está igualando a data aquí
+
+    })
+  }
+
+
+
+
+
   public deleteChar(id:number){
-    this.currentHouseChars.splice(id -1,1)
-    console.log(this.npcs);
+      //Borra personaje EN EL FRONT
+
+      
+  this.currentHouseChars.splice(id -1,1)
+    console.log(this.currentHouseChars);
     if(this.currentHouseChars.length==0){this.noNpcs=true}
+      
+    this.currentHouseChars =  this.currentHouseChars
+      //Borra en la base de datos
+    this.characterService.deleteCharacter(id).subscribe((data)=>{
+
+      console.log(data);
+      
+      this.showHouseChars(this.currentHouseId)
+
+    })
+    
+
     
   }
 
-    //Cambia el Estado de un personaje de vivo a muerto.
+  //Cambia el Estado de un personaje de vivo a muerto.
 
   public deadOrAlive(id:number){
     console.log("click");
@@ -127,17 +162,6 @@ export class AddNpcToHouseComponent {
     }
   }
     
-  //   //no puedes pasar la posición así
-  //   if(this.currentHouseChars[id-1].char_status==1){
-
-  //     this.currentHouseChars[id-1].char_status==0
-
-  //   }else if(this.currentHouseChars[id-1].char_status==0){
-
-  //     this.currentHouseChars[id-1].char_status==1
-
-  //   }
-  // }
 
   // public modifyChar(id:number){
   //   //Esta función debería poder editar los detalles de un npc, pero no se ha inplementado por falta de tiempo. Lo dejamos para versiones futuras
@@ -165,21 +189,45 @@ export class AddNpcToHouseComponent {
     
     console.log("formNpcCopy con spread operator: " + formNpcCopy);
     
-
+    //Al array del front
     this.currentHouseChars.push(
       new Character (null,this.currentHouseId,null,formNpcCopy.char_name,formNpcCopy.age,1,0,0,0,formNpcCopy.role,formNpcCopy.sex)
     );
-    console.log(this.currentHouseChars);  
+    console.log(this.currentHouseChars);
+
+    //A la base de datos.
+    this.characterService.newCharacter(new Character(null,this.currentHouseId,null,formNpcCopy.char_name,formNpcCopy.age,1,0,0,0,formNpcCopy.role,formNpcCopy.sex)).subscribe((data)=>{
+      console.log(data);
+
+      this.showHouseChars(this.currentHouseId)
+      
+    })
     
   }
-  //Marca a un personaje como el personaje activo
+
+
+  //Marca a un personaje como el personaje activo.
+  //El problema de este selector es que no puede mandar ids de los personajes que se crean en el front, porque no tienen ID, con lo cual no se puede elegir el en selector. Por eso, cuando se crea un nuevo personaje, se debe mandar a la base de datos.
   public onSelect(form:NgForm){
     console.log("Form value:" + JSON.stringify(form.value));
     this.activeChar = form.value;
 
-    console.log("activeChar:" + JSON.stringify(this.activeChar));
+    console.log(this.currentHouse.activeChar)
+
+    for (let character in form.value.characters){
+      console.log(character);
+      
+    }
+
+    // for (let i = 0; i < this.activeChar.characters.length; i++) {
+      
+    //   console.log("activeChar:" + JSON.stringify(this.activeChar.characters[i]));
+    //   console.log("sin stringify:" + this.activeChar.characters[i]);
+      
+    // }
+
+
     
-    // this.activeChar = this.npcs[arrElement];
   }
   //Si hay personajes en el array de npcs, cambia noNpcs a false
   public checkNpcs(){
@@ -188,13 +236,32 @@ export class AddNpcToHouseComponent {
   
   //Vuelve a la página de gestión de casas/asignación de casas guardando la información.
   public goBack(){
-    this.router.navigateByUrl("/createhouse");
+    this.houseService.updateHouse(this.currentHouse = new House(null,this.currentHouse.activeChar,null,null,null,this.houseService.currentHouse.house_id)).subscribe((data)=>{
+
+      console.log("ActiveChar antes del cambio al front" + this.houseService.currentHouse.activeChar);
+      
+      this.houseService.currentHouse = this.currentHouse;
+
+      console.log("ActiveChar antes del cambio al front" + this.houseService.currentHouse.activeChar);
+
+      console.log(data);
+      
+
+      this.router.navigateByUrl("/createhouse");
+
+    })
+
+
+
   }
 
   //Vuelve a la página de gestión de casas/asignación de casas sin guardar la info.
   public cancel(){
     this.router.navigateByUrl("/createhouse");
   }
+
+
+
 
 
   
