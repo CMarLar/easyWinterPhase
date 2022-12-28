@@ -6,6 +6,8 @@ import { PlayerService } from '../../shared/player.service'
 import { Player } from 'src/app/models/player';
 import { HouseService } from 'src/app/shared/house.service';
 import { House } from 'src/app/models/house';
+import { YearService } from 'src/app/shared/year.service';
+import { Year } from 'src/app/models/year';
 
 @Component({
   selector: 'app-houses-management',
@@ -26,7 +28,7 @@ export class HousesManagementComponent {
 
   public players:Player[];
 
-  public year:any;
+  public year : any;
   public yearEmpty:boolean
 
   public newHouse : House;
@@ -37,7 +39,7 @@ export class HousesManagementComponent {
   //
   //
 
-  constructor(public router:Router,public playerService : PlayerService, public houseService : HouseService){
+  constructor(public router:Router,public playerService : PlayerService, public houseService : HouseService, public yearService : YearService){
 
     this.campaignName="Campaña de Carlos"
     this.shieldImage="../../../assets/img/escudo1.png"
@@ -60,88 +62,92 @@ export class HousesManagementComponent {
   }
 
   //Esta función cambia las casas a null, en ngIf del html hace que si es null, borre la pluma y la calavera.
-  public deleteHouse(number:number){
-    //IMPORTANTE
-    //IMPORTANTE
-    //IMPORTANTE
-    //IMPORTANTE
-    //IMPORTANTE
-    //IMPORTANTE
-    //IMPORTANTE
-    //IMPORTANTE
-    //IMPORTANTE
-    //IMPORTANTE
-    //IMPORTANTE
-    //IMPORTANTE
-    //IMPORTANTE
-    //IMPORTANTE
-    //IMPORTANTE
-    //IMPORTANTE
-    //REVISAR ESTA PARTE DEL CODIGO, POR ALGUNA RAZON NO ENTRA EN LOS CONDICIONALES
-    console.log(number);
-    for (let player of this.players){
+  public deleteHouse(idPlayer:number,idCasa : number){
+    
+    console.log("ESTO ES 1: " + JSON.stringify(this.playerService.playersOfCampaign));
+    console.log("ESTO ES ID PLAYER: " + idPlayer);
+    console.log("ESTO ES ID CASA: " + idCasa);
 
-      if(player.player_id == number){
-        console.log(player.house_id);
-      
-        player.house_id = null
-        for (let i = 0; i < this.houseService.housesOfCamapaign.length; i++){
+    for (let i = 0; i < this.playerService.playersOfCampaign.length; i++){
 
-          if (this.houseService.housesOfCamapaign[i].house_id == number){
+      if (this.playerService.playersOfCampaign[i].player_id == idPlayer){
 
-            this.playerService.putPlayer(new Player(player.player_id,null,player.campaign_id,player.player_name,player.winterPhaseDone))
-            .subscribe((data : any) => {
+        this.playerService.currentPlayer = this.playerService.playersOfCampaign[i];
 
-              for (let j = 0; j < this.playerService.playersOfCampaign.length; j++){
+        this.playerService.currentPlayer.house_id = null;
 
-                if(this.playerService.playersOfCampaign[j].house_id == number){
-                  this.playerService.playersOfCampaign[j].house_id == null;
+        this.updatePlayer();
 
-                  this.houseService.deleteHouse(this.houseService.housesOfCamapaign[i])
-                  .subscribe((data : any) => {
-                    console.log("HOLA HOLITA VECINITO");
-                    
-                    this.houseService.housesOfCamapaign.splice(i,1);
-                  })
-                }
-              }
+        for (let j = 0; j < this.houseService.housesOfCamapaign.length; j++){
+
+          if (this.houseService.housesOfCamapaign[j].house_id == idCasa){
+            
+            this.houseService.currentHouse = this.houseService.housesOfCamapaign[j];
+
+            this.houseService.deleteHouse(this.houseService.currentHouse)
+            .subscribe((data) => {
+
+              this.houseService.currentHouse = null;
+              this.checkPlayersReady();
             })
           }
         }
-        // player.escudo = this.emptyShield //ESTO NO DEBE APARECER HASTA LA CREACION DE LA CASA
-
-
-      console.log(player.house_id);
       }
-      
     }
-    this.checkPlayersReady()
   }
 //COMPRUEBA que todos los jugadores están listos.
 
 //arr.reduce((acumulador, valorActual[, índice[, array]]) =>[, valorInicial])
 
   public checkPlayersReady():void{
+    this.players = this.playerService.playersOfCampaign
     this.housesNotAsigned = !this.players.reduce((acc,current)=>{
       return acc && current.house_id!=null},true)
 
-    console.log(this.housesNotAsigned);
+    console.log("REDUCE: " + this.housesNotAsigned);
   }
-
-  // public checkYear():void{
-  //   if(this.year!="" || this.year!=null){
-  //     this.yearEmpty = false;
-  //   }
-  // }
   
   public onSubmit(form:NgForm){
     console.log("Resultado");
     console.log(form.value);
 
+    for (let values in form.value) {
+      // console.log(form.value[values]);
+
+      if(form.value[values] != undefined){
+
+        this.yearService.currentYear = new Year (null,parseInt(form.value[values]),1,1,"EJEMPLO DE NOTAS");
+        this.yearService.yearsOfCampaign.push(this.yearService.currentYear);
+        
+        
+        this.yearService.postYear(this.yearService.currentYear)
+        .subscribe((data : any) => {
+
+          this.yearService.currentYear.year_id = data.insertId;
+          
+          this.yearService.yearsOfCampaign[0].year_id = data.insertId;
+
+          this.yearService.postPlayerYear(this.yearService.currentYear,this.playerService.playersOfCampaign)
+          .subscribe((data : any) => {
+            console.log("ENTROOOOO GOLGOLGOL");
+            
+            
+          })
+        })
+        
+        // console.log("ARRAY YEARS: " + this.yearService.yearsOfCampaign);
+        // console.log("CURRENT YEAR: " + this.yearService.currentYear);
+        
+
+      }
+
+    }
+
+    this.router.navigateByUrl("/currentcampaign");
 
     // this.checkYear()
     console.log(this.yearEmpty);
-    this.router.navigateByUrl("/currentcampaign")
+    // this.router.navigateByUrl("/currentcampaign")
   }
 
   public goBack():void{
@@ -186,7 +192,7 @@ export class HousesManagementComponent {
           //CREO ESTA FUNCION PARA REALIZAR OTRO OBSERVABLE EN EL CUAL SE ACTUALIZARAN LOS
           //JUGADORES Y SE LES ASIGNARA LA CASA CREADA AL PULSAR SOBRE ELLOS
           this.updatePlayer();
-          
+          this.router.navigateByUrl("/createhouse");
           //MIGUEL HAZ ALGO PARECIDO A ESTO PARA LAS CASAS
         }
       }
@@ -195,13 +201,26 @@ export class HousesManagementComponent {
     
   }
 
+  public modifyHouse(house_id : number){
+
+    for (let i = 0; i < this.houseService.housesOfCamapaign.length; i++){
+
+      if (this.houseService.housesOfCamapaign[i].house_id == house_id){
+
+        this.houseService.currentHouse = this.houseService.housesOfCamapaign[i];
+        this.router.navigateByUrl("/createhouse");
+
+      }
+    }
+  }
+
   public updatePlayer(){
 
     //AQUI LLAMAMOS AL PUT Y LE PASAMOS EL OBJETO DE CURRENT PLAYER
     this.playerService.putPlayer(this.playerService.currentPlayer)
     .subscribe((data : any) => {
       console.log("DATOS DE PUT PLAYER: " + data);
-      this.router.navigateByUrl("/createhouse")
+      // this.router.navigateByUrl("/createhouse")
     })
     console.log("ASI QUEDAN LOS JUGADORES: " + JSON.stringify(this.playerService.playersOfCampaign));
     

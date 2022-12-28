@@ -29,9 +29,9 @@ export class HouseService {
    public deleteHouse(house:House){
     let house_id = house.house_id;
 
-  const httpOptions = {header:null, body: {house_id}}
+  const httpOptions = {header : {"Content-type" : "application/json; charset= UTF-8"}, body : {"house_id" : house_id}}
 
-  return this.http.delete(this.url + "campaigns?user_id=" +house_id,httpOptions)
+  return this.http.delete(this.url,httpOptions);
   }
 }
 //house Management
