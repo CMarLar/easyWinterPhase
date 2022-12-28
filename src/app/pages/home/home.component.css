@@ -7,30 +7,54 @@
 .main{
     width: auto;
     height: 100vh;
-    background-image: url("../../../assets/backgrounds/bg_home.jpg");
+    background-image: url("../../../assets/backgrounds/nuevo_fondo_home.png");
     background-size: cover;
     background-position: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* border: 2px solid red; */
+    /* border: 5px solid red; */
 }
-    .container{
-        /* border: 2px solid red; */
+    .capaoscura{
+        height: 34%;
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        background-color: rgb(0, 0, 0, .4);
+      
+       
+      /*   border: 4px solid rgb(15, 218, 96); */
+
     }
+       
         .h1{
-            font-size: 100px;
-            font-weight: normal;
-            color: var(--font-color-h);
+            margin-top: 2.5%;
+            font-size: 5.5rem;
+            font-weight: bold;
+            color: var(  --backgoud-color-button);
+            -webkit-text-stroke: 2px black;
             text-align: center;
 
-            /* border: 2px solid blue; */
+            /* border: 4px solid blue; */
         }
         .h5{
-            font-size: 30px;
+            font-size: 1.5rem;
             font-weight: normal;
-            color: var(--font-color-primary);
+            color: var(--font-color-hover);
             text-align: center;
-            /* border: 2px solid pink; */
+
+           /*  border: 4px solid rgb(218, 15, 49); */
+        }
+        .linea{
+            margin-top: 2.5%;
+           /*  color: var(--backgoud-color-button); */
+            border: 1.5px solid var(--backgoud-color-button);
+            width: 100%;
+        }
+        .caja{
+            height: 46%;
+            width: 100%;
         }

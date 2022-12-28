@@ -1,24 +1,30 @@
 <app-header class="component"></app-header>
 <main class="main">
-    <div class="div--1">
-        LOGIN
-    </div>
-    <div class="div--2">
-        <form class="form" action="">
-            <div class="form--div-1">
-                <label for="">correo:</label>
-                <input type="email" #mail>
-            </div>
-            <div class="form--div-2">
-                <label for="">contraseña:</label>
-                <input type="password" #pass>
-            </div>
+
+   <div class="contenedor">
+        <div class="div-1"></div>
+         <div class="div--1"> <!-- amarillo -->
+              LOGIN
+         </div>
+        <div class="div--2"> <!-- azulon -->
+             <form class="form" action="">
+                     <div class="form--div-1">
+                        <label for="">USUARIO:</label>
+                        <input type="email" #mail>
+                    </div>
+                    <div class="form--div-2">
+                       <label for="">PASSWORD:</label>
+                       <input type="password" #pass>
+                    </div>
             
-            <div class="textHide" [hidden]="dataOk">Correo o contraseña incorrectos</div>
+            <!-- <div class="textHide" [hidden]="dataOk">Usuario o contraseña incorrectos</div> -->
         </form>
+    <div class="textHide" [hidden]="dataOk">USUARIO O CONTRASEÑA INCORRECTOS</div>
     </div>
     <button class="button" (click)="userValidate(mail.value,pass.value)">
         <img src="../../../assets/img/daga_login_register.png" alt="">
         <p>Login</p>
     </button>
+   </div><!-- ciarra contenedor -->
+<!--  <div class="contenedor2"></div> -->
 </main>

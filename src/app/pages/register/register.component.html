@@ -1,24 +1,24 @@
 <app-header class="component"></app-header>
 <main class="main">
     <div class="div--1">
-        REGíSTRATE
+        REGISTRO
     </div>
     <div class="div--2">
         <form class="form" action="">
             <div class="form--div-1">
-                <label for="">nombre de usuario:</label>
+                <label for="">ROL:</label>
                 <input type="email" #userName>
             </div>
             <div class="form--div-1">
-                <label for="">correo:</label>
+                <label for="">CORREO:</label>
                 <input type="email" #correo>
             </div>
             <div class="form--div-2">
-                <label for="">contraseña:</label>
+                <label for="">PASSWORD:</label>
                 <input type="password" #pass>
             </div>
             <div class="form--div-3">
-                <label for="">confirmar contraseña:</label>
+                <label for="">CONFIRMAR PASSWORD:</label>
                 <input type="password" #confirmarPass>
             </div>
             <div class="textHide" [hidden]="isHide">{{error}}</div>

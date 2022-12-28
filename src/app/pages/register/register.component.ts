@@ -42,27 +42,27 @@ export class RegisterComponent {
           }else{
             // console.log("las contraseñas no coinciden");
             this.isHide = false;
-            this.error = "las contraseñas no coinciden";
+            this.error = "LAS CONTRASEÑAS NO COINCIDEN";
         
             
           }
         }else{
           // console.log("La contraseña debe contener al menos una minuscula, una mayuscula, un digito y un caracter especial");
           this.isHide = false;
-          this.error = "La contraseña debe contener al menos una minuscula, una mayuscula, un digito y un caracter especial";
+          this.error = "La contraseña debe contener al menos una minúscula, una mayúscula, un digito y un carácter especial";
         }
   
       }else{
         // console.log("Correo electronico invalido");
         this.isHide = false;
-        this.error = "Correo electronico no valido";
+        this.error = "CORREO ELECTRÓNICO NO VÁLIDO";
         
       }
 
     }else{
       // console.log("NO PASO");
       this.isHide = false;
-      this.error = "Debes introducir un nombre de usuario"
+      this.error = "DEBES INTRODUCIR UN NOMBRE DE USUARIO"
     }
 
     
