@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { HouseService } from 'src/app/shared/house.service';
+import { House } from 'src/app/models/house';
+import { Character } from 'src/app/models/character';
+import { CharacterService } from 'src/app/shared/character.service';
+
 
 @Component({
   selector: 'app-create-house',
@@ -8,6 +13,23 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./create-house.component.css']
 })
 export class CreateHouseComponent {
+
+
+
+  public actualHouse:House;
+    public house_name:string;
+    public holding_name:string;
+    public familyCharactersitic:string;
+    public currentHouseId:number;
+  
+  public knight:Character;
+    public knightName:string;
+    public knightAge:number;
+  public squire:Character;
+    public squireName:string;
+    public squireAge:number = 15;
+
+  public alreadyAdded:boolean;//hace disabled el botón añadir cuando se crean los dos personajes
 
 
   public nombreCasa:string;
@@ -34,13 +56,9 @@ export class CreateHouseComponent {
   public shield8="../../../assets/img/escudo8.png"
   public shield9="../../../assets/img/escudo9.png"
   public shield10="../../../assets/img/escudo10.png"
-  public shield11="../../../assets/img/escudo10.png"
-  public shield12="../../../assets/img/escudo10.png"
-  public shield13="../../../assets/img/escudo10.png"
-  public shield14="../../../assets/img/escudo10.png"
-  public shield15="../../../assets/img/escudo10.png"
+
   
-  public selectedShield;
+  public selectedShield;//Hace referencia al escudo
 
     //True -> No hay NPCs
   public noNPC:boolean;
@@ -52,19 +70,18 @@ export class CreateHouseComponent {
   //Hace un string para mostrarlo. Llamada desde div npc_list
   public stringNpcs:string;
 
-    constructor(public router:Router){
+    constructor(public router:Router, public characterService:CharacterService, public houseService:HouseService){
       this.shields = [this.shield1,this.shield2,this.shield3,this.shield4,this.shield5,
-                      this.shield6,this.shield7,this.shield8,this.shield9,this.shield10,
-                      this.shield11,this.shield12,this.shield13,this.shield14,this.shield15]
+                      this.shield6,this.shield7,this.shield8,this.shield9,this.shield10]
   
   
-      this.noNPC=true
+      this.noNPC=false//ACUÉRDATE DE CAMBIARLO A TRUE DESPUÉS DE HACER LAS PRUEBAS
       console.log(this.noNPC);
       
     //Mostrar el escudo seleccionado:
     this.selectedShield
   
-  //MANIPULA ESTO PARA METER PERSONAJES
+  //esto es antiguo, era para que se vieran los personajes, la función de abajo también.
       this.npcs=[];
 
     //Hace el strgin de personajes y ejecuta checkNPC.
@@ -84,8 +101,20 @@ export class CreateHouseComponent {
       
       this.nivelesManutencion= ["Indigente","Pobre","Normal","Rico","Muy Rico"]
 
+      this.currentHouseId = this.houseService.currentHouseId//debería coger el id de la casa en concreto
+      console.log("Current House ID: " + this.currentHouseId);
+      
 
 
+      this.actualHouse = new House(this.house_name,null,this.holding_name,this.familyCharactersitic,this.selectedShield,this.currentHouseId);
+
+      // this.casa = new House()
+
+      this.knight = new Character(null,this.currentHouseId,null,this.knightName,this.knightAge,1,0,0,0,null);
+
+      this.squire = new Character(null,this.currentHouseId,null,this.squireName,this.squireAge,1,0,0,0,"Escudero");
+
+      this.alreadyAdded = false;
 
     }
 
@@ -94,6 +123,8 @@ export class CreateHouseComponent {
 public selectHouseShield(shield:string){
   console.log(shield);
   this.selectedShield = shield;
+
+
 
   
 }
@@ -119,14 +150,72 @@ public changeNpcString(){
 //Formulario, guardar cambios, volver a página de asignación de casas
 public onSubmit(form:NgForm){
   console.log(form.value);
-  console.log(this.house);
-  this.goBack();
+  form.value.shield = this.selectedShield;//funciona para meter el escudo seleccionado
+  form.value.house_id = this.currentHouseId; //puesto el id directamente para probar
+  console.log(form.value);
+
+  this.houseService.updateHouse(
+    this.actualHouse = new House(
+      this.actualHouse.house_name,
+      null,
+      this.actualHouse.holding_name,
+      this.actualHouse.familyCharacteristic,
+      this.selectedShield,this.currentHouseId))
+      .subscribe((data)=>{
+
+        console.log(data);
+    
+      })
+
+  // this.goBack(); //Reactiva este routing cuando termines
+  
+}
+
+public submitPlayerInfo(form:NgForm){;
+  
+  console.log(form.value);//pasa un objeto con los nombres del caballero y el escudero y la edad del caballero
+
+
+  this.knightName = form.value.knight_name;
+  this.knightAge = parseInt(form.value.knight_age);//para que no coja como string la edad
+  this.squireName = form.value.squire_name;
+
+  console.log(this.knight);
+  console.log(this.squire);
+
+  this.characterService.currentHouseChars.push(this.knight);
+  this.characterService.currentHouseChars.push(this.squire);
+
+
+  for (let i = 0; i <  this.characterService.currentHouseChars.length; i++) {
+    console.log("Array de personajes de la casa, posición " + i  + ": " + this.characterService.currentHouseChars[i].char_name);
+  }
+  
+
+
+  //Crea caballero
+  this.characterService.newCharacter(new Character(null,this.currentHouseId,null,this.knightName,this.knightAge,1,0,0,0,null)).subscribe((data1) =>{
+
+    console.log("Data del caballero: " + data1);
+
+  })
+
+  //Crea escudero
+  this.characterService.newCharacter(new Character (null,this.currentHouseId,null,this.squireName,this.squireAge,1,0,0,0,"Escudero")).subscribe((data2) =>{
+
+    console.log("Data del escudero: " + data2);
+
+  })
+  
+  this.alreadyAdded = true;
   
 }
 
 //Va a la página de añadir pnjs al pulsar el botón añadir pnjs.
 public goAddNpcs(){
-  this.router.navigateByUrl("/addnpc");
+
+
+  // this.router.navigateByUrl("/addnpc"); //reactivalo cuando termines
 }
 
 //Va atrás sin guardar los cambios al pulsar el botón cancelar

@@ -14,35 +14,42 @@
 <form #houseForm="ngForm" (ngSubmit)="onSubmit(houseForm)" class="houseForm">
 
             <label>Nombre de la casa</label>
-            <input type="text" name="nombreCasa" [(ngModel)]="house.nombreCasa">
+            <input type="text" name="house_name" [(ngModel)]="actualHouse.house_name">
 
             <label>Feudo</label>
-            <input type="text" name="feudo" [(ngModel)]="house.feudo">
+            <input type="text" name="holding_name" [(ngModel)]="actualHouse.holding_name">
 
 
             <label>Característica familiar</label>
-            <input type="text" name="caracteristicaFamiliar" [(ngModel)]="house.caracteristicaFamiliar">
+            <input type="text" name="familyCharacteristic"[(ngModel)]="actualHouse.familyCharacteristic">
 
             <label>Nivel de manutención inicial</label>
-            <select name="nivelesManutencion" id="lang" [(ngModel)]="house. nivelManutencion">
+            <!-- CAGADA: NO ESTÁ EN EL MODELO -->
+
+            <!-- sacada del select porque no está la propiedad nivel de manutención: [(ngModel)]="house. nivelManutencion" -->
+            <select name="nivelesManutencion" id="lang" >
                 <option *ngFor="let valor of nivelesManutencion" [value]="valor">{{valor}}</option>
             </select>
             <br>
 
+            <!-- falta oner los ng models del personaje -->
+    <form #charForm="ngForm" (ngSubmit)="submitPlayerInfo(charForm)" class="charForm">
     <div class="short_inputs">
         <div class="character_name_input">
             <label>Personaje jugador</label>
-            <input type="text" name="nombrePJ" [(ngModel)]="house.nombrePJ">
+            <input type="text" name="knight_name" [(ngModel)]="knight.char_name">
         </div>
         <div class="character_age_input">
             <label>Edad</label>
-            <input type="text" name="edad" [(ngModel)]="house.edad">
+            <input type="text" name="knight_age" [(ngModel)]="knight.age">
         </div>
         <div class="squire_name_input">
             <label>Nombre del escudero</label>
-            <input type="text" name="nombreEscudero" [(ngModel)]="house.nombreEscudero">
+            <input type="text" name="squire_name" [(ngModel)]="squire.char_name">
         </div>
+        <button class = "small_button" [disabled] = "alreadyAdded"> Añade </button>
     </div>
+</form>
 <br>
 
     <!--     <div class="npc_list">
@@ -72,15 +79,15 @@
     </div>
 
     <div class="right">
-        <div class="shield_selector">
-            <img (click)="selectHouseShield(shield1)" [src]="shield1" id="1">
-            <img (click)="selectHouseShield(shield2)"[src]="shield2" id="2">
-            <img (click)="selectHouseShield(shield3)"[src]="shield3" id="3">
-            <img (click)="selectHouseShield(shield4)"[src]="shield4" id="4">
-            <img (click)="selectHouseShield(shield5)"[src]="shield5" id="5">
-            <img (click)="selectHouseShield(shield6)"[src]="shield6" id="6">
-            <img (click)="selectHouseShield(shield7)"[src]="shield7" id="7">
-            <img (click)="selectHouseShield(shield8)"[src]="shield8" id="8">
+        <div class="shield_selector" >
+            <img (click)="selectHouseShield(shield1)" [src]="shield1" id="1" name="shield" [(ngModel)]="actualHouse.shield"  ngDefaultControl>
+            <img (click)="selectHouseShield(shield2)"[src]="shield2" id="2" name="shield" [(ngModel)]="actualHouse.shield"  ngDefaultControl>
+            <img (click)="selectHouseShield(shield3)"[src]="shield3" id="3" name="shield" [(ngModel)]="actualHouse.shield"  ngDefaultControl>
+            <img (click)="selectHouseShield(shield4)"[src]="shield4" id="4" name="shield" [(ngModel)]="actualHouse.shield"  ngDefaultControl>
+            <img (click)="selectHouseShield(shield5)"[src]="shield5" id="5" name="shield" [(ngModel)]="actualHouse.shield"  ngDefaultControl>
+            <img (click)="selectHouseShield(shield6)"[src]="shield6" id="6" name="shield" [(ngModel)]="actualHouse.shield"  ngDefaultControl>
+            <img (click)="selectHouseShield(shield7)"[src]="shield7" id="7" name="shield" [(ngModel)]="actualHouse.shield"  ngDefaultControl>
+            <img (click)="selectHouseShield(shield8)"[src]="shield8" id="8" name="shield" [(ngModel)]="actualHouse.shield"  ngDefaultControl>
 
             <!-- <img (click)="selectHouseShield(shield10)"[src]="shield10" id="10">
             <img (click)="selectHouseShield(shield11)"[src]="shield11" id="11">
