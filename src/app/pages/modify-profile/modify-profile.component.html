@@ -2,9 +2,17 @@
 <main class="main">
 
     <div class="submain">
-        <div class="lacre">
-            <img class="imglacre" src="{{user.avatar}}" alt="">
-            
+        <div class="avatar_selector"><!-- antes "lacre" -->
+           <!--  <img class="imglacre" src="{{user.avatar}}" alt=""> -->
+            <img (click)="selectedUserAvatar(avatar1)" [src]="avatar1" id="1" name="avatar"[(ngModel)]="avatares.avatar"  ngDefaultControl>
+            <img (click)="selectedUserAvatar(avatar2)" [src]="avatar2" id="1" name="avatar"[(ngModel)]="avatares.avatar"  ngDefaultControl>
+            <img (click)="selectedUserAvatar(avatar3)" [src]="avatar3" id="1" name="avatar"[(ngModel)]="avatares.avatar"  ngDefaultControl>
+            <img (click)="selectedUserAvatar(avatar4)" [src]="avatar4" id="1" name="avatar"[(ngModel)]="avatares.avatar"  ngDefaultControl>
+            <img (click)="selectedUserAvatar(avatar5)" [src]="avatar5" id="1" name="avatar"[(ngModel)]="avatares.avatar"  ngDefaultControl>
+            <img (click)="selectedUserAvatar(avatar6)" [src]="avatar6" id="1" name="avatar"[(ngModel)]="avatares.avatar"  ngDefaultControl>
+        </div>
+        <div class="fade-in">
+               <img [src]="selectedAvatar" class="avatarcito">
         </div>
         <div class="dataUser">
             <p>USUARIO</p>

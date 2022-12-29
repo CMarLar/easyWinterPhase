@@ -61,6 +61,7 @@
             -webkit-text-stroke: 0.75px var(--font-color-hover);
             color:rgb(139, 35, 35);
             font-size: 2.7em;
+            font-weight: bold;
             padding-right: 50%;
 
         }
@@ -114,17 +115,16 @@
              }
                     .nombre{
                         font-size: 1.2rem ;
-                        font-style: bold;
-                        
-                        color:rgb(159, 14, 14);
-                        -webkit-text-stroke: 1px var(--font-color-hover);
+                        color:var(--font-color-hover);
+                        font-weight: bold;
+                       /*  -webkit-text-stroke: 1px var(--font-color-hover); */
                      }
                     .texto{
                         
 
                         color: whitesmoke;
                         font-family: "Almendra", serif;
-                        font-size: smaller;
+                        font-size: 1rem;
         
                     }
         
@@ -172,7 +172,8 @@
         text-decoration: none;
         color: var(--font-color-hover);
       /*   margin-top: 5%; */
-        font-size: 3rem;
+        font-size: 4rem;
+        font-weight: bold;
  
     }
     .volver:hover{

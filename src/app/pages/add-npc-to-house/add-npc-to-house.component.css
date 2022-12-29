@@ -33,7 +33,7 @@
     width: auto;
     height: 100vh;
     padding-top: 3%;
-    background-image: url(../../../assets/backgrounds/pergamino_claro.jpg);
+    background-image: url(../../../assets/backgrounds/fondo_createhouse.png);
     background-size:cover;
     background-repeat: no-repeat;
     /* padding-bottom: 5vh; */
@@ -264,17 +264,17 @@
 
 }
 
-.container{
+/* .container{ */
     /* border: 5px solid blue; */
-}
+/* } */
 
-.playerlist{
+/* .playerlist{ */
     /* border: 5px solid yellow; */
-}
-    .playerlist img{
+/* }
+    .playerlist img{ */
         /* width: 64px;
         height: 64px; */
-    }
+ /*    } */
 
 
 .playerempty{

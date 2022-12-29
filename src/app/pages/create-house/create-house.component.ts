@@ -45,9 +45,9 @@ export class CreateHouseComponent {
 
   public nivelesManutencion:string[]
 
-  public house: any;
+  public house;
 
-  public shields: string[];
+  public shields;
 
   public shield1="../../../assets/img/escudo1.png"
   public shield2="../../../assets/img/escudo2.png"

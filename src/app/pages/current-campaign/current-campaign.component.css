@@ -161,7 +161,7 @@
                /*  text-decoration: underline; */
             }
             .notas{
-                color: var( --font-color-warnings);
+                color: var( --font-color-hover);
                 font-weight: bold;
                 font-size:1rem;
                 margin-block-end: 1%;
@@ -173,7 +173,7 @@
                 border-radius: 3px;
               /*   border:1px solid rgb(180, 123, 148); */
 
-                color: var( --font-color-warnings);
+                color: var( --font-color-hover);
                 font-weight: bold;
                 font-size:1rem;
                 display: flex;
