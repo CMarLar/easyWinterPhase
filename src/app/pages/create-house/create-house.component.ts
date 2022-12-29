@@ -167,7 +167,7 @@ public onSubmit(form:NgForm){
     
       })
 
-  // this.goBack(); //Reactiva este routing cuando termines
+   this.goBack(); //Reactiva este routing cuando termines
   
 }
 
@@ -215,7 +215,7 @@ public submitPlayerInfo(form:NgForm){;
 public goAddNpcs(){
 
 
-  // this.router.navigateByUrl("/addnpc"); //reactivalo cuando termines
+  this.router.navigateByUrl("/addnpc"); //reactivalo cuando termines
 }
 
 //Va atrás sin guardar los cambios al pulsar el botón cancelar

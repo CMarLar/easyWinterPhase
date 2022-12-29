@@ -60,7 +60,7 @@
 
 .page_title{
     color: var(--font-color-hover);
-    -webkit-text-stroke: 3px var(--font-color-h);
+    -webkit-text-stroke: 2px var(--font-color-h);
    /*  text-decoration: line-through; */
     font-size: 4.5rem;
   /*   border: 2px solid rgb(255, 0, 230); */
@@ -161,7 +161,7 @@
                /*  text-decoration: underline; */
             }
             .notas{
-                color: var( --font-color-hover);
+                color: var( --font-color-warnings);
                 font-weight: bold;
                 font-size:1rem;
                 margin-block-end: 1%;
@@ -173,7 +173,7 @@
                 border-radius: 3px;
               /*   border:1px solid rgb(180, 123, 148); */
 
-                color: var( --font-color-hover);
+                color: var( --font-color-warnings);
                 font-weight: bold;
                 font-size:1rem;
                 display: flex;
