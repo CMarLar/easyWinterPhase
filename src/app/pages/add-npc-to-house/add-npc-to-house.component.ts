@@ -150,18 +150,60 @@ export class AddNpcToHouseComponent {
       if(this.currentHouseChars[i].character_id == id){
 
         if(this.currentHouseChars[i].char_status == 1){
+          
           this.currentHouseChars[i].char_status = 0
           console.log("Cambiado a muerto");
+
+          //cambia en la base de datos
+          this.characterService.modifyCharacter(
+            this.currentHouseChars[i] = new Character(
+              this.currentHouseChars[i].character_id,
+              this.currentHouseId,
+              null,
+              this.currentHouseChars[i].char_name,
+              this.currentHouseChars[i].age,
+              0,
+              this.currentHouseChars[i].isMarried,
+              this.currentHouseChars[i].marriageGlory,
+              this.currentHouseChars[i].courtesyMod,
+              this.currentHouseChars[i].role,
+              this.currentHouseChars[i].sex))
+              .subscribe((data)=>{
+
+                console.log(data);
+            
+              })
+
+
           
         }else if(this.currentHouseChars[i].char_status == 0){
           this.currentHouseChars[i].char_status = 1
           console.log("Cambiado a vivo");
 
+          //cambia en la base de datos
+          this.characterService.modifyCharacter(
+            this.currentHouseChars[i] = new Character(
+              this.currentHouseChars[i].character_id,
+              this.currentHouseId,
+              null,
+              this.currentHouseChars[i].char_name,
+              this.currentHouseChars[i].age,
+              1,
+              this.currentHouseChars[i].isMarried,
+              this.currentHouseChars[i].marriageGlory,
+              this.currentHouseChars[i].courtesyMod,
+              this.currentHouseChars[i].role,
+              this.currentHouseChars[i].sex))
+              .subscribe((data)=>{
+
+                console.log(data);
+            
+              })
+
         } 
       }
     }
   }
-    
 
   // public modifyChar(id:number){
   //   //Esta función debería poder editar los detalles de un npc, pero no se ha inplementado por falta de tiempo. Lo dejamos para versiones futuras
