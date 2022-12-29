@@ -2,16 +2,17 @@
     /* LE DOY POSICION FIJA AL COMPONENTE HEADER / */
     position:absolute;
     width: 100%;
+    height: 100%;
     /* border: 2px solid black; */
 }
 
-.profile_pic{
+/* .profile_pic{
     position: absolute;
     top: 12%;
     right: 10%;
     width: auto;
     height: auto;
-    /* border: 5px solid yellowgreen; */
+    border: 5px solid yellowgreen;
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 20px;
@@ -25,19 +26,19 @@
     border-radius: 100%;
     width: 100px;
     height: 100px;
-}
+} */
 
 .supercontainer{
     display: flex;
     flex-direction: column;
-    width: auto;
-    height: auto;
-    padding-top: 7vh;
-    background-image: url(../../../assets/backgrounds/bg_pergamino_1.jpg);
+    width: 100%;
+    height: 100vh;
+   /*  padding-top: 7vh; */
+    background-image: url(../../../assets/backgrounds/fondo_createhouse.png);
     background-size:cover;
     background-repeat: no-repeat;
     /* padding-bottom: 5vh; */
-    /* border: 5px solid blue; */
+  /*    border: 5px solid rgb(255, 0, 111);  */
 }
 .maincontainer{
     display: flex;
@@ -47,18 +48,35 @@
     width: auto;
     padding-bottom: 1.95vh;
 
-}
-
-.page_title{
-    color: var(--font-color-h);
-    font-size: 400%;
-}
-
-.page_subtitle{
-    color: var(--font-color-primary);
-    font-size: 200%;
-}
-
+}           .title{
+                width: 100%;
+                height: 20%;
+               /*  border: 5px solid rgb(219, 219, 242);  */
+                
+            }
+            .page_title{
+                color: var(--font-color-hover);
+                -webkit-text-stroke: 2px var(--font-color-h);
+               /*  text-decoration: line-through; */
+                font-size: 4rem;
+              /*   border: 2px solid rgb(255, 0, 230); */
+                font-weight: bold;
+                text-align:end;
+                padding-top: 2%;
+                width: 95%; 
+                height: 70%;
+               /*  border: 5px solid blue;  */
+            }
+            
+            .page_subtitle{
+                color: var(--font-color-warnings);
+                font-weight: bold;
+                text-align:end;
+                font-size: 2rem;
+                width: 95%; 
+                height: 30%;
+               /*  border: 5px solid blue;  */
+            }
 
 .left{
     display: flex;
@@ -66,9 +84,17 @@
     width: 50%;
     height: 65vh;
     padding-left: 5%;
-    /* border: 5px solid pink; */
+   /*  border: 5px solid pink; */
     margin-bottom: 13vh;
     padding-right: 2%;
+    
+}
+.texto{
+
+    color: var(--font-color-warnings);
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding-block: 1%;
 }
 .image_left{
     display: flex;
@@ -84,8 +110,8 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-        gap:5%;
-        /* border: 2px solid blueviolet; */
+        gap:6%;
+        /* border: 2px solid blueviolet;  */
 
     }
 
@@ -93,17 +119,16 @@
                 display: flex;
                 flex-direction: column;
                 gap:5px;
-                /* border: 2px solid blue; */
-                width: 40%
-
+               /*  border: 2px solid blue;  */
+                width: 40%;
             }
 
             .character_age_input{
                 display: flex;
                 flex-direction: column;
                 gap:5px;
-                /* border: 2px solid blue; */
-                width: 10%
+                /* border: 2px solid blue;  */
+                width: 15%
             }
 
                 .character_age_input input{
@@ -114,7 +139,7 @@
                 display: flex;
                 flex-direction: column;
                 gap:5px;
-                /* border: 2px solid blue; */
+                /* border: 2px solid blue;  */
                 width: 40%
             }
 
@@ -122,14 +147,14 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        /* border: 2px solid blue; */
+       /*  border: 2px solid blue; */
         margin-bottom: 3%;
     }
 
     .choose_new_character{
         display: flex;
         flex-direction: row;
-        gap:25px;
+        gap:20px;
         justify-content: center;
         align-items: center;
         /* border: 2px solid yellow; */
@@ -144,7 +169,7 @@
     width: 50%;
     height: 65vh;
     /* padding-right: 5%; */
-    /* border: 5px solid black; */
+    /* border: 5px solid rgb(217, 10, 10); */
     padding: 3%;
     gap:2%;
 }
@@ -152,28 +177,33 @@
 .shield_selector{
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    justify-content:space-between;
+    align-items:flex-start;
     flex-wrap: wrap;
-    gap:10%;
+    gap:4%;
     height: 100%;
-    /* border: 5px solid yellow */
+    width: 80%;
+   /*  border: 5px solid yellow   */ 
 }
 
 .shield_selector img{
-    min-width: 40px;
-    max-width: 15%;
+    min-width: 20%;
+    max-width: 20%;
+    /* box-shadow: 10ch; */
+   /*  border-image-outset: 0px 0px 2px 2px rgba(238, 50, 50, 0.4);  */
+    margin: 1%;
+    margin-block-end: 2%;
     transition: all .2s ease-in-out;
-    /* border: 5px solid brown; */
+  /*    border: 5px solid rgb(108, 165, 42);  */
 }
 
 .shield_selector img:hover{
-    transform: scale(1.5);
+    transform: scale(1.2);
     cursor:pointer;
 }
 
 .shield_selector img:active{
-    transform: scale(2);
+    transform: scale(1.2);
 }
 
 .selectedShield{
@@ -233,7 +263,7 @@
 
 .fade-in img{
     max-width: 40%;
-    padding:5px;
+    padding:1%;
 }
 
 .fade-in img hover{
@@ -241,24 +271,24 @@
     cursor:default;
 }
 
-.title{
+/* .title{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding-right: 200px;
     /* border: 5px solid brown; */
-}
+
 
 .image_left{
     height: 70vh;
-    /* border: 5px solid green; */
+  /*   border: 5px solid green;  */
 
 }
 
 .imageleft{
     height: 100%;
-    /* border: 5px solid green; */
+   /*  border: 5px solid green;  */
 
 }
 
@@ -350,12 +380,15 @@
 .buttons{    
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
+    height: 11%;
+    padding-top: 2%;
 
     gap:20px;
-    /* border: 5px solid orangered; */
-    padding-top: 5%;
+   /*  border: 5px solid orangered; */
+    /* padding-top: 5%; */
     /* margin-left: 64px;
     padding-right: 64px; */
     /* width: 64px;
@@ -363,17 +396,25 @@
 }
     button{
         background-color: var(--font-color-h);
-        font-size: larger;
-        border-radius: 3px;
-        padding: 15px 32px;
-        color: white;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 10px;
+        border: none;
+        text-decoration: none;
+        /* padding: 15px 32px; */
+        color: var(--font-color-hover);
+        width: 25%;
+        height: 100%;
     }
 
         .small_button{
             background-color: var(--font-color-h);
-            font-size: large;
-            border-radius: 3px;
-            padding: 5px 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            width: 15%;
+            height: 100%;
+            border-radius: 10px;
+            /* padding: 5px 10px; */
         }
 
     button:hover{
@@ -382,21 +423,33 @@
     }
 
     button:disabled{
-        background-color: grey;
+        background-color: rgb(29, 62, 47);
         color:black;
         cursor:default
     }
 
 input{
     background-color: var(--background-color-input);
-    height:40px;
-    border-radius: 4px;
-    font-size: larger
+    height:35px;
+   
+    border-radius: 3px;
+    border:none;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bolder;
+    text-align: center;
+    color: var( --font-color-hover);
+
 }
 
 input label{
     color: var(--font-color-label-input);
+    font-size: 1rem;
+    font-weight: bolder;
+    text-align: center;
+    color: var( --font-color-hover);
 }
+
 
 label{
     color: var(--font-color-label-input);
@@ -404,10 +457,14 @@ label{
 
 select{
     background-color: var(--background-color-input);
-    height:40px;
+    height: 35px;
     border-radius: 4px;
-    font-size: larger
+    font-size: 1rem;
+    font-weight: bolder;
+    text-align: center;
+    color: var( --font-color-hover);
 }
+
 
 h3{
     color: var(--font-color-primary);

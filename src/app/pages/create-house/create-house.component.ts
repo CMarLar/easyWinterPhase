@@ -17,11 +17,11 @@ export class CreateHouseComponent {
 
 
   public actualHouse:House;
-    public house_name:string;
-    public holding_name:string;
-    public familyCharactersitic:string;
-    public currentHouseId:number;
-    public activeChar:number;
+  public house_name:string;
+  public holding_name:string;
+  public familyCharactersitic:string;
+  public currentHouseId:number;
+  public activeChar:number;
   
   public knight:Character;
     public knightName:string;
@@ -45,9 +45,9 @@ export class CreateHouseComponent {
 
   public nivelesManutencion:string[]
 
-  public house;
+  public house: any;
 
-  public shields;
+  public shields: string[];
 
   public shield1="../../../assets/img/escudo1.png"
   public shield2="../../../assets/img/escudo2.png"
