@@ -6,6 +6,7 @@ export class House {
         public holding_name : string,
         public familyCharacteristic : string,
         public shield : string,
+        public economyLevels : string,
         public house_id : number = null){
             
         }

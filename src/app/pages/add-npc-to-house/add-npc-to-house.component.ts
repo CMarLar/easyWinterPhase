@@ -278,7 +278,7 @@ export class AddNpcToHouseComponent {
   
   //Vuelve a la página de gestión de casas/asignación de casas guardando la información.
   public goBack(){
-    this.houseService.updateHouse(this.currentHouse = new House(null,this.currentHouse.activeChar,null,null,null,this.houseService.currentHouse.house_id)).subscribe((data)=>{
+    this.houseService.updateHouse(this.currentHouse = new House(null,this.currentHouse.activeChar,null,null,null,null,this.houseService.currentHouse.house_id)).subscribe((data)=>{
 
       console.log("ActiveChar antes del cambio al front" + this.houseService.currentHouse.activeChar);
       

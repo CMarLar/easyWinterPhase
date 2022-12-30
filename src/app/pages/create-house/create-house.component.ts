@@ -49,6 +49,8 @@ export class CreateHouseComponent {
 
   public shields;
 
+  public economyLevels
+
   public shield1="../../../assets/img/escudo1.png"
   public shield2="../../../assets/img/escudo2.png"
   public shield3="../../../assets/img/escudo3.png"
@@ -102,7 +104,7 @@ export class CreateHouseComponent {
       
 
 
-      this.actualHouse = new House(this.house_name,null,this.holding_name,this.familyCharactersitic,this.selectedShield,this.currentHouseId);
+      this.actualHouse = new House(this.house_name,null,this.holding_name,this.familyCharactersitic,this.selectedShield,this.economyLevels,this.currentHouseId);
 
       // this.casa = new House()
 
@@ -164,7 +166,9 @@ public onSubmit(form:NgForm){
       this.characterService.currentHouseChars[0].character_id,//mete el id del personaje activo
       this.actualHouse.holding_name,
       this.actualHouse.familyCharacteristic,
-      this.selectedShield,this.currentHouseId))
+      this.selectedShield,
+      null,//economyLevels
+      this.currentHouseId))
       .subscribe((data)=>{
 
         console.log(data);
