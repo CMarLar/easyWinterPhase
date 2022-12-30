@@ -10,6 +10,23 @@
 <!-- <form #houseForm="ngForm" (ngSubmit)="onSubmit(houseForm)"> -->
 <div class="maincontainer">
     <div class="left">
+        <form #charForm="ngForm" (ngSubmit)="submitCharInfo(charForm)" class="charForm">
+            <div class="short_inputs">
+                <div class="character_name_input">
+                    <label class="texto">Personaje Jugador</label>
+                    <input type="text" name="knight_name" [(ngModel)]="knight.char_name">
+                </div>
+                <div class="character_age_input">
+                    <label class="texto">Edad</label>
+                    <input type="text" name="knight_age" [(ngModel)]="knight.age">
+                </div>
+                <div class="squire_name_input">
+                    <label class="texto">Nombre Del Escudero</label>
+                    <input type="text" name="squire_name" [(ngModel)]="squire.char_name">
+                </div>
+                <button class = "small_button" [disabled] = "alreadyAdded"> AÑADIR </button>
+            </div>
+        </form>
 
 <form #houseForm="ngForm" (ngSubmit)="onSubmit(houseForm)" class="houseForm">
 
@@ -33,7 +50,7 @@
             <br>
 
             <!-- falta oner los ng models del personaje -->
-    <form #charForm="ngForm" (ngSubmit)="submitCharInfo(charForm)" class="charForm">
+ <!--    <form #charForm="ngForm" (ngSubmit)="submitCharInfo(charForm)" class="charForm">
     <div class="short_inputs">
         <div class="character_name_input">
             <label class="texto">Personaje Jugador</label>
@@ -47,9 +64,9 @@
             <label class="texto">Nombre Del Escudero</label>
             <input type="text" name="squire_name" [(ngModel)]="squire.char_name">
         </div>
-        <!-- <button class = "small_button" [disabled] = "alreadyAdded"> AÑADIR </button> -->
+        <button class = "small_button" [disabled] = "alreadyAdded"> AÑADIR </button>
     </div>
-</form>
+</form> -->
 <br>
 
     <!--     <div class="npc_list">
@@ -67,13 +84,13 @@
         </div>
 </ng-template>
 
-            <!-- <button [disabled] = "noNPC"> CONFIRMAR </button> -->
+            <button [disabled] = "noNPC"> CONFIRMAR </button>
     </form>
         <div class="buttons">
-            <button class = "button" [disabled] = "alreadyAdded"> AÑADIR </button>
+    
             <button (click)="goBack()">CANCELAR</button>
             <button class= "small_button" (click)="goAddNpcs()"> PNJ </button>
-            <button [disabled] = "noNPC"> CONFIRMAR </button>
+    
         </div>
 
 
@@ -104,3 +121,4 @@
 </div>
 <!-- </form> -->
 </div>
+

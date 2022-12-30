@@ -114,6 +114,7 @@
     background-color: var(--background-color-input);
     outline: none;
     border: none;
+    border-radius: 5px;
     /*  border: 2px solid orange;  */
     width: 70%;
     height: 90%;

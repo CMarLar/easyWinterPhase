@@ -2,14 +2,15 @@
 <main class="main">
 
     <div class="submain">
-        <div class="avatar_selector"><!-- antes "lacre" -->
+        <div class="avatar_selector">
            <!--  <img class="imglacre" src="{{user.avatar}}" alt=""> -->
-            <img (click)="selectedUserAvatar(avatar1)" [src]="avatar1" id="1" name="avatar"[(ngModel)]="avatares.avatar"  ngDefaultControl>
-            <img (click)="selectedUserAvatar(avatar2)" [src]="avatar2" id="1" name="avatar"[(ngModel)]="avatares.avatar"  ngDefaultControl>
-            <img (click)="selectedUserAvatar(avatar3)" [src]="avatar3" id="1" name="avatar"[(ngModel)]="avatares.avatar"  ngDefaultControl>
-            <img (click)="selectedUserAvatar(avatar4)" [src]="avatar4" id="1" name="avatar"[(ngModel)]="avatares.avatar"  ngDefaultControl>
-            <img (click)="selectedUserAvatar(avatar5)" [src]="avatar5" id="1" name="avatar"[(ngModel)]="avatares.avatar"  ngDefaultControl>
-            <img (click)="selectedUserAvatar(avatar6)" [src]="avatar6" id="1" name="avatar"[(ngModel)]="avatares.avatar"  ngDefaultControl>
+           
+            <img (click)="selectedUserAvatar(avatar1)" [src]="avatar1" id="1" name="avatar" #avatar [(ngModel)]="avatares.avatar"  ngDefaultControl>
+            <img (click)="selectedUserAvatar(avatar2)" [src]="avatar2" id="1" name="avatar" #avatar [(ngModel)]="avatares.avatar"  ngDefaultControl>
+            <img (click)="selectedUserAvatar(avatar3)" [src]="avatar3" id="1" name="avatar" #avatar [(ngModel)]="avatares.avatar"  ngDefaultControl>
+            <img (click)="selectedUserAvatar(avatar4)" [src]="avatar4" id="1" name="avatar" #avatar [(ngModel)]="avatares.avatar"  ngDefaultControl>
+            <img (click)="selectedUserAvatar(avatar5)" [src]="avatar5" id="1" name="avatar" #avatar [(ngModel)]="avatares.avatar"  ngDefaultControl>
+            <img (click)="selectedUserAvatar(avatar6)" [src]="avatar6" id="1" name="avatar" #avatar [(ngModel)]="avatares.avatar"  ngDefaultControl>
         </div>
         <div class="fade-in">
                <img [src]="selectedAvatar" class="avatarcito">
@@ -30,7 +31,7 @@
             <p>CANCELAR</p>
             <img src="../../../assets/img/daga-atras.png" alt="">
         </button>
-        <button class="modifybutton" (click)="modifyUser(name.value,mail.value,pass.value)">
+        <button class="modifybutton" (click)="modifyUser(name.value,mail.value,pass.value, selectedAvatar)">
             <p>CONFIRMAR</p>
             <img src="../../../assets/img/daga-adelante.png" alt="">
         </button>

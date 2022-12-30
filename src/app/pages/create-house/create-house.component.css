@@ -110,7 +110,8 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-        gap:6%;
+        align-items: center;
+        gap:3%;
         /* border: 2px solid blueviolet;  */
 
     }
@@ -128,7 +129,7 @@
                 flex-direction: column;
                 gap:5px;
                 /* border: 2px solid blue;  */
-                width: 15%
+                width: 10%
             }
 
                 .character_age_input input{
@@ -140,7 +141,7 @@
                 flex-direction: column;
                 gap:5px;
                 /* border: 2px solid blue;  */
-                width: 40%
+                width: 60%
             }
 
     .npc_list{
@@ -411,9 +412,9 @@
             background-color: var(--font-color-h);
             font-size: 1rem;
             font-weight: bold;
-            width: 15%;
+            width: 20%;
             height: 100%;
-            border-radius: 10px;
+            border-radius: 5px;
             /* padding: 5px 10px; */
         }
 
@@ -430,7 +431,7 @@
 
 input{
     background-color: var(--background-color-input);
-    height:35px;
+    height: 40px;
    
     border-radius: 3px;
     border:none;
