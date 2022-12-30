@@ -28,15 +28,37 @@ export class CharacterService {
 
   public newCharacter(character:Character){
     this.url = "http://localhost:3000/createhouse"
-    return this.http.post(this.url,character)
+    return this.http.post(this.url,character)//habría que cambiar esto al formato de arriba
   
   }
 
 
+  public getCharacters(house_id:number){
+
+    let id = house_id;
+    this.url = "http://localhost:3000/"
+    return this.http.get(this.url + "addnpc?house_id=" + id)
+  }
 
 
+  public deleteCharacter(character_id:number){
 
+    let id = character_id;
 
+    this.url = "http://localhost:3000/"
+    
+    const httpOptions = {header:null, body: {character_id}}
+
+    return this.http.delete(this.url + "addnpc?character_id=" +id,httpOptions)
+
+  }
+
+  public modifyCharacter (character:Character){
+
+    this.url = "http://localhost:3000/"
+
+    return this.http.put(this.url + "addnpc", character)
+  }
 
 
 

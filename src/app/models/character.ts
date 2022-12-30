@@ -11,7 +11,9 @@ export class Character {
         public isMarried:number,
         public marriageGlory:number,
         public courtesyMod:number,
-        public role:string
+        public role:string,
+        public sex:string,
         //cambio booleans a number para ver si funciona en la base de datos
+        //27 diciembre: introduzco sex
     ){}
 }

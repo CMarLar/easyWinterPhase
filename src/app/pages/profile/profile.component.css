@@ -14,13 +14,13 @@
     justify-content: center;
     align-items: center;
     gap: 5%;
-    /* border: 2px solid red; */
+    border: 2px solid red;
 }
 .submain{
     height: 64%;
     width: 80%;
  
-    /* border: 2px solid purple; */
+    border: 2px solid purple;
     margin-top: 2%;
 
     display: flex;
@@ -30,8 +30,8 @@
 }
 
 .lacre{
-    /* border: 2px solid blue; */
-    background-image: url("../../../assets/img/lacre1.png");
+    border: 2px solid blue;
+    background-image: url("../../../assets/img/avatar1.png");
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -54,7 +54,7 @@
 /* data user****************************************** */
 .dataUser{
     width: 60%;
-    /* border: 2px solid blue; */
+    border: 2px solid blue;
 
     display: flex;
     flex-direction: column;
@@ -63,8 +63,9 @@
     padding-top: 5%;
 }
     .dataUser p{
-        color: var(--font-color-h);
-        -webkit-text-stroke: 0.75px var(--font-color-hover);
+        color: var(--font-color-hover);
+        -webkit-text-stroke: 1px var(--font-color-h);
+        font-weight: bold;
         font-size: 6rem;
 
     }
@@ -81,7 +82,7 @@
         align-items: center;
         gap: 6%;
 
-        /* border: 2px solid yellow; */
+        border: 2px solid yellow;
 
 }
         .userInfo p {

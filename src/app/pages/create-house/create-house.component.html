@@ -3,7 +3,7 @@
 <!-- esta no tiene que tener barra -->
 <div class="supercontainer">
     <div class="title">
-        <p class="page_title">Creación de casa</p>
+        <p class="page_title">CREACIÓN DE CASAS</p>
         <p class ="page_subtitle">Nombre del jugador</p>
     </div>
 
@@ -13,17 +13,17 @@
 
 <form #houseForm="ngForm" (ngSubmit)="onSubmit(houseForm)" class="houseForm">
 
-            <label>Nombre de la casa</label>
+            <label class="texto">Nombre De La Casa</label>
             <input type="text" name="house_name" [(ngModel)]="actualHouse.house_name">
 
-            <label>Feudo</label>
+            <label class="texto">Feudo</label>
             <input type="text" name="holding_name" [(ngModel)]="actualHouse.holding_name">
 
 
-            <label>Característica familiar</label>
+            <label class="texto">Característica Familiar</label>
             <input type="text" name="familyCharacteristic"[(ngModel)]="actualHouse.familyCharacteristic">
 
-            <label>Nivel de manutención inicial</label>
+            <label class="texto">Situación Económica Inicial</label>
             <!-- CAGADA: NO ESTÁ EN EL MODELO -->
 
             <!-- sacada del select porque no está la propiedad nivel de manutención: [(ngModel)]="house. nivelManutencion" -->
@@ -33,21 +33,21 @@
             <br>
 
             <!-- falta oner los ng models del personaje -->
-    <form #charForm="ngForm" (ngSubmit)="submitPlayerInfo(charForm)" class="charForm">
+    <form #charForm="ngForm" (ngSubmit)="submitCharInfo(charForm)" class="charForm">
     <div class="short_inputs">
         <div class="character_name_input">
-            <label>Personaje jugador</label>
+            <label class="texto">Personaje Jugador</label>
             <input type="text" name="knight_name" [(ngModel)]="knight.char_name">
         </div>
         <div class="character_age_input">
-            <label>Edad</label>
+            <label class="texto">Edad</label>
             <input type="text" name="knight_age" [(ngModel)]="knight.age">
         </div>
         <div class="squire_name_input">
-            <label>Nombre del escudero</label>
+            <label class="texto">Nombre Del Escudero</label>
             <input type="text" name="squire_name" [(ngModel)]="squire.char_name">
         </div>
-        <button class = "small_button" [disabled] = "alreadyAdded"> Añade </button>
+        <!-- <button class = "small_button" [disabled] = "alreadyAdded"> AÑADIR </button> -->
     </div>
 </form>
 <br>
@@ -60,19 +60,20 @@
 <div *ngIf = "npcs.length==0; else showCharacters" ></div>
 <ng-template #showCharacters>
         <div class="choose_new_character">
-            <label>Elije un nuevo PJ</label>
+            <label class="texto">Elije un nuevo PJ</label>
             <select name="npcs" [(ngModel)]="house.npc">
                 <option *ngFor="let valor of npcs" [value]="valor">{{valor}}</option>
             </select>
         </div>
 </ng-template>
 
-            <button [disabled] = "noNPC"> Confirmar </button>
-
+            <!-- <button [disabled] = "noNPC"> CONFIRMAR </button> -->
     </form>
         <div class="buttons">
-            <button (click)="goBack()">Cancelar</button>
-            <button (click)="goAddNpcs()"> PNJ </button>
+            <button class = "button" [disabled] = "alreadyAdded"> AÑADIR </button>
+            <button (click)="goBack()">CANCELAR</button>
+            <button class= "small_button" (click)="goAddNpcs()"> PNJ </button>
+            <button [disabled] = "noNPC"> CONFIRMAR </button>
         </div>
 
 

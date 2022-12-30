@@ -17,17 +17,20 @@ export class CreateHouseComponent {
 
 
   public actualHouse:House;
-    public house_name:string;
-    public holding_name:string;
-    public familyCharactersitic:string;
-    public currentHouseId:number;
+  public house_name:string;
+  public holding_name:string;
+  public familyCharactersitic:string;
+  public currentHouseId:number;
+  public activeChar:number;
   
   public knight:Character;
     public knightName:string;
     public knightAge:number;
+    public knightId:number;
   public squire:Character;
     public squireName:string;
     public squireAge:number = 15;
+    public squireId:number;
 
   public alreadyAdded:boolean;//hace disabled el botón añadir cuando se crean los dos personajes
 
@@ -90,14 +93,7 @@ export class CreateHouseComponent {
       // this.checkNPC()
       // console.log(this.noNPC);
       
-      this.house = {nombreCasa:this.nombreCasa,
-                    feudo:this.feudo,
-                    caracteristicaFamiliar:this.caracteristicaFamiliar,
-                    nivelManutencion:this.nivelManutencion,
-                    nombrePJ:this.nombrePJ,
-                    edad:this.edad,
-                    nombreEscudero:this.nombreEscudero,
-                    npc:this.npc}
+
       
       this.nivelesManutencion= ["Indigente","Pobre","Normal","Rico","Muy Rico"]
 
@@ -110,11 +106,14 @@ export class CreateHouseComponent {
 
       // this.casa = new House()
 
-      this.knight = new Character(null,this.currentHouseId,null,this.knightName,this.knightAge,1,0,0,0,null);
+      this.knight = new Character(null,this.currentHouseId,null,this.knightName,this.knightAge,1,0,0,0,null,"Hombre");
 
-      this.squire = new Character(null,this.currentHouseId,null,this.squireName,this.squireAge,1,0,0,0,"Escudero");
+      this.squire = new Character(null,this.currentHouseId,null,this.squireName,this.squireAge,1,0,0,0,"Escudero","Hombre");
 
       this.alreadyAdded = false;
+
+      console.log("Current house: " + this.houseService.currentHouse);
+      
 
     }
 
@@ -149,15 +148,20 @@ public changeNpcString(){
 }
 //Formulario, guardar cambios, volver a página de asignación de casas
 public onSubmit(form:NgForm){
-  console.log(form.value);
+
   form.value.shield = this.selectedShield;//funciona para meter el escudo seleccionado
   form.value.house_id = this.currentHouseId; //puesto el id directamente para probar
-  console.log(form.value);
+  
+  console.log("Form value: " + form.value);
+  console.log("Id del caballero, que se debería meter como id de personaje activo:" + this.characterService.currentHouseChars[0].character_id);
+
+  
+
 
   this.houseService.updateHouse(
     this.actualHouse = new House(
       this.actualHouse.house_name,
-      null,
+      this.characterService.currentHouseChars[0].character_id,//mete el id del personaje activo
       this.actualHouse.holding_name,
       this.actualHouse.familyCharacteristic,
       this.selectedShield,this.currentHouseId))
@@ -165,13 +169,19 @@ public onSubmit(form:NgForm){
 
         console.log(data);
     
+        this.houseService.currentHouse = this.actualHouse;
+
+        console.log(this.houseService.currentHouse);
+        console.log(this.actualHouse);
+        
+        
       })
 
   // this.goBack(); //Reactiva este routing cuando termines
   
 }
 
-public submitPlayerInfo(form:NgForm){;
+public submitCharInfo(form:NgForm){;
   
   console.log(form.value);//pasa un objeto con los nombres del caballero y el escudero y la edad del caballero
 
@@ -194,16 +204,23 @@ public submitPlayerInfo(form:NgForm){;
 
 
   //Crea caballero
-  this.characterService.newCharacter(new Character(null,this.currentHouseId,null,this.knightName,this.knightAge,1,0,0,0,null)).subscribe((data1) =>{
+  this.characterService.newCharacter(new Character(null,this.currentHouseId,null,this.knightName,this.knightAge,1,0,0,0,null,"Hombre")).subscribe((data1:any) =>{
 
-    console.log("Data del caballero: " + data1);
+    console.log("Data del caballero: " + JSON.stringify(data1));
+    
+    this.characterService.currentHouseChars[0].character_id = data1.insertId//cambia el id del objeto en el front para la pantalla npcs, pero no lo manda a la base de datos, no obstante, los personajes que se han creado tienen este ID
 
+    this.activeChar = data1.insertId//igualo también con activechar
+    console.log("Id del caballero, el mismo que el del activeChar de la casa, en teoría: " + this.activeChar);
+    
   })
 
   //Crea escudero
-  this.characterService.newCharacter(new Character (null,this.currentHouseId,null,this.squireName,this.squireAge,1,0,0,0,"Escudero")).subscribe((data2) =>{
+  this.characterService.newCharacter(new Character (null,this.currentHouseId,null,this.squireName,this.squireAge,1,0,0,0,"Escudero","Hombre")).subscribe((data2:any) =>{
 
-    console.log("Data del escudero: " + data2);
+    console.log("Data del escudero: " + JSON.stringify(data2));
+
+    this.characterService.currentHouseChars[1].character_id = data2.insertId//cambia el id del objeto en el front para la pantalla npcs
 
   })
   
@@ -214,8 +231,29 @@ public submitPlayerInfo(form:NgForm){;
 //Va a la página de añadir pnjs al pulsar el botón añadir pnjs.
 public goAddNpcs(){
 
+  // console.log("Id de la casa al pinchar en pnj" + this.currentHouseId);
+  
 
-  // this.router.navigateByUrl("/addnpc"); //reactivalo cuando termines
+  // this.houseService.updateHouse(
+  //   this.actualHouse = new House(
+  //     this.actualHouse.house_name,
+  //     this.characterService.currentHouseChars[0].character_id,//no añade el activechar
+  //     this.actualHouse.holding_name,
+  //     this.actualHouse.familyCharacteristic,
+  //     this.selectedShield,this.currentHouseId))//NO RECONOCE EL PUTO ID
+  //     .subscribe((data)=>{
+
+  //       console.log(data);
+    
+  //       this.houseService.currentHouse = this.actualHouse;//iguala la casa del front
+
+  //       console.log("Casa en el servicio una vez modificada: " + this.houseService.currentHouse);
+        
+
+  //     })
+
+this.router.navigateByUrl("/addnpc");
+ //reactivalo cuando termines
 }
 
 //Va atrás sin guardar los cambios al pulsar el botón cancelar

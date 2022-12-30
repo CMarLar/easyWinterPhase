@@ -60,7 +60,7 @@
 
 .page_title{
     color: var(--font-color-hover);
-    -webkit-text-stroke: 3px var(--font-color-h);
+    -webkit-text-stroke: 2px var(--font-color-h);
    /*  text-decoration: line-through; */
     font-size: 4.5rem;
   /*   border: 2px solid rgb(255, 0, 230); */
