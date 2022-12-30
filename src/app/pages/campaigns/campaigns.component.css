@@ -48,20 +48,19 @@
         .fotoPerfil{
             /* border: 2px solid black; */
             /* height: 100%; */
-            width: 20%;
+            width: 30%;
 
-            background-image: url("../../../assets/img/lacre1.png");
+           /*  background-image: url("../../../assets/img/lacre1.png"); */
             background-size:contain;
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
+            align-items: center;
         }
             .fotoPerfil img{
-                border-radius: 50%;
-                width: 55%;
+               /*  border-radius: 50%; */
+                width: 80%;
                 position: absolute;
-                top: 14%;
-                left: 23%;
                 cursor: pointer;
             }
         .titleText{
@@ -80,17 +79,19 @@
             text-align: center;
             /* word-wrap: break-word; */
             font-weight: normal;
-            color: var(--font-color-h);
-            -webkit-text-stroke: 0.75px var(--font-color-hover);
+            color: var(--font-color-hover);
+            -webkit-text-stroke: 1px var(--font-color-h);
             font-size: 4rem;
+            font-weight: bold;
             /* border: 2px solid red; */
         }
         .titleText p{
             width: 100%;
             height: 20%;
             text-align: center;
-            color: var(--font-color-hover);
+            color: var(--font-color-warnings);
             font-size: 1.8rem;
+            font-weight: bold;
         }
     .banderasdiv{
         /* border: 2px solid purple; */

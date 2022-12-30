@@ -78,6 +78,7 @@
     background-color: var(--background-color-input);
     outline: none;
     border: none;
+    border-radius: 5px;
     width: 60%;
     height: 85%;
     text-align: center;
@@ -139,6 +140,7 @@
     background-color: var(--background-color-input);
     outline: none;
     border: none;
+    border-radius: 5px;
     width: 60%;
     height: 85%;
     text-align: center;

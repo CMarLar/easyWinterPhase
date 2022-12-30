@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/shared/user.service';
 import { getLocalePluralCase } from '@angular/common';
+import { Character } from 'src/app/models/character';
 
 @Component({
   selector: 'app-modify-profile',
@@ -36,12 +37,25 @@ export class ModifyProfileComponent {
     /* mostrar el avatar seleccionado */
     this.selectedAvatar
   }
+    /* selector de avatar */
+    public selectedUserAvatar(avatar: string){
+      console.log(avatar);
+      this.selectedAvatar = avatar;
+    }
+     public onSubmit(form:NgForm){ //* para guardar cambio */
+       form.value.avatar = this.selectedAvatar;
+
+       console.log("Form value: "+ form.value);
+
+      
+    } 
+    /////lo ha hecho Irene (por si la cago ;P
 
   public goBack(){
     this.router.navigateByUrl("/profile");
   }
 
-  public modifyUser(name : string, mail : string, pass : string){
+  public modifyUser(name : string, mail : string, pass : string, avatar: string){
 
     this.error = "";
     this.user.user_id = this.userService.user.user_id;
@@ -74,6 +88,15 @@ export class ModifyProfileComponent {
       this.user.username = this.userService.user.username;
     }
 
+    if(avatar !=""){/* irene */
+
+      this.user.avatar = avatar;
+  
+    }else{
+
+      this.user.avatar = this.selectedAvatar;
+    }
+
     this.userService.update(this.user = new User(this.user.password,this.user.email,this.user.avatar,this.user.username,this.userService.user.user_id))
     .subscribe(function (data){
 
@@ -83,16 +106,6 @@ export class ModifyProfileComponent {
     this.goPlace();
     
   }
-  /* selector de avatar */
-  public selectedUserAvatar(avatar: string){
-    console.log(avatar);
-    this.selectedAvatar = avatar;
-
-  }
-  public onSubmit(form:NgForm){/* para guardar cambio */
-    form.value.avatar = this.selectedAvatar;
-  }
-  /////lo ha hecho Irene (por si la cago ;P
 
   public validatePass(pass : string) : boolean{
     let result : boolean = false;
