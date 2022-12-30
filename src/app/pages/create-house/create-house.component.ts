@@ -5,6 +5,7 @@ import { HouseService } from 'src/app/shared/house.service';
 import { House } from 'src/app/models/house';
 import { Character } from 'src/app/models/character';
 import { CharacterService } from 'src/app/shared/character.service';
+import { PlayerService } from 'src/app/shared/player.service';
 
 
 @Component({
@@ -32,7 +33,11 @@ export class CreateHouseComponent {
     public squireAge:number = 15;
     public squireId:number;
 
+
+  //Enables/disables que establecen el orden de relleno, de arriba a abajo
   public alreadyAdded:boolean;//hace disabled el botón añadir cuando se crean los dos personajes
+  public houseNotUpdated:boolean;//disabled al principio, se pone enabled cuando se edita la casa
+  public goToNpcForbidden:boolean;//disabled al principio, se pone enabled cuando se ha editado la casa una vez.
 
 
   public nombreCasa:string;
@@ -75,7 +80,7 @@ export class CreateHouseComponent {
   //Hace un string para mostrarlo. Llamada desde div npc_list
   public stringNpcs:string;
 
-    constructor(public router:Router, public characterService:CharacterService, public houseService:HouseService){
+    constructor(public router:Router, public characterService:CharacterService, public houseService:HouseService, public playerService:PlayerService){
       this.shields = [this.shield1,this.shield2,this.shield3,this.shield4,this.shield5,
                       this.shield6,this.shield7,this.shield8,this.shield9,this.shield10]
   
@@ -112,7 +117,11 @@ export class CreateHouseComponent {
 
       this.squire = new Character(null,this.currentHouseId,null,this.squireName,this.squireAge,1,0,0,0,"Escudero","Hombre");
 
+      //VALIDADORES BOTONES
       this.alreadyAdded = false;
+      this.houseNotUpdated = true;
+      this.goToNpcForbidden = true;
+
 
       console.log("Current house: " + this.houseService.currentHouse);
       
@@ -186,9 +195,12 @@ public onSubmit(form:NgForm){
 
   // this.goBack(); //Reactiva este routing cuando termines
   
+
+  this.houseNotUpdated = true;
+  this.goToNpcForbidden = false;
 }
 
-public submitCharInfo(form:NgForm){;
+public submitCharInfo(form:NgForm){
   
   console.log(form.value);//pasa un objeto con los nombres del caballero y el escudero y la edad del caballero
 
@@ -232,6 +244,7 @@ public submitCharInfo(form:NgForm){;
   })
   
   this.alreadyAdded = true;
+  this.houseNotUpdated = false;
   
 }
 
@@ -258,7 +271,7 @@ public goAddNpcs(){
         
 
   //     })
-
+this.houseNotUpdated = false;
 this.router.navigateByUrl("/addnpc");
  //reactivalo cuando termines
 }

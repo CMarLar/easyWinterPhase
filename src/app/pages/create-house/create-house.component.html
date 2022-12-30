@@ -4,7 +4,7 @@
 <div class="supercontainer">
     <div class="title">
         <p class="page_title">CREACIÓN DE CASAS</p>
-        <p class ="page_subtitle">Nombre del jugador</p>
+        <p class ="page_subtitle">Jugador: {{playerService.currentPlayer}}</p>
     </div>
 
 <!-- <form #houseForm="ngForm" (ngSubmit)="onSubmit(houseForm)"> -->
@@ -24,8 +24,11 @@
                     <label class="texto">Nombre Del Escudero</label>
                     <input type="text" name="squire_name" [(ngModel)]="squire.char_name">
                 </div>
-                <button class = "small_button" [disabled] = "alreadyAdded"> AÑADIR </button>
+
             </div>
+            <button [disabled] = "alreadyAdded" class="pj_escudero"> 
+                <!-- Aquí no va nada, se pone automáticamente con ::after{}, ver final del css -->
+             </button>
         </form>
 
 <form #houseForm="ngForm" (ngSubmit)="onSubmit(houseForm)" class="houseForm">
@@ -84,12 +87,15 @@
         </div>
 </ng-template>
 
-            <button [disabled] = "noNPC"> CONFIRMAR </button>
+            <button [disabled] = "houseNotUpdated" class="confirm">
+                Detalles de la casa
+            </button>
     </form>
         <div class="buttons">
     
+            <button [disabled] = "goToNpcForbidden" class= "small_button" (click)="goAddNpcs()"> AÑADIR PNJs </button>
             <button (click)="goBack()">CANCELAR</button>
-            <button class= "small_button" (click)="goAddNpcs()"> PNJ </button>
+
     
         </div>
 
