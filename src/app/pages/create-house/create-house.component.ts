@@ -49,7 +49,7 @@ export class CreateHouseComponent {
 
   public shields;
 
-  public economyLevels
+  public economyLevels;//nivel de manutención
 
   public shield1="../../../assets/img/escudo1.png"
   public shield2="../../../assets/img/escudo2.png"
@@ -157,6 +157,9 @@ public onSubmit(form:NgForm){
   console.log("Form value: " + form.value);
   console.log("Id del caballero, que se debería meter como id de personaje activo:" + this.characterService.currentHouseChars[0].character_id);
 
+  console.log("Nivel de manutención: " + this.actualHouse.economyLevels);
+  
+
   
 
 
@@ -167,7 +170,7 @@ public onSubmit(form:NgForm){
       this.actualHouse.holding_name,
       this.actualHouse.familyCharacteristic,
       this.selectedShield,
-      null,//economyLevels
+      this.actualHouse.economyLevels,//economyLevels
       this.currentHouseId))
       .subscribe((data)=>{
 

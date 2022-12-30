@@ -41,10 +41,10 @@
             <input type="text" name="familyCharacteristic"[(ngModel)]="actualHouse.familyCharacteristic">
 
             <label class="texto">Situación Económica Inicial</label>
-            <!-- CAGADA: NO ESTÁ EN EL MODELO -->
+
 
             <!-- sacada del select porque no está la propiedad nivel de manutención: [(ngModel)]="house. nivelManutencion" -->
-            <select name="nivelesManutencion" id="lang" >
+            <select name="nivelesManutencion" id="lang" [(ngModel)]="actualHouse.economyLevels">
                 <option *ngFor="let valor of nivelesManutencion" [value]="valor">{{valor}}</option>
             </select>
             <br>
