@@ -86,6 +86,7 @@
  /*  border: 2px solid orange;  */
     outline: none;
     border: none;
+    border-radius: 5px;
     width: 70%;
     height: 90%;
     text-align: center;

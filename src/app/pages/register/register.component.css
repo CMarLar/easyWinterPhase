@@ -107,6 +107,7 @@
     background-color: var(--background-color-input);
     outline: none;
     border: none;
+    border-radius: 5px;
     width: 60%;
     height: 90%;
     text-align: center;
