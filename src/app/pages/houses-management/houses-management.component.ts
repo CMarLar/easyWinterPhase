@@ -8,6 +8,7 @@ import { HouseService } from 'src/app/shared/house.service';
 import { House } from 'src/app/models/house';
 import { YearService } from 'src/app/shared/year.service';
 import { Year } from 'src/app/models/year';
+import { CampaignService } from 'src/app/shared/campaign.service';
 
 @Component({
   selector: 'app-houses-management',
@@ -39,7 +40,7 @@ export class HousesManagementComponent {
   //
   //
 
-  constructor(public router:Router,public playerService : PlayerService, public houseService : HouseService, public yearService : YearService){
+  constructor(public router:Router,public playerService : PlayerService, public houseService : HouseService, public yearService : YearService,public campaignService : CampaignService){
 
     this.campaignName="Campaña de Carlos"
     this.shieldImage="../../../assets/img/escudo1.png"
@@ -116,7 +117,7 @@ export class HousesManagementComponent {
 
       if(form.value[values] != undefined){
 
-        this.yearService.currentYear = new Year (null,parseInt(form.value[values]),1,1,"EJEMPLO DE NOTAS");
+        this.yearService.currentYear = new Year (null,parseInt(form.value[values]),1,1,"EJEMPLO DE NOTAS",this.campaignService.currentCampaign.campaign_id);
         this.yearService.yearsOfCampaign.push(this.yearService.currentYear);
         
         
@@ -130,6 +131,8 @@ export class HousesManagementComponent {
           this.yearService.postPlayerYear(this.yearService.currentYear,this.playerService.playersOfCampaign)
           .subscribe((data : any) => {
             console.log("ENTROOOOO GOLGOLGOL");
+            console.log("DATA YEARS: " + JSON.stringify(data));
+            
             
             
           })

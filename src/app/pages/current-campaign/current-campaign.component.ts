@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Year } from 'src/app/models/year';
+import { YearService } from 'src/app/shared/year.service';
+import { PlayerService } from 'src/app/shared/player.service';
+import { Player } from 'src/app/models/player';
+import { CampaignService } from 'src/app/shared/campaign.service';
+import { House } from 'src/app/models/house';
+import { HouseService } from 'src/app/shared/house.service';
 
 @Component({
   selector: 'app-current-campaign',
@@ -8,13 +15,13 @@ import { Router } from '@angular/router';
 })
 export class CurrentCampaignComponent {
 
-  public campaignName:string;
+  public campaignName :string;
 
   //Años de la campaña
-  public years:any = [];
+  public years : Year[];
 
   //Año actual de la campaña (el que se muestra)
-  public actualYear:any
+  public actualYear : Year;
 
   //Añade un año más u otro año más.
   public yearSelectors:number;
@@ -24,91 +31,32 @@ export class CurrentCampaignComponent {
   public isnewPlayerNameHide : boolean;
   public isHouseInfoHide : boolean;
 
+  //players
+  public currentPlayers : Player[];
+
+  //casas
+  public houses : House[];
 
 
-    constructor(public router:Router){
+
+    constructor(public router:Router, public yearService : YearService, public playerService : PlayerService,public campaignService : CampaignService,public houseService : HouseService){
       this.campaignName="Campaña cojonuda"      
       
       this.isChangeCharacterHide = true;
       this.isnewPlayerNameHide = true;
       this.isHouseInfoHide = true;
 
-      this.years = 
-      [
+      this.currentPlayers = playerService.playersOfCampaign;
 
-        
-        //Esto sería más o menos un año tipo. Los años que se van sucediendo en la se añaden al array years cuando todos los jugadores completan la fase de invierno.
-        {yearid:1,
-        yearNumber:485,
-        isFirstYear:true,
-        isLastYear:false,
-        notes:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        players:
-          [
-          {id:1, name:"Carlos",activeChar:"Sir Gawain",house:"Salisbury"},
-          {id:2, name: "Irene", activeChar:"Sir Edward of Cambridge",house:"Cambridge"},
-          {id:3, name: "Miguel", activeChar:"Sir Manfred",house:"Newton"},
-          {id:null, name: null, activeChar:null,house:null,notes:null},
-          {id:null, name: null, activeChar:null,house:null,notes:null},
-          {id:null, name: null, activeChar:null,house:null,notes:null}
-          ]
-        },
-        {yearid:2,
-          yearNumber:486,
-          isFirstYear:false,
-          isLastYear:false,
-          notes:"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          players:
-            [
-            {id:1, name:"Carlos",activeChar:"Sir Gawain",house:"Salisbury"},
-            {id:2, name: "Irene", activeChar:"Sir Edward of Cambridge",house:"Cambridge"},
-            {id:3, name: "Miguel", activeChar:"Sir Manfred",house:"Newton"},
-            {id:4, name: "María José", activeChar:"Lady Grey",house:"Grey"},
-            {id:null, name: null, activeChar:null,house:null},
-            {id:null, name: null, activeChar:null,house:null}
-            ]
-          },
-          {yearid:3,
-            yearNumber:487,
-            isFirstYear:false,
-            isLastYear:false,
-            notes:"Mamasé, mamasá, mamá cusá",
-            players:
-              [
-              {id:1, name:"Carlos",activeChar:"Sir Balin",house:"Salisbury"},
-              {id:2, name: "Irene", activeChar:"Sir Edward of Cambridge",house:"Cambridge"},
-              {id:3, name: "Miguel", activeChar:"Sir Manfred",house:"Newton"},
-              {id:4, name: "María José", activeChar:"Lord Grey",house:"Grey"},
-              {id:null, name: null, activeChar:null,house:null},
-              {id:null, name: null, activeChar:null,house:null}
-              ]
-            },
-            {yearid:4,
-              yearNumber:488,
-              isFirstYear:false,
-              isLastYear:true,
-              notes:"Mamasé, mamasá, mamá cusá",
-              players:
-                [
-                {id:1, name:"Carlos",activeChar:"Sir Balin",house:"Salisbury"},
-                {id:2, name: "Irene", activeChar:"Sir Edward of Cambridge",house:"Cambridge"},
-                {id:3, name: "Miguel", activeChar:"Sir Manfred",house:"Newton"},
-                {id:4, name: "María José", activeChar:"Lord Grey",house:"Grey"},
-                {id:null, name: null, activeChar:null,house:null},
-                {id:null, name: null, activeChar:null,house:null}
-                ]
-              },
-
-
-      ]//Fin del array years
+      this.years = yearService.yearsOfCampaign;
       
-      this.actualYear=this.years[this.years.length-1]
+      this.actualYear = this.years[this.years.length-1]
 
       console.log(this.actualYear);
-      
-
-
-
+      console.log("PLAYERS : " + JSON.stringify(this.playerService.playersOfCampaign));
+      console.log("PLAYERS 2 : " + JSON.stringify(this.playerService.playersOfCampaign[2]));
+      this.houses = [];
+      this.ordenarArrayCasas();
 
     //Fin del constructor
     }
@@ -131,6 +79,7 @@ export class CurrentCampaignComponent {
         
       } 
     }
+
     public nextYear(){
       let yearIs = this.actualYear.yearNumber +1;
       let found = this.years.find( element => element.yearNumber == yearIs);
@@ -191,6 +140,26 @@ export class CurrentCampaignComponent {
         this.isChangeCharacterHide = true
       }
       
+    }
+
+    public ordenarArrayCasas(){
+      this.houses
+      for (let i = 0; i < this.currentPlayers.length; i++){
+
+        if (this.currentPlayers[i].house_id == this.houseService.housesOfCamapaign[0].house_id){
+          this.houses.push(this.houseService.housesOfCamapaign[0])
+        }else if(this.currentPlayers[i].house_id == this.houseService.housesOfCamapaign[1].house_id){
+          this.houses.push(this.houseService.housesOfCamapaign[1])
+        }else if(this.currentPlayers[i].house_id == this.houseService.housesOfCamapaign[2].house_id){
+          this.houses.push(this.houseService.housesOfCamapaign[2])
+        }else if(this.currentPlayers[i].house_id == this.houseService.housesOfCamapaign[3].house_id){
+          this.houses.push(this.houseService.housesOfCamapaign[3])
+        }else if(this.currentPlayers[i].house_id == this.houseService.housesOfCamapaign[4].house_id){
+          this.houses.push(this.houseService.housesOfCamapaign[4])
+        }else if(this.currentPlayers[i].house_id == this.houseService.housesOfCamapaign[5].house_id){
+          this.houses.push(this.houseService.housesOfCamapaign[5])
+        }
+      }
     }
 
 }
