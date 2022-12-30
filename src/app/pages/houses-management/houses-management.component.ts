@@ -166,7 +166,7 @@ export class HousesManagementComponent {
     
     
 
-    this.houseService.postHouse(this.newHouse = new House(null,null,null,null,null,null)).subscribe((data : any) =>{
+    this.houseService.postHouse(this.newHouse = new House(null,null,null,null,null,null,null)).subscribe((data : any) =>{
       console.log("DATA: " + data.insertId);
       this.newHouse.house_id = data.insertId;  
       this.houseService.housesOfCamapaign.push(this.newHouse);
