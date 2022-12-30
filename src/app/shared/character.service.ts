@@ -53,7 +53,12 @@ export class CharacterService {
 
   }
 
+  public modifyCharacter (character:Character){
 
+    this.url = "http://localhost:3000/"
+
+    return this.http.put(this.url + "addnpc", character)
+  }
 
 
 
