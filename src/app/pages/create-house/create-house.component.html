@@ -32,7 +32,7 @@
         </form>
 
 <form #houseForm="ngForm" (ngSubmit)="onSubmit(houseForm)" class="houseForm">
-
+            
             <label class="texto">Nombre De La Casa</label>
             <input type="text" name="house_name" [(ngModel)]="actualHouse.house_name">
 
@@ -50,8 +50,6 @@
             <select name="nivelesManutencion" id="lang" [(ngModel)]="actualHouse.economyLevels">
                 <option *ngFor="let valor of nivelesManutencion" [value]="valor">{{valor}}</option>
             </select>
-            <br>
-
             <!-- falta oner los ng models del personaje -->
  <!--    <form #charForm="ngForm" (ngSubmit)="submitCharInfo(charForm)" class="charForm">
     <div class="short_inputs">
@@ -70,7 +68,6 @@
         <button class = "small_button" [disabled] = "alreadyAdded"> AÑADIR </button>
     </div>
 </form> -->
-<br>
 
     <!--     <div class="npc_list">
             <p> {{stringNpcs}} </p>
@@ -88,11 +85,12 @@
 </ng-template>
 
             <button [disabled] = "houseNotUpdated" class="confirm">
-                Detalles de la casa
+                DETALLES DE LA CASA
             </button>
     </form>
         <div class="buttons">
-    
+
+            <!-- <button (click)="goBack()">CANCELAR</button> -->
             <button [disabled] = "goToNpcForbidden" class= "small_button" (click)="goAddNpcs()"> AÑADIR PNJs </button>
             <button (click)="goBack()">CANCELAR</button>
 

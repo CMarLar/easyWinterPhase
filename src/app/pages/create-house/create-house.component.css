@@ -5,29 +5,6 @@
     height: 100%;
     /* border: 2px solid black; */
 }
-
-/* .profile_pic{
-    position: absolute;
-    top: 12%;
-    right: 10%;
-    width: auto;
-    height: auto;
-    border: 5px solid yellowgreen;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    background-image: url(../../../assets/img/lacre1.png);
-    background-size:cover;
-}
-
-.profile_pic img{
-    margin-left: 5px;
-    border-radius: 100%;
-    width: 100px;
-    height: 100px;
-} */
-
 .supercontainer{
     display: flex;
     flex-direction: column;
@@ -43,15 +20,15 @@
 .maincontainer{
     display: flex;
     flex-direction: row;
-    /* border: 5px solid red; */
-    min-height: 70vh;
-    width: auto;
+ /*    border: 5px solid rgb(162, 255, 0); */
+    width: 100%;
+    height: 85%;
     padding-bottom: 1.95vh;
 
 }           .title{
                 width: 100%;
                 height: 20%;
-               /*  border: 5px solid rgb(219, 219, 242);  */
+                /* border: 5px solid rgb(219, 219, 242); */
                 
             }
             .page_title{
@@ -59,7 +36,7 @@
                 -webkit-text-stroke: 2px var(--font-color-h);
                /*  text-decoration: line-through; */
                 font-size: 4rem;
-              /*   border: 2px solid rgb(255, 0, 230); */
+                /* border: 2px solid rgb(255, 0, 230); */
                 font-weight: bold;
                 text-align:end;
                 padding-top: 2%;
@@ -75,18 +52,21 @@
                 font-size: 2rem;
                 width: 95%; 
                 height: 30%;
-               /*  border: 5px solid blue;  */
+                /* border: 5px solid blue;  */
             }
 
 .left{
     display: flex;
     flex-direction: column;
-    width: 50%;
-    height: 65vh;
-    padding-left: 5%;
+    justify-content: center;
+    align-items: center;
+    width: 58%;
+    height: 100%;
+    padding-block-end: 2%;
+   /*  padding-left: 5%; */
    /*  border: 5px solid pink; */
-    margin-bottom: 13vh;
-    padding-right: 2%;
+    /* margin-bottom: 13vh; */
+    /* padding-right: 2%; */
     
 }
 .texto{
@@ -94,26 +74,25 @@
     color: var(--font-color-warnings);
     font-weight: bold;
     font-size: 1.2rem;
-    padding-block: 1%;
-}
-.image_left{
-    display: flex;
-    flex-direction: column;
+   /*  padding-block: 1%; */
 }
 
 .houseForm{
+    width: 80%;
+    height: 62%;
+     gap: 1.6%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border:2px solid yellow;
+    justify-content: flex-start;
+  /*   border:2px solid yellow; */
 }
+       
 
 .houseForm input{
-    width: 80%;
+    width: 100%;
+    height: 12%;
     background-color: var(--background-color-input);
-    height: 40px;
-   
+
     border-radius: 3px;
     border:none;
     text-decoration: none;
@@ -121,59 +100,77 @@
     font-weight: bolder;
     text-align: center;
     color: var( --font-color-hover);
+    /* border:2px solid rgb(0, 208, 255); */
 
 }
 
 
 
 .charForm{
+    width: 80%;
+    height: 26%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    border:2px solid yellow;
-    gap: 2%;
-    margin-top: 2%;
-    margin-bottom: 2%;
+    align-items: flex-end;
+   /*  border:5px solid rgb(25, 0, 255); */
+    /* gap: 2%; */
+    /* margin-top: 2%; */
+    /* margin-bottom: 2%; */
 }
 
     .short_inputs{
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         width: 100%;
-        gap:3%;
-        border: 2px solid blueviolet; 
+        height: 50%;
+       /*  gap:3%; */
+        /* border: 2px solid blueviolet;  */
 
     }
 
             .character_name_input{
                 display: flex;
                 flex-direction: column;
-                gap:5px;
+               /*  gap:5px; */
                /*  border: 2px solid blue;  */
-                width: 40%;
+                width: 42%;
+                height: 90%;
+            }
+               .character_name_input input{
+            
+                width: 100%;
+                height: 70%;
             }
 
             .character_age_input{
                 display: flex;
                 flex-direction: column;
-                gap:5px;
+                /* gap:5px; */
                 /* border: 2px solid blue;  */
-                width: 10%
+                width: 10%;
+                height: 90%;
             }
 
                 .character_age_input input{
                     width: 100%;
+                    height: 90%;
                 }
 
             .squire_name_input{
                 display: flex;
                 flex-direction: column;
-                gap:5px;
+                /* gap:5px; */
                 /* border: 2px solid blue;  */
-                width: 60%
+                width: 40%;
+                height: 90%;
+            }
+               .squire_name_input input{
+            
+                width: 100%;
+                height: 70%;
             }
 
 
@@ -188,12 +185,10 @@
 
     .choose_new_character{
         display: flex;
-        flex-direction: row;
-        gap:20px;
-        justify-content: center;
+        flex-direction: column;
+        justify-content: space-between;
         align-items: center;
-        /* border: 2px solid yellow; */
-        margin-bottom: 3%;
+       /*  border: 2px solid yellow; */
     }
 
 .right{
@@ -201,12 +196,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%;
-    height: 65vh;
-    /* padding-right: 5%; */
+    width: 42%;
+    height: 95%;
+    padding-right: 3.5%;
     /* border: 5px solid rgb(217, 10, 10); */
-    padding: 3%;
-    gap:2%;
+  
 }
 
 .shield_selector{
@@ -216,9 +210,9 @@
     align-items:flex-start;
     flex-wrap: wrap;
     gap:4%;
-    height: 100%;
-    width: 80%;
-   /*  border: 5px solid yellow   */ 
+    height: 60%;
+    width: 100%;
+  /*  border: 5px solid yellow   */
 }
 
 .shield_selector img{
@@ -242,6 +236,7 @@
 }
 
 .selectedShield{
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -297,7 +292,7 @@
 
 
 .fade-in img{
-    max-width: 40%;
+    max-width: 56%;
     padding:1%;
 }
 
@@ -414,16 +409,16 @@
 
 .buttons{    
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 11%;
-    padding-top: 2%;
-
-
-    gap:20px;
-    border: 5px solid orangered;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 80%;
+    height: 12%;
+    gap: 2%;
+    padding-top: 1%;
+   /*  padding-top: 2%; */
+   /*  gap:20px; */
+/*     border: 5px solid orangered; */
     /* padding-top: 5%; */
     /* margin-left: 64px;
     padding-right: 64px; */
@@ -440,24 +435,37 @@
         /* padding: 15px 32px; */
         color: var(--font-color-hover);
         width: 35%;
-        height: 100%;
+        height: 90%;
+    }
+    .pj_escudero{ /* BOTÓN */
+
+        width: 40%;
+        height: 35%;
+        margin-top: 3%;
+        border-radius: 10px;
+        
+     
     }
 
     .confirm{
         display: flex;
         justify-content: center;
         align-items: center;
-        width:60%;
-        border:2px solid green;
+        font-size: 1.2rem;
+        align-self: flex-end;
+        border-radius: 8px;
+        width:35%;
+        height: 10%;
+       
     }
 
         .small_button{
             background-color: var(--font-color-h);
-            font-size: 1rem;
+            font-size: 1.2rem;
             font-weight: bold;
-            width: 20%;
-            height: 100%;
-            border-radius: 5px;
+            width: 35%;
+            height: 90%;
+            border-radius: 10px;
             /* padding: 5px 10px; */
         }
 
@@ -474,7 +482,7 @@
 
 input{
     background-color: var(--background-color-input);
-    height: 40px;
+   /*  height: 40px; */
    
     border-radius: 3px;
     border:none;
@@ -524,7 +532,7 @@ h3{
 }
 
 .pj_escudero:enabled::after{
-    content: "Añadir PJ y escudero";
+    content: "AÑADIR PJ & ESCUDERO";
 }
 
 

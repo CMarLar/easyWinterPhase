@@ -43,7 +43,7 @@
         height: 100%;
         width: 20%;
 
-        background-image: url("../../../assets/img/lacre1.png");
+ /*        background-image: url("../../../assets/img/lacre1.png"); */
         background-size:contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -51,7 +51,7 @@
     }
         .fotoPerfil img{
             /* border: 2px solid red; */
-            height: 65%;
+            height: 100%;
             border-radius: 50%;
             position: absolute;
             top: 13%;
@@ -60,13 +60,14 @@
         }
     .titleText{
         width: 80%;
-        /* border: 2px solid brown; */
+       /*  border: 2px solid brown; */
         
 
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
+        text-align: center;
         /* gap: 8%; */
     }
     .titleText h1{
@@ -77,9 +78,10 @@
         font-weight: normal;
         color: var(--font-color-h);
         -webkit-text-stroke: 0.75px var(--font-color-hover);
-        font-size: 2.5rem;
+        font-size: 3.5rem;
+        font-weight: bold;
         padding-top: 2%;
-      /*   border: 2px solid red; */
+     /*    border: 2px solid red; */
     }
     .titleText p{
         width: 100%;
@@ -87,6 +89,7 @@
         text-align: center;
         color: var(--font-color-hover);
         font-size: 1.8rem;
+        font-weight: bold;
     }
 .inputplayers{
     /* border: 2px solid orangered; */
@@ -103,9 +106,13 @@
     height: 16.66%;
     background-color: var(--background-color-input);
     color: var(--font-color-hover);
-    font-size: larger;
+    font-size: 1.2rem;
+    font-weight: bold;
     text-align: center;
-    border-color: rgb(78, 86, 84);
+    border: none;
+    text-decoration: none;
+    border-radius: 4px;
+    /* border-color: rgb(78, 86, 84); */
 }
 .textHide{
     font-size: 1.5rem;
@@ -144,18 +151,24 @@ button:disabled{
 } */
 .btnCrearBlock{
     width: 30%;
-    background-color: grey;
-    border-radius: 3px;
+    background-color: rgb(38, 60, 46);
+    border-radius: 10px;
     border: none;
     color: black;
-    font-size: medium;
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 .btnCancelar{
+    width: 25%;
+    height: 90%;
     background-color: var(--font-color-h);
-    font-size: medium;
-    border-radius: 3px;
-    padding: 15px 32px;
-    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    text-decoration: none;
+    border-radius: 10px;
+   /*  padding: 15px 32px; */
+    color: var(--font-color-hover)
     
 }
 .btnCancelar:hover{
