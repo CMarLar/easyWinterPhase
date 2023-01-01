@@ -1,15 +1,26 @@
-<!-- <p>create-house works!</p> -->
 <!-- <app-header class="component"></app-header> -->
 <!-- esta no tiene que tener barra -->
 <div class="supercontainer">
     <div class="title">
         <p class="page_title">CREACIÓN DE CASAS</p>
-        <p class ="page_subtitle">Jugador: {{playerService.currentPlayer}}</p>
+        <p class ="page_subtitle">Jugador: {{playerService.currentPlayer.player_name}}</p>
     </div>
 
-<!-- <form #houseForm="ngForm" (ngSubmit)="onSubmit(houseForm)"> -->
+
+
+
 <div class="maincontainer">
     <div class="left">
+        <div *ngIf="houseService.modifyLayout; else playerchars">
+            <div class="choose_new_character">
+                <label class="texto">Elije un nuevo PJ</label>
+                <select name="npcs" [(ngModel)]="actualHouse.activeChar">
+                    <option *ngFor="let valor of listOfChars" [value]="valor">{{valor.char_name}}</option>
+                </select>
+            </div>
+        </div>
+
+        <ng-template #playerchars>
         <form #charForm="ngForm" (ngSubmit)="submitCharInfo(charForm)" class="charForm">
             <div class="short_inputs">
                 <div class="character_name_input">
@@ -30,24 +41,25 @@
                 <!-- Aquí no va nada, se pone automáticamente con ::after{}, ver final del css -->
              </button>
         </form>
+        </ng-template>
 
 <form #houseForm="ngForm" (ngSubmit)="onSubmit(houseForm)" class="houseForm">
             
             <label class="texto">Nombre De La Casa</label>
-            <input type="text" name="house_name" [(ngModel)]="actualHouse.house_name">
+            <input type="text" name="house_name" [(ngModel)]="actualHouse.house_name" value={{houseService.currentHouse.house_name}}>
 
             <label class="texto">Feudo</label>
-            <input type="text" name="holding_name" [(ngModel)]="actualHouse.holding_name">
+            <input type="text" name="holding_name" [(ngModel)]="actualHouse.holding_name" value={{houseService.currentHouse.holding_name}}>
 
 
             <label class="texto">Característica Familiar</label>
-            <input type="text" name="familyCharacteristic"[(ngModel)]="actualHouse.familyCharacteristic">
+            <input type="text" name="familyCharacteristic"[(ngModel)]="actualHouse.familyCharacteristic" value={{houseService.currentHouse.familyCharacteristic}}>
 
             <label class="texto">Situación Económica Inicial</label>
 
 
             <!-- sacada del select porque no está la propiedad nivel de manutención: [(ngModel)]="house. nivelManutencion" -->
-            <select name="nivelesManutencion" id="lang" [(ngModel)]="actualHouse.economyLevels">
+            <select name="nivelesManutencion" id="lang" [(ngModel)]="actualHouse.economyLevels" value={{houseService.currentHouse.economyLevels}}>
                 <option *ngFor="let valor of nivelesManutencion" [value]="valor">{{valor}}</option>
             </select>
             <!-- falta oner los ng models del personaje -->
@@ -74,18 +86,10 @@
         </div> -->
 
 <!-- esto tiene que estar hidden -->
-<div *ngIf = "npcs.length==0; else showCharacters" ></div>
-<ng-template #showCharacters>
-        <div class="choose_new_character">
-            <label class="texto">Elije un nuevo PJ</label>
-            <select name="npcs" [(ngModel)]="house.npc">
-                <option *ngFor="let valor of npcs" [value]="valor">{{valor}}</option>
-            </select>
-        </div>
-</ng-template>
+
 
             <button [disabled] = "houseNotUpdated" class="confirm">
-                DETALLES DE LA CASA
+                CONFIRMAR DATOS DE LA CASA
             </button>
     </form>
         <div class="buttons">

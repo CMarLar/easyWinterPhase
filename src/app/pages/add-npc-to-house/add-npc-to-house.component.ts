@@ -50,6 +50,8 @@ export class AddNpcToHouseComponent {
 
   public newCharacter:Character;//El personaje que se crea con el formulario.
 
+
+
   constructor(public router:Router, public characterService:CharacterService, public houseService:HouseService){
 
     console.log("Casa actual en el servicio: " + JSON.stringify(this.houseService.currentHouse));
@@ -87,6 +89,7 @@ export class AddNpcToHouseComponent {
     this.currentHouseName = this.houseService.currentHouse.house_name;//recoge el nombre de la casa
 
     this.currentHouseShield = this.houseService.currentHouse.shield// recoge el escudo
+    
 
     this.newCharacter = new Character(null,this.currentHouseId,null,null,null,1,0,0,0,null,null)//se tiene que rellenar con el form
 
@@ -109,6 +112,7 @@ export class AddNpcToHouseComponent {
       console.log("Data de showHouseChars: " + JSON.stringify(data));
       
       this.currentHouseChars = data;//creo que lo está igualando a data aquí
+      this.characterService.currentHouseChars = this.currentHouseChars;//iguala el servicio con el componente
 
     })
   }
@@ -278,23 +282,32 @@ export class AddNpcToHouseComponent {
   
   //Vuelve a la página de gestión de casas/asignación de casas guardando la información.
   public goBack(){
-    this.houseService.updateHouse(this.currentHouse = new House(null,this.currentHouse.activeChar,null,null,null,null,this.houseService.currentHouse.house_id)).subscribe((data)=>{
-
-      console.log("ActiveChar antes del cambio al front" + this.houseService.currentHouse.activeChar);
+    this.houseService.updateHouse(
+      this.currentHouse = new House(
+        this.houseService.currentHouse.house_name,
+        this.currentHouse.activeChar,
+        this.houseService.currentHouse.holding_name,
+        this.houseService.currentHouse.familyCharacteristic,
+        this.houseService.currentHouse.shield,
+        this.houseService.currentHouse.economyLevels,
+        this.houseService.currentHouse.house_id
+        )).subscribe((data)=>{
       
-      this.houseService.currentHouse = this.currentHouse;
+          console.log("ActiveChar antes del cambio al front" + this.houseService.currentHouse.activeChar);
+          
+          this.houseService.currentHouse = this.currentHouse;
 
-      console.log("ActiveChar antes del cambio al front" + this.houseService.currentHouse.activeChar);
+          console.log("ActiveChar antes del cambio al front" + this.houseService.currentHouse.activeChar);
 
-      console.log(data);
-      
+          console.log(data);
+          
+          this.houseService.modifyLayout = true;
 
-      this.router.navigateByUrl("/createhouse");
+          console.log("houseService.currentHouse al volver a createhouse" + JSON.stringify(this.houseService.currentHouse));
 
-    })
+          this.router.navigateByUrl("/createhouse");
 
-
-
+        })
   }
 
   //Vuelve a la página de gestión de casas/asignación de casas sin guardar la info.

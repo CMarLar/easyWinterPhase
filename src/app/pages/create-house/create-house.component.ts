@@ -56,6 +56,10 @@ export class CreateHouseComponent {
 
   public economyLevels;//nivel de manutención
 
+  public listOfChars:Character[];
+
+
+
   public shield1="../../../assets/img/escudo1.png"
   public shield2="../../../assets/img/escudo2.png"
   public shield3="../../../assets/img/escudo3.png"
@@ -81,6 +85,11 @@ export class CreateHouseComponent {
   public stringNpcs:string;
 
     constructor(public router:Router, public characterService:CharacterService, public houseService:HouseService, public playerService:PlayerService){
+
+      console.log("houseService.currentHouse al iniciar la página" + JSON.stringify(this.houseService.currentHouse));
+      
+      console.log( "modifyLayout: " + this.houseService.modifyLayout);//Cambia botones en función de si la casa es nueva o se modifica
+
       this.shields = [this.shield1,this.shield2,this.shield3,this.shield4,this.shield5,
                       this.shield6,this.shield7,this.shield8,this.shield9,this.shield10]
   
@@ -125,8 +134,14 @@ export class CreateHouseComponent {
 
       console.log("Current house: " + this.houseService.currentHouse);
       
+      this.listOfChars = this.characterService.currentHouseChars;
 
-    }
+      // this.houseService.modifyLayout = false //para prubas
+
+      this.modifyLayoutButtons();
+      
+
+    }//FIN CONSTRUCTOR
 
 
 //Selector de escudo
@@ -164,18 +179,12 @@ public onSubmit(form:NgForm){
   form.value.house_id = this.currentHouseId; //puesto el id directamente para probar
   
   console.log("Form value: " + form.value);
-  console.log("Id del caballero, que se debería meter como id de personaje activo:" + this.characterService.currentHouseChars[0].character_id);
-
-  console.log("Nivel de manutención: " + this.actualHouse.economyLevels);
-  
-
-  
 
 
   this.houseService.updateHouse(
     this.actualHouse = new House(
       this.actualHouse.house_name,
-      this.characterService.currentHouseChars[0].character_id,//mete el id del personaje activo
+      this.actualHouse.activeChar,//mete el id del personaje activo
       this.actualHouse.holding_name,
       this.actualHouse.familyCharacteristic,
       this.selectedShield,
@@ -230,7 +239,7 @@ public submitCharInfo(form:NgForm){
     this.characterService.currentHouseChars[0].character_id = data1.insertId//cambia el id del objeto en el front para la pantalla npcs, pero no lo manda a la base de datos, no obstante, los personajes que se han creado tienen este ID
 
     this.activeChar = data1.insertId//igualo también con activechar
-    console.log("Id del caballero, el mismo que el del activeChar de la casa, en teoría: " + this.activeChar);
+    console.log("Id del caballero y activeChar de la casa: " + this.activeChar);
     
   })
 
@@ -246,6 +255,18 @@ public submitCharInfo(form:NgForm){
   this.alreadyAdded = true;
   this.houseNotUpdated = false;
   
+}
+
+//Cambia el flujo de los disables de los botones en función de modifyLayout
+public modifyLayoutButtons () {
+
+  if(this.houseService.modifyLayout == true || this.houseService.modifyLayout == undefined){
+    this.houseNotUpdated = false;
+    this.goToNpcForbidden = false;
+  }else{
+    this.houseNotUpdated = true;
+  }
+
 }
 
 //Va a la página de añadir pnjs al pulsar el botón añadir pnjs.
@@ -272,37 +293,35 @@ public goAddNpcs(){
 
   //     })
 this.houseNotUpdated = false;
+
+if(this.houseService.currentHouse.house_name != null && this.houseService.currentHouse.holding_name != null && this.houseService.currentHouse.familyCharacteristic != null){
+  this.houseService.modifyLayout = true;  //esto sirve para que aparezcan unos botones u otros en función de si la casa se modifica o se crea la primera vez.
+
+  console.log("goAddNpcs condicional: " + this.houseService.modifyLayout);
+  
+  
+}else{
+  this.houseService.modifyLayout = false;
+
+  console.log("goAddNpcs condicional: " + this.houseService.modifyLayout);
+}
+
+console.log("houseService.currentHouse al salir hacia addnpc" + JSON.stringify(this.houseService.currentHouse));
+
 this.router.navigateByUrl("/addnpc");
- //reactivalo cuando termines
+
 }
 
 //Va atrás sin guardar los cambios al pulsar el botón cancelar
 public goBack(){
   this.router.navigateByUrl("/housesmanagement");
+
+  //Debería borrar la casa y los personajes en función de una condición. Por ejemplo, que la casa tenga todo vacío, si no, que simplemente vaya para atrás.
+
+  console.log("houseService.currentHouse al volver a housemanagement" + JSON.stringify(this.houseService.currentHouse));
+
 }
 
-
-// id1=document.getElementById("1");
-// id2=document.getElementById("2");
-// id3=document.getElementById("3");
-// id4=document.getElementById("4");
-// id5=document.getElementById("5");
-// id6=document.getElementById("6");
-// id7=document.getElementById("7");
-// id8=document.getElementById("8");
-// id9=document.getElementById("9");
-// id10=document.getElementById("10");
-// id11=document.getElementById("11");
-// id12=document.getElementById("12");
-// id13=document.getElementById("13");
-// id14=document.getElementById("14");
-// id15=document.getElementById("15");
-
-// public enlargeImg(id){
-//   document.getElementById(id).style.scale="2.5"
-//   console.log("OK");
-  
-// }
 
 
 
