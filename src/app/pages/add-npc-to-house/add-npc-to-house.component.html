@@ -1,6 +1,6 @@
 <div class="supercontainer">
     <div class="title">
-        <p class="page_title">Creación de PNJs</p>
+        <p class="page_title">CREACIÓN DE PNJs</p>
         <p class ="page_subtitle">{{currentHouseName}}</p>
     </div>
 
@@ -11,15 +11,15 @@
         <div class="short_inputs">
 
             <div class="character_name_input">
-                <label>Nombre</label>
+                <label class="texto">Nombre</label>
                 <input type="text" name="char_name" [(ngModel)]="newCharacter.char_name">
             </div>
             <div class="character_age_input">
-                <label>Edad</label>
+                <label class="texto">Edad</label>
                 <input type="text" name="age" [(ngModel)]="newCharacter.age">
             </div>
             <div class="squire_name_input">
-                <label>Sexo</label>
+                <label class="texto">Sexo</label>
                 <!-- FALTA EL SEXO EN LOS PERSONAJES -->
                 <select id="lang" name="sex" [(ngModel)]="newCharacter.sex">
                     <option *ngFor="let valor of sex" [value]="valor">{{valor}}</option>
@@ -27,42 +27,39 @@
             </div>
         </div>
 
-            <br>
     <div class="short_inputs">
         <div class="character_role_input">
-            <label>Rol</label>
+            <label class="texto">Rol</label>
             <select name="role" id="lang" [(ngModel)]="newCharacter.role">
                 <option *ngFor="let valor of role" [value]="valor">{{valor}}</option>
             </select>
         </div>
         <div class="character_otherRole_input">
             <!-- Igual tienes que cambiar el name -->
-            <label>Otro rol</label><input type="text" name="otherRole" [(ngModel)]="newCharacter.role">
+            <label class="texto">Otro Rol</label><input type="text" name="otherRole" [(ngModel)]="newCharacter.role">
         </div>
         <div class="character_confirm_button">
-            <label>Confirmar:</label>
-            <button class="small_button">Añadir PNJ</button>
+            <!-- <label class="texto">Confirmar:</label> -->
+            <button class="small_button">AÑADRIR PNJ</button>
         </div>
     </div>
 </form>
-<br>
 
 <!-- SELECTOR DE PERSONAJE PRINCIPAL O PJ -->
 <form #selectedCharForm="ngForm" (ngSubmit)="onSelect(selectedCharForm)" class="selectedCharForm">
         <div class="choose_new_character">
-            <label>Elije un nuevo PJ</label>
-            <select name="activeChar" id="lang" #selectedChar [(ngModel)]="currentHouse.activeChar">
+            <label class="texto">ELIJE NUEVO PJ:</label>
+            <select class="seleccion"name="activeChar" id="lang" #selectedChar [(ngModel)]="currentHouse.activeChar">
                 <option *ngFor="let valor of currentHouseChars" [value]="valor.character_id">{{valor.char_name}} </option>
             </select>
-            <button class="small_button" >Ok</button>
+            <button class="small_button2" >OK</button>
         </div>
 </form>
         <div class="buttons">
-            <button (click)="cancel()">Cancelar</button>
+            <button (click)="cancel()">CANCELAR</button>
             <!-- <button > PNJ </button> -->
-            <button [disabled] = "noNpcs" (click)="goBack()"> Confirmar </button>
+            <button [disabled] = "noNpcs" (click)="goBack()"> CONFIRMAR </button>
         </div>
-<br>
 
 
     <div class="npc_list">
@@ -70,11 +67,11 @@
 
     <!-- Cabecera -->
     <div class="header">
-        <span style="font-size: larger;">Editar</span>
-        <span style="font-size: larger;">Nombre</span>
-        <span style="font-size: larger;">Rol</span>
-        <span style="font-size: larger;">Edad</span>
-        <span class="status_header" style="font-size: larger;">Estado <sub style="font-size: small;">?</sub></span><br>
+        <span class="texto">EDITAR</span>
+        <span class="texto">NOMBRE</span>
+        <span class="texto">ROL</span>
+        <span class="texto">EDAD</span>
+        <span class="status_header" style="font-size: 1.2rem;color: var(--font-color-warnings);font-weight: bold;">ESTADO</span>
     </div>
     <!-- Personajes -->
     <div class="character" *ngFor= "let char of currentHouseChars">
@@ -82,9 +79,9 @@
         <!-- <span class="quill"><img src="../../../assets/img/PLUMA.png"></span> -->
         <span class="skull" (click)="deleteChar(char.character_id)"><img src="../../../assets/img/CALAVERA.png"></span>
     </div>
-        <span>{{char.char_name}}</span>
-        <span>{{char.role}}</span>
-        <span>{{char.age}}</span>
+        <span class="texto2">{{char.char_name}}</span>
+        <span class="texto2">{{char.role}}</span>
+        <span class="texto2">{{char.age}}</span>
         <span class="npc_status" (click)="deadOrAlive(char.character_id)">
 
             <ng-container *ngIf="char.char_status==1">
