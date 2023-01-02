@@ -27,8 +27,8 @@
 }
     .submain{
         width: 100%;
-        height: 92%;
-        /* border: 2px solid orange; */
+        height: 89%;
+       /*  border: 2px solid orange;  */
 
         display: flex;
         flex-direction: column;
@@ -36,7 +36,7 @@
         align-items: center;
     }
         .titleContain{
-            /* border: 2px solid blue; */
+           /*  border: 2px solid blue; */
             width: 50%;
             height: 19%;
 
@@ -46,7 +46,7 @@
 
         }
         .fotoPerfil{
-            /* border: 2px solid black; */
+            /*  border: 2px solid rgb(228, 59, 59); */
             /* height: 100%; */
             width: 30%;
 
@@ -55,17 +55,20 @@
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
+            justify-content: center;
             align-items: center;
         }
             .fotoPerfil img{
                /*  border-radius: 50%; */
-                width: 80%;
+                width: 100%;
                 position: absolute;
                 cursor: pointer;
+                align-self: center;
+                justify-content: center;
             }
         .titleText{
-            width: 60%;
-            /* border: 2px solid brown; */
+            width: 70%;
+            /* border: 2px solid rgb(114, 165, 42);  */
             
 
             display: flex;
@@ -75,28 +78,28 @@
         }
         .titleText h1{
             width: 100%;
-            height: 50%;
+            height: 70%;
             text-align: center;
             /* word-wrap: break-word; */
-            font-weight: normal;
             color: var(--font-color-hover);
             -webkit-text-stroke: 1px var(--font-color-h);
             font-size: 4rem;
             font-weight: bold;
-            /* border: 2px solid red; */
+            /*  border: 2px solid red;  */
         }
         .titleText p{
             width: 100%;
-            height: 20%;
+            height: 30%;
             text-align: center;
             color: var(--font-color-warnings);
             font-size: 1.8rem;
             font-weight: bold;
         }
     .banderasdiv{
-        /* border: 2px solid purple; */
+       /*  border: 2px solid purple; */
         height: 10%;
         width: 50%;
+        padding-top: 1%;
 
         display: flex;
         flex-direction: column;
@@ -104,22 +107,30 @@
         align-items: center;
     }
     .banderas{
-        /* border: 2px solid pink; */
         width: 100%;
         position: relative;
         border: none;
         background-color: transparent;
+        /* border: 2px solid pink; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
         .banderas img{
             width: 100%;
         }
         .banderas p{
+           /*  border: 2px solid red; */
             text-align: center;
             position: absolute;
+            padding-top: 2%;
+
             color: var(--font-color-hover);
             font-size: 1.3rem;
-            top: 40%;
-            left: 45%;
+            font-weight: bolder;
+    
         }
         .calavera{
             cursor: pointer;

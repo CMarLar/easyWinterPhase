@@ -5,28 +5,6 @@
     /* border: 2px solid black; */
 }
 
-.profile_pic{
-    position: absolute;
-    top: 12%;
-    right: 10%;
-    width: auto;
-    height: auto;
-    /* border: 5px solid yellowgreen; */
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    background-image: url(../../../assets/img/lacre1.png);
-    background-size:cover;
-}
-
-.profile_pic img{
-    margin-left: 5px;
-    border-radius: 100%;
-    width: 100px;
-    height: 100px;
-}
-
 .supercontainer{
     display: flex;
     flex-direction: column;
@@ -42,36 +20,66 @@
 .maincontainer{
     display: flex;
     flex-direction: row;
-    /* border: 5px solid red; */
-    height: 100%;
-    width: auto;
+   /*  border: 5px solid red; */
+    height: 85%;
+    width: 100%;
     padding-bottom: 1.95vh;
 
 }
-
+.title{
+    width: 100%; 
+    height: 15%; 
+    justify-content: flex-end;
+  /*   border: 5px solid rgb(238, 129, 129); */
+}
 .page_title{
-    color: var(--font-color-h);
-    font-size: 400%;
+    color: var(--font-color-hover);
+    -webkit-text-stroke: 2px var(--font-color-h);
+    font-size: 4rem;
+    font-weight: bold;
+    text-align:end;
+
+    width: 90%; 
+    height: 70%; 
+/*     border: 5px solid red; */
 }
 
-.page_subtitle{
-    color: var(--font-color-primary);
-    font-size: 200%;
+ .page_subtitle{
+    color: var(--font-color-warnings);
+    font-weight: bold;
+    text-align:end;
+    font-size: 3rem;
+    width: 90%; 
+    height: 30%; 
+   /*  border: 5px solid rgb(0, 255, 225); */
+}
+.texto{
+
+    color: var(--font-color-warnings);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.texto2{
+
+    color: var(--font-color-hover);
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
-/* form{
+/* .form{
     border: 5px solid rebeccapurple;
 } */
 
 .left{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    padding-left: 5%;
     width: 50%;
-    height: 100%;
-    padding-left: 3%;
-    /* border: 5px solid pink; */
-    margin-bottom: 13vh;
-    padding-right: 2%;
+    height: 97%;
+ /*    border: 5px solid pink; */
+
+
 }
 .image_left{
     display: flex;
@@ -81,84 +89,142 @@
     .short_inputs{
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
-        gap:15px;
-        /* border: 2px solid teal */
+        justify-content: space-between;
+         /* border: 2px solid teal ; */
+         margin-top: 1%;
+         width: 95%;
+         height: 40%;
 
     }
 
             .character_name_input{
                 display: flex;
                 flex-direction: column;
-                gap:5px;
-                /* border:2px solid green; */
-                width: 25%;
+               /*  border:2px solid green; */
+                width: 31%;
             }
+               .character_name_input input{
+                width: 100%;
+                height: 90%;
+                text-decoration: none;
+                border: none;
+                border-radius: 5px;
+                font-size: 1.2rem;
+                font-weight: bold;
+                color: var(--font-color-hover);
+
+              }
 
             .character_age_input{
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                gap:5px;
-                /* border:2px solid green; */
-                width: 25%;
+                /* gap:5px; */
+               /*  border:2px solid green;  */
+                width: 31%;
             }
 
                 .character_age_input input{
-                    width: 50px;
+                    width: 100%;
+                    height: 90%;
+                    text-decoration: none;
+                    border: none;
+                    border-radius: 5px;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                    color: var(--font-color-hover);
                 }
 
             .squire_name_input{
                 display: flex;
                 flex-direction: column;
-                gap:5px;
+               /*  gap:5px; */
                 /* border:2px solid green; */
-                width: 25%;
-            }
+                width: 31%;
+                height: auto;
+            }  
+               .squire_name_input option{
+
+                    width: 100%;
+                    height: 90%;
+                    text-decoration: none;
+                    border: none;
+                    border-radius: 5px;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                    color: var(--font-color-hover);
+
+               }
 
             .character_role_input{
                 display: flex;
                 flex-direction: column;
-                gap:5px;
+                /* gap:5px; */
                 /* border:2px solid green; */
-                width: 25%;
+                width: 31%;
             }
+                .character_role_input input{
+                    text-decoration: none;
+                    border: none;
+                    border-radius: 5px;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                    color: var(--font-color-hover);
+                }
 
             .character_otherRole_input{
                 display: flex;
                 flex-direction: column;
-                gap:5px;
-                /* border:2px solid green; */
-                width: 25%;
+               /*  gap:5px; */
+               /*  border:2px solid green;  */
+                width: 31%;
             }
-
+                .character_otherRole_input input{
+                    text-decoration: none;
+                    border: none;
+                    border-radius: 5px;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                    color: var(--font-color-hover);
+                }
+                
             .character_confirm_button{
                 display: flex;
                 flex-direction: row;
-                justify-content: flex-start;
-                align-items: center;
-                gap:15px;
-                /* border:2px solid red;  */
-                width: 25%;
+                justify-content: center;
+                align-items: flex-end;
+                border:none;
+                text-decoration: none;
+                /* gap:15px; */
+               /*  border:2px solid red; */  
+                width: 31%;
             }
+            .seleccion{
 
-
-
-
-    .npc_list{
+                width: 35%;
+                text-align: center;
+            }
+    
+    .npc_list{/* soace evently */
+         /*  border:2px solid red;  */
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: space-between;
         flex-wrap: wrap;
+        color: var(--font-color-hover);
+        width: 100%;
+        height: 30%;
     }
 
         .header{
             display: flex;
             flex-direction: row;
-            justify-content: space-evenly;
+            justify-content: space-between;
             flex-wrap: wrap;
-            padding-bottom: 5px;
-            /* border:2px solid red */
+            /* padding-bottom: 5px; */
+            width: 95%;
+            /*  border:2px solid red */
+             
         }
         
             .header span{
@@ -167,15 +233,18 @@
                 justify-content: center;
                 align-items: center;
                 width: 20%;
-                /* border:2px solid orangered */
+               /*  border:2px solid orangered; */
             }
 
         .character{
             display: flex;
             flex-direction: row;
-            justify-content: space-evenly;
+            justify-content:space-between;
             flex-wrap: wrap;
-            /* border:2px solid blue */
+           /*  border:2px solid blue ; */
+            width: 95%;
+            height: 30%;
+      
         }
 
             .character span{
@@ -187,21 +256,25 @@
                 /* border:2px solid orangered */
             }
 
-        .editchar{
+        .editchar{/* wrap */
             display: flex;
+            /* flex-wrap: wrap; */
             flex-direction: row;
             /* border:2px solid green; */
             justify-content: center;
             align-items: center;
             width: 20%;
+    
         }
 
     .choose_new_character{
         display: flex;
         flex-direction: row;
-        gap:25px;
+        gap:15px;
         justify-content: center;
         align-items: center;
+        text-align: center;
+        width: 90%;
     }
 
 .right{
@@ -220,37 +293,38 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 100%;
+    width: 95%;
     flex-wrap: wrap;
     /* gap:15px; */
-    /* border: 5px solid violet; */
+   /*  border: 5px solid violet; */
 }
 
 .shield_selector img{
     display: flex;
+    padding-block-end: 14%;
     flex-direction: row;
-    max-width: 25%;
+    max-width: 44%;
     /* border: 5px solid brown; */
 }
 
-.shield_selector img:hover{
+/* .shield_selector img:hover{
+    transform: scale(1.5);
+    cursor:pointer
+} */
+
+/* .shield_selector img{
     transform: scale(1.5);
     cursor:pointer
 }
-
-.shield_selector img{
-    transform: scale(1.5);
-    cursor:pointer
-}
-
-.title{
+ */
+/* .title{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding-right: 200px;
     /* border: 5px solid brown; */
-}
+ 
 
 .image_left{
     height: 70vh;
@@ -343,7 +417,7 @@
 
     .npc_status:hover{
         cursor:pointer;
-        color: var(--font-color-hover);
+        color: var(--font-color-h);
         
     }
 
@@ -376,7 +450,7 @@
 
     gap:20px;
     /* border: 5px solid orangered; */
-    padding-top: 5%;
+    /* padding-top: 5%; */
     /* margin-left: 64px;
     padding-right: 64px; */
     /* width: 64px;
@@ -384,17 +458,42 @@
 }
     button{
         background-color: var(--font-color-h);
-        font-size: larger;
-        border-radius: 3px;
-        padding: 15px 32px;
-        color: white;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 10px;
+    
+        /* padding: 15px 32px; */
+        color: var(--font-color-hover);
+        border: none;
+        text-decoration: none;
+        width: 24%;
+        height: 120%;
     }
 
         .small_button{
             background-color: var(--font-color-h);
-            font-size: large;
-            border-radius: 3px;
-            padding: 5px 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 8px;
+            color: var(--font-color-hover);
+            border: none;
+            text-decoration: none;
+            width: 90%;
+            height: 60%;
+        }
+        .small_button2{
+            background-color: var(--font-color-h);
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 8px;
+            color: var(--font-color-hover);
+            border: none;
+            text-decoration: none;
+            justify-content: center;
+            text-align: center;
+            justify-items: center;
+            width: 10%;
+            height: 100%;
         }
 
     button:hover{
@@ -411,8 +510,11 @@
 input{
     background-color: var(--background-color-input);
     height:40px;
-    border-radius: 4px;
-    font-size: larger
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--font-color-hover);
 }
 
 input label{
@@ -426,12 +528,14 @@ label{
 select{
     background-color: var(--background-color-input);
     height:40px;
-    border-radius: 4px;
-    font-size: larger
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color:var(--font-color-hover)
 }
 
 table{
-    border: 2px solid red;   
+    /* border: 2px solid red; */   
     width: 80%;
 }
 
@@ -441,7 +545,7 @@ table{
 
     td{
         text-align: center;
-        border: 2px solid blue;   
+        /* border: 2px solid blue;  */  
     }
 
 .tableselect{
