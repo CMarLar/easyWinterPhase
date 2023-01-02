@@ -12,12 +12,15 @@
 <div class="maincontainer">
     <div class="left">
         <div *ngIf="houseService.modifyLayout; else playerchars">
+        <form #activeCharForm = "ngForm" (ngSubmit) = "submitActiveChar(activeCharForm)">
             <div class="choose_new_character">
                 <label class="texto">Elije un nuevo PJ</label>
-                <select name="npcs" [(ngModel)]="actualHouse.activeChar">
-                    <option *ngFor="let valor of listOfChars" [value]="valor">{{valor.char_name}}</option>
-                </select>
+                <select name="new_character" [(ngModel)]="actualHouse.activeChar">
+                    <option *ngFor="let valor of listOfChars" [value]="valor.character_id">{{valor.char_name}}</option>
+                </select><br>
+                <button class="small_button">Ok</button>
             </div>
+        </form>
         </div>
 
         <ng-template #playerchars>
@@ -46,20 +49,20 @@
 <form #houseForm="ngForm" (ngSubmit)="onSubmit(houseForm)" class="houseForm">
             
             <label class="texto">Nombre De La Casa</label>
-            <input type="text" name="house_name" [(ngModel)]="actualHouse.house_name" value={{houseService.currentHouse.house_name}}>
+            <input type="text" name="house_name" [(ngModel)]="actualHouse.house_name" [value]=houseService.currentHouse.house_name>
 
             <label class="texto">Feudo</label>
-            <input type="text" name="holding_name" [(ngModel)]="actualHouse.holding_name" value={{houseService.currentHouse.holding_name}}>
+            <input type="text" name="holding_name" [(ngModel)]="actualHouse.holding_name" [value]=houseService.currentHouse.holding_name>
 
 
             <label class="texto">Característica Familiar</label>
-            <input type="text" name="familyCharacteristic"[(ngModel)]="actualHouse.familyCharacteristic" value={{houseService.currentHouse.familyCharacteristic}}>
+            <input type="text" name="familyCharacteristic"[(ngModel)]="actualHouse.familyCharacteristic" [value]=houseService.currentHouse.familyCharacteristic>
 
             <label class="texto">Situación Económica Inicial</label>
 
 
             <!-- sacada del select porque no está la propiedad nivel de manutención: [(ngModel)]="house. nivelManutencion" -->
-            <select name="nivelesManutencion" id="lang" [(ngModel)]="actualHouse.economyLevels" value={{houseService.currentHouse.economyLevels}}>
+            <select name="nivelesManutencion" id="lang" [(ngModel)]="actualHouse.economyLevels" [value]=houseService.currentHouse.economyLevels>
                 <option *ngFor="let valor of nivelesManutencion" [value]="valor">{{valor}}</option>
             </select>
             <!-- falta oner los ng models del personaje -->

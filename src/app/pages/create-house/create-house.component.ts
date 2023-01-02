@@ -79,7 +79,7 @@ export class CreateHouseComponent {
 
   //Array de npcs.
   public npc:string
-  public npcs:string[];
+  // public npcs:string[];
 
   //Hace un string para mostrarlo. Llamada desde div npc_list
   public stringNpcs:string;
@@ -101,10 +101,10 @@ export class CreateHouseComponent {
     this.selectedShield
   
   //esto es antiguo, era para que se vieran los personajes, la función de abajo también.
-      this.npcs=[];
+      // this.npcs=[];
 
     //Hace el strgin de personajes y ejecuta checkNPC.
-      this.changeNpcString()
+      // this.changeNpcString()
 
       // this.checkNPC()
       // console.log(this.noNPC);
@@ -153,25 +153,26 @@ public selectHouseShield(shield:string){
 
   
 }
-//Cambia el estado de noNPC para quitar disable del botón
-public checkNPC(){
-  if(this.npcs.length>0){this.noNPC=false}
-}
+// //Cambia el estado de noNPC para quitar disable del botón
+// public checkNPC(){
+//   if(this.npcs.length>0){this.noNPC=false}
+// }
 
-public changeNpcString(){
-  console.log(this.npcs.length);
+// public changeNpcString(){
+//   console.log(this.npcs.length);
   
-  if(this.npcs.length>0)
-  {
-    this.stringNpcs = "PNJs: " + this.npcs.join(`, `);
-    this.checkNPC()
-    console.log(this.noNPC);
+//   if(this.npcs.length>0)
+//   {
+//     this.stringNpcs = "PNJs: " + this.npcs.join(`, `);
+//     this.checkNPC()
+//     console.log(this.noNPC);
     
-  }else
-  {
-    this.stringNpcs = "Aún no has añadido PNJs a tu casa. Pulsa en PNJ para añadir al menos uno."
-  }
-}
+//   }else
+//   {
+//     this.stringNpcs = "Aún no has añadido PNJs a tu casa. Pulsa en PNJ para añadir al menos uno."
+//   }
+// }
+
 //Formulario, guardar cambios, volver a página de asignación de casas
 public onSubmit(form:NgForm){
 
@@ -184,7 +185,7 @@ public onSubmit(form:NgForm){
   this.houseService.updateHouse(
     this.actualHouse = new House(
       this.actualHouse.house_name,
-      this.actualHouse.activeChar,//mete el id del personaje activo
+      this.activeChar,//mete el id del personaje activo
       this.actualHouse.holding_name,
       this.actualHouse.familyCharacteristic,
       this.selectedShield,
@@ -194,6 +195,24 @@ public onSubmit(form:NgForm){
 
         console.log(data);
     
+        //Este bloque es para que no se quede todo a null en el front cuando se modifica la casa
+        if(this.actualHouse.house_name == undefined){
+          this.actualHouse.house_name = this.houseService.currentHouse.house_name;
+        }
+        if(this.actualHouse.holding_name == undefined){
+          this.actualHouse.holding_name = this.houseService.currentHouse.holding_name;
+        }
+        if(this.actualHouse.familyCharacteristic == undefined){
+          this.actualHouse.familyCharacteristic = this.houseService.currentHouse.familyCharacteristic;
+        }
+        if(this.actualHouse.shield == undefined){
+          this.actualHouse.shield = this.houseService.currentHouse.shield;
+        }
+        if(this.actualHouse.economyLevels == undefined){
+          this.actualHouse.economyLevels = this.houseService.currentHouse.economyLevels;
+        }
+
+
         this.houseService.currentHouse = this.actualHouse;
 
         console.log(this.houseService.currentHouse);
@@ -267,6 +286,18 @@ public modifyLayoutButtons () {
     this.houseNotUpdated = true;
   }
 
+}
+
+public submitActiveChar(form:NgForm){
+  console.log("submitActiveChar: " + JSON.stringify(form.value));
+  console.log(JSON.stringify(form.value));
+
+  this.activeChar = form.value.new_character;
+  // this.actualHouse.activeChar = this.activeChar;
+
+  console.log("submitActiveChar: " + this.activeChar);
+  console.log(this.actualHouse.activeChar);
+  
 }
 
 //Va a la página de añadir pnjs al pulsar el botón añadir pnjs.
