@@ -29,8 +29,6 @@ export class CampaignsComponent {
 
   public campaignsOfUser:any;//creada para hacer los servicios.
 
-  public noCampaigns:boolean;
-
   constructor(public router : Router, public campaignService:CampaignService,public userService: UserService){
     this.user = {nombre : "Miguel Generoso Valero",
                 correo : "gene17051996@gmail.com",
@@ -53,11 +51,6 @@ export class CampaignsComponent {
 
 
     this.campaignService.campaigns = this.campaignsOfUser
-
-
-    
-    
-    
     
   }
 
@@ -69,16 +62,6 @@ public getCampaigns(user_id:number){
     this.campaignsOfUser=data;
     this.campaignService.campaigns=this.campaignsOfUser;
     console.log(data);
-    
-
-    if(data.length == 0){
-      this.noCampaigns = true;
-      console.log(this.noCampaigns);
-      
-    }else{
-      this.noCampaigns = false;
-      console.log(this.noCampaigns);
-    }
     
   })//sin suscribe
 
@@ -106,9 +89,11 @@ public deleteCampaign(campaign_id:number){
         this.campaignsOfUser.splice(indexOfDeleted,1)
         
       }
+
     }
+    
   })
-  }
+}
 
   //Función nueva
   public createNewCampaign(){

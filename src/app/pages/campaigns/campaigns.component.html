@@ -8,17 +8,7 @@
             <div class="titleText">
                 <h1>CAMPAÑAS</h1>
                 <p>{{currentUser.username}}</p>
-
-                <div *ngIf="noCampaigns" class="message">
-
-                        No tienes ninguna campaña en curso.<br>
-                        Pulsa en "Nueva Campaña" para comenzar.
-
-                </div>
-
             </div>
-
-
         </div>
         <div class="banderasdiv" *ngFor="let campaign of campaignsOfUser">
             <div class="banderascontainer">

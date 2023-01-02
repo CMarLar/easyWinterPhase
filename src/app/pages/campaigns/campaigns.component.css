@@ -10,16 +10,6 @@
     bottom:10%;
 }
 
-.titleText .message{
-    padding-top: 5%;
-    padding-bottom: 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--font-color-hover);
-    font-size: x-large;
-}
-
 .main{
     width: auto;
     height: 100vh;
