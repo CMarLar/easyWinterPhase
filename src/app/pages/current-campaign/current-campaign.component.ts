@@ -7,6 +7,8 @@ import { Player } from 'src/app/models/player';
 import { CampaignService } from 'src/app/shared/campaign.service';
 import { House } from 'src/app/models/house';
 import { HouseService } from 'src/app/shared/house.service';
+import { CharacterService } from 'src/app/shared/character.service';
+import { Character } from 'src/app/models/character';
 
 @Component({
   selector: 'app-current-campaign',
@@ -33,15 +35,19 @@ export class CurrentCampaignComponent {
 
   //players
   public currentPlayers : Player[];
+  public currentPlayer : Player;
 
   //casas
   public houses : House[];
 
+  //pnj
+  public characters : Character[];
 
 
-    constructor(public router:Router, public yearService : YearService, public playerService : PlayerService,public campaignService : CampaignService,public houseService : HouseService){
-      this.campaignName="Campaña cojonuda"      
+
+    constructor(public router:Router, public yearService : YearService, public playerService : PlayerService,public campaignService : CampaignService,public houseService : HouseService, public characterService : CharacterService){    
       
+      this.characters = [];
       this.isChangeCharacterHide = true;
       this.isnewPlayerNameHide = true;
       this.isHouseInfoHide = true;
@@ -98,7 +104,79 @@ export class CurrentCampaignComponent {
 
 
     public goNext(){
-      this.router.navigateByUrl("/winterphasemain")
+      
+
+      
+          //CREAMOS EL NUEVO AÑO
+          let newYear = new Year(null,this.yearService.currentYear.yearNumber + 1,0,1,"",this.yearService.currentYear.campaign_id);
+
+          this.yearService.postYear(newYear)
+          .subscribe((data : any) => {
+            
+            newYear.year_id = data.insertId
+
+            this.yearService.currentYear = newYear;
+            this.actualYear = newYear;
+            this.yearService.yearsOfCampaign.push(newYear);
+            this.yearService.yearsOfCampaign[this.yearService.yearsOfCampaign.length - 2].isLastYear = 0;
+
+            // console.log("ENSEÑAMOS LA POSICION -2 DEL ARRAY: " + JSON.stringify(this.yearService.yearsOfCampaign[this.yearService.yearsOfCampaign.length - 2]));
+            // console.log("TODOS LOS PUTOS AÑOS: " + JSON.stringify(this.yearService.yearsOfCampaign));
+            // console.log("AÑO ACTUAL: " + JSON.stringify(this.actualYear));
+            // console.log("PENULTIMO AÑO: " + JSON.stringify(this.yearService.yearsOfCampaign[this.yearService.yearsOfCampaign.length - 2]));
+            
+            //MODIFICAMOS EL AÑO ANTERIOR PARA IGUALAR EL CAMPO ISLASTYEAR A 0
+            this.yearService.putYear(this.yearService.yearsOfCampaign[this.yearService.yearsOfCampaign.length - 2])
+            .subscribe((data : any) => {
+              console.log(data);
+              
+              for (let i = 0; i < this.playerService.playersOfCampaign.length; i++){
+
+                //OBTENEMOS TODOS LOS PNJ DE TODOS LOS JUGADORES Y LOS METEMOS EN UN ARRAY
+                // console.log("ESTOS SON LOS ID DE LA CASA DE CADA JUGADOR: " + this.playerService.playersOfCampaign[i].house_id);
+                
+                this.characterService.getCharacters(this.playerService.playersOfCampaign[i].house_id)
+                .subscribe((data : Character[]) => {
+                  
+                  // console.log("ESTOS SON LOS PNJ: " + JSON.stringify(data));
+        
+                  //INICIALIZAMOS A 0 EL ARRAY DE PNJ
+                  this.characters = [];
+
+                  for (let j = 0; j < data.length; j++){
+                    this.characters.push(data[j]);
+                    this.characterService.allCharactersOfCampaign.push(data[j]);
+                  }
+        
+                  // console.log("ESTOS SON LOS PNJ PUSHEADOS: " + this.characters);
+                  //HACEMOS LA INSERCCION DE LOS NUEVOS PNJ CON EL AÑO CAMBIADO
+            
+
+                  //AQUI SE ENCUENTRA EL FALLO
+                  // console.log("MOSTRANDO LOS PERSONAJES DEL FANTASTICO MUNDO DE GUMBALL: " + JSON.stringify(this.characters));
+
+                  for (let l = 0; l < this.characters.length; l++){
+                    this.characters[l].year_id = this.actualYear.year_id;
+                  }
+                  console.log(this.actualYear.year_id);
+                  
+                  this.characterService.postCharacters(this.characters)
+                  .subscribe((data : any) => {
+                    console.log(data);
+                    
+                  })
+                  
+                })
+              }
+              
+
+            })
+          })
+
+
+      
+      
+      this.router.navigateByUrl("/winterphasemain");
     }
 
     public goNewPlayer(){
@@ -107,39 +185,6 @@ export class CurrentCampaignComponent {
 
     public goCreateHouse(){
       this.router.navigateByUrl("/createhouse")
-    }
-
-    public showModalPlayer(){
-
-      if(this.isnewPlayerNameHide == true){
-        this.isnewPlayerNameHide = false;
-      }else{
-        this.isnewPlayerNameHide = true
-      }
-
-      
-
-    }
-
-    public showModalHouse(){
-
-      if(this.isHouseInfoHide == true){
-        this.isHouseInfoHide = false;
-      }else{
-        this.isHouseInfoHide = true
-      }
-      
-      
-    }
-
-    public showModalCharacter(){
-
-      if(this.isChangeCharacterHide == true){
-        this.isChangeCharacterHide = false;
-      }else{
-        this.isChangeCharacterHide = true
-      }
-      
     }
 
     public ordenarArrayCasas(){
@@ -160,6 +205,66 @@ export class CurrentCampaignComponent {
           this.houses.push(this.houseService.housesOfCamapaign[5])
         }
       }
+    }
+
+
+    //MODALES
+
+    public showModalPlayer(jugador : Player){
+
+      this.currentPlayer = jugador;
+      console.log("JUGADOR ACTUAL: " + JSON.stringify(this.currentPlayer));
+      
+      if(this.isnewPlayerNameHide == true){
+        this.isnewPlayerNameHide = false;
+      }else{
+        this.isnewPlayerNameHide = true
+      }
+      console.log(this.isnewPlayerNameHide);
+      
+      
+
+    }
+
+    public showModalHouse(){
+
+      if(this.isHouseInfoHide == true){
+        this.isHouseInfoHide = false;
+      }else{
+        this.isHouseInfoHide = true
+      }
+      
+      
+    }
+
+    public showModalCharacter(){
+
+      if(this.isChangeCharacterHide == true){
+        this.isChangeCharacterHide = false;
+      }else{
+        this.isChangeCharacterHide = true;
+      }
+      
+    }
+
+    public changeName(nombre : string){
+
+      for (let i = 0; i < this.playerService.playersOfCampaign.length;i++){
+
+        if(this.playerService.playersOfCampaign[i] == this.currentPlayer){
+
+          this.currentPlayer.player_name = nombre;
+          this.playerService.playersOfCampaign[i].player_name = nombre;
+
+        }
+      }
+      
+      this.playerService.putPlayers(this.currentPlayer)
+      .subscribe((data) => {
+
+      })
+
+      this.isnewPlayerNameHide = true;
     }
 
 }
