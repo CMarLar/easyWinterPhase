@@ -579,9 +579,66 @@ textarea{
     opacity: 60%;
     padding-left: 1%;
     font-size: medium;
+    resize: none;
 }
+/* Modal container*/
 .modal {
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.246);
+}
+.modal-content{
+    background-image: url(../../../assets/backgrounds/bg_modal.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 70%;
+    width: 35%;
+
+    position: absolute;
+    left: 0;
     top: 15%;
-    left: 10%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid red;
+}
+.contenido{
+    border: 2px solid orange;
+    height: 70%;
+    width: 70%;
+    text-align: center;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+}
+.contenido a{
+    position: absolute;
+    top: 8%;
+    right: 10%;
+    font-size: 30px;
+}
+.input{
+    background-color: var(--background-color-input);
+    height:10%;
+    width: 80%;
+    border-radius: 0.3rem;
+    font-size: larger;
+    text-align: center;
+}
+.small_button{
+    background-color: var(--font-color-h);
+    font-size: large;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
 }

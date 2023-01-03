@@ -15,12 +15,15 @@ export class CharacterService {
   public currentHouse:House;//llama a la casa activa
   public currentHouseChars: Character[];//array de personajes de una casa
 
+  public allCharactersOfCampaign : Character[];
+
 
   constructor(public houseService:HouseService, public http: HttpClient) { 
 
     this.currentHouse = this.houseService.currentHouse;
 
     this.currentHouseChars = [];
+    this.allCharactersOfCampaign = [];
 
     // this.currentActiveChar.character_id = this.houseService.currentHouse.activeChar //comentado porque jode CREATEHOUSE
 
@@ -58,6 +61,13 @@ export class CharacterService {
     this.url = "http://localhost:3000/"
 
     return this.http.put(this.url + "addnpc", character)
+  }
+
+  public postCharacters(characters : Character[]){
+
+    this.url = "http://localhost:3000/currentcampaignCharacter"
+
+    return this.http.post(this.url, characters);
   }
 
 

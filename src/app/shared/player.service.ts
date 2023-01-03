@@ -48,6 +48,14 @@ export class PlayerService {
 
     return this.http.put(this.url,player);
   }
+  public putPlayers(player : Player){
+
+    this.url = "http://localhost:3000/currentcampaignPlayer";
+    console.log("ESTE ES EL JUGADOR A MODIFICAR" + player);
+    
+
+    return this.http.put(this.url,player);
+  }
 
 }
 

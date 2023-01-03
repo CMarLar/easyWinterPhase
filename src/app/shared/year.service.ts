@@ -29,4 +29,10 @@ export class YearService {
     this.url = "http://localhost:3000/housesmanagementPlayerYear";
     return this.http.post(this.url,{"year" : year, "players" : players});
   }
+
+  public putYear(year : Year){
+
+    this.url = "http://localhost:3000/currentCampaignYear";
+    return this.http.put(this.url,year);
+  }
 }

@@ -9,7 +9,6 @@ import { House } from 'src/app/models/house';
 import { YearService } from 'src/app/shared/year.service';
 import { Year } from 'src/app/models/year';
 import { CampaignService } from 'src/app/shared/campaign.service';
-
 @Component({
   selector: 'app-houses-management',
   templateUrl: './houses-management.component.html',
@@ -207,7 +206,6 @@ export class HousesManagementComponent {
       }
       
     })
-    
   }
 
   public modifyHouse(house_id : number){
