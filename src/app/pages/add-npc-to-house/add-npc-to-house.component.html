@@ -20,7 +20,7 @@
             </div>
             <div class="squire_name_input">
                 <label class="texto">Sexo</label>
-                <!-- FALTA EL SEXO EN LOS PERSONAJES -->
+                <!-- El sexo de los personajes actualmente no se muestra en la tabla -->
                 <select id="lang" name="sex" [(ngModel)]="newCharacter.sex">
                     <option *ngFor="let valor of sex" [value]="valor">{{valor}}</option>
                 </select>
@@ -52,7 +52,10 @@
             <select class="seleccion"name="activeChar" id="lang" #selectedChar [(ngModel)]="currentHouse.activeChar">
                 <option *ngFor="let valor of currentHouseChars" [value]="valor.character_id">{{valor.char_name}} </option>
             </select>
-            <button class="small_button2" >OK</button>
+            <button class="small_button2" (click)="changeSelectedCharMessage()" >OK</button>
+        </div>
+        <div class="selected_char_message" *ngIf="selectedCharMessage">
+            <p>¡Nuevo personaje activo!</p>
         </div>
 </form>
         <div class="buttons">

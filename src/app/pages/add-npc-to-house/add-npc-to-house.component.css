@@ -66,7 +66,7 @@
     font-size: 1.2rem;
 }
 
-/* .form{
+/* .selectedCharForm{
     border: 5px solid rebeccapurple;
 } */
 
@@ -449,13 +449,51 @@
     align-items: center;
 
     gap:20px;
-    /* border: 5px solid orangered; */
+    /* border: 2px solid orangered; */
     /* padding-top: 5%; */
     /* margin-left: 64px;
     padding-right: 64px; */
     /* width: 64px;
     height: 44px ; */
 }
+
+.selected_char_message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid white; */
+    color: white;
+
+    animation:selected_char_message 0.5s 1;
+    -webkit-animation:selected_char_message 0.5s 1;
+    animation-fill-mode: forwards;
+
+    animation-delay:2s;
+    -webkit-animation-delay:1s; /* Safari and Chrome */
+    -webkit-animation-fill-mode: forwards;
+
+
+}
+
+
+
+@keyframes selected_char_message{
+    from {opacity :1;}
+    to {opacity :0;}
+}
+
+@-webkit-keyframes selected_char_message{
+    from {opacity :1;}
+    to {opacity :0;}
+}
+
+
+
+
+
+
+
+
     button{
         background-color: var(--font-color-h);
         font-size: 1.2rem;

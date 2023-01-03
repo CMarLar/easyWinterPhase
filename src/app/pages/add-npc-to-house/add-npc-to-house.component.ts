@@ -31,7 +31,9 @@ export class AddNpcToHouseComponent {
   public status;
 
   //PJ Activo
-  public activeChar;
+  public activeChar:number;
+
+  public newActiveCharIs:Character;
 
   //Comprueba que hay al menos un personaje creado para habilitar el botón Confirmar
   public noNpcs;
@@ -50,7 +52,7 @@ export class AddNpcToHouseComponent {
 
   public newCharacter:Character;//El personaje que se crea con el formulario.
 
-
+  public selectedCharMessage:boolean;//Mensaje que muestra el personaje seleccionado al pulsar ok en el selector de personajes.
 
   constructor(public router:Router, public characterService:CharacterService, public houseService:HouseService){
 
@@ -93,7 +95,7 @@ export class AddNpcToHouseComponent {
 
     this.newCharacter = new Character(null,this.currentHouseId,null,null,null,1,0,0,0,null,null)//se tiene que rellenar con el form
 
-
+    this.selectedCharMessage = false;
     
 
 
@@ -102,7 +104,7 @@ export class AddNpcToHouseComponent {
 
 
     // this.checkNpcs()
-  }
+  }//FIN CONSTRUCTOR
 
 
   //Recibe los personajes de la base de datos
@@ -278,6 +280,30 @@ export class AddNpcToHouseComponent {
   //Si hay personajes en el array de npcs, cambia noNpcs a false
   public checkNpcs(){
     if(this.currentHouseChars.length != 0){this.noNpcs=false}
+  }
+
+  public changeSelectedCharMessage(){
+
+    // for (let i = 0; i < this.currentHouseChars.length; i++) {
+
+    //   if(this.currentHouseChars[i].character_id == idOfChar){
+
+    //     this.newActiveCharIs = this.currentHouseChars[i]//Esto iguala al personaje elegido en el selector como el nuevo personaje activo para pasar el mensaje
+    //   }
+
+    //   console.log(this.newActiveCharIs);
+      
+    // }
+
+    this.selectedCharMessage = true;
+    console.log("SelectedCharMessage: " + this.selectedCharMessage);
+    
+    
+    setTimeout(() => {
+      this.selectedCharMessage = false;
+      console.log("SelectedCharMessage: " + this.selectedCharMessage);
+    }, 2000);
+
   }
   
   //Vuelve a la página de gestión de casas/asignación de casas guardando la información.

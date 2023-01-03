@@ -22,7 +22,7 @@ export class CreateHouseComponent {
   public holding_name:string;
   public familyCharactersitic:string;
   public currentHouseId:number;
-  public activeChar:number;
+  public activeChar:number;//Personaje activo
   
   public knight:Character;
     public knightName:string;
@@ -40,13 +40,6 @@ export class CreateHouseComponent {
   public goToNpcForbidden:boolean;//disabled al principio, se pone enabled cuando se ha editado la casa una vez.
 
 
-  public nombreCasa:string;
-  public feudo:string;
-  public caracteristicaFamiliar:string;
-  public nivelManutencion:string;
-  public nombrePJ:string;
-  public edad:string;
-  public nombreEscudero:string;
 
   public nivelesManutencion:string[]
 
@@ -72,10 +65,8 @@ export class CreateHouseComponent {
   public shield10="../../../assets/img/escudo10.png"
 
   
-  public selectedShield;//Hace referencia al escudo
+  public selectedShield;//Escudo seleccionado al hacer click
 
-    //True -> No hay NPCs
-  public noNPC:boolean;
 
   //Array de npcs.
   public npc:string
@@ -93,34 +84,15 @@ export class CreateHouseComponent {
       this.shields = [this.shield1,this.shield2,this.shield3,this.shield4,this.shield5,
                       this.shield6,this.shield7,this.shield8,this.shield9,this.shield10]
   
-  
-      this.noNPC=false//ACUÉRDATE DE CAMBIARLO A TRUE DESPUÉS DE HACER LAS PRUEBAS
-      console.log(this.noNPC);
       
-    //Mostrar el escudo seleccionado:
-    this.selectedShield
-  
-  //esto es antiguo, era para que se vieran los personajes, la función de abajo también.
-      // this.npcs=[];
-
-    //Hace el strgin de personajes y ejecuta checkNPC.
-      // this.changeNpcString()
-
-      // this.checkNPC()
-      // console.log(this.noNPC);
-      
-
-      
+      this.selectedShield;//Mostrar el escudo seleccionado y pasarlo a actualHouse
+    
       this.nivelesManutencion= ["Indigente","Pobre","Normal","Rico","Muy Rico"]
 
-      this.currentHouseId = this.houseService.currentHouseId//debería coger el id de la casa en concreto
+      this.currentHouseId = this.houseService.currentHouseId//Recoge el id de la casa que se va a modificar
       console.log("Current House ID: " + this.currentHouseId);
-      
-
 
       this.actualHouse = new House(this.house_name,null,this.holding_name,this.familyCharactersitic,this.selectedShield,this.economyLevels,this.currentHouseId);
-
-      // this.casa = new House()
 
       this.knight = new Character(null,this.currentHouseId,null,this.knightName,this.knightAge,1,0,0,0,null,"Hombre");
 
@@ -148,84 +120,6 @@ export class CreateHouseComponent {
 public selectHouseShield(shield:string){
   console.log(shield);
   this.selectedShield = shield;
-
-
-
-  
-}
-// //Cambia el estado de noNPC para quitar disable del botón
-// public checkNPC(){
-//   if(this.npcs.length>0){this.noNPC=false}
-// }
-
-// public changeNpcString(){
-//   console.log(this.npcs.length);
-  
-//   if(this.npcs.length>0)
-//   {
-//     this.stringNpcs = "PNJs: " + this.npcs.join(`, `);
-//     this.checkNPC()
-//     console.log(this.noNPC);
-    
-//   }else
-//   {
-//     this.stringNpcs = "Aún no has añadido PNJs a tu casa. Pulsa en PNJ para añadir al menos uno."
-//   }
-// }
-
-//Formulario, guardar cambios, volver a página de asignación de casas
-public onSubmit(form:NgForm){
-
-  form.value.shield = this.selectedShield;//funciona para meter el escudo seleccionado
-  form.value.house_id = this.currentHouseId; //puesto el id directamente para probar
-  
-  console.log("Form value: " + form.value);
-
-
-  this.houseService.updateHouse(
-    this.actualHouse = new House(
-      this.actualHouse.house_name,
-      this.activeChar,//mete el id del personaje activo
-      this.actualHouse.holding_name,
-      this.actualHouse.familyCharacteristic,
-      this.selectedShield,
-      this.actualHouse.economyLevels,//economyLevels
-      this.currentHouseId))
-      .subscribe((data)=>{
-
-        console.log(data);
-    
-        //Este bloque es para que no se quede todo a null en el front cuando se modifica la casa
-        if(this.actualHouse.house_name == undefined){
-          this.actualHouse.house_name = this.houseService.currentHouse.house_name;
-        }
-        if(this.actualHouse.holding_name == undefined){
-          this.actualHouse.holding_name = this.houseService.currentHouse.holding_name;
-        }
-        if(this.actualHouse.familyCharacteristic == undefined){
-          this.actualHouse.familyCharacteristic = this.houseService.currentHouse.familyCharacteristic;
-        }
-        if(this.actualHouse.shield == undefined){
-          this.actualHouse.shield = this.houseService.currentHouse.shield;
-        }
-        if(this.actualHouse.economyLevels == undefined){
-          this.actualHouse.economyLevels = this.houseService.currentHouse.economyLevels;
-        }
-
-
-        this.houseService.currentHouse = this.actualHouse;
-
-        console.log(this.houseService.currentHouse);
-        console.log(this.actualHouse);
-        
-        
-      })
-
-  // this.goBack(); //Reactiva este routing cuando termines
-  
-
-  this.houseNotUpdated = true;
-  this.goToNpcForbidden = false;
 }
 
 public submitCharInfo(form:NgForm){
@@ -276,10 +170,67 @@ public submitCharInfo(form:NgForm){
   
 }
 
+//Añade información de las casas al front y al back
+public onSubmit(form:NgForm){
+
+  form.value.shield = this.selectedShield;
+  form.value.house_id = this.currentHouseId;
+  
+  console.log("Form value: " + form.value);
+
+
+  this.houseService.updateHouse(
+    this.actualHouse = new House(
+      this.actualHouse.house_name,
+      this.activeChar,//mete el id del personaje activo
+      this.actualHouse.holding_name,
+      this.actualHouse.familyCharacteristic,
+      this.selectedShield,
+      this.actualHouse.economyLevels,
+      this.currentHouseId))
+      .subscribe((data)=>{
+
+        console.log(data);
+    
+        //Este bloque es para que no se quede todo a null en el front cuando se modifica la casa
+        if(this.actualHouse.house_name == undefined){
+          this.actualHouse.house_name = this.houseService.currentHouse.house_name;
+        }
+        if(this.actualHouse.holding_name == undefined){
+          this.actualHouse.holding_name = this.houseService.currentHouse.holding_name;
+        }
+        if(this.actualHouse.familyCharacteristic == undefined){
+          this.actualHouse.familyCharacteristic = this.houseService.currentHouse.familyCharacteristic;
+        }
+        if(this.actualHouse.shield == undefined){
+          this.actualHouse.shield = this.houseService.currentHouse.shield;
+        }
+        if(this.actualHouse.economyLevels == undefined){
+          this.actualHouse.economyLevels = this.houseService.currentHouse.economyLevels;
+        }
+        if(this.actualHouse.activeChar == undefined){
+          this.actualHouse.activeChar = this.houseService.currentHouse.activeChar;
+        }
+
+
+        this.houseService.currentHouse = this.actualHouse;
+
+        console.log(this.houseService.currentHouse);
+        console.log(this.actualHouse);
+        
+        
+      })
+
+
+  this.houseNotUpdated = true;
+  this.goToNpcForbidden = false;
+}
+
+
 //Cambia el flujo de los disables de los botones en función de modifyLayout
 public modifyLayoutButtons () {
 
-  if(this.houseService.modifyLayout == true || this.houseService.modifyLayout == undefined){
+  if(this.houseService.modifyLayout == true){
     this.houseNotUpdated = false;
     this.goToNpcForbidden = false;
   }else{
@@ -303,26 +254,6 @@ public submitActiveChar(form:NgForm){
 //Va a la página de añadir pnjs al pulsar el botón añadir pnjs.
 public goAddNpcs(){
 
-  // console.log("Id de la casa al pinchar en pnj" + this.currentHouseId);
-  
-
-  // this.houseService.updateHouse(
-  //   this.actualHouse = new House(
-  //     this.actualHouse.house_name,
-  //     this.characterService.currentHouseChars[0].character_id,//no añade el activechar
-  //     this.actualHouse.holding_name,
-  //     this.actualHouse.familyCharacteristic,
-  //     this.selectedShield,this.currentHouseId))//NO RECONOCE EL PUTO ID
-  //     .subscribe((data)=>{
-
-  //       console.log(data);
-    
-  //       this.houseService.currentHouse = this.actualHouse;//iguala la casa del front
-
-  //       console.log("Casa en el servicio una vez modificada: " + this.houseService.currentHouse);
-        
-
-  //     })
 this.houseNotUpdated = false;
 
 if(this.houseService.currentHouse.house_name != null && this.houseService.currentHouse.holding_name != null && this.houseService.currentHouse.familyCharacteristic != null){
