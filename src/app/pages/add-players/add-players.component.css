@@ -20,8 +20,8 @@
 }
 .submain{
     width: 100%;
-    height: 92%;
-    /* border: 2px solid orange; */
+    height: 89%;
+   /*  border: 2px solid orange; */
 
     display: flex;
     flex-direction: column;
@@ -30,67 +30,63 @@
     gap:2%
 }
     .titleContain{
-        /* border: 2px solid blue; */
+       /*  border: 2px solid blue;  */
         width: 40%;
-        height: 22%;
+        height: 25%;
 
         display: flex;
         flex-direction: row;
+        justify-content: center;
+        align-items: center;
 
     }
     .fotoPerfil{
-       /*  border: 2px solid black; */
+       /*  border: 5px solid rgb(58, 5, 181); */
+        width: 30%;
         height: 100%;
-        width: 40%;
-
- /*        background-image: url("../../../assets/img/lacre1.png"); */
-        background-size:contain;
-        background-position: center;
-        background-repeat: no-repeat;
-        position: relative;
+        display: flex;
         justify-content: center;
         align-items: center;
     }
         .fotoPerfil img{
-          /*   border: 2px solid red; */
+           /*  border: 2px solid red; */
             height: 100%;
-            padding-right: 3%;
-            height: auto;
-            position: absolute;
+            width: auto;
+            align-self: center;
+          /*   padding-right: 3%; */
             cursor: pointer;
         }
     .titleText{
-        width: 100%;
-   /*      border: 2px solid brown; */
+        width: 70%;
+        height: 100%;
+       /*  border: 9px solid rgb(149, 165, 42);  */
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        /* line-height: 100%; */
+        /* line-height: 300%; */
       /*   align-items: center;
-        text-align: center; */
         /* gap: 8%; */
     }
     .titleText h1{
         width: 100%;
-        height: 70%;
+        height: 75%;
         text-align: end;
         justify-content: center;
         font-weight: bold;
         color: var(--font-color-hover);
         -webkit-text-stroke: 0.75px var(--font-color-h);
         font-size: 4rem;
-        padding-top: 2%;
-       /*  border: 2px solid red; */
+      /*   border: 2px solid red;  */
     }
     .titleText p{
         width: 100%;
-        height: 30%; 
+        height: 25%; 
         text-align: end;
         justify-content: flex-end;
         color: var(--font-color-warnings);
         font-size: 1.5rem;
         font-weight: bold;
-       /*  border: 2px solid rgb(0, 255, 255); */
+       /*   border: 2px solid rgb(0, 255, 255); */
     }
 .inputplayers{
     /* border: 2px solid orangered; */
@@ -100,6 +96,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    padding-top: 1%;
     gap: 5%;
 }
 .inputplayers input{
@@ -201,7 +198,6 @@ button:disabled{
      .fotoPerfil img{
         border-radius: 55%;
         height: 60%;
-        position: absolute;
         top: 17%;
         left: 15%;
     }
@@ -213,7 +209,6 @@ button:disabled{
     .fotoPerfil img{
         border-radius: 50%;
         height: 38%;
-        position: absolute;
         top: 20%;
         left: 10%;
     }

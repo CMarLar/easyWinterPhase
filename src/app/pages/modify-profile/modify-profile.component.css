@@ -20,13 +20,13 @@
     height: 64%;
     width: 85%;
  
- /*    border: 2px solid purple;  */
+    /* border: 2px solid purple;  */
     margin-top: 2%;
 
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    gap:4%;
+    justify-content: space-between;
+    /* gap:4%; */
 }
     .avatar_selector{
          display: flex;
@@ -34,15 +34,14 @@
          justify-content:center;
          align-items:center;
          flex-wrap: wrap;
-         gap:1%;
-         padding-top: 5%;
+         gap: 2%;
          height: 100%;
-         width: 60%;
-         /* border: 5px solid yellow  */
+         width: 24%;
+        /*  border: 5px solid yellow */
     }
     .avatar_selector img{
-        min-width: 33%;
-        max-width: 33%;
+        min-width: 50%;
+        max-width: 50%;
       /*   margin-block-end: 2%; */
         transition: all .2s ease-in;
       /*   border: 5px solid rgb(108, 165, 42); */ 
@@ -67,9 +66,10 @@
     .fade-in img{
 
         /* border: 5px solid rgb(255, 77, 0); */
-        width: 100%;
+        width: auto;
+        height: 100%;
         align-content: center;
-         padding-top: 12%;
+        padding-top: 12%;
     }
     
     .fade-in img :hover{
@@ -104,11 +104,11 @@
 .dataUser{
     width: 40%;
     height: 100%;
- /*    border: 2px solid blue; */
+    /* border: 2px solid blue; */
 
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: end;
     
     align-items: center;
 
