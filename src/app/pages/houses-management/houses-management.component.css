@@ -5,101 +5,112 @@
     /* border: 2px solid black; */
 }
 
-.profile_pic{
-    position: absolute;
-    top: 12%;
-    right: 10%;
-    width: auto;
-    height: auto;
-    /* border: 5px solid yellowgreen; */
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    background-image: url(../../../assets/img/lacre1.png);
-    background-size:cover;
-}
-
-.profile_pic img{
-    margin-left: 5px;
-    border-radius: 100%;
-    width: 100px;
-    height: 100px;
-}
 
 .supercontainer{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     width: auto;
     height: 100vh;
-    padding-top: 7vh;
-    background-image: url(../../../assets/backgrounds/bg_pergamino_1.jpg);
+    background-image: url(../../../assets/backgrounds/doble_dragon-cola.png);
     background-size:cover;
     background-repeat: no-repeat;
-    /* border: 5px solid blue; */
+/*     border: 5px solid blue;  */
 }
 .maincontainer{
     display: flex;
     flex-direction: row;
-    /* border: 5px solid red; */
-    height: 100%;
-    width: auto;
-    padding-bottom: 10vh;
+   /*  border: 5px solid red; */
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    width: 100%;
 
 }
+.cabecera{
 
-.page_title{
-    color: var(--font-color-h);
-    font-size: 400%;
-}
-
-.page_subtitle{
-    color: var(--font-color-primary);
-    font-size: 200%;
-}
-
-
-.left{
+    width: 100%;
+    height: 20%;
+    margin-top: 5%;
     display: flex;
-    flex-direction: column;
-    width: 45%;
-    height: 65%;
-    /* border: 5px solid pink; */
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+   /*  border: 5px solid rgb(137, 88, 149);  */
 }
-.image_left{
+      .profile_pic{
+   
+       width: 40%;
+       height: 100%;
+       justify-self: flex-end; 
+       align-self: flex-end;
+     /*   border: 5px solid yellowgreen; */
+   
+   }
+   
+   .profile_pic img{
+       height: 100%;
+       margin-left: 40%;
+       justify-self: flex-end;
+    
+   }
+   .title{
+
+         width: 60%;
+         height: 70%;
+         justify-content: end;
+      /*    border: 5px solid rgb(135, 141, 27); */
+    }
+            .page_title{
+                color: var(--font-color-hover);
+                -webkit-text-stroke: 2px var(--font-color-h);
+               /*  text-decoration: line-through; */
+                font-size: 4rem;
+                text-align: end;
+                /* border: 2px solid rgb(255, 0, 230); */ 
+                font-weight: bold;
+                width: 80%;
+                height: 70%;
+            }
+            
+            .page_subtitle{
+                color: var(--font-color-warnings);
+                text-align: end;
+                font-size: 2rem;
+                font-weight: bold;
+                justify-self: flex-end;
+                width: 80%;
+                height: 30%;
+              /*   border: 2px solid rgb(0, 60, 255);  */
+            }
+
+
+ .texto{
+            
+/*     flex-wrap: wrap; */
+  /*   border:1px solid rgb(180, 123, 148); */
+    color: var( --font-color-warnings);
+   -webkit-text-stroke: 2px var(--font-color-hover);
+    font-weight: bold;
+   /*  text-decoration:underline; */
+    font-size: 2rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+   /*  width: 100%; */
+
 }
 
 .right{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 55%;
-    height: 65%;
-    padding-right: 5%;
-    /* border: 5px solid black; */
-}
-
-.title{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content:space-between;
     align-items: center;
-    padding-right: 200px;
-    /* border: 5px solid brown; */
-}
-
-.image_left{
-    height: 70vh;
-    /* border: 5px solid green; */
-
-}
-
-.imageleft{
+    width: 100%;
     height: 100%;
-    /* border: 5px solid green; */
-
+    /*  border: 5px solid rgb(236, 6, 175);   */
 }
 
 /* .container{
@@ -107,8 +118,11 @@
 } */
 
 .playerlist{
-    /* border: 5px solid yellow; */
-    margin-top: 5%;
+   /*   border: 5px solid yellow;  */
+    justify-content:center;
+    justify-items: center;
+    height: 90%;
+    width: 100%;
 }
     /* .playerlist img{
         width: 64px;
@@ -117,7 +131,7 @@
 
 
 .playerempty{
-    /* border: 5px solid green; */
+   /*  border: 5px solid green; */
     display: flex;
     flex-direction: row;
 }
@@ -126,7 +140,7 @@
 
     display: flex;
     flex-direction: row;
-    padding-bottom: 5px;
+    /* padding-bottom: 5px; */
 }
 
     .noshield{
@@ -143,21 +157,25 @@
     /* Te quité los bordes, que nunca te acuerdas */
     .playername{
         display: flex;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: var(--font-color-hover);
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        /* border: 5px solid red; */
-        width: 50%;
-        background-image: url(../../../assets/img/banner_player.png);
-        background-size:contain;
-        background-repeat: no-repeat;
-        background-position: center;
+        margin-top: 3%;
+       /*  border: 5px solid red; */
+        
+        width: 40%;
+        height: 5%;
     }
         .playername p{
             width: 100%;
             height: 80%;
-            /* border: 2px solid orange; */
-
+           /*  border: 2px solid orange; */
+           color: var(--font-color-hover);
+           /* text-decoration-line: underline; */
+           font-weight: bold;
             display: flex;
             flex-direction: row;
             justify-content: center;
@@ -165,7 +183,7 @@
         }
         .playername p a{
             width: 80%;
-            /* border: 2px solid black; */
+           /*   border: 2px solid black;  */
             text-align: center;
             cursor: pointer;
         }
@@ -178,6 +196,7 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
+       /*  border: 2px solid rgb(95, 200, 116);  */
     }
         .skull img{
             width: 35px;
@@ -188,6 +207,7 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
+       /*  border: 2px solid rgb(163, 95, 200);  */ 
     }
 
         .quill img{
@@ -196,14 +216,23 @@
 
 
 .year{
-    /* border: 5px solid purple; */
+   /*  border: 5px solid purple; */
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    height: 15%;
+ /*    margin-left: 20%; */
+}
+.botones{
+    width: 100%;
+    height: 20%;
     display: flex;
     flex-direction: row;
-    gap: 5px;
-    padding-right: 5%;
-    padding-left: 5%;
-    padding-top:3%;
-    padding-bottom:3%
+   /*   border: 5px solid purple; */
+    justify-content: center;
+ 
 }
 
 .buttons{    
@@ -211,21 +240,22 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 50%;
-    gap:20px;
-    /* border: 5px solid orangered; */
-    padding-top: 5%;
-    margin-left: 64px;
-    padding-right: 64px;
-    /* width: 64px;
-    height: 44px ; */
+   /*  border: 5px solid orangered;  */
+    width: 20%;
+    height: 90%;
 }
+
     button{
         background-color: var(--font-color-h);
-        font-size: larger;
-        border-radius: 3px;
-        padding: 15px 32px;
-        color: white;
+        font-size: 1.2rem;
+        border-radius: 10px;
+        font-weight: bold;
+        color: var(--font-color-hover);
+        border: none;
+        text-decoration: none;
+        margin-left: 1%;
+        width: 70%;
+        height: 55%; 
     }
 
     button:hover{
@@ -234,16 +264,29 @@
     }
 
     button:disabled{
-        background-color: grey;
+        background-color: rgb(38, 56, 46);
+        width: 100%;
+        height: 100%;
         color:black;
-        cursor:default
+        border-radius: 10px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-right: 1%;
+        width: 70%;
+        height: 55%;
     }
 
 input{
     background-color: var(--background-color-input);
-    height:40px;
-    border-radius: 4px;
-    font-size: larger
+  /*  height: 100%; */
+    width: 25%;
+    border-radius: 5px;
+    border: none;
+    text-decoration: none;
+    text-align: center;
+    color: var(--font-color-hover);
+    font-size: 2rem;
+    align-items: flex-end;
 }
 
 input label{
@@ -252,7 +295,7 @@ input label{
 
 h3{
     color: var(--font-color-primary);
-    font-size: 200%;
+   /*  font-size: 200%; */
 }
 
 .skull img:hover{

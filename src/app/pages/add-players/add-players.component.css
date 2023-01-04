@@ -53,7 +53,7 @@
     }
         .fotoPerfil img{
           /*   border: 2px solid red; */
-            width: 110%;
+            height: 100%;
             padding-right: 3%;
             height: auto;
             position: absolute;
@@ -156,7 +156,9 @@ button:disabled{
     background-color: rgb(38, 60, 46);
     border-radius: 10px;
     border: none;
+    text-decoration: none;
     color: black;
+    line-height: 100%;
     font-weight: bold;
     font-size: 1.2rem;
 }
@@ -182,6 +184,8 @@ button:disabled{
     width: 30%;
     background-color:var(--font-color-h);
     font-size: 1.2rem;
+    border: none;
+    text-decoration: none;
     cursor: default;
     font-weight: bold;
     border-radius: 10px;
@@ -194,13 +198,13 @@ button:disabled{
 }
     
 @media screen and (max-width: 1367px){
-   /*  .fotoPerfil img{
+     .fotoPerfil img{
         border-radius: 55%;
         height: 60%;
         position: absolute;
         top: 17%;
         left: 15%;
-    } */
+    }
     .titleText h1{
         font-size: 2.5rem;
     }

@@ -60,7 +60,7 @@
         }
             .fotoPerfil img{
                /*  border-radius: 50%; */
-                width: 100%;
+                width: 90%;
                 position: absolute;
                 cursor: pointer;
                 align-self: center;
