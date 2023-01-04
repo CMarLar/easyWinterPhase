@@ -24,13 +24,19 @@
 
                     <!-- Jugadores -->
 
-                    <ng-container *ngFor="let player of actualYear.players">
-                    <div class="players" *ngIf="player.id!=null;else noplayer">
+                    <ng-container *ngFor="let player of players">
+                    <div class="players" *ngIf="player.player_id!=null;else noplayer">
                         
-                        <span class="shield_img"><img [src]="player.shield"></span>
-                        <span>{{player.house}}</span>
-                        <span>{{player.name}}</span>
-                        <span *ngIf="player.winterPhaseDone==false;else winterPhaseFinished">
+                        <span class="shield_img">
+                            <!-- <img [src]="player.shield"> --><img src="../../../assets/img/escudo1.png" alt="Placeholder">
+                        </span>
+                        <span>
+                            <!-- {{player.house}} -->Placeholder casa
+                        </span>
+                        <span>
+                            {{player.player_name}}
+                        </span>
+                        <span *ngIf="player.winterPhaseDone==0;else winterPhaseFinished">
                             <button class="small_button" (click)="doWinterPhase()">
                                 Comenzar
                             </button>

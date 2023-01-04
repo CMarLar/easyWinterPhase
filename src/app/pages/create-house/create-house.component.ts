@@ -274,13 +274,34 @@ this.router.navigateByUrl("/addnpc");
 
 }
 
-//Va atrás sin guardar los cambios al pulsar el botón cancelar
+//Vuelve atrás y guarda currentHouse del front en el array de casas housesof Campaign
 public goBack(){
   this.router.navigateByUrl("/housesmanagement");
 
-  //Debería borrar la casa y los personajes en función de una condición. Por ejemplo, que la casa tenga todo vacío, si no, que simplemente vaya para atrás.
-
+  console.log("actualHouse: " + JSON.stringify(this.actualHouse));
+  
   console.log("houseService.currentHouse al volver a housemanagement" + JSON.stringify(this.houseService.currentHouse));
+
+  for (let i = 0; i < this.houseService.housesOfCamapaign.length; i++) {
+
+    if(this.houseService.currentHouse.house_id == this.houseService.housesOfCamapaign[i].house_id){
+
+      this.houseService.housesOfCamapaign[i].house_name = this.houseService.currentHouse.house_name;
+      this.houseService.housesOfCamapaign[i].activeChar = this.houseService.currentHouse.activeChar;
+      this.houseService.housesOfCamapaign[i].holding_name = this.houseService.currentHouse.holding_name;
+      this.houseService.housesOfCamapaign[i].familyCharacteristic = this.houseService.currentHouse.familyCharacteristic;
+      this.houseService.housesOfCamapaign[i].shield = this.houseService.currentHouse.shield;
+      this.houseService.housesOfCamapaign[i].economyLevels = this.houseService.currentHouse.economyLevels;
+
+
+    }
+
+    console.log("houseService.housesOfCampaign con la nueva casa: " + JSON.stringify(this.houseService.housesOfCamapaign));
+    
+
+  }
+
+
 
 }
 

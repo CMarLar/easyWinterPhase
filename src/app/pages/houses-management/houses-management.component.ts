@@ -58,6 +58,9 @@ export class HousesManagementComponent {
 
     this.yearEmpty=true
     console.log(this.yearEmpty);
+
+    console.log("houseService.housesOfCampaign: " + JSON.stringify(this.houseService.housesOfCamapaign));
+    
     
   }
 
@@ -163,7 +166,7 @@ export class HousesManagementComponent {
   public goToCreateHouse(id : number){
     console.log("ID:" + id);
     
-    
+    this.houseService.modifyLayout = undefined;//Esto hace que siempre salga la plantilla con los campos para caballero y escudero
 
     this.houseService.postHouse(this.newHouse = new House(null,null,null,null,null,null,null)).subscribe((data : any) =>{
       console.log("DATA: " + data.insertId);
@@ -209,6 +212,8 @@ export class HousesManagementComponent {
   }
 
   public modifyHouse(house_id : number){
+
+    this.houseService.modifyLayout = true;//para que salga el desplegable en createhouse
 
     for (let i = 0; i < this.houseService.housesOfCamapaign.length; i++){
 
