@@ -26,14 +26,15 @@ export class WinterPhaseMainComponent {
 
   public houses:House[];
 
-  public playersAndHouses:any;
+  public playersAndHouses:any;//Array de objetos literales que agrupan las casa del jugador y el jugador.
 
   public playersNotReady:boolean;
 
-    constructor(public router:Router, public campaignService:CampaignService, public yearService:YearService, public playerService:PlayerService, public houseService:HouseService, ){
+    constructor(public router:Router, public campaignService:CampaignService, public yearService:YearService, public playerService:PlayerService, public houseService:HouseService, public characterService:CharacterService, ){
 
-      this.campaignName = this.campaignService.currentCampaign.campaign_name//Esto debería importar el nombre de la campaña sin problemas
+      this.campaignName = this.campaignService.currentCampaign.campaign_name;
       console.log("CampaignName: " + this.campaignName);
+
       console.log("campaignService.currentCampaign: " + JSON.stringify(this.campaignService.currentCampaign)); 
       
       this.currentYear = this.yearService.currentYear//Esto debería importar el año
@@ -46,37 +47,38 @@ export class WinterPhaseMainComponent {
       this.houses = this.houseService.housesOfCamapaign//Importa todo el array de casas.
       console.log("Houses: " + JSON.stringify(this.houses));
 
-      console.log("houseService.housesOfCampaign: " + JSON.stringify(this.houseService.housesOfCamapaign));
 
-      /*Tenemos dos arrays (players y houses) y hay que convertirlo en uno para que salgan los dos en la misma línea
+      this.playersAndHouses = [];
 
-      La posición de una casa en el array houses pertenece al jugador con la misma posición en el array players. Los dos arrays tienen misma length.
-
-      */
-
+      for (let i = 0; i < this.players.length; i++) {
+        this.playersAndHouses.push({player: {player_id:null,house_id:null,campaign_id:null,player_name:null,winterPhaseDone:null},
+                                    house:{house_id:null,house_name:null,activeChar:null,holding_name:null,familyCharacteristic:null,shield:null,economyLevels:null}})
+        
+      }
+      
       for (let i = 0; i < this.players.length; i++) {
         this.playersAndHouses[i].player.player_id = this.players[i].player_id;
         this.playersAndHouses[i].player.house_id = this.players[i].house_id;
         this.playersAndHouses[i].player.campaign_id = this.players[i].campaign_id;
         this.playersAndHouses[i].player.player_name = this.players[i].player_name;
         this.playersAndHouses[i].player.winterPhaseDone = this.players[i].winterPhaseDone;
-        console.log(this.playersAndHouses.player[i]);
         
       }
 
       for (let i = 0; i < this.houses.length; i++) {
-        this.playersAndHouses[i].houses.house_id = this.houses[i].house_id;
-        this.playersAndHouses[i].houses.house_name = this.houses[i].house_name;
-        this.playersAndHouses[i].houses.activeChar = this.houses[i].activeChar;
-        this.playersAndHouses[i].houses.holding_name = this.houses[i].holding_name;
-        this.playersAndHouses[i].houses.familyCharacteristic = this.houses[i].familyCharacteristic;
-        this.playersAndHouses[i].houses.shield = this.houses[i].shield;
-        this.playersAndHouses[i].houses.economyLevels = this.houses[i].economyLevels;
-        console.log(this.playersAndHouses.houses[i]);
+        this.playersAndHouses[i].house.house_id = this.houses[i].house_id;
+        this.playersAndHouses[i].house.house_name = this.houses[i].house_name;
+        this.playersAndHouses[i].house.activeChar = this.houses[i].activeChar;
+        this.playersAndHouses[i].house.holding_name = this.houses[i].holding_name;
+        this.playersAndHouses[i].house.familyCharacteristic = this.houses[i].familyCharacteristic;
+        this.playersAndHouses[i].house.shield = this.houses[i].shield;
+        this.playersAndHouses[i].house.economyLevels = this.houses[i].economyLevels;
+
       }
       
-      console.log("Players and Houses"  + this.playersAndHouses);
-      console.log("Players and Houses stringy"  + JSON.stringify(this.playersAndHouses));
+      console.log("Players and Houses con players y houses"  + JSON.stringify(this.playersAndHouses));
+
+      console.log("ALL CHARACTERS OF CAMPAIGN: " + JSON.stringify(this.characterService.allCharactersOfCampaign));//aquí da vacío, porque pasa de página antes de que el array se llene con los personajes. En el console log, se puede ver que después se llena.
       
 
       // this.actualYear = 
@@ -106,8 +108,46 @@ export class WinterPhaseMainComponent {
     }
 
 
-    public doWinterPhase(){
-      this.router.navigateByUrl("/phase1")
+    public doWinterPhase(house_id:number){
+
+      console.log("ALL CHARACTERS OF CAMPAIGN: " + JSON.stringify(this.characterService.allCharactersOfCampaign))
+
+      for (let i = 0; i < this.playersAndHouses.length; i++) {
+        if(this.playersAndHouses[i].player.house_id == house_id){
+
+          //Igualamos la casa del servicio a la casa del componente
+          this.houseService.currentHouse.house_id = this.playersAndHouses[i].house.house_id;
+          this.houseService.currentHouse.house_name = this.playersAndHouses[i].house.house_name;
+          this.houseService.currentHouse.activeChar = this.playersAndHouses[i].house.activeChar;
+          this.houseService.currentHouse.holding_name = this.playersAndHouses[i].house.holding_name;
+          this.houseService.currentHouse.familyCharacteristic = this.playersAndHouses[i].house.familyCharacteristic;
+          this.houseService.currentHouse.shield = this.playersAndHouses[i].house.shield;
+          this.houseService.currentHouse.economyLevels = this.playersAndHouses[i].house.economyLevels;
+
+          //Igualamos el jugador del servicio al jugador del componente
+          this.playerService.currentPlayer.player_id = this.playersAndHouses[i].player.player_id
+          this.playerService.currentPlayer.house_id = this.playersAndHouses[i].player.house_id
+          this.playerService.currentPlayer.campaign_id = this.playersAndHouses[i].player.campaign_id
+          this.playerService.currentPlayer.player_name = this.playersAndHouses[i].player.player_name
+          this.playerService.currentPlayer.winterPhaseDone = this.playersAndHouses[i].player.winterPhaseDon
+
+
+        }
+        
+      }
+          //Introducimos los personajes de la casa seleccionada en el array currentHouseChars
+          this.characterService.currentHouseChars = [];
+      for (let i = 0; i < this.characterService.allCharactersOfCampaign.length; i++) {
+        if(this.houseService.currentHouse.house_id == this.characterService.allCharactersOfCampaign[i].house_id){
+          this.characterService.currentHouseChars.push(this.characterService.allCharactersOfCampaign[i])
+        }
+        
+      }
+
+      console.log("Current House en servicio: " + JSON.stringify(this.houseService.currentHouse));
+      console.log("Current Player en servicio: " + JSON.stringify(this.playerService.currentPlayer));
+      console.log("Current house Characters en servicio: " + JSON.stringify(this.characterService.currentHouseChars));
+      // this.router.navigateByUrl("/phase1")//REACTIVAR CUANDO PASE BIEN EL CURRENTHOUSE Y TODO LO DEMÁS
     }
 
     // // FALTA REHACER ESTA

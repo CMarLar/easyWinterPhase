@@ -151,8 +151,10 @@ export class CurrentCampaignComponent {
                     this.characters.push(data[j]);
                     this.characterService.allCharactersOfCampaign.push(data[j]);
                   }
-        
-                  // console.log("ESTOS SON LOS PNJ PUSHEADOS: " + this.characters);
+                  console.log("ALL CHARACTERS OF CAMPAIGN: " + JSON.stringify(this.characterService.allCharactersOfCampaign));
+                  
+                    
+                  console.log("ESTOS SON LOS PNJ PUSHEADOS: " + this.characters);
                   //HACEMOS LA INSERCCION DE LOS NUEVOS PNJ CON EL AÑO CAMBIADO
             
 
