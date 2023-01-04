@@ -1,26 +1,21 @@
 <!-- <p>houses-management works!</p> -->
 <app-header class="component"></app-header>
 <div class="supercontainer">
-    <div class="title">
-        <p class="page_title">Creación de casas</p>
-        <p class ="page_subtitle">{{campaignName}}</p>
-    </div>
-<div class="profile_pic">
-    <a routerLink = "/profile"><img [src]="profilePic" alt="" srcset=""></a>
-</div>
-
-
-<div class="maincontainer">
-    <div class="left">
-        <div class="image_left">
-            <img  src="../../../assets/img/ReinaGinebra 2.png" alt="" srcset="" class="imageleft">
-        </div>
+    <div class="cabecera">
+          <div class="profile_pic">
+                <a routerLink = "/profile"><img src="../../../assets/img/avatar1.png" alt="" srcset=""></a>
+          </div>
+          <div class="title">
+                <p class="page_title">CREACIÓN DE CASAS</p>
+                <p class ="page_subtitle">{{campaignName}}</p>
+          </div>
     </div>
 
+<div class="maincontainer"><!-- quito a Ginebra y su contebedor LEFTS -->
     <div class="right">
         <form #yearForm="ngForm" (ngSubmit)="onSubmit(yearForm)" class="yearForm" >
             <div class="year">
-                <h3>AÑO DE INICIO: </h3>
+                <h3 class="texto">AÑO DE INICIO: &nbsp;</h3>
                 <div class="inputyear">
                     <input type="number" label="Año" name="year" [(ngModel)]="year.yearNumber" #year1="ngModel" [ngClass]="{ 'is-invalid' : year1.pristine && year1.invalid}" required>
 
@@ -55,7 +50,8 @@
                     <div class="quill"></div>
                 </ng-template>
         </div>
-        </div>
+      </div>
+    </form>
 
 
         <!-- <div class="playerOk">
@@ -69,18 +65,14 @@
         </div> -->
 
 <!-- <ng-container *ngIf="asignedHouse==false";else allHousesAssigned> -->
-
-
-    <div class="buttons">
-        <button  [disabled]="housesNotAsigned || year1.invalid" style="padding: 30px 60px; font-size:xx-large">JUGAR CAMPAÑA</button>
+    <div class="botones">
+        <div class="buttons">
+             <button  [disabled]="housesNotAsigned || year1.invalid">JUGAR CAMPAÑA</button>
         <!-- @Miguel, intento añadir "&& (year.dirty || year.invalid)", pero no me lo coge, de hecho, es como si desvalidara el anterior disable -->
-    </div>
-
-
-</form>
-
-    <div class="buttons">
-        <button (click)="goBack()"> Atrás </button>
+        </div>
+        <div class="buttons">
+             <button (click)="goBack()"> VOLVER </button>
+        </div>
     </div>
 
 

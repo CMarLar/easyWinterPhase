@@ -3,6 +3,7 @@
     position:absolute;
     width: 100%;
     /* border: 2px solid black; */
+    background-color: rgb(18,19,17);
 }
 
 .supercontainer{
@@ -23,7 +24,7 @@
    /*  border: 5px solid red; */
     height: 85%;
     width: 100%;
-    padding-bottom: 1.95vh;
+ /*    padding-bottom: 1.95vh; */
 
 }
 .title{
@@ -76,8 +77,8 @@
     justify-content: space-between;
     padding-left: 5%;
     width: 50%;
-    height: 97%;
- /*    border: 5px solid pink; */
+    height: 98%;
+    /* border: 5px solid pink; */
 
 
 }
@@ -205,25 +206,27 @@
                 text-align: center;
             }
     
-    .npc_list{/* soace evently */
-         /*  border:2px solid red;  */
+    .npc_list{/* space evently */
+        /*  border:2px solid red;  */
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        flex-direction: row;
+        justify-content: space-evenly;
+        text-align: center;
         flex-wrap: wrap;
+        
         color: var(--font-color-hover);
         width: 100%;
-        height: 30%;
+        height: 55%;
     }
 
         .header{
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: space-evenly;
             flex-wrap: wrap;
             /* padding-bottom: 5px; */
             width: 95%;
-            /*  border:2px solid red */
+           /*  border:2px solid red */
              
         }
         
@@ -233,17 +236,17 @@
                 justify-content: center;
                 align-items: center;
                 width: 20%;
-               /*  border:2px solid orangered; */
+                /* border:2px solid orangered;  */
             }
 
-        .character{
+        .character{/* AQUÍ HE TOCADO */
             display: flex;
             flex-direction: row;
-            justify-content:space-between;
+            justify-content:center;
             flex-wrap: wrap;
-           /*  border:2px solid blue ; */
+            /* border:2px solid blue ; */
             width: 95%;
-            height: 30%;
+            height: 7%;/* antes 15% */
       
         }
 
@@ -253,14 +256,14 @@
                 justify-content: center;
                 align-items: center;
                 width: 20%;
-                /* border:2px solid orangered */
+               /*  border:2px solid orangered  */
             }
 
         .editchar{/* wrap */
             display: flex;
             /* flex-wrap: wrap; */
             flex-direction: row;
-            /* border:2px solid green; */
+            /* border:2px solid green;  */
             justify-content: center;
             align-items: center;
             width: 20%;
@@ -284,7 +287,7 @@
     width: 50%;
     height: 100%;
     /* padding-right: 5%; */
-    /* border: 5px solid black; */
+   /*  border: 5px solid rgb(216, 11, 11); */
 }
 
 .shield_selector{

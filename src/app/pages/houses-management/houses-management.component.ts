@@ -33,6 +33,7 @@ export class HousesManagementComponent {
   public yearEmpty:boolean
 
   public newHouse : House;
+  public avatar1: string;
 
   //
   //
@@ -45,7 +46,7 @@ export class HousesManagementComponent {
     this.campaignName="Campaña de Carlos"
     this.shieldImage="../../../assets/img/escudo1.png"
     this.emptyShield="../../../assets/img/emptyshield.png"
-    this.profilePic="../../../assets/img/carlos-marina_9131-bw.jpg"
+    this.avatar1= "../../../assets/img/avatar2.png"
 
     //Valida para cambiar el botón
     this.housesNotAsigned=true
