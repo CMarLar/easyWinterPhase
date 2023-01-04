@@ -48,12 +48,12 @@ export class AddPlayersComponent {
     //             campaigns : ["Campaña 1","Campaña 2","Campaña 3","Campaña 4","Campaña 5","Campaña 6"]};
 
     
-    this.jugador1 = {player_id:null,house_id:null,campaign_id:this.campaignService.currentCampaign.campaign_id,player_name : "",winterPhaseDone:false};
-    this.jugador2 = {player_id:null,house_id:null,campaign_id:this.campaignService.currentCampaign.campaign_id,player_name : "",winterPhaseDone:false};
-    this.jugador3 = {player_id:null,house_id:null,campaign_id:this.campaignService.currentCampaign.campaign_id,player_name : "",winterPhaseDone:false};
-    this.jugador4 = {player_id:null,house_id:null,campaign_id:this.campaignService.currentCampaign.campaign_id,player_name : "",winterPhaseDone:false};
-    this.jugador5 = {player_id:null,house_id:null,campaign_id:this.campaignService.currentCampaign.campaign_id,player_name : "",winterPhaseDone:false};
-    this.jugador6 = {player_id:null,house_id:null,campaign_id:this.campaignService.currentCampaign.campaign_id,player_name : "",winterPhaseDone:false};
+    this.jugador1 = {player_id:null,house_id:null,campaign_id:this.campaignService.currentCampaign.campaign_id,player_name : "",winterPhaseDone:0};
+    this.jugador2 = {player_id:null,house_id:null,campaign_id:this.campaignService.currentCampaign.campaign_id,player_name : "",winterPhaseDone:0};
+    this.jugador3 = {player_id:null,house_id:null,campaign_id:this.campaignService.currentCampaign.campaign_id,player_name : "",winterPhaseDone:0};
+    this.jugador4 = {player_id:null,house_id:null,campaign_id:this.campaignService.currentCampaign.campaign_id,player_name : "",winterPhaseDone:0};
+    this.jugador5 = {player_id:null,house_id:null,campaign_id:this.campaignService.currentCampaign.campaign_id,player_name : "",winterPhaseDone:0};
+    this.jugador6 = {player_id:null,house_id:null,campaign_id:this.campaignService.currentCampaign.campaign_id,player_name : "",winterPhaseDone:0};
 
     this.players = [];//array de objetos jugadores
 
@@ -70,7 +70,7 @@ export class AddPlayersComponent {
 
       if(form.value[values] != undefined){
 
-        this.players.push(new Player(null,null,this.campaignService.currentCampaign.campaign_id,form.value[values],false))
+        this.players.push(new Player(null,null,this.campaignService.currentCampaign.campaign_id,form.value[values],0))
 
       }
 

@@ -24,14 +24,23 @@
 
                     <!-- Jugadores -->
 
-                    <ng-container *ngFor="let player of actualYear.players">
-                    <div class="players" *ngIf="player.id!=null;else noplayer">
+                    <ng-container *ngFor="let jugador of playersAndHouses">
+                    <div class="players" *ngIf="jugador.player.player_id!=null;else noplayer">
                         
-                        <span class="shield_img"><img [src]="player.shield"></span>
-                        <span>{{player.house}}</span>
-                        <span>{{player.name}}</span>
-                        <span *ngIf="player.winterPhaseDone==false;else winterPhaseFinished">
-                            <button class="small_button" (click)="doWinterPhase()">
+                        <span class="shield_img">
+                            <img [src]="jugador.house.shield">
+                            <!-- <img src="../../../assets/img/escudo1.png" alt="Placeholder"> -->
+                        </span>
+                        <span>
+                            {{jugador.house.house_name}}
+                            <!-- Placeholder casa -->
+                        </span>
+                        <span>
+                            {{jugador.player.player_name}}
+                        </span>
+                        <!-- Hay que cambiar los falses a 0 probablemente -->
+                        <span *ngIf="jugador.player.winterPhaseDone==0;else winterPhaseFinished">
+                            <button class="small_button" (click)="doWinterPhase(jugador.house.house_id)">
                                 Comenzar
                             </button>
                         </span>
@@ -40,6 +49,8 @@
                     </div>
                     
                     </ng-container>
+
+
                     <ng-template #winterPhaseFinished>
                         <span class="complete">
                             ¡Completada!

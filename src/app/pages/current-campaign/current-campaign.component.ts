@@ -47,6 +47,8 @@ export class CurrentCampaignComponent {
 
     constructor(public router:Router, public yearService : YearService, public playerService : PlayerService,public campaignService : CampaignService,public houseService : HouseService, public characterService : CharacterService){    
       
+      console.log("houseService.housesOfCampaign: " + JSON.stringify(this.houseService.housesOfCamapaign));
+
       this.characters = [];
       this.isChangeCharacterHide = true;
       this.isnewPlayerNameHide = true;
@@ -63,6 +65,8 @@ export class CurrentCampaignComponent {
       console.log("PLAYERS 2 : " + JSON.stringify(this.playerService.playersOfCampaign[2]));
       this.houses = [];
       this.ordenarArrayCasas();
+
+      console.log("houseService.housesOfCampaign: " + JSON.stringify(this.houseService.housesOfCamapaign));
 
     //Fin del constructor
     }
@@ -147,8 +151,10 @@ export class CurrentCampaignComponent {
                     this.characters.push(data[j]);
                     this.characterService.allCharactersOfCampaign.push(data[j]);
                   }
-        
-                  // console.log("ESTOS SON LOS PNJ PUSHEADOS: " + this.characters);
+                  console.log("ALL CHARACTERS OF CAMPAIGN: " + JSON.stringify(this.characterService.allCharactersOfCampaign));
+                  
+                    
+                  console.log("ESTOS SON LOS PNJ PUSHEADOS: " + this.characters);
                   //HACEMOS LA INSERCCION DE LOS NUEVOS PNJ CON EL AÑO CAMBIADO
             
 
