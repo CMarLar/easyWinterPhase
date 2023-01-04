@@ -237,18 +237,27 @@ export class AddNpcToHouseComponent {
     
     console.log("formNpcCopy con spread operator: " + formNpcCopy);
     
-    //Al array del front
-    this.currentHouseChars.push(
-      new Character (null,this.currentHouseId,null,formNpcCopy.char_name,formNpcCopy.age,1,0,0,0,formNpcCopy.role,formNpcCopy.sex)
-    );
-    console.log(this.currentHouseChars);
+    let newCharacter:Character = new Character(null,this.currentHouseId,null,formNpcCopy.char_name,formNpcCopy.age,1,0,0,0,formNpcCopy.role,formNpcCopy.sex);
 
     //A la base de datos.
-    this.characterService.newCharacter(new Character(null,this.currentHouseId,null,formNpcCopy.char_name,formNpcCopy.age,1,0,0,0,formNpcCopy.role,formNpcCopy.sex)).subscribe((data)=>{
+    this.characterService.newCharacter(newCharacter).subscribe((data:any)=>{
       console.log(data);
 
-      this.showHouseChars(this.currentHouseId)
+      newCharacter.character_id = data.insertId
+
+      //Al array del front
+      this.currentHouseChars.push(newCharacter);
+      this.characterService.allCharactersOfCampaign.push(newCharacter)
+
+      console.log("All chars of campaign: " + this.characterService.allCharactersOfCampaign);
       
+
+      console.log(this.currentHouseChars);
+
+        this.showHouseChars(this.currentHouseId)
+        
+
+
     })
     
   }

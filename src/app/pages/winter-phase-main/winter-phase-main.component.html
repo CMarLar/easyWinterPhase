@@ -39,7 +39,7 @@
                             {{jugador.player.player_name}}
                         </span>
                         <!-- Hay que cambiar los falses a 0 probablemente -->
-                        <span *ngIf="jugador.player.winterPhaseDone==false;else winterPhaseFinished">
+                        <span *ngIf="jugador.player.winterPhaseDone==0;else winterPhaseFinished">
                             <button class="small_button" (click)="doWinterPhase(jugador.house.house_id)">
                                 Comenzar
                             </button>

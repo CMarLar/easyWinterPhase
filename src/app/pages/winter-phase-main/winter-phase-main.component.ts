@@ -50,6 +50,7 @@ export class WinterPhaseMainComponent {
 
       this.playersAndHouses = [];
 
+      //Llenamos el array playersAndHouses
       for (let i = 0; i < this.players.length; i++) {
         this.playersAndHouses.push({player: {player_id:null,house_id:null,campaign_id:null,player_name:null,winterPhaseDone:null},
                                     house:{house_id:null,house_name:null,activeChar:null,holding_name:null,familyCharacteristic:null,shield:null,economyLevels:null}})
@@ -115,6 +116,8 @@ export class WinterPhaseMainComponent {
       for (let i = 0; i < this.playersAndHouses.length; i++) {
         if(this.playersAndHouses[i].player.house_id == house_id){
 
+          this.playersAndHouses[i].player.winterPhaseDone = 1//PRUEBA PARA VER EL CAMBIO DEL BOTÓN
+
           //Igualamos la casa del servicio a la casa del componente
           this.houseService.currentHouse.house_id = this.playersAndHouses[i].house.house_id;
           this.houseService.currentHouse.house_name = this.playersAndHouses[i].house.house_name;
@@ -129,7 +132,7 @@ export class WinterPhaseMainComponent {
           this.playerService.currentPlayer.house_id = this.playersAndHouses[i].player.house_id
           this.playerService.currentPlayer.campaign_id = this.playersAndHouses[i].player.campaign_id
           this.playerService.currentPlayer.player_name = this.playersAndHouses[i].player.player_name
-          this.playerService.currentPlayer.winterPhaseDone = this.playersAndHouses[i].player.winterPhaseDon
+          this.playerService.currentPlayer.winterPhaseDone = this.playersAndHouses[i].player.winterPhaseDone
 
 
         }
@@ -144,32 +147,34 @@ export class WinterPhaseMainComponent {
         
       }
 
+
+
       console.log("Current House en servicio: " + JSON.stringify(this.houseService.currentHouse));
       console.log("Current Player en servicio: " + JSON.stringify(this.playerService.currentPlayer));
       console.log("Current house Characters en servicio: " + JSON.stringify(this.characterService.currentHouseChars));
       // this.router.navigateByUrl("/phase1")//REACTIVAR CUANDO PASE BIEN EL CURRENTHOUSE Y TODO LO DEMÁS
     }
 
-    // // FALTA REHACER ESTA
-    // public checkPlayersReady(){
-    //   for (let i = 0; i < this.actualYear.players.length; i++) {
+    // FALTA REHACER ESTA
+    public checkPlayersReady(){
+      for (let i = 0; i < this.playersAndHouses.length; i++) {
 
-    //     if(this.actualYear.players[i].winterPhaseDone==false && this.actualYear.players[i].id!=null){
+        if(this.playersAndHouses.player[i].winterPhaseDone==0 && this.playersAndHouses.player[i].player_id!=null){
 
-    //       this.playersNotReady = true;
-    //       console.log(`Falta por completar la FI de al menos un jugador: ${this.playersNotReady}`);
-    //       break;//no se lo contéis a Jose.
+          this.playersNotReady = true;
+          console.log(`Falta por completar la FI de al menos un jugador: ${this.playersNotReady}`);
+          break;//no se lo contéis a Jose.
 
-    //     }else{
+        }else{
 
-    //       this.playersNotReady = false;
-    //       console.log(`Falta por completar la FI de al menos un jugador: ${this.playersNotReady}`);
+          this.playersNotReady = false;
+          console.log(`Se puede avanzar de año`);
 
-    //     }
+        }
         
-    //   }
+      }
 
-    // }
+    }
 
     public nextYear(){
       //Esta función tendrá que añadir un nuevo año al objeto campaña con yearId + 1, yearNumber +1, notes = "", isLastYear=true y los datos actualizados de todas las casas 

@@ -153,6 +153,9 @@ public submitCharInfo(form:NgForm){
 
     this.activeChar = data1.insertId//igualo también con activechar
     console.log("Id del caballero y activeChar de la casa: " + this.activeChar);
+
+    this.characterService.allCharactersOfCampaign.push(this.characterService.currentHouseChars[0])
+    console.log("All chars of campaign: " + JSON.stringify(this.characterService.allCharactersOfCampaign));
     
   })
 
@@ -163,7 +166,11 @@ public submitCharInfo(form:NgForm){
 
     this.characterService.currentHouseChars[1].character_id = data2.insertId//cambia el id del objeto en el front para la pantalla npcs
 
+    this.characterService.allCharactersOfCampaign.push(this.characterService.currentHouseChars[1])
+    console.log("All chars of campaign: " + JSON.stringify(this.characterService.allCharactersOfCampaign));
   })
+  
+  
   
   this.alreadyAdded = true;
   this.houseNotUpdated = false;

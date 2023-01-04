@@ -5,7 +5,7 @@ export class Player {
         public house_id:number,
         public campaign_id:number,
         public player_name:string,
-        public winterPhaseDone:boolean
+        public winterPhaseDone:number
         
     ){}
 
