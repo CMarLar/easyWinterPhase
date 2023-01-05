@@ -9,12 +9,12 @@
                 <h1>CAMPAÑAS</h1>
                 <p>{{currentUser.username}}</p>
 
-                <div *ngIf="noCampaigns" class="message">
+             <!--    <div *ngIf="noCampaigns" class="message">
 
                         No tienes ninguna campaña en curso.<br>
                         Pulsa en "Nueva Campaña" para comenzar.
 
-                </div>
+                </div> -->
 
             </div>
 
@@ -41,7 +41,15 @@
                 NUEVA CAMPAÑA
             </div>
             <p class="textHide" [hidden]="isHide">No puedes tener mas de 6 campañas</p>
+    
         </button>
+        <div *ngIf="noCampaigns" class="message">
+
+                    NO TIENES CAMPAÑAS EN CURSO<br>
+            <br>PULSA EN "NUEVA CAMPAÑA" PARA COMENZAR<br>
+        
+    
+    </div>
     </div>
 <!-- Modal -->
     <div class="modal" [hidden]="hiddenModal">

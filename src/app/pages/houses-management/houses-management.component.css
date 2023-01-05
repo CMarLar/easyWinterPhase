@@ -30,8 +30,8 @@
 .cabecera{
 
     width: 100%;
-    height: 20%;
-    margin-top: 5%;
+    height: 18%;
+    margin-top: 4%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -45,7 +45,7 @@
        height: 100%;
        justify-self: flex-end; 
        align-self: flex-end;
-     /*   border: 5px solid yellowgreen; */
+  /*      border: 5px solid yellowgreen; */
    
    }
    
@@ -110,7 +110,7 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    /*  border: 5px solid rgb(236, 6, 175);   */
+   /*  border: 5px solid rgb(236, 6, 175);   */
 }
 
 /* .container{
@@ -118,10 +118,14 @@
 } */
 
 .playerlist{
-   /*   border: 5px solid yellow;  */
+  /*  border: 5px solid yellow;  */
+    background-color: var( --background-color-input);
+    border-radius: 15px;
+    margin-top: 2%;
     justify-content:center;
     justify-items: center;
-    height: 90%;
+    flex-wrap: wrap;
+    height: 77%;
     width: 100%;
 }
     /* .playerlist img{
@@ -153,8 +157,6 @@
         width: 64px;
         height: 64px;
     }
-
-    /* Te quité los bordes, que nunca te acuerdas */
     .playername{
         display: flex;
         font-size: 1.2rem;
@@ -163,15 +165,14 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        /* border: 5px solid red; */
         margin-top: 3%;
-       /*  border: 5px solid red; */
-        
         width: 40%;
-        height: 5%;
+        height: 4%;
     }
         .playername p{
             width: 100%;
-            height: 80%;
+            height: 100%;
            /*  border: 2px solid orange; */
            color: var(--font-color-hover);
            /* text-decoration-line: underline; */
@@ -216,21 +217,21 @@
 
 
 .year{
-   /*  border: 5px solid purple; */
+   /*   border: 5px solid purple; */
     display: flex;
     justify-content:center;
     align-items: center;
     flex-direction: row;
     width: 100%;
-    height: 15%;
- /*    margin-left: 20%; */
+    height: 16%;
+    margin-left: 26%;/* mirar esto */
 }
 .botones{
     width: 100%;
-    height: 20%;
+    height: 17%;
     display: flex;
     flex-direction: row;
-   /*   border: 5px solid purple; */
+/*     border: 5px solid purple; */
     justify-content: center;
  
 }
@@ -239,9 +240,10 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 2%;
     align-items: center;
-   /*  border: 5px solid orangered;  */
-    width: 20%;
+  /*   border: 5px solid orangered;  */
+    width: 40%;
     height: 90%;
 }
 
@@ -253,9 +255,8 @@
         color: var(--font-color-hover);
         border: none;
         text-decoration: none;
-        margin-left: 1%;
-        width: 70%;
-        height: 55%; 
+        width: 80%;
+        height: 100%; 
     }
 
     button:hover{
@@ -265,15 +266,13 @@
 
     button:disabled{
         background-color: rgb(38, 56, 46);
-        width: 100%;
-        height: 100%;
         color:black;
         border-radius: 10px;
         font-size: 1.2rem;
         font-weight: bold;
-        margin-right: 1%;
-        width: 70%;
-        height: 55%;
+      /*   margin-right: 1%; */
+        width: 80%;
+        height: 100%;
     }
 
 input{
@@ -292,11 +291,11 @@ input{
 input label{
     color: var(--font-color-label-input);
 }
-
+/* 
 h3{
     color: var(--font-color-primary);
    /*  font-size: 200%; */
-}
+
 
 .skull img:hover{
     cursor: pointer;
