@@ -109,8 +109,16 @@ export class CurrentCampaignComponent {
 
     public goNext(){
       
+      //creamos la relacion player years antes de crear el nuevo año
+      this.yearService.postPlayerYear(this.yearService.currentYear,this.playerService.playersOfCampaign)
+      .subscribe((data : any) => {
+        console.log("ENTROOOOO GOLGOLGOL");
+        console.log("DATA YEARS: " + JSON.stringify(data));
+        
+        
+        
+      })
 
-      
           //CREAMOS EL NUEVO AÑO
           let newYear = new Year(null,this.yearService.currentYear.yearNumber + 1,0,1,"",this.yearService.currentYear.campaign_id);
 
@@ -177,14 +185,19 @@ export class CurrentCampaignComponent {
                 })
               }
               
-
+              
+          console.log(JSON.stringify(this.yearService.currentYear));
+          console.log(JSON.stringify(this.yearService.yearsOfCampaign));
             })
+            this.router.navigateByUrl("/winterphasemain");
+            
           })
 
-
+          
+          
       
       
-      this.router.navigateByUrl("/winterphasemain");
+      
     }
 
     public goNewPlayer(){
@@ -218,7 +231,7 @@ export class CurrentCampaignComponent {
 
     //MODALES
 
-    public showModalPlayer(jugador : Player){
+    public showModalPlayer(jugador : Player = null){
 
       this.currentPlayer = jugador;
       console.log("JUGADOR ACTUAL: " + JSON.stringify(this.currentPlayer));
@@ -235,7 +248,6 @@ export class CurrentCampaignComponent {
     }
 
     public showModalHouse(){
-
       if(this.isHouseInfoHide == true){
         this.isHouseInfoHide = false;
       }else{
@@ -245,7 +257,20 @@ export class CurrentCampaignComponent {
       
     }
 
-    public showModalCharacter(){
+    public showModalCharacter(house : House = null){
+      //le pasamos el id de la casa
+      this.houseService.currentHouse = house;
+      console.log("ESTE ES EL LOG QUE QUIERO VER:  " + this.characterService.currentHouseChars);
+      
+      for (let i = 0; i < this.characterService.allCharactersOfCampaign.length; i++){
+
+        if (this.characterService.allCharactersOfCampaign[i].house_id == house.house_id){
+
+          this.characterService.currentHouseChars.push(this.characterService.allCharactersOfCampaign[i]);
+        }
+      }
+
+      
 
       if(this.isChangeCharacterHide == true){
         this.isChangeCharacterHide = false;
@@ -273,6 +298,15 @@ export class CurrentCampaignComponent {
       })
 
       this.isnewPlayerNameHide = true;
+    }
+
+    public changePJ(newPJ : string){
+
+      // console.log("ACTUAL PJ: " + this.houseService.currentHouse.activeChar);
+      // this.houseService.currentHouse.activeChar = newPJ;
+      // console.log("NUEVO PJ: " + this.houseService.currentHouse.activeChar);
+  
+  
     }
 
 }

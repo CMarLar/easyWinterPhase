@@ -47,8 +47,8 @@
                 <!-- Personajes -->
                 <div class="character" style="background-color: rgb(130, 23, 25,0.6);" *ngIf="playerService.playersOfCampaign[0] != null; else emptyPlayer">
                     <span class="span1" (click)="showModalPlayer(playerService.playersOfCampaign[0])">{{playerService.playersOfCampaign[0].player_name}}</span>
-                    <span class="span2"(click)="showModalCharacter()">{{houseService.housesOfCamapaign[0].activeChar}}</span>
-                    <span class="span3"(click)="showModalHouse()">{{houses[0].house_name}}</span>
+                    <span class="span2"(click)="showModalCharacter(houseService.housesOfCamapaign[0].house_id)">{{houseService.housesOfCamapaign[0].activeChar}}</span>
+                    <span class="span3"(click)="showModalHouse()">{{houseService.housesOfCamapaign[0].house_name}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
                             <img (click)="goCreateHouse()"src="../../../assets/img/PLUMA.png">
@@ -143,32 +143,78 @@
 <app-new-player-name-modal class="modal" [hidden]="isnewPlayerNameHide"></app-new-player-name-modal>
 <app-house-info-modal class="modal" [hidden]="isHouseInfoHide"></app-house-info-modal> -->
 
+<!-- MODAL DE NOMBRE DE JUGADOR -->
 <div class="modal" id="modal" [hidden]="isnewPlayerNameHide">
-    <a (click)="showModalPlayer(null)" class="modal-bg"></a>
+    <div class="modal-bg" (click)="showModalPlayer()">
+
+    </div>
     <div class="modal-content">
         <div class="contenido">
-            <a (click)="showModalPlayer(null)" class="modal-exit">x</a>
+            <a (click)="showModalPlayer()" class="modal-exit">x</a>
             <h3 class="modal-title">Introduce un nuevo nombre para el jugador</h3>
             <input class="input" type="text" name="" id="" placeholder="Nombre de Jugador" #nombre>
             <button class="small_button" (click)="changeName(nombre.value)">OK</button>    
         </div>
     </div>
 </div>
-<!-- 
-<div class="modal2" id="modal2">
-    <a href="#" class="modal-bg"></a>
-    <div class="modal-content">
-      <a href="#" class="modal-exit">x</a>
-      <h3 class="modal-title">RoberModal</h3>
-      <p class="modal-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, maxime reiciendis veritatis unde fuga voluptate quis laboriosam ea perferendis itaque </p>
+
+<!-- MODAL DE CAMBIAR DE PERSONAJE -->
+<div class="modal2" id="modal" [hidden]="isChangeCharacterHide">
+    <div class="modal-bg" (click)="showModalCharacter()">
+
+    </div>
+    <div class="modal-content2">
+        <div class="contenido2">
+            <a (click)="showModalCharacter()" class="modal-exit">x</a>
+            <form class="formContain">
+                <h3>Cambia el personaje</h3>
+                <label for="">Seleciona el personaje</label>
+                <select name="data" class="select" #data>
+                    <option *ngFor="let pnj of characterService.currentHouseChars" [value]="pnj">{{pnj}}</option>
+                </select>
+            </form>
+            <div class="buttonContain">
+                <button class="small_button" (click)="changePJ(data.value)">OK</button>
+            </div>
     </div>
 </div>
 
-<div class="modal3" id="modal3">
-    <a href="#" class="modal-bg"></a>
-    <div class="modal-content">
-      <a href="#" class="modal-exit">x</a>
-      <h3 class="modal-title">RoberModal</h3>
-      <p class="modal-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, maxime reiciendis veritatis unde fuga voluptate quis laboriosam ea perferendis itaque </p>
+<!-- MODAL DE INFORMACION DE LA CASA -->
+<div class="modal3" id="modal3" [hidden]="isHouseInfoHide">
+    <div class="modal-bg" (click)="showModalHouse()">
+
     </div>
-</div> -->
+    <div class="modal-content3">
+        <div class="infoContain">
+            <img src="{{this.houseService.currentHouse.holding_name}}" alt="">
+            <p class="nombreCasa">{{this.houseService.currentHouse.house_name}}</p>
+            <p class="info">de {{this.playerService.currentPlayer.player_name}}</p>
+            <p class="info">{{this.houseService.currentHouse.familyCharacteristic}}</p>
+            <p class="pj">Personaje activo: <span class="pj2">Sir {{houseService.currentHouse.activeChar}}</span></p>
+            <p class="otherPj">-Otros miembros de la casa-<br></p>
+        </div>
+        
+        <div [ngClass]="'prueba'" [(ngModel)]="characterService.currentHouseChars" class="contenedorTexto">
+            <div class="header">
+                <span class="name_header">Nombre</span>
+                <span class="role_header">Rol</span>
+            </div>
+
+            <div *ngFor="let pnj of characterService.currentHouseChars" >
+                <div *ngIf="pnj.estado === true; else muerto">
+                <div class="char_container">
+                    <span class="char_name" [ngClass]="'vivo'">{{pnj.nombre}}</span>
+                    <span class="char_role"> {{pnj.rol}}</span>
+                </div>
+                </div>
+                <ng-template #muerto>
+                <div class="char_container">
+                    <span class="char_name"> <p class="muerto">{{pnj.nombre}}</span>
+                    <span class="char_role">{{pnj.rol}}</span>
+                </div>
+                </ng-template>
+            </div>
+        </div>
+        
+    </div>
+</div>
