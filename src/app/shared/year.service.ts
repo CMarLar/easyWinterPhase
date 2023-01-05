@@ -11,6 +11,7 @@ export class YearService {
   public yearsOfCampaign : Year[];
   public currentYear : Year;
   private url : string;
+  public nextYear: Year;//coge el nuevo año creado en currentcampaign.
 
   constructor(private http:HttpClient) {
 

@@ -9,6 +9,7 @@ import { YearService } from 'src/app/shared/year.service';
 import { CharacterService } from 'src/app/shared/character.service';
 import { Year } from 'src/app/models/year';
 
+
 @Component({
   selector: 'app-winter-phase-main',
   templateUrl: './winter-phase-main.component.html',
@@ -16,9 +17,19 @@ import { Year } from 'src/app/models/year';
 })
 export class WinterPhaseMainComponent {
 
-  public campaignName:string;
+/*
+NOTAS IMPORTANTES:
+-Toda la funcionalidad de esta página se hace en el front. No hay ninguna llamada a la base de datos.
 
-  public actualYear:any;//no se usa
+-Se ha creado un atributo en yearService que almacena el año que se crea en currentcampaign. Este atributo se llama nextYear y desde aquí se le llama con variables locales.
+
+-Para pruebas, se ha hecho que cuando se pulse en el botón "Comenzar" de cada jugador, el atributo winterPhaseDone de ese jugador en PlayersAndHouses (un objeto local de este componente) cambie a 1. Cuando todos los playersAndHouses.players.winterPhaseDone están a 1, deja avanzar al siguiente año. Lo óptimo sería que el atributo winterPhaseDone del jugador en cuestión cambiara en el servicio al TERMINAR todas las fases de invierno.Este cambio se hace en la línea 110.
+
+-Algunos console logs útiles se han comentado porque si hay que depurar, son útiles
+
+-nextYear() lleva a currentCampaign tal cual esté.
+*/
+  public campaignName:string;
 
   public currentYear:Year;
 
@@ -30,12 +41,14 @@ export class WinterPhaseMainComponent {
 
   public playersNotReady:boolean;
 
+  public currentHouseCharsWinterPhase:any;//ESTE ES EL ARRAY DE PERSONAJES DE LA CASA CON ID DEL ÚLTIMO AÑO que se crea
+
     constructor(public router:Router, public campaignService:CampaignService, public yearService:YearService, public playerService:PlayerService, public houseService:HouseService, public characterService:CharacterService, ){
 
       this.campaignName = this.campaignService.currentCampaign.campaign_name;
       console.log("CampaignName: " + this.campaignName);
 
-      console.log("campaignService.currentCampaign: " + JSON.stringify(this.campaignService.currentCampaign)); 
+      // console.log("campaignService.currentCampaign: " + JSON.stringify(this.campaignService.currentCampaign)); 
       
       this.currentYear = this.yearService.currentYear//Esto debería importar el año
       console.log("Current year: " + JSON.stringify(this.currentYear));
@@ -47,6 +60,7 @@ export class WinterPhaseMainComponent {
       this.houses = this.houseService.housesOfCamapaign//Importa todo el array de casas.
       console.log("Houses: " + JSON.stringify(this.houses));
 
+      console.log("Service, next year: " + JSON.stringify(this.yearService.nextYear));
 
       this.playersAndHouses = [];
 
@@ -79,32 +93,10 @@ export class WinterPhaseMainComponent {
       
       console.log("Players and Houses con players y houses"  + JSON.stringify(this.playersAndHouses));
 
-      console.log("ALL CHARACTERS OF CAMPAIGN: " + JSON.stringify(this.characterService.allCharactersOfCampaign));//aquí da vacío, porque pasa de página antes de que el array se llene con los personajes. En el console log, se puede ver que después se llena.
-      
-
-      // this.actualYear = 
-      // {
-      //   yearid:4,
-      //   yearNumber:488,
-      //   isFirstYear:false,
-      //   isLastYear:true,
-      //   notes:"Mamasé, mamasá, mamá cusá",
-      //   players:
-      //     [
-      //     {id:1, name:"Carlos",activeChar:"Sir Balin",house:"Salisbury",shield:"../../../assets/img/escudo1.png",winterPhaseDone:false},
-      //     {id:2, name: "Irene", activeChar:"Sir Edward of Cambridge",house:"Cambridge",shield:"../../../assets/img/escudo2.png",winterPhaseDone:false},
-      //     {id:3, name: "Miguel", activeChar:"Sir Manfred",house:"Newton",shield:"../../../assets/img/escudo3.png",winterPhaseDone:true},
-      //     {id:4, name: "María José", activeChar:"Lord Grey",house:"Grey",shield:"../../../assets/img/escudo4.png",winterPhaseDone:true},
-      //     {id:null, name: null, activeChar:null,house:null,shield:"../../../assets/img/escudo5.png",winterPhaseDone:false},
-      //     {id:null, name: null, activeChar:null,house:null,shield:"../../../assets/img/escudo6.png",winterPhaseDone:false}
-      //     ]
-      // }
-
-
       this.playersNotReady = true//puesto en true para hacer pruebas
       console.log(`Falta por completar la FI de al menos un jugador: ${this.playersNotReady}`);
       
-      // this.checkPlayersReady();
+      this.checkPlayersReady();
 
     }
 
@@ -114,8 +106,8 @@ export class WinterPhaseMainComponent {
       console.log("ALL CHARACTERS OF CAMPAIGN: " + JSON.stringify(this.characterService.allCharactersOfCampaign))
 
       for (let i = 0; i < this.playersAndHouses.length; i++) {
+        
         if(this.playersAndHouses[i].player.house_id == house_id){
-
           this.playersAndHouses[i].player.winterPhaseDone = 1//PRUEBA PARA VER EL CAMBIO DEL BOTÓN
 
           //Igualamos la casa del servicio a la casa del componente
@@ -138,8 +130,9 @@ export class WinterPhaseMainComponent {
         }
         
       }
+
           //Introducimos los personajes de la casa seleccionada en el array currentHouseChars
-          this.characterService.currentHouseChars = [];
+      this.characterService.currentHouseChars = [];
       for (let i = 0; i < this.characterService.allCharactersOfCampaign.length; i++) {
         if(this.houseService.currentHouse.house_id == this.characterService.allCharactersOfCampaign[i].house_id){
           this.characterService.currentHouseChars.push(this.characterService.allCharactersOfCampaign[i])
@@ -147,22 +140,41 @@ export class WinterPhaseMainComponent {
         
       }
 
+      // console.log("Current House en servicio: " + JSON.stringify(this.houseService.currentHouse));
+      // console.log("Current Player en servicio: " + JSON.stringify(this.playerService.currentPlayer));
+      // console.log("Current house Characters en servicio: " + JSON.stringify(this.characterService.currentHouseChars));
+      // console.log("Current year: " + JSON.stringify(this.currentYear));
+      
+      //Cogemos solo los que tienen year_id del último año que se que es yearservice.nextYear
+      this.currentHouseCharsWinterPhase = [];
+      
+      for (let i = 0; i < this.characterService.currentHouseChars.length; i++) {
 
+        if(this.yearService.nextYear.year_id == this.characterService.currentHouseChars[i].year_id){//se asegura de coger los personajes con id del último año creado.
+          this.currentHouseCharsWinterPhase.push(this.characterService.currentHouseChars[i])
+        }
+      }
 
-      console.log("Current House en servicio: " + JSON.stringify(this.houseService.currentHouse));
-      console.log("Current Player en servicio: " + JSON.stringify(this.playerService.currentPlayer));
-      console.log("Current house Characters en servicio: " + JSON.stringify(this.characterService.currentHouseChars));
-      // this.router.navigateByUrl("/phase1")//REACTIVAR CUANDO PASE BIEN EL CURRENTHOUSE Y TODO LO DEMÁS
+      this.characterService.currentHouseCharsWinterPhase = this.currentHouseCharsWinterPhase;//igualamos con el servicio
+      console.log("Current year: " +  JSON.stringify(this.currentYear));
+      console.log("Service, next year: " + JSON.stringify(this.yearService.nextYear));
+      console.log("Current house characters for Winter Phase, component: " + JSON.stringify(this.currentHouseCharsWinterPhase));
+      console.log("Current house characters for Winter Phase, service: " + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
+      
+      this.checkPlayersReady()//hace la función de checkeo de nuevo
+
+      this.router.navigateByUrl("/phase1")
     }
 
-    // FALTA REHACER ESTA
     public checkPlayersReady(){
+
+
       for (let i = 0; i < this.playersAndHouses.length; i++) {
 
-        if(this.playersAndHouses.player[i].winterPhaseDone==0 && this.playersAndHouses.player[i].player_id!=null){
+        if(this.playersAndHouses[i].player.winterPhaseDone==0){
 
           this.playersNotReady = true;
-          console.log(`Falta por completar la FI de al menos un jugador: ${this.playersNotReady}`);
+          console.log(`Falta por completar la FI de al menos un jugador`);
           break;//no se lo contéis a Jose.
 
         }else{
@@ -177,10 +189,8 @@ export class WinterPhaseMainComponent {
     }
 
     public nextYear(){
-      //Esta función tendrá que añadir un nuevo año al objeto campaña con yearId + 1, yearNumber +1, notes = "", isLastYear=true y los datos actualizados de todas las casas 
 
       this.router.navigateByUrl("/currentcampaign")
-
 
     }
 

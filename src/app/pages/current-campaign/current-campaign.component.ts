@@ -166,6 +166,8 @@ export class CurrentCampaignComponent {
                   }
                   console.log(this.actualYear.year_id);
                   
+                  this.yearService.nextYear = this.actualYear;
+                  
                   this.characterService.postCharacters(this.characters)
                   .subscribe((data : any) => {
                     console.log(data);

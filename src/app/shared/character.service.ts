@@ -17,6 +17,8 @@ export class CharacterService {
 
   public allCharactersOfCampaign : Character[];
 
+  public currentHouseCharsWinterPhase: Character[];//Array de personajes de una casa seleccionados para la fase de invierno en curso
+
 
   constructor(public houseService:HouseService, public http: HttpClient) { 
 
