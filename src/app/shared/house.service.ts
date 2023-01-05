@@ -30,6 +30,12 @@ export class HouseService {
     return this.http.post(this.url,house);
   }
 
+  public getHouse(house:House){
+    this.url = "http://localhost:3000/housesmanagement?house_id=" + house.house_id;
+
+    return this.http.get(this.url);
+  }
+
   public deleteHouse(house:House){
     let house_id = house.house_id;
 

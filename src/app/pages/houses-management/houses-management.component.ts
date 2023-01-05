@@ -127,14 +127,15 @@ export class HousesManagementComponent {
           
           this.yearService.yearsOfCampaign[0].year_id = data.insertId;
 
-          this.yearService.postPlayerYear(this.yearService.currentYear,this.playerService.playersOfCampaign)
-          .subscribe((data : any) => {
-            console.log("ENTROOOOO GOLGOLGOL");
-            console.log("DATA YEARS: " + JSON.stringify(data));
+          //esto pasa a ser parte de current campaign
+          // this.yearService.postPlayerYear(this.yearService.currentYear,this.playerService.playersOfCampaign)
+          // .subscribe((data : any) => {
+          //   console.log("ENTROOOOO GOLGOLGOL");
+          //   console.log("DATA YEARS: " + JSON.stringify(data));
             
             
             
-          })
+          // })
         })
         
         // console.log("ARRAY YEARS: " + this.yearService.yearsOfCampaign);
