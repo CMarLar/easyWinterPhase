@@ -104,7 +104,7 @@ export class CreateHouseComponent {
       this.goToNpcForbidden = true;
 
 
-      console.log("Current house: " + this.houseService.currentHouse);
+      console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
       
       this.listOfChars = this.characterService.currentHouseChars;
 
@@ -124,18 +124,36 @@ public selectHouseShield(shield:string){
 
 public submitCharInfo(form:NgForm){
   
+
+
+
   console.log(form.value);//pasa un objeto con los nombres del caballero y el escudero y la edad del caballero
 
+  //LIMPIADORES
+  this.knightName = null;
+  this.knightAge = null;
+  this.squireName = null;
+
+  console.log("Después de los limpiadores: " + this.knightName + " " + this.knightAge + " " + this.squireName);
+  console.log(JSON.stringify(this.knight));//AQUÍ, SIGUE TENIENDO LOS VALORES
+  console.log(JSON.stringify(this.squire));
+
+  
+  
 
   this.knightName = form.value.knight_name;
   this.knightAge = parseInt(form.value.knight_age);//para que no coja como string la edad
   this.squireName = form.value.squire_name;
 
+  console.log("Después de los valores: " + this.knightName + " " + this.knightAge + " " + this.squireName);
   console.log(this.knight);
   console.log(this.squire);
 
-  this.characterService.currentHouseChars.push(this.knight);
-  this.characterService.currentHouseChars.push(this.squire);
+  let knightCopy = {...this.knight};
+  let squireCopy = {...this.squire};
+
+  this.characterService.currentHouseChars.push(knightCopy);
+  this.characterService.currentHouseChars.push(squireCopy);
 
 
   for (let i = 0; i <  this.characterService.currentHouseChars.length; i++) {
@@ -154,7 +172,7 @@ public submitCharInfo(form:NgForm){
     this.activeChar = data1.insertId//igualo también con activechar
     console.log("Id del caballero y activeChar de la casa: " + this.activeChar);
 
-    this.characterService.allCharactersOfCampaign.push(this.characterService.currentHouseChars[0])
+    this.characterService.allCharactersOfCampaign.push(knightCopy)
     console.log("All chars of campaign: " + JSON.stringify(this.characterService.allCharactersOfCampaign));
     
   })
@@ -166,7 +184,7 @@ public submitCharInfo(form:NgForm){
 
     this.characterService.currentHouseChars[1].character_id = data2.insertId//cambia el id del objeto en el front para la pantalla npcs
 
-    this.characterService.allCharactersOfCampaign.push(this.characterService.currentHouseChars[1])
+    this.characterService.allCharactersOfCampaign.push(squireCopy)
     console.log("All chars of campaign: " + JSON.stringify(this.characterService.allCharactersOfCampaign));
   })
   
@@ -283,7 +301,32 @@ this.router.navigateByUrl("/addnpc");
 
 //Vuelve atrás y guarda currentHouse del front en el array de casas housesof Campaign
 public goBack(){
-  this.router.navigateByUrl("/housesmanagement");
+
+  // //OTROS LIMPIADORES PARA DEJAR KNIGHT Y SQUIRE A 0:
+  // this.knight.char_name = null;
+  // this.knight.age = null;
+  // this.knight.char_status = 1
+  // this.knight.character_id = null;
+  // this.knight.courtesyMod = null;
+  // this.knight.house_id = null;
+  // this.knight.isMarried = null;
+  // this.knight.marriageGlory = null;
+  // this.knight.role = null;
+  // this.knight.year_id = null;
+  // this.knight.sex = null;
+
+  // this.squire.char_name = null;
+  // this.squire.age = null;
+  // this.squire.char_status = 1
+  // this.squire.character_id = null;
+  // this.squire.courtesyMod = null;
+  // this.squire.house_id = null;
+  // this.squire.isMarried = null;
+  // this.squire.marriageGlory = null;
+  // this.squire.role = null;
+  // this.squire.year_id = null;
+  this.squire.sex = null;
+
 
   console.log("actualHouse: " + JSON.stringify(this.actualHouse));
   
@@ -299,11 +342,11 @@ public goBack(){
       this.houseService.housesOfCamapaign[i].familyCharacteristic = this.houseService.currentHouse.familyCharacteristic;
       this.houseService.housesOfCamapaign[i].shield = this.houseService.currentHouse.shield;
       this.houseService.housesOfCamapaign[i].economyLevels = this.houseService.currentHouse.economyLevels;
-
-
     }
 
     console.log("houseService.housesOfCampaign con la nueva casa: " + JSON.stringify(this.houseService.housesOfCamapaign));
+
+    this.router.navigateByUrl("/housesmanagement");
     
 
   }
