@@ -1,4 +1,3 @@
-
 .padre{
 
     width: 100%;
@@ -12,89 +11,95 @@
   background-size: cover;
   background-position: center;
 
-  /*    border:  4px solid orange; */ 
+    /*   border:  5px solid orange;  */
 }
+      .fondo{
+
+        width: auto;
+        height: 100%;
+       
+     }
+
 .main{
-/*     border: 2px solid black; */
+ /*    border: 2px solid rgb(239, 213, 13); */
     display: flex;
     flex-direction: row;
-    height: 85vh;
+    height: 100vh;
 }
 
-.zonaA{
+.izquierda{
 
     width: 55%;
     height: 100%;
-  /*   border:  4px solid rgb(255, 0, 0); */
+  /*   border:  4px solid rgb(166, 255, 0); */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-
-  
-}
-.zonaB{
-   /*  border: 2px solid blueviolet; */
-    width: 45%;
-    height: 100%;
-
-}
-.fondo{
-
-    width: auto;
-    height: 100%;
-   
-}
-.dagas{
-
-    width: 100%;
-    height: 15vh;
-
-  /*   border:  4px solid rgb(255, 255, 255); */
-    font-family: 'Almendra', serif;
-
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    
+    background-image: url("../../../assets/img/pergamino.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 92%;
 }
+     .pergamino_fondo{
 
-.zonaA_a{
+        width: 90%;
+        height: 120%;
+        align-self: center; 
+
+     }
+.cabecera{ /* zona del título */
 
     width: 100%;
-    height: 18%;
-
+    height: 20%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-/*     border:  4px solid pink; */
+    /* border:  5px solid pink;  */
 
 }
-.titulo{
+    .titulo{
+        width: 100%;
+        height: 75%;
+        font-size: 4rem;
+        margin-top: 7%;
+        text-align: center;
+        justify-content: center;
+       /*  border: 2px solid rgb(255, 0, 230);  */ 
 
-    color: var(--background-color-input);
-   /*  font-size: xx-large; */
-    font-family: 'Almendra', serif;
-    margin-top: 5%;
-    -webkit-text-stroke: 0.75px var(--font-color-hover);
-    font-size: 3rem;
+        color: var(--font-color-hover);
+        -webkit-text-stroke: 2px var(--font-color-h);
+        font-weight: bold;
+        font-size: 3rem;
 
-}
+    }
+    .nombreUsuario{
+        width: 75%;
+        height: 25%;
+       /*  border:  4px solid rgb(227, 146, 159);  */
+        color: var(--font-color-warnings);
+        font-weight: bold;
+        text-align: end;
+        font-size: 1.8rem;
+    }
 
-.zonaA_b{
+.body{
 
     width: 100%;
-    height: 82%;
+    height: 80%;
     flex-direction: row;
-  /*   border:  4px solid rgb(255, 255, 255); */
-
+   /*  border:  5px solid rgb(227, 17, 185);  */
     display: flex;
-    flex-direction:row;
+    flex-direction:column;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
 
 }
 
-    .pergamino{
+    /* .pergamino{
 
         width: 90%;
         height: 100%;
@@ -103,101 +108,147 @@
         position: relative;
      /*   border:  4px solid rgb(204, 107, 188); */
     
-     }
+.caja_escudo{
 
-.nombreUsuario{
-
-    color: rgb(161, 156, 141);
-    font-family: 'Almendra', serif;
-    font-size: 2rem;
-    text-align: center;
-}
-.caja{
-
-    width: 30%;
-    height: 50%;
+    width: 80%;
+    height: 30%;
+    margin-top: 7%;
    /*  border:  4px solid rgb(184, 116, 229); */
-    position: absolute;
-    display: flex;
-    /* flex-direction: ; */
-}
-.escudo{
-
-    width: 100%;
-    height: 50%;
-  /*   border:  4px solid rgb(184, 116, 229); */
-    position: absolute;
-
     display: flex;
     flex-direction: row;
-   
+    justify-content: center;
+    align-items: center;
 }
-.encabezado{
+            .escudo{
+                width: 30%;
+                height: 100%;
+              /*   border:  4px solid rgb(6, 64, 255); */
+                justify-content: center;
+                align-content: center;
+            } 
+                  .imagen_escudo{
+                    height: 90%;
+                    width: auto;
+                   /*  border:  4px solid rgb(229, 189, 116); */
+                
+                } 
+            .paso{
+                height: 70%;
+                width: 40%;
+              /*   font-weight: bold; */
+                color: black;
+                line-height: 70%;
+                font-size: 1.5rem;
+                justify-content: center;
+                text-align: start;
+               /*  border:  4px solid rgb(236, 156, 6); */
+            }
 
-    width: 100%;
-    height: 50%;
-   /*  border:  4px solid rgb(184, 116, 229); */
-    position: absolute;
-
-    display: flex;
-
-}
-.imagen_escudo{
-
-    display: flex;
-    height: 70%;
-    width: auto;
-    justify-items: center;
-    padding-left: 5%;
-
-   /*  border:  4px solid rgb(229, 189, 116); */
-
-}
-
-.paso2{
-
-    display: flex;
-    height: 90%;
-    width: 50%;
-
-    font-family: 'Almendra', serif;
-    font-size: x-large;
-
-    margin: 4%;
-    margin-left: 4%;
-
-/*     border:  4px solid rgb(229, 189, 116); */
-
-}
 .textolargo{
 
-    height: 30%;
-    width: 100%;
-    padding-top: 40%;
-   
-    font-size: medium;
-    text-align: flex-end;
-/* 
-   border:  4px solid rgb(202, 204, 107); */
+    height: 70%;
+    width: 75%;
+    line-height: 160%;
+ /*    border:  4px solid rgb(204, 107, 193);  */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+   /*     .pasoOpcional{
 
-.pasoOpcional{
+        color: var(--font-color-warnings);
+        font-weight: bold;
+        font-size: 1.2rem;
+        text-align: justify;
+        justify-content: center;
+        padding-top: 6%;
+        height: 20%;
+        width: 80%;
+    /*     border:  4px solid rgb(204, 107, 193);  */
+       
 
-    color: black;
-    font-family: 'Almendra', serif;
-    text-align: flex;
-    margin: 3%;
-   
-}
+    .pasoOpcional{
+    
+        color: black;
+       /*  font-weight: bold; */
+        font-size: 1.2rem;
+        text-align: justify;
+        height: 50%;
+        width: 80%;
+       /*  border:  4px solid rgb(204, 107, 193);   */
+    }
+    .marca_agua{
+    
+        height: 20%;
+        width: 80%; 
+        /* border:  4px solid rgb(204, 107, 193); */  
+        background-image: url("../../../assets/img/image-from-rawpixel-id-2629122-original.png");
+        background-size: 30%;
+        background-position: center;
+        background-repeat: no-repeat;
+        justify-content: flex-end;
+    }
 
 
-.cajita{
+    .derecha{
+       /*  border: 2px solid blueviolet; */
+        width: 45%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+     /*    background-image: url("../../../assets/img/image-from-rawpixel-id-2629122-original.png");
+        background-size: 70%;
+        background-position: center;
+        background-repeat: no-repeat; */
+    } 
+    
 
-    width: 10%;
-    height: 100%;
-  
-}
-
+     .dagas{
+    
+        width: 95%;
+        height: 15vh;
+        
+       /*  border:  4px solid rgb(237, 1, 1); */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    
+    }
+        
+             .daga_izquierda{  
+                width: 30%;
+                align-self: end;
+                padding-right: 2%;
+        
+            } 
+             .daga_izquierda img{
+                width: 100%;
+            }
+            .siguiente{
+        
+                text-decoration: none;
+                color: var(--font-color-hover);
+                padding-right: 4%;
+                font-size: 1.2rem;
+                font-weight: bold;
+                text-align: end;
+            }
+            .siguiente:hover{
+        
+                color:var( --backgoud-color-button);
+                text-decoration: underline;
+            }
+        
+             .daga_izquierda:hover{
+          
+                transform: translate(20px);
+                 cursor: pointer;
+        
+            } 
+     
+/* ya no se usa */
 /* .back{
 
     height: 100%;

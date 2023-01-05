@@ -56,10 +56,9 @@
    
 }
        .titulo{
-            font-family: 'Almendra', serif;
             /* text-align: center; */
-            -webkit-text-stroke: 0.75px var(--font-color-hover);
-            color:rgb(139, 35, 35);
+            -webkit-text-stroke: 1px var(--font-color-h);
+            color:var(--font-color-hover);
             font-size: 2.7em;
             font-weight: bold;
             padding-right: 50%;
@@ -115,15 +114,12 @@
              }
                     .nombre{
                         font-size: 1.2rem ;
-                        color:var(--font-color-hover);
+                        color:var(--font-color-warnings);
                         font-weight: bold;
                        /*  -webkit-text-stroke: 1px var(--font-color-hover); */
                      }
                     .texto{
-                        
-
-                        color: whitesmoke;
-                        font-family: "Almendra", serif;
+                        color: var(--font-color-hover);
                         font-size: 1rem;
         
                     }

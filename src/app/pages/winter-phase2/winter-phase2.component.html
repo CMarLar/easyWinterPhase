@@ -3,57 +3,55 @@
 
     <div class="main">
 
-            <div class="zonaA">
+            <div class="izquierda">
 
 
-                <div class="zonaA_a">
+                <div class="cabecera">
 
                         <p class="titulo">FASE DE INVIERNO<br></p>
-                        <p class="nombreUsuario">{{jugadores[0]}}</p>
+                        <p class="nombreUsuario">{{jugadores[0]}} Ingrid Ingrata</p><!-- nombre jugador -->
 
                 </div>
 
-                <div class="zonaA_b">
+                <div class="body">
 
-                        <div class="cajita"></div>
-
-                        <img class="pergamino" src="../../../assets/img/pergamino-chato.png">
-                            
-                             <div class="caja">
+                        <div class="caja_escudo">
 
                                   <div class="escudo">
-                                    
-                                            <img class="imagen_escudo" src="{{foto_escudo}}"> 
-
-                            
-                                           <div class="paso2">
-
-                                            <p><b>Paso 2:</b><br>
-                                                Experiencia<br>
-
-                                           </div>
-
+                                    <img class="imagen_escudo" src="{{foto_escudo}}">
                                   </div>
 
-                                  <div class="textolargo">
+                                  <div class="paso">
+                                         <p>Paso II:</p><br>
+                                         <p>Experiencia</p><br>
+                                   </div>
 
-                                    <p class="pasoOpcional">{{textos[0].phases_text}}</p>
+                        </div><!-- cierro caja_escudo -->
 
-                                  </div>
+                        <div class="textolargo">
 
-                            </div>
+                                <p class="pasoOpcional">{{textos[0].phases_text}}</p>
+                                <div class="marca_agua"></div>
 
-                        <div class="cajita"></div>
+                        </div>
 
-                </div>
-
+                </div><!-- cierro body -->
                   
-            </div>
+            </div><!-- cierro izquierda -->
 
-            <div class="zonaB">
-               
-            </div>
-    </div>
+            <div class="derecha">
+
+                <div class="dagas">
+
+                        <a class="siguiente" routerLink="/phase2">AVANZA</a>
+                        <img class="daga_izquierda" routerLink="/phase3" src="../../../assets/img/daga-adelante.png">
+                </div>
+           </div>
+
+    </div><!-- cierra main -->
+
+</div><!-- cierra padre -->
+
 
      <!-- <div class="dagas">
 
@@ -71,6 +69,3 @@
 
     </div> -->
 
-
-
-</div>
