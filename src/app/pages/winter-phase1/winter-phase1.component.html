@@ -3,61 +3,51 @@
 
     <div class="main">
 
-            <div class="zonaA">
+            <div class="izquierda">
 
-
-                <div class="zonaA_a">
+                     <div class="cabecera">
 
                         <p class="titulo">FASE DE INVIERNO<br></p>
-                        <p class="nombreUsuario">{{jugadores[0]}}</p>
+                        <p class="nombreUsuario">{{jugadores[0]}} Irene Becker</p><!-- quitar aquí irene -->
+
+                     </div>
+
+                     <div class="body">
+
+                                <div class="caja_escudo">
+
+                                        <div class="escudo">
+                                                 <img class="imagen_escudo" src="{{foto_escudo}}">
+                                        </div>
+                                        <div class="paso">
+                                            <p>Paso I:</p><br>
+                                            <p>Aventuras</p><br>
+                                            <p>en solitario</p>
+                                        </div>
+
+                                </div><!-- cierro caja_escudo -->
+
+                                <div class="textolargo">
+
+                                        <p class="pasoOpcional"><b>Paso Opcional:</b><br></p>
+                                        <p class="pasoOpcional2">{{textos[0].phases_text}}<br></p>
+                                </div>
+                       </div> <!-- cierra body -->
+           </div><!-- cierra izquierda -->
+           <div class="derecha">
+
+                <div class="dagas">
+
+                        <a class="siguiente" routerLink="/phase2">AVANZA</a>
+                        <img class="daga_izquierda" routerLink="/phase2" src="../../../assets/img/daga-adelante.png">
+
 
                 </div>
+           </div>
 
-                <div class="zonaA_b">
+    </div><!-- cierra main -->
 
-                        <div class="cajita"></div>
-
-                        <img class="pergamino" src="../../../assets/img/pergamino-chato.png">
-                            
-                             <div class="caja">
-
-                                  <div class="escudo">
-                               
-                                          <img class="imagen_escudo" src="{{foto_escudo}}"> 
-
-                                           <div class="paso1">
-
-                                            <p><b>Paso I:</b><br>
-                                                Aventuras<br>
-                                                En Solitaro<br></p>
-
-                                           </div>
-
-                                  </div>
-
-                                  <div class="textolargo">
-
-                                    <p class="pasoOpcional"><b>Paso Opcional:</b><br></p>
-                                    <p class="pasoOpcional2"><!-- aía va texto bbaa -->{{textos[0].phases_text}}<br>
-                           
- 
-                                    </div>
-
-                                    </div>
-
-                        <div class="cajita"></div>
-
-                </div>
-
-                  
-            </div>
-
-            <div class="zonaB">
-               
-            </div>
-    </div>
-
-</div>
+</div><!-- cierra padre -->
 
 
 
