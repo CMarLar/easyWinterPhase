@@ -9,6 +9,8 @@ import { House } from 'src/app/models/house';
 import { YearService } from 'src/app/shared/year.service';
 import { Year } from 'src/app/models/year';
 import { CampaignService } from 'src/app/shared/campaign.service';
+import { CharacterService } from 'src/app/shared/character.service';
+
 @Component({
   selector: 'app-houses-management',
   templateUrl: './houses-management.component.html',
@@ -40,7 +42,7 @@ export class HousesManagementComponent {
   //
   //
 
-  constructor(public router:Router,public playerService : PlayerService, public houseService : HouseService, public yearService : YearService,public campaignService : CampaignService){
+  constructor(public router:Router,public playerService : PlayerService, public houseService : HouseService, public yearService : YearService,public campaignService : CampaignService, public characterService:CharacterService){
 
     this.campaignName="Campaña de Carlos"
     this.shieldImage="../../../assets/img/escudo1.png"
@@ -62,6 +64,7 @@ export class HousesManagementComponent {
 
     console.log("houseService.housesOfCampaign: " + JSON.stringify(this.houseService.housesOfCamapaign));
     
+    console.log("allCampaignCharacters: " + JSON.stringify(this.characterService.allCharactersOfCampaign));
     
   }
 

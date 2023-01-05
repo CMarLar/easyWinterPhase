@@ -135,6 +135,15 @@ export class AddNpcToHouseComponent {
       //Borra en la base de datos
     this.characterService.deleteCharacter(id).subscribe((data)=>{
 
+      for (let i = 0; i < this.characterService.allCharactersOfCampaign.length; i++) {
+        if(this.characterService.allCharactersOfCampaign[i].character_id == id){
+          
+          this.characterService.allCharactersOfCampaign.splice(i,1)//Borra el personaje del array de allCharacters of Campaign
+
+        }
+        
+      }
+
       console.log(data);
       
       this.showHouseChars(this.currentHouseId)
