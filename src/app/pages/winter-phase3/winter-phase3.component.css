@@ -201,11 +201,12 @@
     height: 70%;
     width: 70%;
     padding-left: 5%;
+    padding-top: 5%;
    /*  line-height: 160%; */
-    /* border:  4px solid rgb(204, 107, 193);  */
+    /*  border:  4px solid rgb(204, 107, 193); */  
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
     
