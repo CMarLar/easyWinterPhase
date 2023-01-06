@@ -2,37 +2,39 @@
 
     <div class="main">
 
-          <!-- hijo 1 MAIN -->
-        <div class="contenido">
+        <div class="izquierda">
 
-            <div class="zonaB">
+                <div class="dagas">
+    
+                        <a class="siguiente" routerLink="/phase6a">AVANZA</a>
+                        <img class="daga_izquierda" routerLink="/phase6a" src="../../../assets/img/daga-adelante.png">
+                </div>
+           </div><!-- CIERRA IZQUIERDA -->
 
-                <div class="zonaB_a">
+        <div class="derecha">
+
+                <div class="cabecera">
 
                         <p class="titulo">FASE DE INVIERNO<br></p>
                         <p class="nombreUsuario">{{nombre}} {{apellidos}}</p>
 
-                </div>
+                </div><!-- CIERRA CABECERA -->
 
-                <div class="zonaB_b">
+                <div class="body">
 
-        <!-- <img class="pergamino" src="../../../assets/img/pergamino-chato.png"> -->
-            
-                <div class="caja">
-
-                    <div class="escudo">
-                        <div class="caja_escudo"> 
+                    <div class="caja_escudo">
+                        <div class="escudo"> 
                             <img src="{{foto_escudo}}">
                         </div>
             
                         <div class="paso">
-                            <p>Paso 5:</p>
+                            <p>Paso V:</p>
                             <p>Tirada de Establo</p>  
                         </div>
 
-                </div>
+                    </div><!-- cierra caja_escudo -->
 
-                <div class="prologo"> 
+                <div class="textolargo"> 
 
 
                     <div class="prologo1"><!-- hijo 1 prólogo -->
@@ -44,17 +46,18 @@
 
                     <div class="prologo2"><!-- hijo 2 prólogo -->
 
-                            <input class="input" #ncaballo>Introduce nº de Caballo 
+                            <p style="color:var(--font-color-h)"><b>INTRODUCE Nº DE CABALLO :</b></p><input class="input" #ncaballo><!-- Introduce nº de Caballo  -->
 
 
-                        <button class="boton" (click)="calcularSaludCaballo(ncaballo.value)">Calcular</button>
+                        <button class="boton" (click)="calcularSaludCaballo(ncaballo.value)">CALCULAR</button>
                     </div>
 
                     <div class="prologo3"><!-- hijo 2 prólogo -->
-                        <p class="frase1" >RESULTADOS</p>
+                        <p class="frase1" style="color:var(--font-color-h)"><b>RESULTADOS</b></p>
                         <p class="frase2" *ngFor="let caballito of caballosOutput" [value]="caballito">{{caballito}}</p>
                 
                     </div>
+                    <div class="espacio"></div>
                         
                         
                     </div>
@@ -62,11 +65,6 @@
             </div> 
                         
 
-                </div>  
-            </div>
-        </div>  
-
+         </div>  
     </div>
-
-<!-- aquí iba dagas -->
-</div>
+</div>  

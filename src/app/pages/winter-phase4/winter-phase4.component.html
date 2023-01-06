@@ -3,45 +3,49 @@
     <div class="main">
 
         <!-- hijo 1 MAIN -->
-        <div class="contenido">
 
-        <div class="zonaB">
+            <div class="izquierda">
 
-            <div class="zonaB_a">
+                <div class="dagas">
+    
+                        <a class="siguiente" routerLink="/phase5">AVANZA</a>
+                        <img class="daga_izquierda" routerLink="/phase5" src="../../../assets/img/daga-adelante.png">
+                </div>
+           </div><!-- cierra izquierda -->
 
-                <p class="titulo">FASE DE INVIERNO<br></p>
-                <p class="nombreUsuario">{{nombre}} {{apellidos}}</p>
+            <div class="derecha">
 
-            </div>
+                <div class="cabecera">
 
-            <div class="zonaB_b">
+                    <p class="titulo">FASE DE INVIERNO<br></p>
+                    <p class="nombreUsuario">{{nombre}} {{apellidos}}</p>
 
-                <!-- <img class="pergamino" src="../../../assets/img/pergamino-chato.png"> -->
-                    
-                    <div class="caja">
+                </div><!-- cierra cabecera -->
+                <div class="body"><!-- </div> -->
 
-                        <div class="escudo">
-                                <div class="caja_escudo"> 
+                        <div class="caja_escudo">
+
+                                <div class="escudo"> 
                                     <img src="{{foto_escudo}}">
                                 </div>
                     
                                 <div class="paso">
-                                    <p>Paso 4:</p>
+                                    <p>Paso IV:</p>
                                     <p>Circunstancias<br>
                                         Económicas</p>  
                                 </div>
 
-                            </div>
+                        </div><!-- cierra caja_escudo -->
 
-                        <div class="prologo"> 
+                        <div class="textolargo"> 
 
                             <div class="prologo1"><!-- hijo 1 prólogo -->
 
                                 <div class="texto">
-                                    <p class="colorNombre">Mal tiempo inicial</p>
-                                    <p class="colorNombre">Mod. mal tiempo</p>
-                                    <p class="colorNombre">Hab. Administración</p> 
-                                    <p class="colorNombre">Mod. Admin</p>  
+                                    <p>Mal tiempo inicial</p>
+                                    <p>Mod. mal tiempo</p>
+                                    <p>Hab. Administración</p> 
+                                    <p>Mod. Administración</p>  
                                 </div>
                             <div class="inputs">
                                     <label></label>
@@ -54,39 +58,35 @@
                         </div><!-- cierra prologo 1 -->
 
                         <div class="buttons"><!-- hijo 2 prólogo -->
-                                <button class="small_button" (click)="calcularNivelManutencion(malTiempo.value,modificadores.value,administracion.value,modificadores2.value)">Calcular</button>
+                                <button class="button" (click)="calcularNivelManutencion(malTiempo.value,modificadores.value,administracion.value,modificadores2.value)">CALCULAR</button>
                                 
                                 <span class="resultado">
                                     
-                                    <p style="font-size: small;">{{nivel}}</p>
+                                    <p>{{nivel}}</p>
 
                                 </span><!-- arreglar con css -->
-                        </div>
+                        </div><!-- cierra buttons -->
 
-<div class="selector_container">
-<form #selectNivel="ngForm" (ngSubmit)="onSelect(selectNivel)" class="selecetedCharForm">
-        <div class="desplegable_container">
+                         <div class="selector_container">
+                                <form #selectNivel="ngForm" (ngSubmit)="onSelect(selectNivel)" class="selecetedCharForm">
+                         <div class="desplegable_container">
 
-                <label>NIVEL DE MANUTENCIÓN</label>
-                <select class="desplegable" name="nivelManutencion" [(ngModel)]="nivelesModel.nivel">
-                    <!-- creo que el nivelesModel no se utiliza -->
-                    <option  *ngFor="let nivel of nivelesManutencion" [value]="nivel">{{nivel}}</option>
-                </select>
+                             <label class="nivelmanutencion">NIVEL DE MANUTENCIÓN</label>
+                             <select class="desplegable" name="nivelManutencion" [(ngModel)]="nivelesModel.nivel"> -->
+                             <!-- creo que el nivelesModel no se utiliza -->
+                             <option  *ngFor="let nivel of nivelesManutencion" [value]="nivel">{{nivel}}</option>
+                             </select>
 
-        </div>
+                         </div>
 
-        <button class="small_button">Aplicar</button>
+                             <button class="small_button">APLICAR</button>
 
-</form>
-</div>
+                                </form>
+                           </div> 
                                     
                             </div>
 
-                        </div> 
-            </div>  
-        </div>
+                </div> 
         </div>  
-
     </div>
-<!-- aquí antes iban las dagas -->
-</div>
+ </div>  
