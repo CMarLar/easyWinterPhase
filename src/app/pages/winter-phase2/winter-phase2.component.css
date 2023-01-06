@@ -99,14 +99,6 @@
 
 }
 
-    /* .pergamino{
-
-        width: 90%;
-        height: 100%;
-        margin-top: 1%;
-        display: flex;
-        position: relative;
-     /*   border:  4px solid rgb(204, 107, 188); */
     
 .caja_escudo{
 
@@ -197,7 +189,7 @@
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: end;
+        justify-content: flex-end;
      /*    background-image: url("../../../assets/img/image-from-rawpixel-id-2629122-original.png");
         background-size: 70%;
         background-position: center;

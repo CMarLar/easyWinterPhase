@@ -2,50 +2,59 @@
 
     <div class="main">
 
+        <div class="izquierda">
+
+            <div class="dagas">
+
+                    <a class="siguiente" routerLink="/phase4">AVANZA</a>
+                    <img class="daga_izquierda" routerLink="/phase4" src="../../../assets/img/daga-adelante.png">
+            </div>
+       </div>
+
           <!-- hijo 1 MAIN -->
-        <div class="contenido">
+        <div class="derecha">
 
-            <div class="zonaB">
-
-                <div class="zonaB_a">
+                <div class="cabecera">
 
                         <p class="titulo">FASE DE INVIERNO<br></p>
                         <p class="nombreUsuario">{{nombre}} {{apellidos}}</p>
 
-                </div>
+                </div><!-- cierra cabecera -->
 
-                <div class="zonaB_b">
+                <div class="body">
 
                         <!-- <img class="pergamino" src="../../../assets/img/pergamino-chato.png"> -->
                             
-                             <div class="caja">
+                             <div class="caja_escudo">
 
-                                  <div class="escudo">
-                                        <div class="caja_escudo"> 
+                        
+                                    <div class="escudo"> 
                                             <img src="{{foto_escudo}}">
-                                        </div>
+                                    </div>
                             
-                                        <div class="paso">
-                                            <p>Paso 3:</p>
+                                    <div class="paso">
+                                            <p>Paso III:</p><br>
                                             <p>Envejecimiento</p>  
-                                        </div>
+                                    </div>
+                            </div><!-- cierro caja_escudo -->
 
-                                  </div>
-
-                                  <div class="prologo"> 
+                            <div class="textolargo"> 
 
                                         <p class="frase1">Todos los personajes envejecen un año.</p>
-                                        <p class="frase2">La edad de tu personaje ahora es : <span class="numero">{{pj.edad + 1}} años.</span></p>
+                                        <p class="frase1">La edad de tu personaje ahora es : <span class="numero">{{pj.edad + 1}} años.</span></p>
                                         <div *ngIf="pj.edad + 1 >= 34">
-                                            <button (click)="envejecimientoAutomatico()" class="boton" click>Envejecimiento Automático</button>
+                                            <button (click)="envejecimientoAutomatico()" class="boton" click>ENVEJECIMIENTO AUTOMÁTICO</button>
                                         </div>
                                         
-                                        <p class="frase2">Otros personajes:</p> 
-                                        <select name="" id="">
-                                            <option class="input" value=""[selected]="">Selecciona PNJ</option>
+                                        <p class="frase3">Otros personajes:&nbsp; <span><select class="select" name="" id="">
+                                            <option class="select" value=""[selected]="">SELECCIONA PNJ</option>
                                                 <option value="{{npc.nombre}}" *ngFor="let npc of pnj">{{npc.nombre}} {{npc.edad + 1}}</option>
-                                        </select>
-                                        <button class="boton2" (click)="envejecimientoAutomatico()"> Auto </button>
+                                        </select></span><span> <button class="boton2" (click)="envejecimientoAutomatico()"> AUTO </button></span></p>
+                                        <!-- <select class="select" name="" id="">
+                                            <option class="input" value=""[selected]="">SELECCIONA PNJ</option>
+                                                <option value="{{npc.nombre}}" *ngFor="let npc of pnj">{{npc.nombre}} {{npc.edad + 1}}</option>
+                                        </select> -->
+                                        <!-- <button class="boton2" (click)="envejecimientoAutomatico()"> AUTO </button> -->
 
                                         <p class="frase2">- Si un personaje tiene una característica en 3 o menos, debes retirarlo.<br>
                                         -Si un persojaje tiene una característica en 0, el personaje ha muerto.<br></p>
@@ -54,17 +63,15 @@
                                             <p class="colorNombre">Nombre: <span><input class="input" #valor></span></p>
                                             <button class="boton" (click)="nuevoEscudero(valor.value)"></button>
                                         </div>
+                                      <!--   <div class="marca_agua"></div> -->
                                         
-                                  </div>
+                            </div><!-- cierro texto largo -->
 
-                            </div> 
-                        
+                    </div> <!-- cierro  body -->
+                </div>  <!-- cierro izquierda -->
+            </div><!-- cuerro main -->
+</div>  <!-- cierro padre -->
 
-                </div>  
-            </div>
-        </div>  
-
-    </div>
 
     <!-- hijo 2 -->
 
@@ -83,9 +90,5 @@
 
 
     </div> -->
-
-
-
-</div>
 
 <app-aging-modal class="modal" [hidden]="isHide"></app-aging-modal>
