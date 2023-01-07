@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-
-//importados para hacer servicios
 import { CampaignService } from 'src/app/shared/campaign.service';
 import { Campaign } from 'src/app/models/campaign';
 import { UserService } from 'src/app/shared/user.service';
 import { User } from 'src/app/models/user';
+import { HouseService } from 'src/app/shared/house.service';
 
 
 @Component({
@@ -31,7 +30,7 @@ export class CampaignsComponent {
 
   public noCampaigns:boolean;
 
-  constructor(public router : Router, public campaignService:CampaignService,public userService: UserService){
+  constructor(public router : Router, public campaignService:CampaignService,public userService: UserService, public houseService:HouseService){
     this.user = {nombre : "Miguel Generoso Valero",
                 correo : "gene17051996@gmail.com",
                 password : "contraseñaMiguel_17",
@@ -68,7 +67,21 @@ public getCampaigns(user_id:number){
   this.campaignService.getCampaigns(user_id).subscribe((data:Campaign[])=>{
     this.campaignsOfUser=data;
     this.campaignService.campaigns=this.campaignsOfUser;
-    console.log("Data getcampaigns: " + data);
+    console.log("Data getcampaigns: " + JSON.stringify(data));
+    console.log("CampaignsOfUser: " + JSON.stringify(this.campaignsOfUser));
+    
+
+    // for (let i = 0; i < this.campaignsOfUser.length; i++) {
+    //   if(campaign_id)
+      
+    // }
+
+
+
+    // for (let i = 0; i < this.houseService.housesOfCamapaign.length; i++) {
+    //   if
+      
+    // }
     
 
     if(data.length == 0){
@@ -91,7 +104,15 @@ public deleteCampaign(campaign_id:number){
   console.log("click");
   console.log("ID de campaña" + campaign_id);
   
-  
+  for (let i = 0; i < this.campaignsOfUser.length; i++) {
+
+    if(this.campaignsOfUser[i].campaign_id == campaign_id){
+    
+    }
+
+
+  }
+
   this.campaignService.deleteCampaign(campaign_id).subscribe((data:any)=>{
     // this.campaignsOfUser=data;//para pasar de nuevo el array por pantalla
     console.log("Dentro del suscribe");
