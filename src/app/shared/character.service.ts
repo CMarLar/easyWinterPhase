@@ -3,6 +3,7 @@ import { Character } from '../models/character';
 import { House } from '../models/house';
 import { HouseService } from './house.service';
 import { HttpClient } from '@angular/common/http';
+import { Year } from '../models/year';
 
 @Injectable({
   providedIn: 'root'
@@ -65,6 +66,14 @@ export class CharacterService {
     return this.http.put(this.url + "addnpc", character)
   }
 
+  //MODIFICA VARIOS CHARACTER JUNTOS
+  public putCharacters (characters : Character[]){
+
+    this.url = "http://localhost:3000/"
+
+    return this.http.put(this.url + "addnpc", {"characters" : characters})
+  }
+  //CREA VARIOS CHARACTERS JUNTOS
   public postCharacters(characters : Character[]){
 
     this.url = "http://localhost:3000/currentcampaignCharacter"
