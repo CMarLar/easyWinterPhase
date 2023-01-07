@@ -82,7 +82,7 @@ export class HousesManagementComponent {
 
         this.playerService.currentPlayer = this.playerService.playersOfCampaign[i];
 
-        this.playerService.currentPlayer.house_id = null;
+        // this.playerService.currentPlayer.house_id = null;
 
         this.updatePlayer();
 
@@ -90,9 +90,17 @@ export class HousesManagementComponent {
 
           if (this.houseService.housesOfCamapaign[j].house_id == idCasa){
             
+            this.houseService.housesOfCamapaign[j].house_name = null;
+            this.houseService.housesOfCamapaign[j].holding_name = null;
+            this.houseService.housesOfCamapaign[j].activeChar = null;
+            this.houseService.housesOfCamapaign[j].economyLevels = null;
+            this.houseService.housesOfCamapaign[j].familyCharacteristic = null;
+            this.houseService.housesOfCamapaign[j].shield = null;
             this.houseService.currentHouse = this.houseService.housesOfCamapaign[j];
 
-            this.houseService.deleteHouse(this.houseService.currentHouse)
+            //ESTO HAY QUE CAMBIARLO POR DELETE CHARACTERS DE LA CASA QUE SE VAYA A BORRAR
+
+            this.characterService.deleteCharacterByHouse(this.houseService.currentHouse.house_id)
             .subscribe((data) => {
 
               this.houseService.currentHouse = null;
@@ -220,14 +228,25 @@ export class HousesManagementComponent {
   }
 
   public modifyHouse(house_id : number){
-
-    this.houseService.modifyLayout = true;//para que salga el desplegable en createhouse
+    
 
     for (let i = 0; i < this.houseService.housesOfCamapaign.length; i++){
 
       if (this.houseService.housesOfCamapaign[i].house_id == house_id){
 
         this.houseService.currentHouse = this.houseService.housesOfCamapaign[i];
+
+        if (this.houseService.currentHouse.house_name == null && this.houseService.currentHouse.activeChar==null && this.houseService.currentHouse.economyLevels == null && this.houseService.currentHouse.familyCharacteristic == null && this.houseService.currentHouse.holding_name == null && this.houseService.currentHouse.shield == null){
+
+          this.houseService.modifyLayout = false;//para que no salga el desplegable en createhouse
+
+        }else{
+    
+          this.houseService.modifyLayout = true;//para que salga el desplegable en createhouse
+
+        }
+
+        
         this.router.navigateByUrl("/createhouse");
 
       }
