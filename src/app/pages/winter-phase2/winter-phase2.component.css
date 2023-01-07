@@ -69,9 +69,9 @@
         text-align: center;
         justify-content: center;
        /*  border: 2px solid rgb(255, 0, 230);  */ 
-
-        color: var(--font-color-hover);
-        -webkit-text-stroke: 2px var(--font-color-h);
+       color: var(--font-color-hover);
+       -webkit-text-stroke: 2px var(--font-color-h);
+       /*  -webkit-text-stroke: 2px var(--font-color-h); */
         font-weight: bold;
         font-size: 3rem;
 
@@ -140,11 +140,13 @@
 
     height: 70%;
     width: 75%;
+    padding-left: 5%;
+    padding-top: 5%;
     line-height: 160%;
  /*    border:  4px solid rgb(204, 107, 193);  */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
    /*     .pasoOpcional{
@@ -201,13 +203,13 @@
        /*  border:  4px solid rgb(237, 1, 1); */
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
+        justify-content: center;
     
     }
         
              .daga_izquierda{  
                 width: 30%;
-                align-self: end;
+                align-self: center;
                 padding-right: 2%;
         
             } 
@@ -221,7 +223,7 @@
                 padding-right: 4%;
                 font-size: 1.2rem;
                 font-weight: bold;
-                text-align: end;
+                text-align: center;
             }
             .siguiente:hover{
         

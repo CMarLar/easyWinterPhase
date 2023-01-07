@@ -1,61 +1,62 @@
 <div class="padre" >
+
     <div class="main">
 
-          <!-- hijo 1 MAIN -->
-        <div class="contenido">
+        <div class="izquierda">
 
-            <div class="zonaB">
+            <div class="dagas">
 
-                <div class="zonaB_a">
+                   <!--  <a class="siguiente" routerLink="/phase4">AVANZA</a> -->
+                    <img class="daga_izquierda" routerLink="/winterphasemain" src="../../../assets/img/daga-adelante.png">
+            </div>
+        </div><!-- cierro izquierda -->
+
+        <div class="derecha">
+
+                <div class="cabecera">
 
                         <p class="titulo">FASE DE INVIERNO<br></p>
                         <p class="nombreUsuario">{{jugadores[0]}}</p>
 
-                </div>
+                </div><!-- cierro cabecera -->
 
-                <div class="zonaB_b">
+                <div class="body">
 
-                        <!-- <img class="pergamino" src="../../../assets/img/pergamino-chato.png"> -->
+                    <div class="caja_escudo">
+
+                            <div class="escudo"> 
+                                <img src="{{foto_escudo}}">
+                            </div>
+
+                            <div class="paso">
+                                <p>Paso IX:</p>
+                                <p>Beneficios<BR>
+                                 por Gloria</p>  
+
+                            </div>
+                    </div><!-- cierro caja_escudo -->
+
+                    <div class="textolargo"> 
+
+                            <div class="prologo1"><!-- hijo 1 prólogo / ESTO VA EN LA BBAA (TEXTO)-->
+                                <p class="frase1">{{textos[0].phases_text}}</p><br>
+                                        
+                                <p class="frase1">{{textos2[0].phases_text}}</p>
+                                    
                             
-                             <div class="caja">
+                            </div>
 
-                                  <div class="escudo">
-                                        <div class="caja_escudo"> 
-                                            <img src="{{foto_escudo}}">
-                                        </div>
-                            
-                                        <div class="paso">
-                                            <p>Paso 9:</p>
-                                            <p>Beneficios por Gloria</p>  
-                                        </div>
+                            <div class="prologo2"><!-- hijo 2 prólogo -->
 
-                                  </div>
-
-                                  <div class="prologo"> 
-
-
-                                    <div class="prologo1"><!-- hijo 1 prólogo / ESTO VA EN LA BBAA (TEXTO)-->
-                                        <p class="frase1">{{textos[0].phases_text}}</p><br>
-                                        <p class="frase1">{{textos2[0].phases_text}}</p>
+                                    <div class="hijito">
+                                            <img class="lacreDragon" src="../../../assets/img/LACRE DRAGÓN.png">
                                     </div>
+                                    <a routerLink="/winterphasemain"></a><span class="hijito2">fin</span>
+                            </div>  
+                    </div><!-- cierra textolargo -->
 
-                                    <div class="prologo2"><!-- hijo 2 prólogo -->
-
-                                        <div class="hijito">
-                                             <img class="lacreDragon" src="../../../assets/img/LACRE DRAGÓN.png">
-                                        </div>
-                                        <a routerLink="/winterphasemain" class="hijito2">fin</a>
-                                    </div>  
-                                  </div>
-
-                            </div> <!-- cierre CAJA -->
-                        
-
-                </div>  <!-- CIERRE PERGAMINO -->
-            </div><!-- CIERRE ZONA B -->
-        </div> <!-- CIERRE CONTENIDO --> 
-
+                </div> <!-- cierre body -->
+            </div><!-- CIERRE derecha -->
     </div><!-- CIERRE MAIN -->
-    <!-- iba dagas -->
 </div><!-- CIERRE PADRE -->
 

@@ -2,41 +2,34 @@
 
     <div class="main">
 
-            <div class="zonaA">
+            <div class="izquierda">
 
 
-                <div class="zonaA_a">
+                <div class="cabecera">
 
                         <p class="titulo">FASE DE INVIERNO<br></p>
                         <p class="nombreUsuario">{{nombre}} {{apellidos}}</p>
 
                 </div>
 
-                <div class="zonaA_b">
+                <div class="body">
 
-                        <div class="cajita"></div>
+        
+                    <div class="caja_escudo">
 
-                        <img class="pergamino" src="../../../assets/img/pergamino-chato.png">
-                            
-                             <div class="caja">
+                        <div class="escudo">     
+                            <img class="imagen_escudo" src="{{foto_escudo}}">
+                        </div> 
+                        <div class="paso">
 
-                                  <div class="escudo">
-                                    
-                                            <img class="imagen_escudo" src="{{foto_escudo}}"> 
+                            <p>Paso VII :<br>
+                            Entrenamiento<br>
+                        </div>
+                    </div><!-- cierro caja_escudo -->
 
-                            
-                                           <div class="paso7">
+                    <div class="textolargo">
 
-                                            <p><b>Paso 7:</b><br>
-                                                Entrenamiento<br>
-
-                                           </div>
-
-                                  </div>
-
-                                  <div class="textolargo">
-
-                                    <p class="pasoOpcional">Personaje jugador</p>
+                                    <p class="pasoOpcional">PERSONAJE JUGADOR</p>
                                     <p class="pasoOpcional2">El jugador debe de llevar a cabo <span style="font-weight: bold;">solo una</span> de las siguientes tareas en su hoja de personaje:</p>
                                 <div class="list">
                                     <ul>
@@ -45,25 +38,28 @@
                                         <li> Mejorar  una  característica,  rasgo  de  personalidad  o  pasión.<br>
                                     </ul>
                                 </div>
-                                    <p>Los siguiente <span style="font-weight: bold;">PNJ</span> reciben 1d3 puntos para aumentar cualquiera de sus habilidades:<br></p>
-                                     
+
+                                    <p class="pasoOpcional2">Los siguiente <span style="font-weight: bold;">PNJ</span> reciben 1d3 puntos para aumentar cualquiera de sus habilidades:<br></p>
+                                     <div class="nombres">
                                      <p class="Alain" *ngFor="let character of houseCharacters.characters" [value]="name">{{character.name}}</p>
+                                     </div>
+    
+                         
 
-                                  </div>
+                    </div><!-- cierra textolargo -->
+                </div><!-- cierra body -->
+            </div><!-- cierra izquierda -->
 
-                            </div>
+            <div class="derecha">
 
-                        <div class="cajita"></div>
+                <div class="dagas">
 
+                        <a class="siguiente" routerLink="/phase8">AVANZA</a>
+                        <img class="daga_izquierda" routerLink="/phase8" src="../../../assets/img/daga-adelante.png">
                 </div>
+            </div><!-- cierra derecha -->
+    </div><!-- cierra main -->
+</div><!-- cierra padre -->
 
-                  
-            </div>
 
-            <div class="zonaB">
-               
-            </div>
-    </div>
-<!-- aqui iba Dagas -->
-</div>
 

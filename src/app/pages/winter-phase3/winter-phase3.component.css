@@ -50,14 +50,14 @@
     /*  border:  4px solid rgb(237, 1, 1); */
      display: flex;
      flex-direction: column;
-     justify-content: flex-end;
+     justify-content: center;
  
  }
      
           .daga_izquierda{  
              width: 30%;
-             align-self: flex-start;
-             padding-left: 2%;
+             align-self: center;
+            /*  padding-left: 2%; */
      
          } 
           .daga_izquierda img{
@@ -70,8 +70,8 @@
             /*  padding-right: 4%; */
              font-size: 1.2rem;
              font-weight: bold;
-             text-align: flex-star;
-             padding-left: 5%;
+             text-align: center;
+             /* padding-left: 5%; */
          }
          .siguiente:hover{
      
@@ -209,19 +209,7 @@
     justify-content: flex-start;
     align-items: center;
 }
-    
-  /*   .marca_agua{
-    
-        height: 20%;
-        width: 80%; 
-        /* border:  4px solid rgb(204, 107, 193); */  
-/*         background-image: url("../../../assets/img/image-from-rawpixel-id-2629122-original.png");
-        background-size: 30%;
-        background-position: center;
-        background-repeat: no-repeat;
-        justify-content: flex-end;
-    
- */ 
+
         .frase1{
 
             color: black;
