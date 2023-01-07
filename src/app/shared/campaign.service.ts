@@ -29,6 +29,7 @@ export class CampaignService {
   public getCampaigns(user_id:number) {
     
     let id = user_id;
+    this.url = "http://localhost:3000/";
 
     return this.http.get(this.url + "campaigns?user_id=" + id)
 
@@ -39,6 +40,7 @@ export class CampaignService {
 public deleteCampaign(campaign_id:number) {
 
   let id = campaign_id;
+  this.url = "http://localhost:3000/";
 
   const httpOptions = {header:null, body: {campaign_id}}
 

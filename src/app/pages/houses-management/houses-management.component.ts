@@ -10,6 +10,7 @@ import { YearService } from 'src/app/shared/year.service';
 import { Year } from 'src/app/models/year';
 import { CampaignService } from 'src/app/shared/campaign.service';
 import { CharacterService } from 'src/app/shared/character.service';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-houses-management',
@@ -42,7 +43,7 @@ export class HousesManagementComponent {
   //
   //
 
-  constructor(public router:Router,public playerService : PlayerService, public houseService : HouseService, public yearService : YearService,public campaignService : CampaignService, public characterService:CharacterService){
+  constructor(public router:Router,public playerService : PlayerService, public houseService : HouseService, public yearService : YearService,public campaignService : CampaignService, public characterService:CharacterService,public userService : UserService){
 
     this.campaignName="Campaña de Carlos"
     this.shieldImage="../../../assets/img/escudo1.png"
@@ -134,19 +135,22 @@ export class HousesManagementComponent {
           
           this.yearService.yearsOfCampaign[0].year_id = data.insertId;
 
-          //esto pasa a ser parte de current campaign
-          // this.yearService.postPlayerYear(this.yearService.currentYear,this.playerService.playersOfCampaign)
-          // .subscribe((data : any) => {
-          //   console.log("ENTROOOOO GOLGOLGOL");
-          //   console.log("DATA YEARS: " + JSON.stringify(data));
+          for (let i = 0; i < this.characterService.allCharactersOfCampaign.length; i++){
+            this.characterService.allCharactersOfCampaign[i].year_id = this.yearService.currentYear.year_id;
             
-            
-            
-          // })
+            console.log("ESTE ES EL LOG DEL AÑO ACTUAL: " + this.yearService.currentYear.year_id);
+            console.log("ESTE ES EL LOG DEL AÑO ACTUAL DE LOS PNJ: " + this.characterService.allCharactersOfCampaign[i].year_id);
+          }
+
+          
+          
+          
+
+          this.characterService.putCharacters(this.characterService.allCharactersOfCampaign)
+          .subscribe((data : any) => {
+
+          })
         })
-        
-        // console.log("ARRAY YEARS: " + this.yearService.yearsOfCampaign);
-        // console.log("CURRENT YEAR: " + this.yearService.currentYear);
         
 
       }

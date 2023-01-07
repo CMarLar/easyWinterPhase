@@ -3,11 +3,11 @@
 <div class="supercontainer">
     <div class="cabecera">
           <div class="profile_pic">
-                <a routerLink = "/profile"><img src="../../../assets/img/avatar1.png" alt="" srcset=""></a>
+                <a routerLink = "/profile"><img src="{{userService.user.avatar}}" alt="" srcset=""></a>
           </div>
           <div class="title">
                 <p class="page_title">CREACIÓN DE CASAS</p>
-                <p class ="page_subtitle">{{campaignName}}</p>
+                <p class ="page_subtitle">{{campaignService.currentCampaign.campaign_name}}</p>
           </div>
     </div>
 
@@ -25,12 +25,13 @@
             </div>
 
         <div class="playerlist">
-            <div class="playerOk" *ngFor="let player of players">
-                <div class="playershield">
-                    <img [src]="player.escudo" alt="" srcset="">
+            <div class="playerOk" *ngFor="let player of players; let i = index"  [attr.data-index]="i">
+                <!-- CORREGIR ESTE ERROR DEL ESCUDO -->
+                <div class="playershield" *ngIf="player.house_id!=null;">
+                    <img src="{{houseService.housesOfCamapaign[i].shield}}" alt="" srcset="">
                 </div>
                 <div class="playername" *ngIf="player.house_id!=null;else noHouse">
-                    <p>{{player.player_name}} - Casa <!--{{player.casa}}--></p>
+                    <p>{{player.player_name}} - Casa {{houseService.housesOfCamapaign[i].house_name}}</p>
                 </div>
                 <ng-template #noHouse>
                     <div class="playername">
