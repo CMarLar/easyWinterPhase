@@ -135,17 +135,14 @@ export class HousesManagementComponent {
           
           this.yearService.yearsOfCampaign[0].year_id = data.insertId;
 
+          console.log("ESTOS SON LOS PNJ ANTES DE MODIFICAR SU AÑO: " + JSON.stringify(this.characterService.allCharactersOfCampaign));
+          
           for (let i = 0; i < this.characterService.allCharactersOfCampaign.length; i++){
             this.characterService.allCharactersOfCampaign[i].year_id = this.yearService.currentYear.year_id;
             
             console.log("ESTE ES EL LOG DEL AÑO ACTUAL: " + this.yearService.currentYear.year_id);
             console.log("ESTE ES EL LOG DEL AÑO ACTUAL DE LOS PNJ: " + this.characterService.allCharactersOfCampaign[i].year_id);
           }
-
-          
-          
-          
-
           this.characterService.putCharacters(this.characterService.allCharactersOfCampaign)
           .subscribe((data : any) => {
 
