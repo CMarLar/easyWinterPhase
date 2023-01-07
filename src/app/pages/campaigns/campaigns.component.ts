@@ -68,16 +68,16 @@ public getCampaigns(user_id:number){
   this.campaignService.getCampaigns(user_id).subscribe((data:Campaign[])=>{
     this.campaignsOfUser=data;
     this.campaignService.campaigns=this.campaignsOfUser;
-    console.log(data);
+    console.log("Data getcampaigns: " + data);
     
 
     if(data.length == 0){
       this.noCampaigns = true;
-      console.log(this.noCampaigns);
+      console.log("No campaigns: " + this.noCampaigns);
       
     }else{
       this.noCampaigns = false;
-      console.log(this.noCampaigns);
+      console.log("No campaigns: " + this.noCampaigns);
     }
     
   })//sin suscribe
@@ -87,11 +87,17 @@ public getCampaigns(user_id:number){
 public deleteCampaign(campaign_id:number){
 
   //igual tienes que cambiar este data a :any
+
+  console.log("click");
+  console.log("ID de campaña" + campaign_id);
+  
+  
   this.campaignService.deleteCampaign(campaign_id).subscribe((data:any)=>{
     // this.campaignsOfUser=data;//para pasar de nuevo el array por pantalla
+    console.log("Dentro del suscribe");
     
     console.log("Campaña borrada");    
-    console.log(data);
+    console.log("Data deletecampaigns" + data);
 
     for (let i = 0; i < this.campaignsOfUser.length; i++) {
 
