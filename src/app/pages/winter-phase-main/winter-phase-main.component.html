@@ -6,20 +6,20 @@
 
             <div class="zonaA_b">
 
-                <div class="zonaA_a">
+                <div class="cebecera">
 
                     <p class="titulo">{{campaignName}}</p>
                     <p class="subtitulo">Fase de Invierno</p>
-                    <p class="message">Completa las fases de invierno de todos los jugadores<br> para pasar al año siguiente.</p>
+                    <p class="message">Completa las fases de invierno de todos los jugadores para pasar al año siguiente.</p>
 
                 </div>
 
                     <!-- Cabecera -->
                     <div class="header">
-                        <span class="shield_span"><p>Escudo</p></span>
-                        <span>Casa</span>
-                        <span>Jugador</span>
-                        <span>Fase de invierno</span>
+                        <span class="shield_span"><p>ESCUDO</p></span>
+                        <span class="shield_span"><P>CASA</P></span>
+                        <span class="shield_span"><P>JUGADOR</P></span>
+                        <span class="shield_span"><P>FASE DE INVIERNO</P></span>
                     </div>
 
                     <!-- Jugadores -->
@@ -41,7 +41,7 @@
                         <!-- Hay que cambiar los falses a 0 probablemente -->
                         <span *ngIf="jugador.player.winterPhaseDone==0;else winterPhaseFinished">
                             <button class="small_button" (click)="doWinterPhase(jugador.house.house_id)">
-                                Comenzar
+                                COMENZAR
                             </button>
                         </span>
                         
@@ -65,7 +65,7 @@
 
             <div class="buttons">
                 <!-- ver comentarios en ts -->
-                <button [disabled]="playersNotReady" (click)="nextYear()">Siguiente año</button>
+                <button [disabled]="playersNotReady" (click)="nextYear()">SIGUIENTE AÑO</button>
             </div>
 
             </div>
@@ -75,27 +75,6 @@
         <div class="zonaB">
         
         </div>
-    </div>
-
-     <div class="dagas">
-
-        <!-- <div class="back"> -->
-        <!-- Si se ha completado al menos la fase de invierno de un jugador y se quiere ir hacia atrás, habría que poner una validación que pusiera una campaña intermedia de aviso.
-
-        Algo con un texto tipo ¿Estás seguro que quieres volver a la campaña? No se guardarán las fases de invierno que hayas completado y tendrás que empezar de nuevo. -->
-
-
-     <!--        <a routerLink = "/currentcampaign" class="daga_derecha"><img src="../../../assets/img/daga-atras.png" alt="" ></a>
-            <a routerLink = "/currentcampaign" class="volver">VOLVER</a>
-
-        </div> -->
-
-        <!-- <div class="next">
-            <a routerLink = "/phase2" class="daga_izquierda"><img src="../../../assets/img/daga-adelante.png" alt="" ></a>
-            <a routerLink = "/phase2" class="siguiente">SIGUIENTE</a>
-        </div> -->
-
-
     </div>
 
 
