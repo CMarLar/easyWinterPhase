@@ -207,6 +207,8 @@ export class CurrentCampaignComponent {
     }
 
     public goCreateHouse(){
+
+      this.houseService.modifyLayout = true;
       this.router.navigateByUrl("/createhouse")
     }
 
