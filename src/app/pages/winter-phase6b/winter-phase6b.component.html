@@ -2,39 +2,44 @@
 
     <div class="main">
 
-          <!-- hijo 1 MAIN -->
-        <div class="contenido">
+        <div class="izquierda">
 
-            <div class="zonaB">
+            <div class="dagas">
+    
+                <a class="siguiente" routerLink="/phase7">AVANZA</a>
+                <img class="daga_izquierda" routerLink="/phase7" src="../../../assets/img/daga-adelante.png">
+            </div>
+        </div><!-- cierra izquierda -->
 
-                <div class="zonaB_a">
+        <div class="derecha">
+
+                <div class="cabecera">
 
                         <p class="titulo">FASE DE INVIERNO<br></p>
                         <p class="nombreUsuario">{{nombre}} {{apellidos}}</p>
 
-                </div>
+                </div><!-- cierra cabecera -->
 
-                <div class="zonaB_b">
+                <div class="body">
                             
-                    <div class="caja">
+                    <div class="caja_escudo"> 
 
-                        <div class="escudo">
-                            <div class="caja_escudo"> 
+                            <div class="escudo"> 
                                 <img src="{{foto_escudo}}">
                             </div>
                 
                             <div class="paso">
-                                <p>Paso 6b:</p>
+                                <p>Paso VI b:</p>
                                 <p>Familia</p>  
                             </div>
 
-                        </div>
+                    </div><!-- cierro caja_escudo -->
 
-                        <div class="prologo"> 
+                    <div class="textolargo"> 
 
 
                             <div class="prologo1"><!-- hijo 1 prólogo -->
-                                <p class="frase">Nacimientos</p>
+                                <p class="frase">NACIMIENTOS</p>
                                 <p class="frase1">Modificador: Circunstancia Económica: <span class="numero">{{cisrcunstanciaEconomica}}</span></p>
                                 <p class="frase1">Modificador: Edad de la madre: <span class="numero">{{edadMadre}}</span></p>
 
@@ -42,16 +47,16 @@
 
                             <div class="prologo3"><!-- hijo 3 prólogo -->
                                 <div class="esposa" *ngIf="pj.isMarried == true">
-                                    <p>Esposa: {{pj.esposa.nombre}}</p>
-                                    <button (click)="calcularNacimientosEsposa()" class="boton">Calcular</button>
+                                    <p><B>ESPOSA :</B> {{pj.esposa.nombre}}</p>
+                                    <button (click)="calcularNacimientosEsposa()" class="boton">CALCULAR</button>
                                 </div>
                                 <div class="hijito">
-                                    <p>Amantes:</p>
+                                    <p><B>AMANTES :</B></p>
                                     <div>
-                                        <select name="" id="" #valorAmantes class="input">
+                                        <select class="select" name="" id="" #valorAmantes>
                                             <option value="{{amantes.nombre}}" *ngFor="let amantes of pj.amantes">{{amantes.nombre}}</option>
                                         </select>
-                                        <button (click)="calcularNacimientos(valorAmantes.value)" class="boton2">Calcular</button>    
+                                        <button (click)="calcularNacimientos(valorAmantes.value)" class="boton2">CALCULAR</button>    
                                     </div>
                                     </div>
                             </div>
@@ -63,15 +68,14 @@
                             
                         </div>
 
-                </div> <!-- cierre CAJA -->
+                </div> 
                         
 
-                </div>  <!-- CIERRE PERGAMINO -->
-            </div><!-- CIERRE ZONA B -->
-        </div> <!-- CIERRE CONTENIDO --> 
+                </div>  
+            </div><!-- cierre derecha -->
+    </div> <!-- CIERRE main --> 
 
-    </div><!-- CIERRE MAIN -->
-<!-- aquí iba dagas -->
-</div><!-- CIERRE PADRE -->
+
+
 
 <app-births-modal class="modal" [hidden]="isHide"></app-births-modal>
