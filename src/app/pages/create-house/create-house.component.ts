@@ -133,9 +133,6 @@ public selectHouseShield(shield:string){
 
 public submitCharInfo(form:NgForm){
   
-
-
-
   console.log(form.value);//pasa un objeto con los nombres del caballero y el escudero y la edad del caballero
 
   //LIMPIADORES
@@ -170,7 +167,8 @@ public submitCharInfo(form:NgForm){
         this.showEmptyCharMessage = false;
         console.log("Mensaje: " + this.showEmptyCharMessage);
       }, 2000);
-    }else{
+
+    }else{//si los campos no están vacíos, sigue con la función
 
   console.log("Después de los valores: " + this.knightName + " " + this.knightAge + " " + this.squireName);
   console.log(this.knight);
@@ -251,7 +249,7 @@ public onSubmit(form:NgForm){
         console.log("Mensaje: " + this.showEmptyFieldMessage);
       }, 2000);
 
-    }else{
+    }else{//si los campos no están vacíos, sigue con la función
 
 
   this.houseService.updateHouse(
