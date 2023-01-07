@@ -59,6 +59,18 @@ export class CharacterService {
 
   }
 
+  public deleteCharacterByHouse(house_id:number){
+
+    let id = house_id;
+
+    this.url = "http://localhost:3000/housemanagementDeleteHouse"
+    
+    const httpOptions = {header:null, body: {house_id}}
+
+    return this.http.delete(this.url,httpOptions)
+
+  }
+
   public modifyCharacter (character:Character){
 
     this.url = "http://localhost:3000/"
