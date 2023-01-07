@@ -75,6 +75,12 @@ export class CreateHouseComponent {
   //Hace un string para mostrarlo. Llamada desde div npc_list
   public stringNpcs:string;
 
+
+  //Estos atributos muestran un mensaje dependiendo de si hay campos vacíos.
+  public emptyField:string;
+  public showEmptyFieldMessage:boolean;
+  public showEmptyCharMessage:boolean;
+
     constructor(public router:Router, public characterService:CharacterService, public houseService:HouseService, public playerService:PlayerService){
 
       console.log("houseService.currentHouse al iniciar la página" + JSON.stringify(this.houseService.currentHouse));
@@ -112,6 +118,9 @@ export class CreateHouseComponent {
 
       this.modifyLayoutButtons();
       
+      
+
+      this.showEmptyFieldMessage = false;//El mensaje de rellenar los campos aparece vacío.
 
     }//FIN CONSTRUCTOR
 
@@ -144,6 +153,24 @@ public submitCharInfo(form:NgForm){
   this.knightName = form.value.knight_name;
   this.knightAge = parseInt(form.value.knight_age);//para que no coja como string la edad
   this.squireName = form.value.squire_name;
+
+  //Bloque para evitar que se dejen los campos vacíos cuando se crea el personaje
+  if(
+    form.value.knight_name == undefined ||
+    form.value.knight_age == undefined ||
+    form.value.squire_name == undefined
+    )
+    {
+      this.emptyField = "Rellena los tres campos";
+      this.showEmptyCharMessage = true;
+      ("Mensaje: " + this.showEmptyCharMessage);
+      
+
+      setTimeout(() => {
+        this.showEmptyCharMessage = false;
+        console.log("Mensaje: " + this.showEmptyCharMessage);
+      }, 2000);
+    }else{
 
   console.log("Después de los valores: " + this.knightName + " " + this.knightAge + " " + this.squireName);
   console.log(this.knight);
@@ -194,7 +221,7 @@ public submitCharInfo(form:NgForm){
   
   this.alreadyAdded = true;
   this.houseNotUpdated = false;
-  
+}//fin del else
 }
 
 //Añade información de las casas al front y al back
@@ -203,7 +230,28 @@ public onSubmit(form:NgForm){
   form.value.shield = this.selectedShield;
   form.value.house_id = this.currentHouseId;
   
-  console.log("Form value: " + form.value);
+  console.log("Form value de la casa: " + JSON.stringify(form.value));
+
+    //Bloque para evitar que se rellenen cosas vacías cuando se crea la casa. Comprueba si el formulario y currentHouse están a null
+  if(
+    (form.value.house_name == undefined && this.houseService.currentHouse.house_name == null) ||
+    (form.value.holding_name == undefined && this.houseService.currentHouse.holding_name == null) ||
+    (form.value.familyCharacteristic == undefined && this.houseService.currentHouse.familyCharacteristic == null) ||
+    (this.selectedShield == undefined && this.houseService.currentHouse.shield == null) ||
+    (form.value.nivelesManutencion == undefined && this.houseService.currentHouse.economyLevels == null)
+    )
+    {
+      this.emptyField = "Rellena todos los campos de la casa";
+      this.showEmptyFieldMessage = true;
+      ("Mensaje: " + this.showEmptyFieldMessage);
+      
+
+      setTimeout(() => {
+        this.showEmptyFieldMessage = false;
+        console.log("Mensaje: " + this.showEmptyFieldMessage);
+      }, 2000);
+
+    }else{
 
 
   this.houseService.updateHouse(
@@ -218,6 +266,8 @@ public onSubmit(form:NgForm){
       .subscribe((data)=>{
 
         console.log(data);
+
+
     
         //Este bloque es para que no se quede todo a null en el front cuando se modifica la casa
         if(this.actualHouse.house_name == undefined){
@@ -251,6 +301,8 @@ public onSubmit(form:NgForm){
 
   this.houseNotUpdated = true;
   this.goToNpcForbidden = false;
+    }//fin del else
+
 }
 
 

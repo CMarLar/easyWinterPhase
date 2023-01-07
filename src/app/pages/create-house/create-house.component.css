@@ -555,3 +555,9 @@ h3{
 .pj_escudero:disabled::after{
     content: "OK!";
 }
+
+.emptyFieldMessage{
+    text-align: center;
+    font-size: x-large;
+    color: var(--font-color-warnings);
+}
