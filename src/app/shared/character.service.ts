@@ -69,9 +69,9 @@ export class CharacterService {
   //MODIFICA VARIOS CHARACTER JUNTOS
   public putCharacters (characters : Character[]){
 
-    this.url = "http://localhost:3000/"
+    this.url = "http://localhost:3000/housemanagementCharacters"
 
-    return this.http.put(this.url + "addnpc", {"characters" : characters})
+    return this.http.put(this.url, {"characters" : characters})
   }
   //CREA VARIOS CHARACTERS JUNTOS
   public postCharacters(characters : Character[]){
