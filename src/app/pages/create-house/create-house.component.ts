@@ -152,8 +152,7 @@ public submitCharInfo(form:NgForm){
   let knightCopy = {...this.knight};
   let squireCopy = {...this.squire};
 
-  this.characterService.currentHouseChars.push(knightCopy);
-  this.characterService.currentHouseChars.push(squireCopy);
+
 
 
   for (let i = 0; i <  this.characterService.currentHouseChars.length; i++) {
@@ -167,10 +166,12 @@ public submitCharInfo(form:NgForm){
 
     console.log("Data del caballero: " + JSON.stringify(data1));
     
-    this.characterService.currentHouseChars[0].character_id = data1.insertId//cambia el id del objeto en el front para la pantalla npcs, pero no lo manda a la base de datos, no obstante, los personajes que se han creado tienen este ID
+    knightCopy.character_id = data1.insertId//cambia el id del objeto en el front para la pantalla npcs, pero no lo manda a la base de datos, no obstante, los personajes que se han creado tienen este ID
 
     this.activeChar = data1.insertId//igualo también con activechar
     console.log("Id del caballero y activeChar de la casa: " + this.activeChar);
+
+    this.characterService.currentHouseChars.push(knightCopy)
 
     this.characterService.allCharactersOfCampaign.push(knightCopy)
     console.log("All chars of campaign: " + JSON.stringify(this.characterService.allCharactersOfCampaign));
@@ -182,13 +183,14 @@ public submitCharInfo(form:NgForm){
 
     console.log("Data del escudero: " + JSON.stringify(data2));
 
-    this.characterService.currentHouseChars[1].character_id = data2.insertId//cambia el id del objeto en el front para la pantalla npcs
+    squireCopy.character_id = data2.insertId//cambia el id del objeto en el front para la pantalla npcs
+
+    this.characterService.currentHouseChars.push(squireCopy);
 
     this.characterService.allCharactersOfCampaign.push(squireCopy)
     console.log("All chars of campaign: " + JSON.stringify(this.characterService.allCharactersOfCampaign));
   })
-  
-  
+
   
   this.alreadyAdded = true;
   this.houseNotUpdated = false;

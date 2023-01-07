@@ -51,18 +51,18 @@ public deleteCampaign(campaign_id:number) {
 
 //POST  NEW CAMPAIGN
 public postCampaign(campaign:Campaign){
-  this.url = "http://localhost:3000/campaigns"
 
-  return this.http.post(this.url,campaign)
+
+  return this.http.post(this.url + "campaigns",campaign)
 
 }
 
 //PUT CAMPAIGN
 
 public modifyCampaign(campaign:Campaign){
-  this.url = "http://localhost:3000/campaigns"
 
-  return this.http.put(this.url,campaign)
+
+  return this.http.put(this.url + "campaigns",campaign)
 }
 
 }//fin servicio

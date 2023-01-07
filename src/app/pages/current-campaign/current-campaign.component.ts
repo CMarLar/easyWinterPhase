@@ -68,6 +68,8 @@ export class CurrentCampaignComponent {
 
       console.log("houseService.housesOfCampaign: " + JSON.stringify(this.houseService.housesOfCamapaign));
 
+      console.log("All chararcterss of campaign: " + JSON.stringify(this.characterService.allCharactersOfCampaign));
+
     //Fin del constructor
     }
 
