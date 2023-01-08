@@ -32,7 +32,6 @@ public currentPlayerName:string;
 
     console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
     console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
-    console.log("nextYear (creado por Carlos): " + JSON.stringify(this.yearService.nextYear));
     console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
     console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
     console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
@@ -66,7 +65,7 @@ public mostrarTextos(id: number){
   })
 } 
 
-// public mostrarNombreJugador(id: number){//Estso se puede hacer con el servicio, sin necesidad de llamar a la base de datos  
+// public mostrarNombreJugador(id: number){//Esto se puede hacer con el servicio, sin necesidad de llamar a la base de datos  
 
 //   this.jugadorService.getPlayers(id).subscribe((data: Player[])=>{
   

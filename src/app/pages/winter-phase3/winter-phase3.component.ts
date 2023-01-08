@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
-import { parseJsonConfigFileContent } from 'typescript';
+import { parseJsonConfigFileContent, StringMappingType } from 'typescript';
+import { PlayerService } from 'src/app/shared/player.service';
+import { Player } from 'src/app/models/player';
+import { HouseService } from 'src/app/shared/house.service';
+import { CharacterService } from 'src/app/shared/character.service';
+import { CampaignService } from 'src/app/shared/campaign.service';
+import { YearService } from 'src/app/shared/year.service';
+
 
 @Component({
   selector: 'app-winter-phase3',
@@ -10,8 +17,8 @@ export class WinterPhase3Component {
 
   
   WinterPhaseMainComponent: any;
-  public nombre: string
-  public apellidos: string
+
+  public currentPlayerName:string;
   public foto_escudo : string
 
   public personaje: string
@@ -26,11 +33,19 @@ export class WinterPhase3Component {
   public isHide : boolean;
   public newEscudero : any;
 
-   constructor(){
+   constructor(public playerService: PlayerService, public houseService: HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService:YearService){
     
-    this.nombre = "Irene",
-    this.apellidos = "Herrero Becker"
-    this.foto_escudo = "../../../assets/img/escudo10.png"
+    console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
+    console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
+    console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
+    console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
+    console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
+    
+    this.foto_escudo = this.houseService.currentHouse.shield;
+
+    this.currentPlayerName = this.playerService.currentPlayer.player_name;
+
+
     this.edad_personaje = 34
     this.edad_personaje2 = 36
     this.personaje = "Espartacus"

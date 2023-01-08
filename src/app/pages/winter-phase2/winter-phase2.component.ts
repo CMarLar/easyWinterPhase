@@ -3,6 +3,10 @@ import { TextService } from 'src/app/shared/text.service';
 import { Text } from 'src/app/models/text';
 import { PlayerService } from 'src/app/shared/player.service';
 import { Player } from 'src/app/models/player';
+import { HouseService } from 'src/app/shared/house.service';
+import { CharacterService } from 'src/app/shared/character.service';
+import { CampaignService } from 'src/app/shared/campaign.service';
+import { YearService } from 'src/app/shared/year.service';
 
 @Component({
   selector: 'app-winter-phase2',
@@ -12,21 +16,29 @@ import { Player } from 'src/app/models/player';
 export class WinterPhase2Component {
 
 
-  public nombre: string
-  public apellidos: string
   public foto_escudo : string
 
   WinterPhaseMainComponent: any;
 
   public jugadores: Player [];
   public textos: Text [];
-  
-   constructor(private textosService: TextService, private jugadorService: PlayerService ){
-    
-    this.foto_escudo = "../../../assets/img/escudo10.png"/* provisional */
 
-    this.mostrarNombreJugador(1)
-    this.jugadores = []
+  public currentPlayerName:string;
+  
+   constructor(private textosService: TextService, private jugadorService: PlayerService, public houseService: HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService:YearService ){
+
+    console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
+    console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
+    console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
+    console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
+    console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
+    
+    this.foto_escudo = this.houseService.currentHouse.shield;
+
+    this.currentPlayerName = this.jugadorService.currentPlayer.player_name;
+
+    // this.mostrarNombreJugador(1)//se puede hacer con servicios
+    // this.jugadores = []
 
     this.mostrarTextos(2) 
     this.textos = []
