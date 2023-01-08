@@ -1,6 +1,13 @@
 import { Component } from '@angular/core';
 import { WinterPhaseMainComponent } from '../winter-phase-main/winter-phase-main.component';
 import { NgForm } from '@angular/forms';
+import { PlayerService } from 'src/app/shared/player.service';
+import { Player } from 'src/app/models/player';
+import { House } from 'src/app/models/house';
+import { HouseService } from 'src/app/shared/house.service';
+import { CharacterService } from 'src/app/shared/character.service';
+import { CampaignService } from 'src/app/shared/campaign.service';
+import { YearService } from 'src/app/shared/year.service';
 
 @Component({
   selector: 'app-winter-phase4',
@@ -26,14 +33,25 @@ export class WinterPhase4Component {
   public nivelesModel;
 
   public WinterPhaseMainComponent: any;
+
+  public currentPlayerName:string;
   
 
-    constructor(){
-    
-    this.nombre = "Irene",
-    this.apellidos = "Herrero Becker"
-    this.foto_escudo = "../../../assets/img/escudo10.png"
+    constructor(private playerService: PlayerService, public houseService: HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService:YearService ){
 
+      console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
+      console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
+      console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
+      console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
+      console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
+
+      console.log();
+      
+      
+      this.foto_escudo = this.houseService.currentHouse.shield;
+  
+      this.currentPlayerName = this.playerService.currentPlayer.player_name;
+    
     
 
     this.nivelesManutencion = ["Indigente", "Pobre","Normal", "Rico", "Muy Rico"]
