@@ -156,10 +156,22 @@ NOTAS IMPORTANTES:
       }
 
       this.characterService.currentHouseCharsWinterPhase = this.currentHouseCharsWinterPhase;//igualamos con el servicio
+      
+      //Marcamos el personaje principal en el servicio de personajes
+      for (let i = 0; i < this.characterService.currentHouseCharsWinterPhase.length; i++) {
+        if(this.characterService.currentHouseCharsWinterPhase[i].character_id == this.houseService.currentHouse.activeChar){
+          this.characterService.currentActiveChar = this.characterService.currentHouseCharsWinterPhase[i]
+        }
+        
+      }
+      
+      
       console.log("Current year: " +  JSON.stringify(this.currentYear));
       console.log("Service, next year: " + JSON.stringify(this.yearService.nextYear));
       console.log("Current house characters for Winter Phase, component: " + JSON.stringify(this.currentHouseCharsWinterPhase));
       console.log("Current house characters for Winter Phase, service: " + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
+      console.log("Current activeChar (PJ activo): " + JSON.stringify(this.characterService.currentActiveChar));
+      
       
       this.checkPlayersReady()//hace la función de checkeo de nuevo
 
