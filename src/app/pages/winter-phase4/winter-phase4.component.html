@@ -8,8 +8,8 @@
 
                 <div class="dagas">
     
-                        <a class="siguiente" routerLink="/phase5">AVANZA</a>
-                        <img class="daga_izquierda" routerLink="/phase5" src="../../../assets/img/daga-adelante.png">
+                        <a class="siguiente" (click)="goNext()">AVANZA</a>
+                        <img class="daga_izquierda" (click)="goNext()" src="../../../assets/img/daga-adelante.png">
                 </div>
            </div><!-- cierra izquierda -->
 
@@ -38,7 +38,7 @@
                         </div><!-- cierra caja_escudo -->
 
                         <div class="textolargo"> 
-
+                            Calcula las circunstancias económicas mediante las tiradas (método GCP) o selecciona directamente el nuevo nivel de manutención y pulsa aplicar.
                             <div class="prologo1"><!-- hijo 1 prólogo -->
 
                                 <div class="texto">

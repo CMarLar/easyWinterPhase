@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { WinterPhaseMainComponent } from '../winter-phase-main/winter-phase-main.component';
 import { NgForm } from '@angular/forms';
 import { PlayerService } from 'src/app/shared/player.service';
-import { Player } from 'src/app/models/player';
 import { House } from 'src/app/models/house';
 import { HouseService } from 'src/app/shared/house.service';
 import { CharacterService } from 'src/app/shared/character.service';
 import { CampaignService } from 'src/app/shared/campaign.service';
 import { YearService } from 'src/app/shared/year.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-winter-phase4',
@@ -16,9 +16,10 @@ import { YearService } from 'src/app/shared/year.service';
 })
 export class WinterPhase4Component {
 
-  public nombre: string
-  public apellidos: string
-  public foto_escudo : string
+  public foto_escudo: string;
+  public newEconomyLevels: string;
+
+
 
   public malTiempo: number
   public modificadores: number 
@@ -35,9 +36,11 @@ export class WinterPhase4Component {
   public WinterPhaseMainComponent: any;
 
   public currentPlayerName:string;
+
+  public modifiedHouse:House;
   
 
-    constructor(private playerService: PlayerService, public houseService: HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService:YearService ){
+    constructor(private playerService: PlayerService, public houseService: HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService:YearService, public router:Router ){
 
       console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
       console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
@@ -45,7 +48,7 @@ export class WinterPhase4Component {
       console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
       console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
 
-      console.log();
+      console.log("--NIVELES DE MANUTENCIÓN ANTES DE LA MODIFICACIÓN: " + this.houseService.currentHouse.economyLevels);
       
       
       this.foto_escudo = this.houseService.currentHouse.shield;
@@ -208,6 +211,8 @@ export class WinterPhase4Component {
 
     this.nivel = resultadoFinal;
 
+
+
   }//fin CalcularNivelManutencion
 
   public onSelect(form:NgForm){
@@ -215,7 +220,37 @@ export class WinterPhase4Component {
     this.nivel = form.value.nivelManutencion;
   }
 
+  public goNext(){
 
+    this.modifiedHouse = new House
+    (
+      this.houseService.currentHouse.house_name,
+      this.houseService.currentHouse.activeChar,
+      this.houseService.currentHouse.holding_name,
+      this.houseService.currentHouse.familyCharacteristic,
+      this.houseService.currentHouse.shield,
+      this.nivel,//introduce el nivel de la operación final
+      this.houseService.currentHouse.house_id
+    )
+
+    console.log("Casa modificada con el nuevo nivel de manutención: " +  JSON.stringify(this.modifiedHouse));
+
+    this.houseService.currentHouse = this.modifiedHouse;//igualamos con la casa del front.
+    
+
+    this.houseService.updateEconomyLevels(this.modifiedHouse).subscribe((data:any)=>{
+      console.log(data);
+
+      this.router.navigateByUrl("/phase5")
+      
+    })
+
+
+
+
+
+
+  }
 
 }
 

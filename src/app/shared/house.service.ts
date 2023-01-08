@@ -52,6 +52,13 @@ export class HouseService {
 
   }
 
+  public updateEconomyLevels(house:House){
+    // let house_id = house.house_id;
+    this.url = "http://localhost:3000/phase4";
+    return this.http.put(this.url,house)
+
+  }
+
 
 }
 
