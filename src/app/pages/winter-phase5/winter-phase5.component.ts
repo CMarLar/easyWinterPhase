@@ -46,6 +46,8 @@ export class WinterPhase5Component {
     console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
     console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
 
+    console.log("PLAYERSERVICE.playersOfCampaign: " + JSON.stringify(this.playerService.playersOfCampaign));
+
     console.log("NIVELES DE MANUTENCIÓN: " + this.houseService.currentHouse.economyLevels);
 
     if(this.houseService.currentHouse.economyLevels == "Indigente"){

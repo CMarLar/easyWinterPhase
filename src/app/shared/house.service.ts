@@ -19,6 +19,8 @@ export class HouseService {
   public modifyLayout:boolean;//indica si se modifican los botones en función de si la casa es nueva (false) o se se modifica. Empieza en false y cuando la casa tiene house_name, holding_name y familyCharacteristic, pasa a true.
 
   public backToCurrentCampaign:boolean;//comprueba si se accede a createcampaign desde currentcampaign y devuelve a currentcampaign.
+
+  public allPlayersAndAllHouses:any;//Se utiliza en winterphasemain para guardar el array de all players y all houses en las mismas posiciones y que no vuelvan a construirse
   
   constructor(private playerService : PlayerService,private http:HttpClient) {
 
