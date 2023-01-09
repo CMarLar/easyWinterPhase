@@ -8,18 +8,9 @@
             <div class="titleText">
                 <h1>CAMPAÑAS</h1>
                 <p>{{currentUser.username}}</p>
-
-             <!--    <div *ngIf="noCampaigns" class="message">
-
-                        No tienes ninguna campaña en curso.<br>
-                        Pulsa en "Nueva Campaña" para comenzar.
-
-                </div> -->
-
             </div>
-
-
         </div>
+        <div class="contenedorBanderas">
         <div class="banderasdiv" *ngFor="let campaign of campaignsOfUser">
             <div class="banderascontainer">
                 <button class="banderas" (click)="selectCampaign(campaign.campaign_id)">
@@ -28,13 +19,20 @@
                 </button>
                 <span class="calavera">
                     <button (click)="deleteCampaign(campaign.campaign_id)">
-                        <img src="../../../assets/img/CALAVERA.png" alt="">
+                        <img src="../../../assets/img/espada_cruzada.png" alt="">
                     </button>
                 </span>
             </div>   
             
         </div>
+        <div *ngIf="noCampaigns" class="message">
+
+            NO TIENES CAMPAÑAS EN CURSO<br>
+         <br>PULSA EN "NUEVA CAMPAÑA" PARA COMENZAR<br> 
+        </div>
+        </div><!-- cierro contenedor banderas -->
         <!-- Nueva campaña debe ir a añadir jugadores de esa campaña -->
+        <div class="contenedorBoton">
         <button class="btnCrear" (click)="createNewCampaign()">
             <img src="../../../assets/img/img_espada.png" alt="">
             <div>
@@ -43,13 +41,13 @@
             <p class="textHide" [hidden]="isHide">No puedes tener mas de 6 campañas</p>
     
         </button>
-        <div *ngIf="noCampaigns" class="message">
+    </div>
+
+     <!--    <div *ngIf="noCampaigns" class="message">
 
                     NO TIENES CAMPAÑAS EN CURSO<br>
-            <br>PULSA EN "NUEVA CAMPAÑA" PARA COMENZAR<br>
-        
-    
-    </div>
+            <br>PULSA EN "NUEVA CAMPAÑA" PARA COMENZAR<br> 
+        </div> -->
     </div>
 <!-- Modal -->
     <div class="modal" [hidden]="hiddenModal">

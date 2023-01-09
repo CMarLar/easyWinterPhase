@@ -18,9 +18,9 @@
         <div class="dataUser">
             <p>USUARIO</p>
             <form class="userInfo">
-                <input type="text" placeholder="NOMBRE DE USUARIO" #name>
-                <input type="text" placeholder="CORREO" #mail>
-                <input type="text" placeholder="PASSWORD" #pass>
+                <input type="text" placeholder="{{user.username}}" #name>
+                <input type="text" placeholder="{{user.email}}" #mail>
+                <input type="text" placeholder="{{user.password}}" #pass>
             </form>
             <div class="textHide" [hidden]="isHide">{{error}}</div>
         </div>
