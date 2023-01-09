@@ -282,7 +282,7 @@ NOTAS IMPORTANTES:
 
 
 
-      // this.router.navigateByUrl("/currentcampaign")
+      this.router.navigateByUrl("/currentcampaign")
 
     }
 
