@@ -165,7 +165,13 @@ NOTAS IMPORTANTES:
       for (let i = 0; i < this.playerService.playersOfCampaign.length; i++) {
 
         if(this.playerService.playersOfCampaign[i].house_id == this.houseService.currentHouse.house_id){
+          this.playerService.playersOfCampaign[i].winterPhaseDone = 1
+          console.log("playerService.playersOfCampaign[i].winterPhaseDone = " + this.playerService.playersOfCampaign[i].winterPhaseDone);
+          
           this.playerService.currentPlayer = this.playerService.playersOfCampaign[i];
+
+          console.log("playerService.currentPlayer.winterPhaseDone = " + this.playerService.currentPlayer.winterPhaseDone);
+          
         }
 
       }
