@@ -1,4 +1,11 @@
 import { Component } from '@angular/core';
+import { PlayerService } from 'src/app/shared/player.service';
+import { House } from 'src/app/models/house';
+import { HouseService } from 'src/app/shared/house.service';
+import { CharacterService } from 'src/app/shared/character.service';
+import { CampaignService } from 'src/app/shared/campaign.service';
+import { YearService } from 'src/app/shared/year.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-winter-phase7',
@@ -15,12 +22,19 @@ export class WinterPhase7Component {
   public personajes: string[]
 
   public houseCharacters;
+
+  public currentPlayerName: string;
   
-   constructor(){
+   constructor(public playerService:PlayerService, public houseService:HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService: YearService){
     
-    this.nombre = "Irene",
-    this.apellidos = "Herrero Becker"
-    this.foto_escudo = "../../../assets/img/escudo10.png"
+    console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
+    console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
+    console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
+    console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
+    console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
+
+    this.currentPlayerName = this.playerService.currentPlayer.player_name;
+    this.foto_escudo = this.houseService.currentHouse.shield;
 
     this.personajes = ["Alain", "Robert", "Belengarius"];
 

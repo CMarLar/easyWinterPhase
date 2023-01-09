@@ -3,6 +3,13 @@ import { TextService } from 'src/app/shared/text.service';
 import { Text } from 'src/app/models/text';
 import { Player } from 'src/app/models/player';
 import { PlayerService } from "src/app/shared/player.service"
+import { House } from 'src/app/models/house';
+import { HouseService } from 'src/app/shared/house.service';
+import { CharacterService } from 'src/app/shared/character.service';
+import { CampaignService } from 'src/app/shared/campaign.service';
+import { YearService } from 'src/app/shared/year.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-winter-phase9',
@@ -17,10 +24,19 @@ export class WinterPhase9Component {
   public jugadores: Player[];
   public textos: Text [];
   public textos2: Text [];
-  
-  constructor(private textosService: TextService, private jugadorService: PlayerService ){
 
-    this.foto_escudo = "../../../assets/img/escudo10.png"/* provisional */
+  public currentPlayerName:string;
+  
+  constructor(private textosService: TextService, private playerService: PlayerService, public houseService:HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService: YearService){
+
+    console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
+    console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
+    console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
+    console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
+    console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
+
+    this.currentPlayerName = this.playerService.currentPlayer.player_name;
+    this.foto_escudo = this.houseService.currentHouse.shield;
 
     this.mostrarNombreJugador(1)
     this.jugadores = []
@@ -49,9 +65,9 @@ export class WinterPhase9Component {
       console.log(JSON.stringify(data))
     })
   } 
-  public mostrarNombreJugador(id: number){  
+  public mostrarNombreJugador(id: number){//Hecha desde el front, esta no haría falta.
 
-    this.jugadorService.getPlayers(id).subscribe((data: Player[])=>{
+    this.playerService.getPlayers(id).subscribe((data: Player[])=>{
     
     this.jugadores = data;
     console.log(data)
