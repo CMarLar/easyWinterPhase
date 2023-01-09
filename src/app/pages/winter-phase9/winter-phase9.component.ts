@@ -80,7 +80,7 @@ export class WinterPhase9Component {
   public goToWinterPhaseMain(){
 
 
-    // this.router.navigateByUrl("/winterphasemain")
+    this.router.navigateByUrl("/winterphasemain")
 
   }
 
