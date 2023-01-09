@@ -56,6 +56,8 @@ export class CurrentCampaignComponent {
 
       this.currentPlayers = playerService.playersOfCampaign;
 
+      console.log("PLAYERSERVICE.playersOfCampaign: " + JSON.stringify(this.playerService.playersOfCampaign));
+
       this.years = yearService.yearsOfCampaign;
       
       this.actualYear = this.years[this.years.length-1]

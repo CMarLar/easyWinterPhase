@@ -32,6 +32,7 @@ export class WinterPhase2Component {
     console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
     console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
     console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
+    console.log("PLAYERSERVICE.playersOfCampaign: " + JSON.stringify(this.jugadorService.playersOfCampaign));
     
     this.foto_escudo = this.houseService.currentHouse.shield;
 
