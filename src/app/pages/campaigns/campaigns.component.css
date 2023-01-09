@@ -45,9 +45,8 @@
 
         }
         .fotoPerfil{
-           /*  border: 2px solid rgb(228, 59, 59);  */
-            /* height: 100%; */
-            padding-left: 10%;
+           /*  border: 2px solid rgb(228, 59, 59); */
+            height: 100%; 
             width: 35%;
             background-size:contain;
             background-position: center;
@@ -58,12 +57,13 @@
         
         }
             .fotoPerfil img{
-                width: 90%;
+                height: 100%;
                 position: absolute;
                 cursor: pointer;
                 align-self: center;
                 display: flex;
                 justify-content: center;
+                padding-left: 20%;
             }
         .titleText{
             width: 60%;
@@ -94,10 +94,11 @@
         }
 
 .contenedorBanderas{
-   /*  border: 4px solid rgb(204, 255, 3); */
+   /* border: 4px solid rgb(204, 255, 3); */
     justify-content: center;
     height: 60%;
-    width: 50%;
+    width: 60%;
+    padding-left: 5%;
 }
 .contenedorBoton{
    /*  border: 2px solid purple; */
@@ -199,7 +200,7 @@
         font-weight: bolder;
         position: absolute;
         top: 40%;
-        left: 28%;
+        left: 30%;
     }
     .message{
         color: var(--font-color-warnings);
@@ -217,12 +218,12 @@
     }
     
         
-@media screen and (max-width: 1367px){
+/* @media screen and (max-width: 1367px){
     .fotoPerfil img{
        /*  border-radius: 55%; */
-        width: 60%;
-        position: absolute;
+   /*      width: 40%;
+        position: absolute; */
         /*  top: 14%; */
-        left: 17%; 
+/*         left: 17%; 
     }
-}
+} */ 
