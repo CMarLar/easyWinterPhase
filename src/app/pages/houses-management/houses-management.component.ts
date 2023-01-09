@@ -246,7 +246,7 @@ export class HousesManagementComponent {
 
         }
 
-        
+        this.houseService.backToCurrentCampaign = false;
         this.router.navigateByUrl("/createhouse");
 
       }

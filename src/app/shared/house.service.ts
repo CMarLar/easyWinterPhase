@@ -17,6 +17,8 @@ export class HouseService {
   public currentHouseId:number;//recoge el id para pasárselo a createhouse
 
   public modifyLayout:boolean;//indica si se modifican los botones en función de si la casa es nueva (false) o se se modifica. Empieza en false y cuando la casa tiene house_name, holding_name y familyCharacteristic, pasa a true.
+
+  public backToCurrentCampaign:boolean;//comprueba si se accede a createcampaign desde currentcampaign y devuelve a currentcampaign.
   
   constructor(private playerService : PlayerService,private http:HttpClient) {
 

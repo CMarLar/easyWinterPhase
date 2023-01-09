@@ -354,30 +354,7 @@ this.router.navigateByUrl("/addnpc");
 //Vuelve atrás y guarda currentHouse del front en el array de casas housesof Campaign
 public goBack(){
 
-  // //OTROS LIMPIADORES PARA DEJAR KNIGHT Y SQUIRE A 0:
-  // this.knight.char_name = null;
-  // this.knight.age = null;
-  // this.knight.char_status = 1
-  // this.knight.character_id = null;
-  // this.knight.courtesyMod = null;
-  // this.knight.house_id = null;
-  // this.knight.isMarried = null;
-  // this.knight.marriageGlory = null;
-  // this.knight.role = null;
-  // this.knight.year_id = null;
-  // this.knight.sex = null;
 
-  // this.squire.char_name = null;
-  // this.squire.age = null;
-  // this.squire.char_status = 1
-  // this.squire.character_id = null;
-  // this.squire.courtesyMod = null;
-  // this.squire.house_id = null;
-  // this.squire.isMarried = null;
-  // this.squire.marriageGlory = null;
-  // this.squire.role = null;
-  // this.squire.year_id = null;
-  this.squire.sex = null;
 
 
   console.log("actualHouse: " + JSON.stringify(this.actualHouse));
@@ -398,7 +375,14 @@ public goBack(){
 
     console.log("houseService.housesOfCampaign con la nueva casa: " + JSON.stringify(this.houseService.housesOfCamapaign));
 
-    this.router.navigateByUrl("/housesmanagement");
+    if(this.houseService.backToCurrentCampaign == true){
+      this.router.navigateByUrl("/currentcampaign");
+    }else{
+      this.router.navigateByUrl("/housesmanagement");
+    }
+
+
+
     
 
   }
