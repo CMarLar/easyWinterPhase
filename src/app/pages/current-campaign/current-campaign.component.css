@@ -606,7 +606,7 @@ textarea{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border: 2px solid red;
+    /* border: 2px solid red; */
 
 }
 .modal-bg{
@@ -617,10 +617,10 @@ textarea{
     height: 100%;
     background-color: rgba(255, 255, 255, 0.162);
     filter: blur(1.5rem);
-    border: 2px solid orange;
+    /* border: 2px solid orange; */
 }
 .contenido{
-    border: 2px solid orange;
+    /* border: 2px solid orange; */
     height: 70%;
     width: 70%;
     text-align: center;
@@ -677,11 +677,11 @@ textarea{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border: 2px solid red;
+    /* border: 2px solid red; */
 
 }
 .contenido2{
-    border: 2px solid orange;
+    /* border: 2px solid orange; */
     height: 70%;
     width: 70%;
     text-align: center;
@@ -730,11 +730,11 @@ textarea{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border: 2px solid red;
+    /* border: 2px solid red; */
 
 }
 .contenido3{
-    border: 2px solid orange;
+    /* border: 2px solid orange; */
     height: 70%;
     width: 70%;
     text-align: center;
