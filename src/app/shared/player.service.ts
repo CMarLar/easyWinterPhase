@@ -71,7 +71,7 @@ export class PlayerService {
   public winterPhaseMainReset(player : Player){//cambia el estado de winterphasemain del current player a 1. Se hace para todos los players.
 
     this.url = "http://localhost:3000/winterphasemain";
-    console.log("ESTE ES EL JUGADOR A MODIFICAR" + player);
+    console.log("ESTE ES EL JUGADOR A MODIFICAR" + JSON.stringify(player));
     
 
     return this.http.put(this.url,player);

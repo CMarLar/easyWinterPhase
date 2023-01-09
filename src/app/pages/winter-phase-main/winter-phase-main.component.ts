@@ -47,6 +47,9 @@ NOTAS IMPORTANTES:
   public currentPlayer:any
   public currentPlayerCopy:any
 
+
+  public modifiedPlayer:Player;//para modificar los jugadores al final cambiando el atributo winterPhaseMain
+
     constructor(public router:Router, public campaignService:CampaignService, public yearService:YearService, public playerService:PlayerService, public houseService:HouseService, public characterService:CharacterService, ){
 
       // this.playersAndHouses = [];
@@ -255,7 +258,28 @@ NOTAS IMPORTANTES:
 
     public nextYear(){
 
- 
+      for (let i = 0; i < this.playerService.playersOfCampaign.length; i++) {
+
+        this.modifiedPlayer = new Player
+        (this.playerService.playersOfCampaign[i].player_id,
+          this.playerService.playersOfCampaign[i].house_id,
+          this.playerService.playersOfCampaign[i].campaign_id,
+          this.playerService.playersOfCampaign[i].player_name,
+          0)
+        
+          console.log("winterPhaseDone de currentPlayer modificada: " +  JSON.stringify(this.modifiedPlayer));
+  
+          this.playerService.currentPlayer = this.modifiedPlayer;//igualamos el servicio.
+    
+          this.playerService.winterPhaseMainReset(this.modifiedPlayer).subscribe((data:any)=>{
+    
+            console.log(data);
+            
+            // this.router.navigateByUrl("/currentcampaign")
+    
+          })
+      }
+
 
 
       // this.router.navigateByUrl("/currentcampaign")
