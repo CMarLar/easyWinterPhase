@@ -27,7 +27,7 @@ export class WinterPhase9Component {
 
   public currentPlayerName:string;
   
-  constructor(private textosService: TextService, private playerService: PlayerService, public houseService:HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService: YearService){
+  constructor(private textosService: TextService, private playerService: PlayerService, public houseService:HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService: YearService, public router:Router){
 
     console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
     console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
@@ -65,6 +65,7 @@ export class WinterPhase9Component {
       console.log(JSON.stringify(data))
     })
   } 
+
   public mostrarNombreJugador(id: number){//Hecha desde el front, esta no haría falta.
 
     this.playerService.getPlayers(id).subscribe((data: Player[])=>{
@@ -73,7 +74,16 @@ export class WinterPhase9Component {
     console.log(data)
     
     })
-  } 
+  }
+
+  public goToWinterPhaseMain(){
+
+
+    // this.router.navigateByUrl("/winterphasemain")
+
+  }
+
+
 }
 
 

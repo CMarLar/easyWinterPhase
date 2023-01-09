@@ -45,6 +45,18 @@ NOTAS IMPORTANTES:
 
     constructor(public router:Router, public campaignService:CampaignService, public yearService:YearService, public playerService:PlayerService, public houseService:HouseService, public characterService:CharacterService, ){
 
+      this.playersAndHouses = [];
+
+
+      console.log("BLOQUE DE CONTROL");
+      console.log("//////////////////");
+      console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
+      console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
+      console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));//Se rellena en la página, cuando carga por primera vez, es undefined
+      console.log("Players and Houses con players y houses: "  + JSON.stringify(this.playersAndHouses));
+      console.log("Houses of Campaign (service): " + JSON.stringify(this.houseService.housesOfCamapaign));
+      console.log("//////////////////");
+
       this.campaignName = this.campaignService.currentCampaign.campaign_name;
       console.log("CampaignName: " + this.campaignName);
 
@@ -54,7 +66,7 @@ NOTAS IMPORTANTES:
       console.log("Current year: " + JSON.stringify(this.currentYear));
       
 
-      this.players = this.playerService.playersOfCampaign//Debería importar los jugadores de la campaña
+      this.players = this.playerService.playersOfCampaign//Jugadores de la campaña
       console.log("Players: " + JSON.stringify(this.players));
 
       this.houses = this.houseService.housesOfCamapaign//Importa todo el array de casas.
@@ -167,7 +179,6 @@ NOTAS IMPORTANTES:
       
       
       console.log("Current year: " +  JSON.stringify(this.currentYear));
-      console.log("Service, next year: " + JSON.stringify(this.yearService.nextYear));
       console.log("Current house characters for Winter Phase, component: " + JSON.stringify(this.currentHouseCharsWinterPhase));
       console.log("Current house characters for Winter Phase, service: " + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
       console.log("Current activeChar (PJ activo): " + JSON.stringify(this.characterService.currentActiveChar));
