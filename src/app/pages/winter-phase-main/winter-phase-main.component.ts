@@ -255,7 +255,10 @@ NOTAS IMPORTANTES:
 
     public nextYear(){
 
-      this.router.navigateByUrl("/currentcampaign")
+ 
+
+
+      // this.router.navigateByUrl("/currentcampaign")
 
     }
 

@@ -57,5 +57,25 @@ export class PlayerService {
     return this.http.put(this.url,player);
   }
 
+
+  public updateWinterPhaseMain(player : Player){//cambia el estado de winterphasemain del current player a 1
+
+    this.url = "http://localhost:3000/phase9";
+    console.log("ESTE ES EL JUGADOR A MODIFICAR" + player);
+    
+
+    return this.http.put(this.url,player);
+  }
+
+
+  public winterPhaseMainReset(player : Player){//cambia el estado de winterphasemain del current player a 1. Se hace para todos los players.
+
+    this.url = "http://localhost:3000/winterphasemain";
+    console.log("ESTE ES EL JUGADOR A MODIFICAR" + player);
+    
+
+    return this.http.put(this.url,player);
+  }
+
 }
 

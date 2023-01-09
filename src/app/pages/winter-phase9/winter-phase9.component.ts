@@ -26,6 +26,8 @@ export class WinterPhase9Component {
   public textos2: Text [];
 
   public currentPlayerName:string;
+
+  public modifiedPlayer:Player;//Para hacer update de winterphaseMain en la base de datos.
   
   constructor(private textosService: TextService, private playerService: PlayerService, public houseService:HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService: YearService, public router:Router){
 
@@ -35,6 +37,8 @@ export class WinterPhase9Component {
     console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
     console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
     console.log("PLAYERSERVICE.playersOfCampaign: " + JSON.stringify(this.playerService.playersOfCampaign));
+    console.log("Current player: " + JSON.stringify(this.playerService.currentPlayer));
+    
 
     this.currentPlayerName = this.playerService.currentPlayer.player_name;
     this.foto_escudo = this.houseService.currentHouse.shield;
@@ -46,6 +50,7 @@ export class WinterPhase9Component {
     this.mostrarTextos2(5)
     this.textos = []
     this.textos2 = []
+
    }
 
    public mostrarTextos(id: number){
@@ -79,12 +84,36 @@ export class WinterPhase9Component {
 
   public goToWinterPhaseMain(){
 
+    this.modifiedPlayer = new Player
+    (this.playerService.currentPlayer.player_id,
+      this.playerService.currentPlayer.house_id,
+      this.playerService.currentPlayer.campaign_id,
+      this.playerService.currentPlayer.player_name,
+      1)
 
-    this.router.navigateByUrl("/winterphasemain")
+      console.log("winterPhaseDone de currentPlayer modificada: " +  JSON.stringify(this.modifiedPlayer));
 
+      this.playerService.currentPlayer = this.modifiedPlayer;//igualamos el servicio.
+
+      this.playerService.updateWinterPhaseMain(this.modifiedPlayer).subscribe((data:any)=>{
+
+        console.log(data);
+        
+        this.router.navigateByUrl("/winterphasemain")
+
+      })
   }
 
 
+
+
+
+
+
+
+
+
+  
 }
 
 
