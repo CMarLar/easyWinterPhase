@@ -113,11 +113,21 @@ NOTAS IMPORTANTES:
 
         }
 
+        console.log("LAS CASAS SE CREAN POR PRIMERA VEZ EN WINTERPHASEMAIN");
+        
+
         this.houseService.allPlayersAndAllHouses = this.playersAndHouses;//igualamos el servicio.
+
+        console.log("houseService.allPlayersAndAllHouses: " + JSON.stringify(this.houseService.allPlayersAndAllHouses));
+        
       
       }else{
 
+        console.log("LAS CASAS YA ESTABAN CREADAS ANTES EN");
+
         this.playersAndHouses = this.houseService.allPlayersAndAllHouses
+
+        console.log("houseService.allPlayersAndAllHouses: " + JSON.stringify(this.houseService.allPlayersAndAllHouses));
 
       }
 
@@ -258,6 +268,11 @@ NOTAS IMPORTANTES:
 
     public nextYear(){
 
+      // for (let i = 0; i < this.houseService.allPlayersAndAllHouses.length; i++) {
+      //   this.houseService.allPlayersAndAllHouses[i].player.winterPhaseDone = 0
+        
+      // }
+
       for (let i = 0; i < this.playerService.playersOfCampaign.length; i++) {
 
         this.modifiedPlayer = new Player
@@ -266,11 +281,15 @@ NOTAS IMPORTANTES:
           this.playerService.playersOfCampaign[i].campaign_id,
           this.playerService.playersOfCampaign[i].player_name,
           0)
+
+
         
           console.log("winterPhaseDone de currentPlayer modificada: " +  JSON.stringify(this.modifiedPlayer));
   
           this.playerService.currentPlayer = this.modifiedPlayer;//igualamos el servicio.
     
+          this.playerService.playersOfCampaign[i].winterPhaseDone = 0;//ponemos a cero en el front.
+
           this.playerService.winterPhaseMainReset(this.modifiedPlayer).subscribe((data:any)=>{
     
             console.log(data);

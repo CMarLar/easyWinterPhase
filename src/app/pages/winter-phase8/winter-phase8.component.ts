@@ -39,7 +39,8 @@ export class WinterPhase8Component {
     this.currentPlayerName = this.playerService.currentPlayer.player_name;
     this.foto_escudo = this.houseService.currentHouse.shield;
 
-    this.gloria = 200 /* provisional */
+
+    this.gloria = this.characterService.currentActiveChar.marriageGlory//recoge la gloria del servicio
 
     this.mostrarNombreJugador(1)
     this.jugadores = []
