@@ -214,7 +214,7 @@ NOTAS IMPORTANTES:
       
       for (let i = 0; i < this.characterService.currentHouseChars.length; i++) {
 
-        if(this.yearService.nextYear.year_id == this.characterService.currentHouseChars[i].year_id){//se asegura de coger los personajes con id del último año creado.
+        if(this.yearService.currentYear.year_id == this.characterService.currentHouseChars[i].year_id){//se asegura de coger los personajes con id del último año creado.
           this.currentHouseCharsWinterPhase.push(this.characterService.currentHouseChars[i])
         }
       }
