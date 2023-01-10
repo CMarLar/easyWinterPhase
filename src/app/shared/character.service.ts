@@ -46,6 +46,13 @@ export class CharacterService {
     return this.http.get(this.url + "addnpc?house_id=" + id)
   }
 
+/* irene // EL BACK FUNSSIONA */ //mostrar los personajes mayores de 15 años de la casa
+public getCharactersNames(house_id: number){
+
+  this.url = "http://localhost:3000/phase7"
+  return this.http.get(this.url + "?house_id=" + house_id)
+}
+/*  */
 
   public deleteCharacter(character_id:number){
 

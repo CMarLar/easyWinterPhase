@@ -37,15 +37,7 @@ public currentPlayerName:string;
     console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
     console.log("PLAYERSERVICE.playersOfCampaign: " + JSON.stringify(this.jugadorService.playersOfCampaign));
 
-    
-    
-    
-
-    
-    
-
     this.foto_escudo = this.houseService.currentHouse.shield;
-
     this.currentPlayerName = this.jugadorService.currentPlayer.player_name;
 
     // this.mostrarNombreJugador(1) //se puede hacer con servicios
