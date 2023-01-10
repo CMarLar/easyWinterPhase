@@ -200,7 +200,7 @@
     width: 70%;
     padding-left: 5%;
    /*  line-height: 160%; */
-    /*  border:  4px solid rgb(204, 107, 193);  */
+   /*   border:  4px solid rgb(204, 107, 193);  */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -211,14 +211,15 @@
                   .prologo1{
 
                     width: 100%;
-                    height: 25%;
-                   /*  border:  2px solid rgb(215, 13, 198); */
+                    height: 23%;
+                    /* border:  2px solid rgb(215, 13, 198);  */
 
                     display: flex;
                     flex-direction: column;
                   }
                         .frase{
-
+                            width: 100%;
+                            height: 33%;
                             color:var(--font-color-h);
                             font-weight: bold;
                             text-align: justify;
@@ -227,7 +228,8 @@
                    
                         }
                         .frase1{
-
+                            width: 100%;
+                            height: 33%;
                             color: black;
                             text-align: justify;
                             font-size: 1rem;
@@ -245,7 +247,7 @@
                   .prologo2{
                     width: 100%;
                     height: 20%;
-                    /*  border:  2px solid rgb(215, 191, 13); */
+                   /*  border:  2px solid rgb(215, 191, 13); */
                     align-items: center;
                     text-align: center;
                     justify-content: center;
@@ -254,8 +256,8 @@
                   }
                  .prologo3{
                     width: 100%;
-                     height: 40%;
-                    /* border:  2px solid rgb(60, 13, 215); */
+                    height: 42%;
+                   /*  border:  2px solid rgb(60, 13, 215);  */
     
                     display: flex;
                     flex-direction: column;
@@ -269,11 +271,12 @@
         
                  }  .hijito{
                     width: 100%;
-                    height: 100%; 
+                   /*  height: 100%;  */
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-                   /*  border:  5px solid rgb(215, 13, 158); */
+                    text-align: center;
+                   /*  border:  5px solid rgb(215, 13, 158);  */
                     /* overflow-y: scroll; */
                  }
                     .hijitodiv{
@@ -314,8 +317,8 @@
                             border-radius: 10px;
                             border: none;
                             text-decoration: none;
-                            width: 30%;
-                            height: 80%;
+                            width: 28%;
+                            height: 75%;
                             margin-top: 1%;
                         }
                         .boton:hover{
@@ -330,13 +333,14 @@
                             border-radius: 10px;
                             border: none;
                             text-decoration: none;
-                            width: 30%;
-                            height: 120%;
+                            width: 28%;
+                            height: 100%;
                             margin-left: 3%;
                         }
                      
                         
                  .prologo4{
+                    padding-top: 5%;
                     width: 100%;
                     height: 30%;
                    /*  border:  5px solid rgb(198, 215, 13); */
@@ -346,7 +350,6 @@
                     flex-direction: column;
                 }
                     .eventosFamiliares{
-
                         color: var(--font-color-h);
                         font-size: 1.2rem;
                         font-weight: bold;
@@ -362,8 +365,8 @@
         border: none;
         text-align: center;
         text-decoration: none;
-        width: 30%;
-        height: 120%;
+        width: 28%;
+        height: 110%;
         margin-top: 2%;
     }
 
@@ -384,5 +387,6 @@
     .esposa{
         width: 100%;
         height: 40%;
+        
       /*   border: 2px solid black; */
     }

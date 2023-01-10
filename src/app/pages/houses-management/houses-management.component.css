@@ -121,11 +121,11 @@
    /*  border: 5px solid yellow;  */
     background-color: var( --background-color-input);
     border-radius: 15px;
-    margin-top: 2%;
+    margin-top: 3%;
     justify-content:center;
     justify-items: center;
     flex-wrap: wrap;
-    height: 77%;
+    height: 70%;
     width: 100%;
 }
     /* .playerlist img{
@@ -152,11 +152,12 @@
         height: 40px ;
     }
 
-    .playershield{
-        padding-left: 3%;
+    .playershield{/*  */
+       /*  position: absolute; */
         display: flex;
         width: 40px;
         height: 40px;
+        margin-left: 3%;
        /*  border: 5px solid red; */
     }
     .playername{
@@ -164,13 +165,16 @@
         font-size: 1.2rem;
         font-weight: bold;
         color: var(--font-color-hover);
+        position: relative;
         flex-direction: row;
         justify-content: center;
         align-items: center;
        /*  border: 5px solid red; */
         margin-top: 3%;
+       /*  background-color: var(--background-color-input); */
+   
         width: 75%;
-        height: 4%;
+        height: 5%;
     }
         .playername p{
             width: 100%;
@@ -183,6 +187,7 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
         .playername p a{
             width: 80%;
@@ -202,7 +207,7 @@
        /*  border: 2px solid rgb(95, 200, 116);  */
     }
         .skull img{
-            width: 35px;
+            width: 50px;
         }
 
     .quill{
@@ -235,6 +240,7 @@
     flex-direction: row;
 /*     border: 5px solid purple; */
     justify-content: center;
+    gap: 3%;
  
 }
 
