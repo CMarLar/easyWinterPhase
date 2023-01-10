@@ -18,6 +18,8 @@ export class CharacterService {
 
   public allCharactersOfCampaign : Character[];
 
+  public mainCharacters : Character[];
+
   public currentHouseCharsWinterPhase: Character[];//Array de personajes de una casa seleccionados para la fase de invierno en curso
 
 
@@ -27,6 +29,7 @@ export class CharacterService {
 
     this.currentHouseChars = [];
     this.allCharactersOfCampaign = [];
+    this.mainCharacters = [];
 
     // this.currentActiveChar.character_id = this.houseService.currentHouse.activeChar //comentado porque jode CREATEHOUSE
 

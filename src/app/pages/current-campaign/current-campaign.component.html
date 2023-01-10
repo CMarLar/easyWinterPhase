@@ -10,13 +10,13 @@
 
 
            <div class="flechita">
-                <img (click)="previousYear()" src="../../../assets/img/left-arrow.png" style="scale: 0.3;" class="arrow-left" *ngIf="actualYear.isFirstYear==0">
+                <img (click)="previousYear()" src="../../../assets/img/left-arrow.png" style="scale: 0.3;" class="arrow-left" *ngIf="yearService.currentYear.isFirstYear==0">
             </div>
             <div class="numeritos">
-                <p>{{actualYear.yearNumber}}</p>
+                <p>{{yearService.currentYear.yearNumber}}</p>
             </div>
             <div class="flechita">
-                <img (click)="nextYear()" src="../../../assets/img/right-arrow.png" style="scale: 0.3;" class="arrow-right" *ngIf="actualYear.isLastYear==0">
+                <img (click)="nextYear()" src="../../../assets/img/right-arrow.png" style="scale: 0.3;" class="arrow-right" *ngIf="yearService.currentYear.isLastYear==0">
             </div>
 
         </div><!-- cierra campaing year -->
@@ -29,7 +29,7 @@
 <div class="maincontainer">
     <div class="left">
         <label class="notas">NOTAS:</label>
-            <textarea rows="33%" maxlength="5000" style="border: none; resize: none;">{{actualYear.notes}}
+            <textarea rows="33%" maxlength="5000" style="border: none; resize: none;" #notas>{{yearService.currentYear.notes}}
             </textarea>
     </div>
 
@@ -47,7 +47,7 @@
                 <!-- Personajes -->
                 <div class="character" style="background-color: rgb(130, 23, 25,0.6);" *ngIf="playerService.playersOfCampaign[0] != null; else emptyPlayer">
                     <span class="span1" (click)="showModalPlayer(playerService.playersOfCampaign[0])">{{playerService.playersOfCampaign[0].player_name}}</span>
-                    <span class="span2"(click)="showModalCharacter(houseService.housesOfCamapaign[0].house_id)">{{houseService.housesOfCamapaign[0].activeChar}}</span>
+                    <span class="span2"(click)="showModalCharacter(houseService.housesOfCamapaign[0].house_id)">{{characterService.mainCharacters[0].char_name}}</span>
                     <span class="span3"(click)="showModalHouse()">{{houseService.housesOfCamapaign[0].house_name}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
@@ -58,7 +58,7 @@
 
                 <div class="character" style="background-color: rgb(130, 23, 25,0.6);"*ngIf="playerService.playersOfCampaign[1] != undefined; else emptyPlayer">
                     <span class="span1"(click)="showModalPlayer(playerService.playersOfCampaign[1])">{{playerService.playersOfCampaign[1].player_name}}</span>
-                    <span class="span2"(click)="showModalCharacter()">{{houseService.housesOfCamapaign[1].activeChar}}</span>
+                    <span class="span2"(click)="showModalCharacter()">{{characterService.mainCharacters[1].char_name}}</span>
                     <span class="span3"(click)="showModalHouse()">{{houseService.housesOfCamapaign[1].house_name}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
@@ -69,7 +69,7 @@
 
                 <div class="character" style="background-color: rgb(130, 23, 25,0.6);" *ngIf="playerService.playersOfCampaign[2] != undefined; else emptyPlayer">
                     <span class="span1"(click)="showModalPlayer(playerService.playersOfCampaign[2])">{{playerService.playersOfCampaign[2].player_name}}</span>
-                    <span class="span2"(click)="showModalCharacter()">{{houseService.housesOfCamapaign[2].activeChar}}</span>
+                    <span class="span2"(click)="showModalCharacter()">{{characterService.mainCharacters[2].char_name}}</span>
                     <span class="span3"(click)="showModalHouse()">{{houseService.housesOfCamapaign[2].house_name}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
@@ -80,7 +80,7 @@
 
                 <div class="character" style="background-color: rgb(130, 23, 25,0.6);"*ngIf="playerService.playersOfCampaign[3] != undefined; else emptyPlayer">
                     <span class="span1"(click)="showModalPlayer(playerService.playersOfCampaign[3])">{{playerService.playersOfCampaign[3].player_name}}</span>
-                    <span class="span2"(click)="showModalCharacter()">{{houseService.housesOfCamapaign[3].activeChar}}</span>
+                    <span class="span2"(click)="showModalCharacter()">{{characterService.mainCharacters[3].char_name}}</span>
                     <span class="span3"(click)="showModalHouse()">{{houseService.housesOfCamapaign[3].house_name}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
@@ -91,7 +91,7 @@
 
                 <div class="character" style="background-color: rgb(130, 23, 25,0.6);"*ngIf="playerService.playersOfCampaign[4] != undefined; else emptyPlayer">
                     <span class="span1"(click)="showModalPlayer(playerService.playersOfCampaign[4])">{{playerService.playersOfCampaign[4].player_name}}</span>
-                    <span class="span2"(click)="showModalCharacter()">{{houseService.housesOfCamapaign[4].activeChar}}</span>
+                    <span class="span2"(click)="showModalCharacter()">{{characterService.mainCharacters[4].char_name}}</span>
                     <span class="span3"(click)="showModalHouse()">{{houseService.housesOfCamapaign[4].house_name}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
@@ -102,7 +102,7 @@
 
                 <div class="character"style="background-color: rgb(130, 23, 25,0.6);"*ngIf="playerService.playersOfCampaign[5] != undefined; else emptyPlayer">
                     <span class="span1"(click)="showModalPlayer(playerService.playersOfCampaign[5])">{{playerService.playersOfCampaign[5].player_name}}</span>
-                    <span class="span2"(click)="showModalCharacter()">{{houseService.housesOfCamapaign[5].activeChar}}</span>
+                    <span class="span2"(click)="showModalCharacter()">{{characterService.mainCharacters[5].char_name}}</span>
                     <span class="span3"(click)="showModalHouse()">{{houseService.housesOfCamapaign[5].house_name}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
@@ -123,8 +123,8 @@
         </div>
 
 
-        <div class="buttons" *ngIf="actualYear.isLastYear==1; else noNext">
-            <button (click)="goNext()">FASE DE INVIERNO</button>
+        <div class="buttons" *ngIf="yearService.currentYear.isLastYear==1; else noNext">
+            <button (click)="goNext(notas.value)">FASE DE INVIERNO</button>
         </div>
 
 
@@ -159,7 +159,7 @@
 </div>
 
 <!-- MODAL DE CAMBIAR DE PERSONAJE -->
-<div class="modal2" id="modal" [hidden]="isChangeCharacterHide">
+<!-- <div class="modal2" id="modal" [hidden]="isChangeCharacterHide">
     <div class="modal-bg" (click)="showModalCharacter()">
 
     </div>
@@ -177,10 +177,10 @@
                 <button class="small_button" (click)="changePJ(data.value)">OK</button>
             </div>
     </div>
-</div>
+</div> -->
 
 <!-- MODAL DE INFORMACION DE LA CASA -->
-<div class="modal3" id="modal3" [hidden]="isHouseInfoHide">
+<!-- <div class="modal3" id="modal3" [hidden]="isHouseInfoHide">
     <div class="modal-bg" (click)="showModalHouse()">
 
     </div>
@@ -217,4 +217,4 @@
         </div>
         
     </div>
-</div>
+</div> -->

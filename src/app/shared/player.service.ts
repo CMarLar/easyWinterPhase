@@ -22,7 +22,7 @@ export class PlayerService {
 
   constructor(private http:HttpClient) 
   {
-    
+    this.playersOfCampaign = [];
 
   }
 
@@ -40,6 +40,15 @@ export class PlayerService {
 
     return this.http.get(this.url + "?id=" + id);
   }
+
+  public getPlayersByCampaign(campaign_id:number){  ///revisar que ENDPOINT PONER Y CAMBIAR BACK
+    
+    let id= campaign_id;
+    this.url = "http://localhost:3000/campaignsPlayers";
+
+    return this.http.get(this.url + "?campaign_id=" + id);
+  }
+  
 
   public putPlayer(player:Player){
     this.url = "http://localhost:3000/housesmanagement";

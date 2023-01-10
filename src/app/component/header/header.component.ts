@@ -37,6 +37,30 @@ export class HeaderComponent {
 
   }
 
+  public goCampaigns(){
+
+    this.playerService.playersOfCampaign = [];
+    this.playerService.currentPlayer = null;
+    this.playerService.currentCampaign = null;
+    this.playerService.player = null;
+
+    this.houseService.housesOfCamapaign = [];
+    this.houseService.currentHouse = null;
+    this.houseService.currentHouseId = null;
+    this.houseService.currentPlayer = null;
+
+    this.characterService.allCharactersOfCampaign = [];
+    this.characterService.currentHouseCharsWinterPhase = null;
+    this.characterService.currentActiveChar = null;
+    this.characterService.currentHouse = null;
+    this.characterService.currentHouseChars = null;
+    this.characterService.mainCharacters = [];
+
+    this.yearService.yearsOfCampaign = [];
+    this.yearService.currentYear = null;
+    this.yearService.nextYear = null;
+  }
+
   public logOut(){
 
     this.userService.logueado = false;
@@ -60,6 +84,7 @@ export class HeaderComponent {
     this.characterService.currentActiveChar = null;
     this.characterService.currentHouse = null;
     this.characterService.currentHouseChars = null;
+    this.characterService.mainCharacters = null;
 
     this.yearService.yearsOfCampaign = [];
     this.yearService.currentYear = null;
