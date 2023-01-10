@@ -93,6 +93,24 @@ export class CharacterService {
     return this.http.post(this.url, characters);
   }
 
+  public getMainChar(character_id:number){
+
+    let id = character_id;
+    this.url = "http://localhost:3000/"
+    return this.http.get(this.url + "phase8?character_id=" + id)
+  }
+
+  public resetMarriageGlory (character:Character){
+
+    this.url = "http://localhost:3000/"
+
+    return this.http.put(this.url + "phase9", character)
+  }
+
+
+
+
+
 
 
 }

@@ -9,6 +9,7 @@ import { CharacterService } from 'src/app/shared/character.service';
 import { CampaignService } from 'src/app/shared/campaign.service';
 import { YearService } from 'src/app/shared/year.service';
 import { Router } from '@angular/router';
+import { Character } from 'src/app/models/character';
 
 @Component({
   selector: 'app-winter-phase8',
@@ -28,6 +29,8 @@ export class WinterPhase8Component {
   public currentPlayerName: string;
   
    constructor(private textosService: TextService, private playerService: PlayerService, public houseService:HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService: YearService){
+
+    this.getMarriageGlory(this.characterService.currentActiveChar.character_id)
     
     console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
     console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
@@ -68,6 +71,17 @@ export class WinterPhase8Component {
     })
   } 
   
+  public getMarriageGlory(character_id:number){
+
+    this.characterService.getMainChar(character_id).subscribe((data:Character)=>{
+      console.log(data);
+      
+    })
+
+  }
+
+
+
   }
   
   
