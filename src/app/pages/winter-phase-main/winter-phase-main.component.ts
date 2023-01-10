@@ -247,7 +247,7 @@ NOTAS IMPORTANTES:
       this.checkPlayersReady()//hace la función de checkeo de nuevo
 
       console.log("PlayersService.playersOfCampaign: " + JSON.stringify(this.playerService.playersOfCampaign));
-      // this.router.navigateByUrl("/phase1")
+      this.router.navigateByUrl("/phase1")/* aquí, estaba desactivado, preguntar si activo de nuevo */
     }
 
     public checkPlayersReady(){
