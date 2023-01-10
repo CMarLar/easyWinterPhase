@@ -211,29 +211,30 @@
 }
 .prologo{
 
-    width: 100%;
-    height: 15%;
+    width: 97%;
+    height: 7%;
 
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: black;
-   /*  border:  4px solid rgb(156, 204, 107); */
+   /*  border:  4px solid rgb(156, 204, 107);  */
 }
 
-                  .prologo1{
+                  .prologo1{/*  */
                     display: flex;
                     flex-direction: row;
                     justify-content: center;
                     width: 100%;
                     height: 30%;
-                   /*  border:  5px solid rgb(215, 13, 198); */
+                    padding-top: 3%;
+                  /*   border:  5px solid rgb(215, 13, 198);  */
                    
                   }
                     .texto{
                         display: flex;
                         flex-direction: column;
-                        width: 70%;
+                        width: 60%;
                         height: 100%;
-                        line-height: 175%;
+                        justify-content: space-between;
                         color: var(--font-color-h);
                        /*  padding-left: 5%; */
                         /* border:  5px solid rgb(13, 215, 212);  */
@@ -244,7 +245,7 @@
                      .inputs{
 
                         width: 30%;
-                        height: 90%;
+                        height: 100%;
                         /* border:  5px solid rgb(13, 215, 212);  */
                         display: flex;
                         justify-content: space-between;
@@ -260,7 +261,9 @@
                         border: none;
                         text-align: center;
                         text-decoration: none;
-                        font-size: larger;
+                        font-size: 1.2rem;
+                        font-weight: bold;
+                        color: black;
                         border-radius: 4px;
                         background-color: var(--background-color-input);
                    
@@ -278,24 +281,22 @@
                         flex-direction: column;
                         justify-content: center;
                         align-items: center;
-                        height: 20%;
+                        height: 27%;
                         width: 100%;
-                        /* border: 4px solid green; */ 
+                        /*  border: 4px solid green;  */
                     }
                     .resultado{
 
                         width: 100%;
                         height: 20%;
-                        line-height: 100%;
                         padding-top: 3%;
-
                         color:black;
                         border-style: none;
                         text-align: center;
-                        font-size: 1rem;
+                        font-size: 0.8rem;
                         align-self: center;
                         justify-content: center;
-                        /* border:2px solid red;  */
+                      /*   border:2px solid red;  */
 
                     }
 
@@ -307,7 +308,7 @@
                         border: none;
                         text-decoration: none;
                         color: var(--font-color-hover);
-                        width: 25%;
+                        width: 22%;
                         height: 50%;
                     }
                 
@@ -338,7 +339,7 @@
 
                     width: 100%;
                     height: 20%;
-                    /* border:  5px solid rgb(53, 13, 215); */
+                   /*  border:  5px solid rgb(53, 13, 215); */
 
                   }
 
@@ -384,7 +385,7 @@
 
                         color: var(--font-color-warnings);
                         font-weight: bold;
-                        font-size: 1.2rem;
+                        font-size: 1rem;
                        }
 
                        .dropdown-content{
