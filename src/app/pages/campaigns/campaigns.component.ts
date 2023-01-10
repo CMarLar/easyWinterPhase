@@ -5,6 +5,14 @@ import { Campaign } from 'src/app/models/campaign';
 import { UserService } from 'src/app/shared/user.service';
 import { User } from 'src/app/models/user';
 import { HouseService } from 'src/app/shared/house.service';
+import { PlayerService } from 'src/app/shared/player.service';
+import { Player } from 'src/app/models/player';
+import { House } from 'src/app/models/house';
+import { CharacterService } from 'src/app/shared/character.service';
+import { Character } from 'src/app/models/character';
+import { YearService } from 'src/app/shared/year.service';
+import { Year } from 'src/app/models/year';
+import { AdicionalService } from 'src/app/shared/adicional.service';
 
 
 @Component({
@@ -16,7 +24,7 @@ export class CampaignsComponent {
 
   public user : any = {};
   public campaigns : Campaign[] = [];//cambio para servicio
-  public currentCampaign : string;
+  public currentCampaign : Campaign;
   public isHide : boolean;
 
     //Modal para meter el nombre de la campaña
@@ -30,7 +38,7 @@ export class CampaignsComponent {
 
   public noCampaigns:boolean;
 
-  constructor(public router : Router, public campaignService:CampaignService,public userService: UserService, public houseService:HouseService){
+  constructor(public router : Router, public campaignService:CampaignService,public userService: UserService, public houseService:HouseService, public playerService : PlayerService, public characterService : CharacterService, public yearService : YearService, public adicionalService : AdicionalService){
     this.user = {nombre : "Miguel Generoso Valero",
                 correo : "gene17051996@gmail.com",
                 password : "contraseñaMiguel_17",
@@ -163,13 +171,68 @@ public deleteCampaign(campaign_id:number){
 
 //FALTA CAMBIAR CON EL ROUTING. SE HA CREADO UN ATRIBUTO EN SERVICIO LLAMADO CURRENCAMPAIGN
   public selectCampaign(campaign_id:number){
-    console.log("Campaña seleccionada con id: ");
+    // console.log("Campaña seleccionada con id: ");
     
-    console.log(campaign_id);
+    // console.log(campaign_id);
+    // //SE ASIGNAN LA CAMPAÑA SELECCIONADA A LAS VARIABLES DE CAMPAÑA ACTUAL
+    this.currentCampaign = this.campaignService.campaigns.find(objeto => objeto.campaign_id === campaign_id);
+    this.campaignService.currentCampaign = this.campaignService.campaigns.find(objeto => objeto.campaign_id === campaign_id);
 
-    //Falta implementar el get en las campañas.
-    // this.currentCampaign = campaña;
-    this.router.navigateByUrl("/currentcampaign")
+    console.log("CAMPAÑA: " + JSON.stringify(this.campaignService.currentCampaign));
+    this.getAll();
+
+    // //SE ASIGNAN LOS AÑOS DE LA CAMPAÑA A SUS VARIABLES
+    // this.yearService.getYears(campaign_id)
+    // .subscribe((data : Year[]) => {
+    //   this.yearService.yearsOfCampaign = data;
+    //   this.yearService.currentYear = data[-1];
+    //   console.log("DATA AÑOS: " + JSON.stringify(data));
+      
+    //   console.log("AÑOS: " + JSON.stringify(this.yearService.yearsOfCampaign));
+    // })
+
+    // // //SE ASIGNAN LOS JUGADORES DE LA CAMPAÑA ACTUAL A LAS VARIABLES DE LO JUGADORES DE LA CAMPAÑA ACTUAL
+    // this.playerService.getPlayersByCampaign(this.campaignService.currentCampaign.campaign_id)
+    // .subscribe((data : Player[]) => {
+    //   console.log(JSON.stringify(data));
+    //   this.playerService.playersOfCampaign = data;
+      
+    //   //SE ASIGNAN LAS CASAS DE LOS JUGADORES DE LA CAMPAÑA ACTUAL A SUS VARIABLES
+    //   for (let i = 0; i < data.length; i++){
+    //     console.log("CASA Nº" + i + ": " + this.playerService.playersOfCampaign[i].house_id);
+        
+    //     this.houseService.getHouse(this.playerService.playersOfCampaign[i].house_id)
+    //     .subscribe((data : House) => {
+    //       console.log("ESTE ES EL LOG DE DATA QUE NECESITO VER: " + JSON.stringify(data[0]));
+          
+    //       this.houseService.housesOfCamapaign.push(data[0]);
+        
+    //       //SE ASIGNAN LOS PNJ DE LAS CASAS DE LOS JUGADORES DE LA CAMAPAÑA ACTUAL A SUS VARIABLES
+    //       this.characterService.getCharacters(this.playerService.playersOfCampaign[i].house_id)
+    //       .subscribe((data : Character[]) => {
+            
+    //         for (let j = 0; j < data.length; j++){
+    //           this.characterService.allCharactersOfCampaign.push(data[j]);
+              
+    //         }
+            
+    //       })
+          
+    //     })
+    //   }
+    // })
+
+    
+    
+    // setTimeout(() => {
+    //   console.log('10 seconds have passed');
+    //   console.log("JUGADORES: " + JSON.stringify(this.playerService.playersOfCampaign));
+    //   console.log("CASAS: " + JSON.stringify(this.houseService.housesOfCamapaign));
+    //   console.log("PERSONAJES: " + JSON.stringify(this.characterService.allCharactersOfCampaign));
+    //   this.router.navigateByUrl("/currentcampaign");
+    // }, 10000);
+    
+    
   }
 
 
@@ -200,5 +263,32 @@ public deleteCampaign(campaign_id:number){
     
   }
 
+  public getAll(){
+    
+    this.adicionalService.getYearInfo(this.campaignService.currentCampaign.campaign_id)
+    .subscribe((data:Year) => {
+      console.log("AÑO: " + JSON.stringify(data));
 
+      this.yearService.currentYear = new Year(data[0].year_id,data[0].yearNumber,data[0].isFirstYear.data[0],data[0].isLastYear.data[0],data[0].notes,data[0].campaign_id);
+      console.log(data[0].isFirstYear.data[0]);
+      
+    })
+
+    this.adicionalService.getCampaignInfo(this.campaignService.currentCampaign.campaign_id)
+    .subscribe((data:any) => {
+      console.log("**************************************************\n" + JSON.stringify(data));
+      for (let i = 0; i < data.length; i++){
+
+        this.playerService.playersOfCampaign.push(new Player(data[i].player_id,data[i].house_id,this.campaignService.currentCampaign.campaign_id,data[i].player_name,data[i].winterPhaseDone))
+
+        this.houseService.housesOfCamapaign.push(new House(data[i].house_name,data[i].activeChar,null,null,data[i].shield,null,data[i].house_id))
+
+        this.characterService.mainCharacters.push(new Character(data[i].activeChar,data[i].house_id,data[i].year_id,data[i].char_name,null,null,null,null,null,null,null));
+
+      }
+      this.router.navigateByUrl("/currentcampaign");
+    })
+    
+  }
 }
+

@@ -9,6 +9,7 @@ import { House } from 'src/app/models/house';
 import { HouseService } from 'src/app/shared/house.service';
 import { CharacterService } from 'src/app/shared/character.service';
 import { Character } from 'src/app/models/character';
+import { AdicionalService } from 'src/app/shared/adicional.service';
 
 @Component({
   selector: 'app-current-campaign',
@@ -45,11 +46,14 @@ export class CurrentCampaignComponent {
 
 
 
-    constructor(public router:Router, public yearService : YearService, public playerService : PlayerService,public campaignService : CampaignService,public houseService : HouseService, public characterService : CharacterService){    
+    constructor(public router:Router, public yearService : YearService, public playerService : PlayerService,public campaignService : CampaignService,public houseService : HouseService, public characterService : CharacterService,public adicionalService : AdicionalService){    
+      
       
       console.log("houseService.housesOfCampaign: " + JSON.stringify(this.houseService.housesOfCamapaign));
 
       this.characters = [];
+
+      //ocultar modales
       this.isChangeCharacterHide = true;
       this.isnewPlayerNameHide = true;
       this.isHouseInfoHide = true;
@@ -61,10 +65,8 @@ export class CurrentCampaignComponent {
       this.actualYear = this.years[this.years.length-1]
 
       console.log(this.actualYear);
-      console.log("PLAYERS : " + JSON.stringify(this.playerService.playersOfCampaign));
-      console.log("PLAYERS 2 : " + JSON.stringify(this.playerService.playersOfCampaign[2]));
       this.houses = [];
-      this.ordenarArrayCasas();
+      // this.ordenarArrayCasas();
 
       console.log("houseService.housesOfCampaign: " + JSON.stringify(this.houseService.housesOfCamapaign));
 
@@ -75,162 +77,47 @@ export class CurrentCampaignComponent {
 
 
     public previousYear(){
-      let yearIs = this.actualYear.yearNumber -1;
-      let found = this.years.find( element => element.yearNumber == yearIs);
-      this.actualYear = found;
 
-      // console.log(this.actualYear.yearNumber);
-      console.log(this.years.indexOf(this.actualYear));
-      console.log(this.years.indexOf(this.actualYear) !=0 || this.years.indexOf(this.actualYear) != this.years.length-1);
-      
-      
-      
+      this.yearService.getYearByNumber(this.campaignService.currentCampaign.campaign_id,this.yearService.currentYear.yearNumber - 1)
+      .subscribe((data : Year) => {
+        console.log("ESTE ES EL ULTIMO AÑO QUE QUIERO VER" + JSON.stringify(data));
+        this.yearService.currentYear = new Year(data[0].year_id,data[0].yearNumber,data[0].isFirstYear.data[0],data[0].isLastYear.data[0],data[0].notes,data[0].campaign_id)
+      })
 
-      if(found = null){
-        console.log("No hay más años antes de este.");
-        
-      } 
     }
 
     public nextYear(){
-      let yearIs = this.actualYear.yearNumber +1;
-      let found = this.years.find( element => element.yearNumber == yearIs);
-      this.actualYear = found;
+      //OBTENEMOS DE LA BBDD EL AÑO ANTERIOR Y SE PONE COMO CURRENT YEAR
+      this.yearService.getYearByNumber(this.campaignService.currentCampaign.campaign_id,this.yearService.currentYear.yearNumber + 1)
+      .subscribe((data : Year) => {
+        console.log("ESTE ES EL ULTIMO AÑO QUE QUIERO VER" + JSON.stringify(data));
+        this.yearService.currentYear = new Year(data[0].year_id,data[0].yearNumber,data[0].isFirstYear.data[0],data[0].isLastYear.data[0],data[0].notes,data[0].campaign_id)
+      })
 
-      console.log(this.actualYear.yearNumber);
-      console.log(this.years.indexOf(this.actualYear) == this.years.length-1);
-
-
-
-      if(found = null){
-        console.log("No hay más años después de este.");
-        
-      }
     }
 
-
-    public goNext(){
+    public goNext(notas : string){
       
-      //creamos la relacion player years antes de crear el nuevo año
-      this.yearService.postPlayerYear(this.yearService.currentYear,this.playerService.playersOfCampaign)
+      this.yearService.currentYear.notes = notas;
+      
+      this.adicionalService.crearAñoPersonajes(this.yearService.currentYear)
       .subscribe((data : any) => {
-        console.log("ENTROOOOO GOLGOLGOL");
-        console.log("DATA YEARS: " + JSON.stringify(data));
-        
+        console.log("A PARTIR DE AQUI EMPIEZA LO TOCHO DE CURRENT CAMPAIGN");
+        console.log("DATA CURRENT: " + JSON.stringify(data));
         
         
       })
-
-          //CREAMOS EL NUEVO AÑO
-          let newYear = new Year(null,this.yearService.currentYear.yearNumber + 1,0,1,"",this.yearService.currentYear.campaign_id);
-
-          this.yearService.postYear(newYear)
-          .subscribe((data : any) => {
-            
-            newYear.year_id = data.insertId
-
-            this.yearService.currentYear = newYear;
-            this.actualYear = newYear;
-            this.yearService.yearsOfCampaign.push(newYear);
-            this.yearService.yearsOfCampaign[this.yearService.yearsOfCampaign.length - 2].isLastYear = 0;
-
-            // console.log("ENSEÑAMOS LA POSICION -2 DEL ARRAY: " + JSON.stringify(this.yearService.yearsOfCampaign[this.yearService.yearsOfCampaign.length - 2]));
-            // console.log("TODOS LOS PUTOS AÑOS: " + JSON.stringify(this.yearService.yearsOfCampaign));
-            // console.log("AÑO ACTUAL: " + JSON.stringify(this.actualYear));
-            // console.log("PENULTIMO AÑO: " + JSON.stringify(this.yearService.yearsOfCampaign[this.yearService.yearsOfCampaign.length - 2]));
-            
-            //MODIFICAMOS EL AÑO ANTERIOR PARA IGUALAR EL CAMPO ISLASTYEAR A 0
-            this.yearService.putYear(this.yearService.yearsOfCampaign[this.yearService.yearsOfCampaign.length - 2])
-            .subscribe((data : any) => {
-              console.log(data);
-              
-              for (let i = 0; i < this.playerService.playersOfCampaign.length; i++){
-
-                //OBTENEMOS TODOS LOS PNJ DE TODOS LOS JUGADORES Y LOS METEMOS EN UN ARRAY
-                // console.log("ESTOS SON LOS ID DE LA CASA DE CADA JUGADOR: " + this.playerService.playersOfCampaign[i].house_id);
-                
-                this.characterService.getCharacters(this.playerService.playersOfCampaign[i].house_id)
-                .subscribe((data : Character[]) => {
-                  
-                  // console.log("ESTOS SON LOS PNJ: " + JSON.stringify(data));
-        
-                  //INICIALIZAMOS A 0 EL ARRAY DE PNJ
-                  this.characters = [];
-
-                  for (let j = 0; j < data.length; j++){
-                    this.characters.push(data[j]);
-                    this.characterService.allCharactersOfCampaign.push(data[j]);
-                  }
-                  console.log("ALL CHARACTERS OF CAMPAIGN: " + JSON.stringify(this.characterService.allCharactersOfCampaign));
-                  
-                    
-                  console.log("ESTOS SON LOS PNJ PUSHEADOS: " + this.characters);
-                  //HACEMOS LA INSERCCION DE LOS NUEVOS PNJ CON EL AÑO CAMBIADO
-            
-
-                  //AQUI SE ENCUENTRA EL FALLO
-                  // console.log("MOSTRANDO LOS PERSONAJES DEL FANTASTICO MUNDO DE GUMBALL: " + JSON.stringify(this.characters));
-
-                  for (let l = 0; l < this.characters.length; l++){
-                    this.characters[l].year_id = this.actualYear.year_id;
-                  }
-                  console.log(this.actualYear.year_id);
-                  
-                  this.yearService.nextYear = this.actualYear;
-                  
-                  this.characterService.postCharacters(this.characters)
-                  .subscribe((data : any) => {
-                    console.log(data);
-                    
-                  })
-                  
-                })
-              }
-              
-              
-          console.log(JSON.stringify(this.yearService.currentYear));
-          console.log(JSON.stringify(this.yearService.yearsOfCampaign));
-            })
-            this.router.navigateByUrl("/winterphasemain");
-            
-          })
-
-          
-          
-      
-      
-      
     }
 
-    public goNewPlayer(){
-      this.router.navigateByUrl("/addplayers")
-    }
+    // public goNewPlayer(){
+    //   this.router.navigateByUrl("/addplayers")
+    // }
 
-    public goCreateHouse(){
+    // public goCreateHouse(){
 
-      this.houseService.modifyLayout = true;
-      this.router.navigateByUrl("/createhouse")
-    }
-
-    public ordenarArrayCasas(){
-      this.houses
-      for (let i = 0; i < this.currentPlayers.length; i++){
-
-        if (this.currentPlayers[i].house_id == this.houseService.housesOfCamapaign[0].house_id){
-          this.houses.push(this.houseService.housesOfCamapaign[0])
-        }else if(this.currentPlayers[i].house_id == this.houseService.housesOfCamapaign[1].house_id){
-          this.houses.push(this.houseService.housesOfCamapaign[1])
-        }else if(this.currentPlayers[i].house_id == this.houseService.housesOfCamapaign[2].house_id){
-          this.houses.push(this.houseService.housesOfCamapaign[2])
-        }else if(this.currentPlayers[i].house_id == this.houseService.housesOfCamapaign[3].house_id){
-          this.houses.push(this.houseService.housesOfCamapaign[3])
-        }else if(this.currentPlayers[i].house_id == this.houseService.housesOfCamapaign[4].house_id){
-          this.houses.push(this.houseService.housesOfCamapaign[4])
-        }else if(this.currentPlayers[i].house_id == this.houseService.housesOfCamapaign[5].house_id){
-          this.houses.push(this.houseService.housesOfCamapaign[5])
-        }
-      }
-    }
+    //   this.houseService.modifyLayout = true;
+    //   this.router.navigateByUrl("/createhouse")
+    // }
 
 
     //MODALES
@@ -304,13 +191,13 @@ export class CurrentCampaignComponent {
       this.isnewPlayerNameHide = true;
     }
 
-    public changePJ(newPJ : string){
+    // public changePJ(newPJ : string){
 
-      // console.log("ACTUAL PJ: " + this.houseService.currentHouse.activeChar);
-      // this.houseService.currentHouse.activeChar = newPJ;
-      // console.log("NUEVO PJ: " + this.houseService.currentHouse.activeChar);
+    //   // console.log("ACTUAL PJ: " + this.houseService.currentHouse.activeChar);
+    //   // this.houseService.currentHouse.activeChar = newPJ;
+    //   // console.log("NUEVO PJ: " + this.houseService.currentHouse.activeChar);
   
   
-    }
+    // }
 
 }

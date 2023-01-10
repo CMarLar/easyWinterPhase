@@ -24,6 +24,14 @@ export class YearService {
 
     return this.http.post(this.url,year);
   }
+
+  public getYears(campaign_id : number){
+    console.log("QUE COJONES ES ESTO: " + campaign_id);
+    
+    this.url = "http://localhost:3000/campaignsYears?campaign_id=" + campaign_id;
+
+    return this.http.get(this.url)
+  }
   
   public postPlayerYear(year : Year,players : Player[]){
 
@@ -35,5 +43,11 @@ export class YearService {
 
     this.url = "http://localhost:3000/currentCampaignYear";
     return this.http.put(this.url,year);
+  }
+
+  public getYearByNumber(campaign_id : number, yearNumber : number){
+
+    this.url = "http://localhost:3000/currentcampaignYearNumber";
+    return this.http.get(this.url + "?campaign_id=" + campaign_id + "&yearNumber=" + yearNumber);
   }
 }

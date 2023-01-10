@@ -30,8 +30,10 @@ export class HouseService {
     return this.http.post(this.url,house);
   }
 
-  public getHouse(house:House){
-    this.url = "http://localhost:3000/housesmanagement?house_id=" + house.house_id;
+  public getHouse(house_id:number){
+    this.url = "http://localhost:3000/housesmanagement?house_id=" + house_id;
+    console.log("AQUI QUE COÑO QUIERO VER: " + house_id);
+    
 
     return this.http.get(this.url);
   }

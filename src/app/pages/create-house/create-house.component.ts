@@ -199,6 +199,7 @@ public submitCharInfo(form:NgForm){
     this.characterService.currentHouseChars.push(knightCopy)
 
     this.characterService.allCharactersOfCampaign.push(knightCopy)
+    this.characterService.mainCharacters.push(knightCopy)
     console.log("All chars of campaign: " + JSON.stringify(this.characterService.allCharactersOfCampaign));
     
   })
