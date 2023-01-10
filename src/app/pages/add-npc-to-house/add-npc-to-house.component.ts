@@ -254,17 +254,69 @@ export class AddNpcToHouseComponent {
     
     let formNpcCopy = {...form.value}
     
-    console.log("formNpcCopy con spread operator: " + formNpcCopy);
+    console.log("formNpcCopy con spread operator: " + JSON.stringify(formNpcCopy));
 
-    let insertedYear:number;
 ///BLOQUE NO TESTADO PARA CREAR PERSONAJES CON EL AÑO CORRECTO
+    let insertedYear:number;
+
     if(this.yearService.currentYear == null || this.yearService.currentYear == undefined){
       insertedYear = null;
     }else{
       insertedYear = this.yearService.currentYear.year_id;
     }
 //////
-    let newCharacter:Character = new Character(null,this.currentHouseId,insertedYear,formNpcCopy.char_name,formNpcCopy.age,1,0,0,0,formNpcCopy.role,formNpcCopy.sex);
+
+    //Bloque para poner isMarried en esposa y activeChar. Posiblemente no funcione al crear esposas a partir del primer año
+    let marriedStatus:number;
+    
+    if(formNpcCopy.role == "Esposa"){
+      marriedStatus = 1
+
+      console.log("Se ha creado una esposa con marriedStatus " + marriedStatus);
+      
+
+      let activeChar:Character;
+
+      console.log("BODA A LA VISTA");
+      
+      if(this.characterService.currentActiveChar != null || this.characterService.currentActiveChar != undefined){
+
+        this.characterService.currentActiveChar.isMarried = 1;
+        activeChar = this.characterService.currentActiveChar;
+        console.log("¿Quién es el activeChar?: "  + JSON.stringify(this.characterService.currentActiveChar));
+
+        
+
+      }else{
+
+        for (let i = 0; i < this.characterService.allCharactersOfCampaign.length; i++) {
+
+          if(this.characterService.allCharactersOfCampaign[i].character_id == this.houseService.currentHouse.activeChar)
+    
+          this.characterService.allCharactersOfCampaign[i].isMarried = 1
+          activeChar = this.characterService.allCharactersOfCampaign[i];
+          console.log("¿Quién es el activeChar?: "  + JSON.stringify(this.characterService.currentActiveChar));
+        }
+
+      }
+
+      this.characterService.modifyCharacter(new Character(activeChar.character_id,activeChar.house_id,activeChar.year_id,activeChar.char_name,activeChar.age,activeChar.char_status,1,activeChar.marriageGlory,activeChar.courtesyMod,activeChar.role,activeChar.sex)).subscribe((data)=>{
+
+        console.log("Data del activeChar con isMarried modificado: " + JSON.stringify(data));
+        
+      })
+
+
+    }else{
+      marriedStatus = 0
+      console.log("Se ha creado una persona con marriedStatus " + marriedStatus);
+    }
+
+
+
+    let newCharacter:Character = new Character(null,this.currentHouseId,insertedYear,formNpcCopy.char_name,formNpcCopy.age,1,marriedStatus,0,0,formNpcCopy.role,formNpcCopy.sex);
+
+
 
     //A la base de datos.
     this.characterService.newCharacter(newCharacter).subscribe((data:any)=>{

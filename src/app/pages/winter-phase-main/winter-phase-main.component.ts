@@ -174,8 +174,26 @@ NOTAS IMPORTANTES:
           this.houseService.currentHouse.economyLevels = this.playersAndHouses[i].house.economyLevels;
           console.log(this.playersAndHouses[i].house.economyLevels);
 
-          
+            console.log("Old active char: " + JSON.stringify(this.characterService.currentActiveChar));
+            
+
+
           this.characterService.getWinterPhaseChars(this.houseService.currentHouse.house_id,this.yearService.currentYear.year_id+1).subscribe((data : Character[])=>{//IMPORTANTE: he tenido que poner el +1 porque current campaign sigue uno por detrás
+
+            //Este bloque sobreescribe el activeChar con el mismo del nuevo año
+           
+            let newActiveChar: Character;
+
+            for (let i = 0; i < data.length; i++) {
+              if(data[i].char_name == this.characterService.currentActiveChar.char_name){
+                newActiveChar = data[i]
+                console.log("New Active Char for this year: " + newActiveChar);
+                
+                this.characterService.currentActiveChar = newActiveChar;
+              }
+              
+            }
+
             console.log("DATA DE LA BASE DE DATOS: " + JSON.stringify(data));
 
             /*
