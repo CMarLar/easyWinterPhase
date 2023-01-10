@@ -144,10 +144,13 @@ NOTAS IMPORTANTES:
 
 
     public doWinterPhase(house_id:number){
+      
 
-      console.log("PlayersService.playersOfCampaign: " + JSON.stringify(this.playerService.playersOfCampaign));
+      // console.log("PlayersService.playersOfCampaign: " + JSON.stringify(this.playerService.playersOfCampaign));
 
-      console.log("ALL CHARACTERS OF CAMPAIGN: " + JSON.stringify(this.characterService.allCharactersOfCampaign))
+      // console.log("ALL CHARACTERS OF CAMPAIGN: " + JSON.stringify(this.characterService.allCharactersOfCampaign))
+
+      console.log("CURRENT YEAR " + JSON.stringify(this.yearService.currentYear))
 
       for (let i = 0; i < this.playersAndHouses.length; i++) {
         
@@ -170,7 +173,10 @@ NOTAS IMPORTANTES:
           this.houseService.currentHouse.economyLevels = this.playersAndHouses[i].house.economyLevels;
           console.log(this.playersAndHouses[i].house.economyLevels);
 
-          console.log("PLAYERSERVICE.playersOfCampaign: " + JSON.stringify(this.playerService.playersOfCampaign));
+          
+          this.characterService.getWinterPhaseChars(this.houseService.currentHouse.house_id,this.yearService.currentYear.year_id+1).subscribe((data)=>{//IMPORTANTE: he tenido que poner el +1 porque current campaign sigue uno por detrás
+            console.log("DATA DE LA BASE DE DATOS: " + JSON.stringify(data));
+          })
 
         }
       }
@@ -241,7 +247,7 @@ NOTAS IMPORTANTES:
       this.checkPlayersReady()//hace la función de checkeo de nuevo
 
       console.log("PlayersService.playersOfCampaign: " + JSON.stringify(this.playerService.playersOfCampaign));
-      this.router.navigateByUrl("/phase1")
+      // this.router.navigateByUrl("/phase1")
     }
 
     public checkPlayersReady(){

@@ -44,9 +44,10 @@ export class CharacterService {
 
   public getCharacters(house_id:number){
 
-    let id = house_id;
+    let houseId = house_id;
+    
     this.url = "http://localhost:3000/"
-    return this.http.get(this.url + "addnpc?house_id=" + id)
+    return this.http.get(this.url + "addnpc?house_id=" + houseId)
   }
 
 
@@ -110,7 +111,14 @@ export class CharacterService {
     return this.http.put(this.url + "phase9", character)
   }
 
+  public getWinterPhaseChars(house_id:number,year_id:number){
 
+    let houseId = house_id;
+    let yearId = year_id;
+    
+    this.url = "http://localhost:3000/"
+    return this.http.get(this.url + "winterphasemain?house_id=" + houseId + "&year_id=" + yearId)
+  }
 
 
 
