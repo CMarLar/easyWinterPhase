@@ -106,13 +106,13 @@ export class CurrentCampaignComponent {
       .subscribe((data : any) => {
         console.log("A PARTIR DE AQUI EMPIEZA LO TOCHO DE CURRENT CAMPAIGN");
         console.log("DATA CURRENT: " + JSON.stringify(data));
-        
+        this.router.navigateByUrl("/winterphasemain");
         
       })
     }
 
     public goNewPlayer(){
-      this.router.navigateByUrl("/addplayers")
+      this.router.navigateByUrl("/addplayers");
     }
 
     public goCreateHouse(){
