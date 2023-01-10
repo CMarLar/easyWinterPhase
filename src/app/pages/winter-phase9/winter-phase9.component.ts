@@ -32,6 +32,8 @@ export class WinterPhase9Component {
   
   constructor(private textosService: TextService, private playerService: PlayerService, public houseService:HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService: YearService, public router:Router){
 
+    // this.resetMarriageGlory(this.characterService.currentActiveChar);
+
     console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
     console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
     console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
@@ -86,7 +88,7 @@ export class WinterPhase9Component {
   public resetMarriageGlory(character:Character){
 
     character = new Character
-    (this.characterService.currentActiveChar.character_id,
+      (this.characterService.currentActiveChar.character_id,
       this.characterService.currentActiveChar.house_id,
       this.characterService.currentActiveChar.year_id,
       this.characterService.currentActiveChar.char_name,
