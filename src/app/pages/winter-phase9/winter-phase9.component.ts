@@ -9,6 +9,7 @@ import { CharacterService } from 'src/app/shared/character.service';
 import { CampaignService } from 'src/app/shared/campaign.service';
 import { YearService } from 'src/app/shared/year.service';
 import { Router } from '@angular/router';
+import { Character } from 'src/app/models/character';
 
 
 @Component({
@@ -30,6 +31,8 @@ export class WinterPhase9Component {
   public modifiedPlayer:Player;//Para hacer update de winterphaseMain en la base de datos.
   
   constructor(private textosService: TextService, private playerService: PlayerService, public houseService:HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService: YearService, public router:Router){
+
+    // this.resetMarriageGlory(this.characterService.currentActiveChar);
 
     console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
     console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
@@ -80,6 +83,33 @@ export class WinterPhase9Component {
     console.log(data)
     
     })
+  }
+
+  public resetMarriageGlory(character:Character){
+
+    character = new Character
+      (this.characterService.currentActiveChar.character_id,
+      this.characterService.currentActiveChar.house_id,
+      this.characterService.currentActiveChar.year_id,
+      this.characterService.currentActiveChar.char_name,
+      this.characterService.currentActiveChar.age,
+      this.characterService.currentActiveChar.char_status,
+      this.characterService.currentActiveChar.isMarried,
+      0,//cambiamos marriageGlory en bbdd
+      this.characterService.currentActiveChar.courtesyMod,
+      this.characterService.currentActiveChar.role,
+      this.characterService.currentActiveChar.sex)
+
+      console.log("Activechar marriage glory to 0: " + JSON.stringify(character));
+
+      this.characterService.currentActiveChar = character// igualamos en el front
+
+      this.characterService.resetMarriageGlory(character).subscribe((data:any)=>{
+        console.log(data);
+        
+      })
+      
+
   }
 
   public goToWinterPhaseMain(){
