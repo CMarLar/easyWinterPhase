@@ -27,6 +27,15 @@ export class WinterPhase2Component {
   
    constructor(private textosService: TextService, private jugadorService: PlayerService, public houseService: HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService:YearService ){
 
+    //este bloque es para marcar de nuevo el active character:
+
+    // for (let index = 0; index < this.characterService.currentHouseCharsWinterPhase.length; index++) {
+
+    //   if(this.characterService.currentHouseCharsWinterPhase)
+      
+    // }
+
+
     console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
     console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
     console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));

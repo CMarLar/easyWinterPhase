@@ -41,20 +41,20 @@
                             <div class="prologo1"><!-- hijo 1 prólogo -->
                                 <p class="frase">NACIMIENTOS</p>
                                 <p class="frase1">Modificador: Circunstancia Económica: <span class="numero">{{cisrcunstanciaEconomica}}</span></p>
-                                <p class="frase1">Modificador: Edad de la madre: <span class="numero">{{edadMadre}}</span></p>
+                                <p class="frase1">Modificador: Edad de la madre: <span class="numero">{{wife.age}}</span></p>
 
                             </div>
 
                             <div class="prologo3"><!-- hijo 3 prólogo -->
                                 <div class="esposa" *ngIf="pj.isMarried == true">
-                                    <p><B>ESPOSA :</B> {{pj.esposa.nombre}}</p>
+                                    <p><B>ESPOSA :</B> {{wife.char_name}}</p>
                                     <button (click)="calcularNacimientosEsposa()" class="boton">CALCULAR</button>
                                 </div>
                                 <div class="hijito">
                                     <p><B>AMANTES :</B></p>
                                     <div>
                                         <select class="select" name="" id="" #valorAmantes>
-                                            <option value="{{amantes.nombre}}" *ngFor="let amantes of pj.amantes">{{amantes.nombre}}</option>
+                                            <option value="{{lovers.char_name}}" *ngFor="let amantes of lovers">{{amantes.char_name}}</option>
                                         </select>
                                         <button (click)="calcularNacimientos(valorAmantes.value)" class="boton2">CALCULAR</button>    
                                     </div>
