@@ -7,6 +7,7 @@ import { CharacterService } from 'src/app/shared/character.service';
 import { CampaignService } from 'src/app/shared/campaign.service';
 import { YearService } from 'src/app/shared/year.service';
 import { Router } from '@angular/router';
+import { Character } from 'src/app/models/character';
 
 @Component({
   selector: 'app-winter-phase6b',
@@ -32,21 +33,54 @@ export class WinterPhase6bComponent {
 
   public currentPlayerName:string;
 
+
+  public wife:Character;
+  public lover:Character;
+  public lovers:Character[];
+
   constructor(public playerService:PlayerService, public houseService:HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService: YearService){
 
-    console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
-    console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
+
     console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
     console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
     console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
-    console.log("PLAYERSERVICE.playersOfCampaign: " + JSON.stringify(this.playerService.playersOfCampaign));
+
+
+    //Bucle para recoger a la esposa:
+
+    for (let i = 0; i < this.characterService.currentHouseCharsWinterPhase.length; i++) {
+
+      if (this.characterService.currentHouseCharsWinterPhase[i].role == "Esposa"){
+        this.pj.esposa.nombre = this.characterService.currentHouseCharsWinterPhase[i].char_name
+        console.log("Esposa: " + this.characterService.currentHouseCharsWinterPhase[i].char_name);
+        
+      }
+      
+    }
+
+    //Bucle para recoger a las amantes:
+
+    for (let i = 0; i < this.characterService.currentHouseCharsWinterPhase.length; i++) {
+
+      if (this.characterService.currentHouseCharsWinterPhase[i].role == "Amante"){
+        this.pj.amantes.push(this.characterService.currentHouseCharsWinterPhase[i])
+        console.log("Amantes: "  + JSON.stringify(this.characterService.currentHouseCharsWinterPhase[i]));
+        
+      }
+      
+    }
+
+
+
+
+
 
     this.currentPlayerName = this.playerService.currentPlayer.player_name;
     this.foto_escudo = this.houseService.currentHouse.shield;
 
     this.mujerRol = ["Esposa", "Amante"]
 
-    this.pj = {nombre : "Irene",
+    this.pj = {nombre : this.characterService.currentActiveChar.char_name,
               edad : 35,
               isMarried : true,
               esposa : {nombre : "Carlos",
@@ -66,6 +100,7 @@ export class WinterPhase6bComponent {
                 edad : 28,
                 isAlive : true
               }],
+
             hijos : [{nombre : "paco",
                       edad : 3,
                       sexo : "hombre"}]}
