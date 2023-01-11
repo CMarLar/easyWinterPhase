@@ -48,7 +48,7 @@
                 <div class="character" style="background-color: rgb(130, 23, 25,0.6);" *ngIf="playerService.playersOfCampaign[0] != null; else emptyPlayer">
                     <span class="span1" (click)="showModalPlayer(playerService.playersOfCampaign[0])">{{playerService.playersOfCampaign[0].player_name}}</span>
                     <span class="span2"(click)="showModalCharacter(houseService.housesOfCamapaign[0].house_id,characterService.mainCharacters[0])">{{characterService.mainCharacters[0].char_name}}</span>
-                    <span class="span3"(click)="showModalHouse()">{{houseService.housesOfCamapaign[0].house_name}}</span>
+                    <span class="span3"(click)="showModalHouse(houseService.housesOfCamapaign[0].house_id)">{{houseService.housesOfCamapaign[0].house_name}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
                             <img (click)="goCreateHouse()"src="../../../assets/img/PLUMA.png">
@@ -59,7 +59,7 @@
                 <div class="character" style="background-color: rgb(130, 23, 25,0.6);"*ngIf="playerService.playersOfCampaign[1] != undefined; else emptyPlayer">
                     <span class="span1"(click)="showModalPlayer(playerService.playersOfCampaign[1])">{{playerService.playersOfCampaign[1].player_name}}</span>
                     <span class="span2"(click)="showModalCharacter(houseService.housesOfCamapaign[1].house_id,characterService.mainCharacters[1])">{{characterService.mainCharacters[1].char_name}}</span>
-                    <span class="span3"(click)="showModalHouse()">{{houseService.housesOfCamapaign[1].house_name}}</span>
+                    <span class="span3"(click)="showModalHouse(houseService.housesOfCamapaign[1].house_id)">{{houseService.housesOfCamapaign[1].house_name}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
                             <img (click)="goCreateHouse()" src="../../../assets/img/PLUMA.png">
@@ -142,7 +142,7 @@
 
 <app-new-player-name-modal class="modal" [hidden]="isnewPlayerNameHide"  (cambioNombre)="changeName($event)"></app-new-player-name-modal>
 <app-change-character-modal class="modal" [hidden]="isChangeCharacterHide" [charactersPadre]="characters" (eventoChangeCharacter)="changeCharacter($event)"></app-change-character-modal>
-<app-house-info-modal class="modal" [hidden]="isHouseInfoHide"></app-house-info-modal>
+<app-house-info-modal class="modal" [hidden]="isHouseInfoHide" [housePadre]="currentHouse" [charactersPadre]="characters"></app-house-info-modal>
 
 <!-- MODAL DE NOMBRE DE JUGADOR -->
 <!-- <div class="modal" id="modal" [hidden]="isnewPlayerNameHide">

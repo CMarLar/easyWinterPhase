@@ -29,9 +29,9 @@
 }
 .cabecera{
 
-    width: 100%;
-    height: 18%;
-    margin-top: 4%;
+    width: 80%;
+    height: 20%;
+    margin-top: 3%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -43,6 +43,7 @@
    
        width: 40%;
        height: 100%;
+       padding-left: 15%;
        justify-self: flex-end; 
        align-self: flex-end;
   /*      border: 5px solid yellowgreen; */
@@ -57,10 +58,10 @@
    }
    .title{
 
-         width: 60%;
-         height: 70%;
+         width: 70%;
+         height: 90%;
          justify-content: end;
-      /*    border: 5px solid rgb(135, 141, 27); */
+         /* border: 5px solid rgb(135, 141, 27);  */
     }
             .page_title{
                 color: var(--font-color-hover);
@@ -68,9 +69,9 @@
                /*  text-decoration: line-through; */
                 font-size: 4rem;
                 text-align: end;
-                /* border: 2px solid rgb(255, 0, 230); */ 
+               /*  border: 2px solid rgb(255, 0, 230); */ 
                 font-weight: bold;
-                width: 80%;
+                width: 90%;
                 height: 70%;
             }
             
@@ -80,9 +81,9 @@
                 font-size: 2rem;
                 font-weight: bold;
                 justify-self: flex-end;
-                width: 80%;
+                width: 90%;
                 height: 30%;
-              /*   border: 2px solid rgb(0, 60, 255);  */
+               /*  border: 2px solid rgb(0, 60, 255);  */
             }
 
 
@@ -110,7 +111,7 @@
     align-items: center;
     width: 100%;
     height: 100%;
-  /*   border: 5px solid rgb(236, 6, 175);   */
+    /* border: 5px solid rgb(236, 6, 175);   */
 }
 
 /* .container{
@@ -125,7 +126,7 @@
     justify-content:center;
     justify-items: center;
     flex-wrap: wrap;
-    height: 70%;
+    height: 78%;
     width: 100%;
 }
     /* .playerlist img{
@@ -240,7 +241,7 @@
     flex-direction: row;
 /*     border: 5px solid purple; */
     justify-content: center;
-    gap: 3%;
+    gap: 2%;
  
 }
 
@@ -248,7 +249,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 2%;
+    margin-top: 3%;
     align-items: center;
   /*   border: 5px solid orangered;  */
     width: 40%;

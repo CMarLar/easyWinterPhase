@@ -6,6 +6,7 @@ import { CharacterService } from 'src/app/shared/character.service';
 import { CampaignService } from 'src/app/shared/campaign.service';
 import { YearService } from 'src/app/shared/year.service';
 import { Router } from '@angular/router';
+import { Character } from 'src/app/models/character';
 
 @Component({
   selector: 'app-winter-phase7',
@@ -14,18 +15,41 @@ import { Router } from '@angular/router';
 })
 export class WinterPhase7Component {
 
-  WinterPhaseMainComponent: any;
   public nombre: string
   public apellidos: string
   public foto_escudo : string
 
-  public personajes: string[]
+  public nombres_personajes : Character[]
+/*   public mostrarPersonajes(house_id: number){
 
-  public houseCharacters;
+    this.characterService.getCharactersName(house_id).subscribe((data: Character[])=>{
+  
+      this.personajes = data;
+      console.log(data)
+      console.log(JSON.stringify(data))
+    })
+  } 
+ */
+/* 
+  public personajes: Character[]; */
 
   public currentPlayerName: string;
+  public currentHouseCharsWinterPhase: Character[];
   
    constructor(public playerService:PlayerService, public houseService:HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService: YearService){
+
+/* irene / NO FUNCIONA */
+
+/*   this.characterService.getCharactersName()
+    .subscribe((data: Character[])=>{
+
+      this.personajes = data;
+      console.log(data)
+      console.log(JSON.stringify(data))
+
+    }) 
+  
+    /*  */
     
     console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
     console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
@@ -36,10 +60,19 @@ export class WinterPhase7Component {
 
     this.currentPlayerName = this.playerService.currentPlayer.player_name;
     this.foto_escudo = this.houseService.currentHouse.shield;
+  
+    this.characterService.getCharactersNames(this.houseService.currentHouse.house_id,this.yearService.currentYear.year_id)
+    .subscribe((data: Character[])=>{
 
-    this.personajes = ["Alain", "Robert", "Belengarius"];
+      this.nombres_personajes = data;
+      console.log(data)
+      console.log(JSON.stringify(data))
 
-    this.houseCharacters = 
+    }) 
+
+    /* this.personajes = ["Alain", "Robert", "Belengarius"]; */
+    
+   /*  this.houseCharacters = 
     {
       characters:
       [
@@ -51,10 +84,9 @@ export class WinterPhase7Component {
     }
 
     console.log(this.houseCharacters);
-    console.log(this.houseCharacters.name);
+    console.log(this.houseCharacters.name); */
     
    }
   
   }
-  
  

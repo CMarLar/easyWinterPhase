@@ -29,5 +29,12 @@ export class AdicionalService {
     this.url = "http://localhost:3000/currentcampaignToWinterPhase"
     return this.http.post(this.url,year);
   }
+
+  public getHouseAndCharacters(house_id : number, year_id : number){
+
+    this.url = "http://localhost:3000/modalInfoCasa";
+
+    return this.http.get(this.url + "?house_id=" + house_id + "&year_id=" + year_id);
+  }
   
 }

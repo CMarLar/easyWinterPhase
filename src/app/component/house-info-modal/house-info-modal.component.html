@@ -2,32 +2,31 @@
     <img src="../../../assets/backgrounds/bg_modal.png" alt="">
     <div class="modalContain">
         <div class="infoContain">
-            <img src="{{house.feudo}}" alt="">
-            <p class="nombreCasa">{{house.nombreCasa}}</p>
-            <p class="info">de {{house.nombreJugador}}</p>
-            <p class="info">{{house.caracteristicaFamiliar}}</p>
-            <p class="pj">Personaje activo: <span class="pj2">Sir {{house.nombrePJ}}</span></p>
+            <img src="{{housePadre.shield}}" alt="">
+            <p class="nombreCasa">{{housePadre.house_name}}</p>
+            <p class="info">{{housePadre.familyCharacteristic}}</p>
+            <p class="pj">Personaje activo: <span class="pj2">Sir {{house.nombrePJ}}</span></p><!-- HARDCODEADO -->
             <p class="otherPj">-Otros miembros de la casa-<br></p>
         </div>
         
-        <div [ngClass]="'prueba'" [(ngModel)]="house.npc" class="contenedorTexto">
+        <div [ngClass]="'prueba'" [(ngModel)]="charactersPadre" class="contenedorTexto"><!-- HARDCODEADO -->
             <div class="header">
                 <span class="name_header">Nombre</span>
                 <span class="role_header">Rol</span>
             </div>
 
-            <div *ngFor="let pnj of house.npc" >
-                <div *ngIf="pnj.estado === true; else muerto">
+            <div *ngFor="let pnj of charactersPadre" >
+                <div *ngIf="pnj.char_status === 1; else muerto">
                 <div class="char_container">
-                    <span class="char_name" [ngClass]="'vivo'">{{pnj.nombre}}</span>
-                    <span class="char_role"> {{pnj.rol}}</span>
+                    <span class="char_name" [ngClass]="'vivo'">{{pnj.char_name}}</span>
+                    <span class="char_role"> {{pnj.role}}</span>
                 </div>
                 </div>
                 <ng-template #muerto>
-                <div class="char_container">
-                    <span class="char_name"> <p class="muerto">{{pnj.nombre}}</span>
-                    <span class="char_role">{{pnj.rol}}</span>
-                </div>
+                    <div class="char_container">
+                        <span class="char_name_dead"> <p class="muerto">{{pnj.char_name}}</span>
+                        <span class="char_role">{{pnj.role}}</span>
+                    </div>
                 </ng-template>
             </div>
         </div>

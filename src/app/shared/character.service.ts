@@ -44,11 +44,19 @@ export class CharacterService {
 
   public getCharacters(house_id:number){
 
-    let id = house_id;
+    let houseId = house_id;
+    
     this.url = "http://localhost:3000/"
-    return this.http.get(this.url + "addnpc?house_id=" + id)
+    return this.http.get(this.url + "addnpc?house_id=" + houseId)
   }
 
+/* irene // EL BACK FUNSSIONA */ //mostrar los personajes mayores de 15 años de la casa
+public getCharactersNames(house_id: number, year_id: number){
+
+  this.url = "http://localhost:3000/phase7"
+  return this.http.get(this.url + "?house_id=" + house_id + "&year_id=" + year_id)
+}
+/*  */
   public getCharactersByYear(house_id:number,year_id : number){
 
     console.log("LLEGA ESTO: " + house_id + " Y " + year_id);
@@ -103,6 +111,31 @@ export class CharacterService {
 
     return this.http.post(this.url, characters);
   }
+
+  public getMainChar(character_id:number){
+
+    let id = character_id;
+    this.url = "http://localhost:3000/"
+    return this.http.get(this.url + "phase8?character_id=" + id)
+  }
+
+  public resetMarriageGlory (character:Character){
+
+    this.url = "http://localhost:3000/"
+
+    return this.http.put(this.url + "phase9", character)
+  }
+
+  public getWinterPhaseChars(house_id:number,year_id:number){
+
+    let houseId = house_id;
+    let yearId = year_id;
+    
+    this.url = "http://localhost:3000/"
+    return this.http.get(this.url + "winterphasemain?house_id=" + houseId + "&year_id=" + yearId)
+  }
+
+
 
 
 

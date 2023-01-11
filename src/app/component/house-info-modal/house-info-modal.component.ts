@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Character } from 'src/app/models/character';
+import { House } from 'src/app/models/house';
 
 @Component({
   selector: 'app-house-info-modal',
@@ -6,6 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./house-info-modal.component.css']
 })
 export class HouseInfoModalComponent {
+
+  @Input() housePadre : House;
+  @Input() charactersPadre : Character[];
 
   public nombreCasa:string;
   public feudo:string;

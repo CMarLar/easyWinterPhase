@@ -40,6 +40,7 @@ export class CurrentCampaignComponent {
 
   //casas
   public houses : House[];
+  public currentHouse : House;
 
   //pnj
   public characters : Character[];
@@ -160,12 +161,19 @@ export class CurrentCampaignComponent {
       
     }
 
-    public showModalHouse(){
-      if(this.isHouseInfoHide == true){
+    public showModalHouse(house_id : number){
+      //TENGO QUE HACER UN SELECT EN LA BBDD QUE RECOJA LA CASA Y SUS JUGADORES NO SOLO LOS JUGADORES
+      this.adicionalService.getHouseAndCharacters(house_id,this.yearService.currentYear.year_id)
+      .subscribe((data : any) => {
+        console.log(JSON.stringify(data));
+        
+        this.currentHouse = data.casa[0];
+        console.log("ESTA ES MI CIENAGA" + JSON.stringify(this.currentHouse));
+        this.characters = data.personajes;
+        console.log("ESTOS SON MIS ESCLAVOS" + JSON.stringify(this.characters));
+        
         this.isHouseInfoHide = false;
-      }else{
-        this.isHouseInfoHide = true
-      }
+      })
       
       
     }

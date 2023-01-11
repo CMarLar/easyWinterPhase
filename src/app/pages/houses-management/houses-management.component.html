@@ -11,16 +11,13 @@
           </div>
     </div>
 
-<div class="maincontainer"><!-- quito a Ginebra y su contebedor LEFTS -->
+<div class="maincontainer">
     <div class="right">
         <form #yearForm="ngForm" (ngSubmit)="onSubmit(yearForm)" class="yearForm" >
             <div class="year">
                 <h3 class="texto">AÑO DE INICIO: &nbsp;</h3>
                 <div class="inputyear">
                     <input type="number" label="Año" name="year" [(ngModel)]="year.yearNumber" #year1="ngModel" [ngClass]="{ 'is-invalid' : year1.pristine && year1.invalid}" required>
-
-                     <!--@Miguel intenté añadir esto, pero nada: "[(ngModel)]="year.yearNumber" [ngClass]="{ 'is-invalid' : year.pristine && year.invalid}" required" -->
-
                 </div>
             </div>
 

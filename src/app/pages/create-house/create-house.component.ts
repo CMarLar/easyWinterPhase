@@ -355,12 +355,22 @@ this.router.navigateByUrl("/addnpc");
 //Vuelve atrás y guarda currentHouse del front en el array de casas housesof Campaign
 public goBack(){
 
+  for (let i = 0; i < this.characterService.allCharactersOfCampaign.length; i++) {
+
+    if (this.characterService.allCharactersOfCampaign[i].character_id == this.houseService.currentHouse.activeChar)
+    
+    this.characterService.currentActiveChar = this.characterService.allCharactersOfCampaign[i]
+
+    console.log("ACTIVE CHARACTER MARCADO EN EL FRONT: "  + JSON.stringify(this.characterService.currentActiveChar));
+    
+  }
+
 
 
 
   console.log("actualHouse: " + JSON.stringify(this.actualHouse));
   
-  console.log("houseService.currentHouse al volver a housemanagement" + JSON.stringify(this.houseService.currentHouse));
+  // console.log("houseService.currentHouse al volver a housemanagement" + JSON.stringify(this.houseService.currentHouse));
 
   for (let i = 0; i < this.houseService.housesOfCamapaign.length; i++) {
 
@@ -374,7 +384,7 @@ public goBack(){
       this.houseService.housesOfCamapaign[i].economyLevels = this.houseService.currentHouse.economyLevels;
     }
 
-    console.log("houseService.housesOfCampaign con la nueva casa: " + JSON.stringify(this.houseService.housesOfCamapaign));
+    // console.log("houseService.housesOfCampaign con la nueva casa: " + JSON.stringify(this.houseService.housesOfCamapaign));
 
     if(this.houseService.backToCurrentCampaign == true){
       this.router.navigateByUrl("/currentcampaign");
