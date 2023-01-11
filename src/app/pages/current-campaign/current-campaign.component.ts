@@ -85,7 +85,7 @@ export class CurrentCampaignComponent {
       this.yearService.getYearByNumber(this.campaignService.currentCampaign.campaign_id,this.yearService.currentYear.yearNumber - 1)
       .subscribe((data : Year) => {
         console.log("ESTE ES EL ULTIMO AÑO QUE QUIERO VER" + JSON.stringify(data));
-        this.yearService.currentYear = new Year(data[0].year_id,data[0].yearNumber,data[0].isFirstYear.data[0],data[0].isLastYear.data[0],data[0].notes,data[0].campaign_id)
+        this.yearService.currentYear = new Year(data[0].year_id,data[0].yearNumber,data[0].isFirstYear,data[0].isLastYear,data[0].notes,data[0].campaign_id)
       })
 
     }
@@ -95,7 +95,7 @@ export class CurrentCampaignComponent {
       this.yearService.getYearByNumber(this.campaignService.currentCampaign.campaign_id,this.yearService.currentYear.yearNumber + 1)
       .subscribe((data : Year) => {
         console.log("ESTE ES EL ULTIMO AÑO QUE QUIERO VER" + JSON.stringify(data));
-        this.yearService.currentYear = new Year(data[0].year_id,data[0].yearNumber,data[0].isFirstYear.data[0],data[0].isLastYear.data[0],data[0].notes,data[0].campaign_id)
+        this.yearService.currentYear = new Year(data[0].year_id,data[0].yearNumber,data[0].isFirstYear,data[0].isLastYear,data[0].notes,data[0].campaign_id)
       })
 
     }
@@ -113,10 +113,6 @@ export class CurrentCampaignComponent {
         this.yearService.currentYear.yearNumber = this.yearService.currentYear.yearNumber +1;
         this.yearService.currentYear.isFirstYear = 0;
         this.yearService.currentYear.notes = "";
-
-        this.characterService.mainCharacters = data.mainCharacters;
-
-
 
         this.router.navigateByUrl("/winterphasemain");
         
