@@ -104,14 +104,19 @@ export class CurrentCampaignComponent {
       
       this.yearService.currentYear.notes = notas;
       
-      this.adicionalService.crearAñoPersonajes(this.yearService.currentYear)
+      
+      this.adicionalService.crearAñoPersonajes(this.yearService.currentYear,this.characterService.mainCharacters)
       .subscribe((data : any) => {
         console.log("A PARTIR DE AQUI EMPIEZA LO TOCHO DE CURRENT CAMPAIGN");
         console.log("DATA CURRENT: " + JSON.stringify(data));
-        this.yearService.currentYear.year_id = data.insertId;
+        this.yearService.currentYear.year_id = data.año;
         this.yearService.currentYear.yearNumber = this.yearService.currentYear.yearNumber +1;
         this.yearService.currentYear.isFirstYear = 0;
         this.yearService.currentYear.notes = "";
+
+        this.characterService.mainCharacters = data.mainCharacters;
+
+
 
         this.router.navigateByUrl("/winterphasemain");
         
@@ -132,7 +137,10 @@ export class CurrentCampaignComponent {
     //MODALES
 
     public showModalPlayer(jugador : Player = null){
-
+      // console.log("-----------------------------------------------------------------------");
+      // console.log(JSON.stringify(this.characterService.mainCharacters));
+      
+      // console.log("-----------------------------------------------------------------------");
       this.currentPlayer = jugador;
       this.playerService.currentPlayer = jugador;
       console.log("JUGADOR ACTUAL: " + JSON.stringify(this.currentPlayer));
