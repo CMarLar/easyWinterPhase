@@ -187,7 +187,7 @@ public submitCharInfo(form:NgForm){
 
 
   //Crea caballero
-  this.characterService.newCharacter(new Character(null,this.currentHouseId,null,this.knightName,this.knightAge,1,0,0,0,null,"Hombre")).subscribe((data1:any) =>{
+  this.characterService.newCharacter(new Character(null,this.currentHouseId,null,this.knightName,this.knightAge,1,0,0,0,"Caballero","Hombre")).subscribe((data1:any) =>{
 
     console.log("Data del caballero: " + JSON.stringify(data1));
     
