@@ -4,8 +4,8 @@
         <form class="formContain">
             <p>Cambia el personaje</p>
             <label for="">Seleciona el personaje</label>
-            <select name="data" class="select" [(ngModel)]="house.npc" #data>
-                <option *ngFor="let pnj of npc" [value]="pnj">{{pnj}}</option>
+            <select name="data" class="select" [(ngModel)]="arraySinEscudero" #data>
+                <option *ngFor="let pnj of charactersPadre" [value]="pnj.character_id">{{pnj.char_name}}</option>
             </select>
         </form>
         <div class="buttonContain">

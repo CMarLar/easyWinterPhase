@@ -47,7 +47,7 @@
                 <!-- Personajes -->
                 <div class="character" style="background-color: rgb(130, 23, 25,0.6);" *ngIf="playerService.playersOfCampaign[0] != null; else emptyPlayer">
                     <span class="span1" (click)="showModalPlayer(playerService.playersOfCampaign[0])">{{playerService.playersOfCampaign[0].player_name}}</span>
-                    <span class="span2"(click)="showModalCharacter(houseService.housesOfCamapaign[0].house_id)">{{characterService.mainCharacters[0].char_name}}</span>
+                    <span class="span2"(click)="showModalCharacter(houseService.housesOfCamapaign[0].house_id,characterService.mainCharacters[0])">{{characterService.mainCharacters[0].char_name}}</span>
                     <span class="span3"(click)="showModalHouse()">{{houseService.housesOfCamapaign[0].house_name}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
@@ -58,7 +58,7 @@
 
                 <div class="character" style="background-color: rgb(130, 23, 25,0.6);"*ngIf="playerService.playersOfCampaign[1] != undefined; else emptyPlayer">
                     <span class="span1"(click)="showModalPlayer(playerService.playersOfCampaign[1])">{{playerService.playersOfCampaign[1].player_name}}</span>
-                    <span class="span2"(click)="showModalCharacter()">{{characterService.mainCharacters[1].char_name}}</span>
+                    <span class="span2"(click)="showModalCharacter(houseService.housesOfCamapaign[1].house_id,characterService.mainCharacters[1])">{{characterService.mainCharacters[1].char_name}}</span>
                     <span class="span3"(click)="showModalHouse()">{{houseService.housesOfCamapaign[1].house_name}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
@@ -69,7 +69,7 @@
 
                 <div class="character" style="background-color: rgb(130, 23, 25,0.6);" *ngIf="playerService.playersOfCampaign[2] != undefined; else emptyPlayer">
                     <span class="span1"(click)="showModalPlayer(playerService.playersOfCampaign[2])">{{playerService.playersOfCampaign[2].player_name}}</span>
-                    <span class="span2"(click)="showModalCharacter()">{{characterService.mainCharacters[2].char_name}}</span>
+                    <span class="span2"(click)="showModalCharacter(houseService.housesOfCamapaign[2].house_id,characterService.mainCharacters[2])">{{characterService.mainCharacters[2].char_name}}</span>
                     <span class="span3"(click)="showModalHouse()">{{houseService.housesOfCamapaign[2].house_name}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
@@ -80,7 +80,7 @@
 
                 <div class="character" style="background-color: rgb(130, 23, 25,0.6);"*ngIf="playerService.playersOfCampaign[3] != undefined; else emptyPlayer">
                     <span class="span1"(click)="showModalPlayer(playerService.playersOfCampaign[3])">{{playerService.playersOfCampaign[3].player_name}}</span>
-                    <span class="span2"(click)="showModalCharacter()">{{characterService.mainCharacters[3].char_name}}</span>
+                    <span class="span2"(click)="showModalCharacter(houseService.housesOfCamapaign[3].house_id,characterService.mainCharacters[3])">{{characterService.mainCharacters[3].char_name}}</span>
                     <span class="span3"(click)="showModalHouse()">{{houseService.housesOfCamapaign[3].house_name}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
@@ -91,7 +91,7 @@
 
                 <div class="character" style="background-color: rgb(130, 23, 25,0.6);"*ngIf="playerService.playersOfCampaign[4] != undefined; else emptyPlayer">
                     <span class="span1"(click)="showModalPlayer(playerService.playersOfCampaign[4])">{{playerService.playersOfCampaign[4].player_name}}</span>
-                    <span class="span2"(click)="showModalCharacter()">{{characterService.mainCharacters[4].char_name}}</span>
+                    <span class="span2"(click)="showModalCharacter(houseService.housesOfCamapaign[4].house_id,characterService.mainCharacters[4])">{{characterService.mainCharacters[4].char_name}}</span>
                     <span class="span3"(click)="showModalHouse()">{{houseService.housesOfCamapaign[4].house_name}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
@@ -102,8 +102,8 @@
 
                 <div class="character"style="background-color: rgb(130, 23, 25,0.6);"*ngIf="playerService.playersOfCampaign[5] != undefined; else emptyPlayer">
                     <span class="span1"(click)="showModalPlayer(playerService.playersOfCampaign[5])">{{playerService.playersOfCampaign[5].player_name}}</span>
-                    <span class="span2"(click)="showModalCharacter()">{{characterService.mainCharacters[5].char_name}}</span>
-                    <span class="span3"(click)="showModalHouse()">{{houseService.housesOfCamapaign[5].house_name}}</span>
+                    <span class="span2"(click)="showModalCharacter(houseService.housesOfCamapaign[5].house_id,characterService.mainCharacters[5])">{{characterService.mainCharacters[5].char_name}}</span>
+                    <span class="span3"(click)="showModalHouse(houseService.housesOfCamapaign[5])">{{houseService.housesOfCamapaign[5].house_name}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
                             <img (click)="goCreateHouse()" src="../../../assets/img/PLUMA.png">
@@ -139,12 +139,13 @@
 <!-- </form> -->
 </div>
 
-<!-- <app-change-character-modal class="modal" [hidden]="isChangeCharacterHide"></app-change-character-modal>
-<app-new-player-name-modal class="modal" [hidden]="isnewPlayerNameHide"></app-new-player-name-modal>
-<app-house-info-modal class="modal" [hidden]="isHouseInfoHide"></app-house-info-modal> -->
+
+<app-new-player-name-modal class="modal" [hidden]="isnewPlayerNameHide"  (cambioNombre)="changeName($event)"></app-new-player-name-modal>
+<app-change-character-modal class="modal" [hidden]="isChangeCharacterHide" [charactersPadre]="characters" (eventoChangeCharacter)="changeCharacter($event)"></app-change-character-modal>
+<app-house-info-modal class="modal" [hidden]="isHouseInfoHide"></app-house-info-modal>
 
 <!-- MODAL DE NOMBRE DE JUGADOR -->
-<div class="modal" id="modal" [hidden]="isnewPlayerNameHide">
+<!-- <div class="modal" id="modal" [hidden]="isnewPlayerNameHide">
     <div class="modal-bg" (click)="showModalPlayer()">
 
     </div>
@@ -156,7 +157,7 @@
             <button class="small_button" (click)="changeName(nombre.value)">OK</button>    
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- MODAL DE CAMBIAR DE PERSONAJE -->
 <!-- <div class="modal2" id="modal" [hidden]="isChangeCharacterHide">

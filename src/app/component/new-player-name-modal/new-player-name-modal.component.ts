@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-new-player-name-modal',
@@ -7,6 +7,9 @@ import { Component } from '@angular/core';
 })
 export class NewPlayerNameModalComponent {
 
+  
+  @Output() cambioNombre = new EventEmitter<String>();
+  
   public nombreJugador : string;
 
   constructor(){
@@ -14,6 +17,7 @@ export class NewPlayerNameModalComponent {
   }
 
   public changeName(name : string){
-    this.nombreJugador = name;
+
+    this.cambioNombre.emit(name);
   }
 }

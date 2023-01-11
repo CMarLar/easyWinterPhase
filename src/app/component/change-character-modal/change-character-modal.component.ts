@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Character } from 'src/app/models/character';
 
 @Component({
   selector: 'app-change-character-modal',
@@ -7,6 +8,10 @@ import { Component } from '@angular/core';
 })
 export class ChangeCharacterModalComponent {
 
+  @Input() charactersPadre : Character[];
+  @Output() eventoChangeCharacter = new EventEmitter<Character>();
+
+  public arraySinEscudero : Character[];
   public nombreCasa:string;
   public feudo:string;
   public caracteristicaFamiliar:string;
@@ -17,8 +22,18 @@ export class ChangeCharacterModalComponent {
   public house : any;
   public npc : string[]
   constructor(){
-    this.npc = ["Carlos","Irene","Miguel","Javier"];
-    this.nombrePJ = "Pepe";
+    // console.log(this.charactersPadre);
+    
+    // this.arraySinEscudero = this.charactersPadre;
+    // for(let i = 0; i < this.charactersPadre.length; i++){
+      
+    //   if(this.arraySinEscudero[i].role == "Escudero"){
+    //     this.arraySinEscudero.splice(i,1);
+    //   }
+    // }
+
+    console.log(JSON.stringify(this.arraySinEscudero));
+
     this.house = {nombreCasa:this.nombreCasa,
       feudo:this.feudo,
       caracteristicaFamiliar:this.caracteristicaFamiliar,
@@ -29,11 +44,12 @@ export class ChangeCharacterModalComponent {
       npc:this.npc}
   }
 
-  public changePJ(newPJ : string){
+  public changePJ(newPJ : Character){
 
-    console.log("ACTUAL PJ: " + this.nombrePJ);
-    this.nombrePJ = newPJ;
-    console.log("NUEVO PJ: " + this.nombrePJ);
+    console.log(JSON.stringify(newPJ));
+    
+    console.log("NUEVO PJ: " + JSON.stringify(newPJ));
+    this.eventoChangeCharacter.emit(newPJ);
 
 
   }

@@ -43,6 +43,7 @@ export class CurrentCampaignComponent {
 
   //pnj
   public characters : Character[];
+  public currentCharacter : Character;
 
 
 
@@ -106,6 +107,11 @@ export class CurrentCampaignComponent {
       .subscribe((data : any) => {
         console.log("A PARTIR DE AQUI EMPIEZA LO TOCHO DE CURRENT CAMPAIGN");
         console.log("DATA CURRENT: " + JSON.stringify(data));
+        this.yearService.currentYear.year_id = data.insertId;
+        this.yearService.currentYear.yearNumber = this.yearService.currentYear.yearNumber +1;
+        this.yearService.currentYear.isFirstYear = 0;
+        this.yearService.currentYear.notes = "";
+
         this.router.navigateByUrl("/winterphasemain");
         
       })
@@ -127,6 +133,7 @@ export class CurrentCampaignComponent {
     public showModalPlayer(jugador : Player = null){
 
       this.currentPlayer = jugador;
+      this.playerService.currentPlayer = jugador;
       console.log("JUGADOR ACTUAL: " + JSON.stringify(this.currentPlayer));
       
       if(this.isnewPlayerNameHide == true){
@@ -140,6 +147,19 @@ export class CurrentCampaignComponent {
 
     }
 
+    public changeName(name : string){
+
+      console.log(name);
+      this.playerService.currentPlayer.player_name = name;
+      this.isnewPlayerNameHide = true
+      this.playerService.putPlayer(this.playerService.currentPlayer)
+      .subscribe((data : any) => {
+        console.log(JSON.stringify(data));
+        
+      })
+      
+    }
+
     public showModalHouse(){
       if(this.isHouseInfoHide == true){
         this.isHouseInfoHide = false;
@@ -150,47 +170,50 @@ export class CurrentCampaignComponent {
       
     }
 
-    public showModalCharacter(house : House = null){
-      //le pasamos el id de la casa
-      this.houseService.currentHouse = house;
-      console.log("ESTE ES EL LOG QUE QUIERO VER:  " + this.characterService.currentHouseChars);
+    public showModalCharacter(house : number = null,mainCharacter : Character){
+      console.log(JSON.stringify(this.yearService.currentYear));
+      console.log(JSON.stringify(house));
+      console.log(JSON.stringify(this.characterService.mainCharacters));
+      this.characterService.currentActiveChar = mainCharacter;
       
-      for (let i = 0; i < this.characterService.allCharactersOfCampaign.length; i++){
-
-        if (this.characterService.allCharactersOfCampaign[i].house_id == house.house_id){
-
-          this.characterService.currentHouseChars.push(this.characterService.allCharactersOfCampaign[i]);
-        }
-      }
-
       
+      
+      this.characterService.getCharactersByYear(house,this.yearService.currentYear.year_id)
+      .subscribe((data : Character[]) => {
+        console.log(JSON.stringify(data));
+        
+        this.characters = data;
+      })
 
-      if(this.isChangeCharacterHide == true){
-        this.isChangeCharacterHide = false;
-      }else{
-        this.isChangeCharacterHide = true;
-      }
+      this.isChangeCharacterHide = false;
       
     }
 
-    public changeName(nombre : string){
+    public changeCharacter(newPj : number){
+      console.log("TODOS LOS PNJ ALMACENADOS " + JSON.stringify(this.characters));
+      if(newPj != null || newPj != undefined){
 
-      for (let i = 0; i < this.playerService.playersOfCampaign.length;i++){
+        //BUSCAMOS LA POSICION DEL PERSONAJE ACTUAL EN EL ARRAY MAINCHARACTERS
+        let position : number;
+        position = this.characterService.mainCharacters.findIndex(element => element.character_id = this.characterService.currentActiveChar.character_id);
 
-        if(this.playerService.playersOfCampaign[i] == this.currentPlayer){
+        //TENIENDO SU POSICION TENEMOS QUE IGUALAR ESE OBJETO DE ESA POSICION AL NUEVO OBJETO CON EL ID RECIBIDO POR PARAMETRO
+        for (let i = 0; i < this.characters.length; i++){
 
-          this.currentPlayer.player_name = nombre;
-          this.playerService.playersOfCampaign[i].player_name = nombre;
+          if (this.characters[i].character_id == newPj){
+            this.characterService.mainCharacters[position] = this.characters[i];
 
+            this.houseService.updateHouse(new House(null,this.characters[i].character_id,null,null,null,null,this.characters[i].house_id))
+            .subscribe((data : any) => {
+              console.log(JSON.stringify(data));
+              
+            })
+          }
         }
+
       }
       
-      this.playerService.putPlayers(this.currentPlayer)
-      .subscribe((data) => {
-
-      })
-
-      this.isnewPlayerNameHide = true;
+      this.isChangeCharacterHide = true;
     }
 
     // public changePJ(newPJ : string){

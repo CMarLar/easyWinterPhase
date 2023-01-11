@@ -49,6 +49,14 @@ export class CharacterService {
     return this.http.get(this.url + "addnpc?house_id=" + id)
   }
 
+  public getCharactersByYear(house_id:number,year_id : number){
+
+    console.log("LLEGA ESTO: " + house_id + " Y " + year_id);
+    
+    this.url = "http://localhost:3000/"
+    return this.http.get(this.url + "currentcampaignCharacterByYear?house_id=" + house_id + "&year_id=" + year_id)
+  }
+
 
   public deleteCharacter(character_id:number){
 
