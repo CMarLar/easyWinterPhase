@@ -60,9 +60,11 @@ export class WinterPhase6bComponent {
 
     //Bucle para recoger a las amantes:
 
+    this.lovers = [];
+
     for (let i = 0; i < this.characterService.currentHouseCharsWinterPhase.length; i++) {
 
-      this.lovers = [];
+
       if (this.characterService.currentHouseCharsWinterPhase[i].role == "Amante"){
         this.lovers.push(this.characterService.currentHouseCharsWinterPhase[i])
         console.log("Amantes: "  + JSON.stringify(this.characterService.currentHouseCharsWinterPhase[i]));

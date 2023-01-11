@@ -61,7 +61,7 @@ export class WinterPhase7Component {
     this.currentPlayerName = this.playerService.currentPlayer.player_name;
     this.foto_escudo = this.houseService.currentHouse.shield;
   
-    this.characterService.getCharactersNames(this.houseService.currentHouse.house_id)
+    this.characterService.getCharactersNames(this.houseService.currentHouse.house_id,this.yearService.currentYear.year_id)
     .subscribe((data: Character[])=>{
 
       this.nombres_personajes = data;

@@ -124,6 +124,13 @@ export class WinterPhase9Component {
       console.log("winterPhaseDone de currentPlayer modificada: " +  JSON.stringify(this.modifiedPlayer));
 
       this.playerService.currentPlayer = this.modifiedPlayer;//igualamos el servicio.
+      
+      for (let i = 0; i < this.playerService.playersOfCampaign.length; i++) {
+        if (this.modifiedPlayer.player_id == this.playerService.playersOfCampaign[i].player_id){
+          this.playerService.playersOfCampaign[i].winterPhaseDone = 1//ARREGLAMOS PARA QUE COMPLETE CICLO
+        }
+        
+      }
 
       this.playerService.updateWinterPhaseMain(this.modifiedPlayer).subscribe((data:any)=>{
 
