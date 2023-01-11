@@ -12,14 +12,14 @@
     </div>
 
 <div class="maincontainer">
-    <div class="right">
+   
         <form #yearForm="ngForm" (ngSubmit)="onSubmit(yearForm)" class="yearForm" >
             <div class="year">
-                <h3 class="texto">AÑO DE INICIO: &nbsp;</h3>
+                <h3 class="año_inicio">AÑO DE INICIO: &nbsp;</h3><span>
                 <div class="inputyear">
                     <input type="number" label="Año" name="year" [(ngModel)]="year.yearNumber" #year1="ngModel" [ngClass]="{ 'is-invalid' : year1.pristine && year1.invalid}" required>
-                </div>
-            </div>
+                </div></span>
+            </div><!-- cierra year -->
 
         <div class="playerlist">
             <div class="playerOk" *ngFor="let player of players; let i = index"  [attr.data-index]="i">
@@ -87,4 +87,4 @@
     </div>
 
 </div>
-</div>
+

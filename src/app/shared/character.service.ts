@@ -51,12 +51,20 @@ export class CharacterService {
   }
 
 /* irene // EL BACK FUNSSIONA */ //mostrar los personajes mayores de 15 años de la casa
-public getCharactersNames(house_id: number){
+public getCharactersNames(house_id: number, year_id: number){
 
   this.url = "http://localhost:3000/phase7"
-  return this.http.get(this.url + "?house_id=" + house_id)
+  return this.http.get(this.url + "?house_id=" + house_id + "&year_id=" + year_id)
 }
 /*  */
+  public getCharactersByYear(house_id:number,year_id : number){
+
+    console.log("LLEGA ESTO: " + house_id + " Y " + year_id);
+    
+    this.url = "http://localhost:3000/"
+    return this.http.get(this.url + "currentcampaignCharacterByYear?house_id=" + house_id + "&year_id=" + year_id)
+  }
+
 
   public deleteCharacter(character_id:number){
 

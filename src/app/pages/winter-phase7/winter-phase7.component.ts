@@ -21,7 +21,6 @@ export class WinterPhase7Component {
 
   public nombres_personajes : Character[]
 /*   public mostrarPersonajes(house_id: number){
-
     this.characterService.getCharactersName(house_id).subscribe((data: Character[])=>{
   
       this.personajes = data;
@@ -42,11 +41,9 @@ export class WinterPhase7Component {
 
 /*   this.characterService.getCharactersName()
     .subscribe((data: Character[])=>{
-
       this.personajes = data;
       console.log(data)
       console.log(JSON.stringify(data))
-
     }) 
   
     /*  */
@@ -61,7 +58,7 @@ export class WinterPhase7Component {
     this.currentPlayerName = this.playerService.currentPlayer.player_name;
     this.foto_escudo = this.houseService.currentHouse.shield;
   
-    this.characterService.getCharactersNames(this.houseService.currentHouse.house_id)
+    this.characterService.getCharactersNames(this.houseService.currentHouse.house_id,this.yearService.currentYear.year_id)
     .subscribe((data: Character[])=>{
 
       this.nombres_personajes = data;
@@ -82,11 +79,9 @@ export class WinterPhase7Component {
         {name:"Richard",role:"Escudero",age:18,sex:"Hombre"},
       ]
     }
-
     console.log(this.houseCharacters);
     console.log(this.houseCharacters.name); */
     
    }
   
   }
- 

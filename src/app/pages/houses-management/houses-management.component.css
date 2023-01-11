@@ -2,7 +2,6 @@
     /* LE DOY POSICION FIJA AL COMPONENTE HEADER / */
     position:absolute;
     width: 100%;
-    /* border: 2px solid black; */
 }
 
 
@@ -10,27 +9,18 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: auto;
     height: 100vh;
     background-image: url(../../../assets/backgrounds/doble_dragon-cola.png);
     background-size:cover;
     background-repeat: no-repeat;
-/*     border: 5px solid blue;  */
-}
-.maincontainer{
-    display: flex;
-    flex-direction: row;
-   /*  border: 5px solid red; */
-    justify-content: center;
-    align-items: center;
-    height: 70vh;
-    width: 100%;
-
+  /*  border: 5px solid blue;  */
 }
 .cabecera{
 
-    width: 80%;
-    height: 20%;
+    width: 100%;
+    height: 25%;
     margin-top: 3%;
     display: flex;
     flex-direction: row;
@@ -40,95 +30,92 @@
    /*  border: 5px solid rgb(137, 88, 149);  */
 }
       .profile_pic{
-   
-       width: 40%;
+       width: 35%;
        height: 100%;
-       padding-left: 15%;
-       justify-self: flex-end; 
-       align-self: flex-end;
-  /*      border: 5px solid yellowgreen; */
+       justify-self: end; 
+       align-items: flex-end;
+       padding-left: 20%;
+  /*      border: 5px solid yellowgreen;  */
    
    }
    
    .profile_pic img{
        height: 100%;
-       margin-left: 40%;
-       justify-self: flex-end;
-    
    }
    .title{
 
-         width: 70%;
-         height: 90%;
-         justify-content: end;
-         /* border: 5px solid rgb(135, 141, 27);  */
+         width: 65%;
+         height: 100%;
+         justify-content: center;
+        /*  border: 5px solid rgb(135, 141, 27);  */
+         justify-content: center;
+         text-align: start;
     }
             .page_title{
                 color: var(--font-color-hover);
                 -webkit-text-stroke: 2px var(--font-color-h);
                /*  text-decoration: line-through; */
                 font-size: 4rem;
-                text-align: end;
-               /*  border: 2px solid rgb(255, 0, 230); */ 
+                padding-top: 3%;
+               /*  border: 2px solid rgb(255, 0, 230);  */
                 font-weight: bold;
-                width: 90%;
-                height: 70%;
+                width: 100%;
+                height: 60%;
             }
             
             .page_subtitle{
                 color: var(--font-color-warnings);
-                text-align: end;
                 font-size: 2rem;
                 font-weight: bold;
-                justify-self: flex-end;
-                width: 90%;
-                height: 30%;
+                width: 100%;
+                height: 40%;
                /*  border: 2px solid rgb(0, 60, 255);  */
             }
 
-
- .texto{
+.maincontainer{
+    display: flex;
+    flex-direction:column;
+    /* border: 5px solid red; */
+    justify-content: space-between;
+    align-items: center;
+    height: 75vh;
+    width: 100%;
             
-/*     flex-wrap: wrap; */
-    /* border:1px solid rgb(180, 123, 148);  */
-    color: var( --font-color-warnings);
-   -webkit-text-stroke: 2px var(--font-color-hover);
-    font-weight: bold;
-   /*  text-decoration:underline; */
-    font-size: 2rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-   /*  width: 100%; */
-
 }
+            .year{
+                 /* border: 5px solid purple; */
+                 display: flex;
+                 justify-content:center;
+                 align-items: center;
+                 flex-direction: row;
+                 width: 100%;
+                 height: 16%;
+                 margin: 5%;
+             }
+                     .año_inicio{
+                        font-size: 2.5rem;
+                        color: var(--font-color-h);
+                        -webkit-text-stroke: 1px var(--font-color-hover);
+                     }
+                     .inputyear{
+                        width: 100%;
+                        height: 100%;
+                        justify-content: center;
+                        align-items: center;
+                        margin-left: 4%;
+                        
+                     }
 
-.right{
-    display: flex;
-    flex-direction: column;
-    justify-content:space-between;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    /* border: 5px solid rgb(236, 6, 175);   */
-}
-
-/* .container{
-    border: 5px solid blue;
-} */
-
-.playerlist{
-   /*  border: 5px solid yellow;  */
-    background-color: var( --background-color-input);
-    border-radius: 15px;
-    margin-top: 3%;
-    justify-content:center;
-    justify-items: center;
-    flex-wrap: wrap;
-    height: 78%;
-    width: 100%;
-}
+            .playerlist{
+                /*  border: 5px solid var(--font-color-hover);  */
+                 background-color: var( --background-color-input);
+                 border-radius: 15px;
+                /*  margin-top: 3%; */
+                 justify-content:center;
+                 /* flex-wrap: wrap; */    /* mirar aquí */
+                 height: 75%;
+                 width: 100%;
+            }
     /* .playerlist img{
         width: 64px;
         height: 64px;
@@ -145,7 +132,7 @@
 
     display: flex;
     flex-direction: row;
-     padding-bottom: 5px; 
+    /* padding-bottom: 5px;  */
 }
 
     .noshield{
@@ -170,8 +157,8 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-       /*  border: 5px solid red; */
-        margin-top: 3%;
+       /*  border: 5px solid red;  */
+        padding-top: 2%;
        /*  background-color: var(--background-color-input); */
    
         width: 75%;
@@ -191,8 +178,8 @@
             position: relative;
         }
         .playername p a{
-            width: 80%;
-           /*   border: 2px solid black;  */
+            width: 90%;
+           /*  border: 2px solid rgb(225, 233, 10); */ 
             text-align: center;
             cursor: pointer;
         }
@@ -205,10 +192,13 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-       /*  border: 2px solid rgb(95, 200, 116);  */
+        /* border: 2px solid rgb(95, 200, 116);  */
+        height: 7%;
+        width: 10%;
     }
         .skull img{
-            width: 50px;
+            width: 38px;
+    
         }
 
     .quill{
@@ -216,44 +206,38 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-       /*  border: 2px solid rgb(163, 95, 200);  */ 
+      /*   border: 2px solid rgb(163, 95, 200);   */
+        height: 7%;
+        width: 10%;
     }
 
         .quill img{
-            width: 35px;
+            width: 33px;
         }
 
-
-.year{
-   /*   border: 5px solid purple; */
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    flex-direction: row;
-    width: 100%;
-    height: 16%;
-    margin-left: 26%;/* mirar esto */
-}
 .botones{
-    width: 100%;
-    height: 17%;
+    width: 35%;
+    height: 7%;
     display: flex;
     flex-direction: row;
-/*     border: 5px solid purple; */
+   /*  border: 5px solid purple; */
     justify-content: center;
-    gap: 2%;
- 
+    align-items: center;
+    /* gap: 2%; */
+    margin-top: 2%;
+    position: absolute;
+    width: 45%;
 }
 
 .buttons{    
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 3%;
     align-items: center;
-  /*   border: 5px solid orangered;  */
-    width: 40%;
-    height: 90%;
+   /*  border: 5px solid orangered;  */
+    width: 35%;
+    height: 100%;
+   
 }
 
     button{
@@ -300,11 +284,6 @@ input{
 input label{
     color: var(--font-color-label-input);
 }
-/* 
-h3{
-    color: var(--font-color-primary);
-   /*  font-size: 200%; */
-
 
 .skull img:hover{
     cursor: pointer;

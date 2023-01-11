@@ -19,7 +19,6 @@
         /* border: 2px solid red; */
         position: absolute;
         top: 15%;
-
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -28,6 +27,7 @@
     }
         .modalContain p{
             font-size: 2.5rem;
+            font-weight: bold;
             text-align: center;
             color: var(--font-color-h);
         }
@@ -35,14 +35,19 @@
             background-color: var(--background-color-input);
             height:10%;
             width: 80%;
-            border-radius: 0.3rem;
-            font-size: larger;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: bold;
             text-align: center;
+            border: none;
+            text-decoration: none;
         }
         .small_button{
             background-color: var(--font-color-h);
-            font-size: large;
+            color: var(--font-color-hover);
+            font-weight: bolder;
+            font-size: 1.2rem;
             border: none;
-            border-radius: 3px;
+            border-radius: 6px;
             padding: 5px 10px;
         }
