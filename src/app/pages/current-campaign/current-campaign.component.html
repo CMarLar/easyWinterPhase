@@ -145,7 +145,7 @@
     <app-change-character-modal class="modal" [charactersPadre]="characters" (eventoChangeCharacter)="changeCharacter($event)"></app-change-character-modal>
 </div>
 <div *ngIf="!isHouseInfoHide">
-    <app-house-info-modal class="modal" [housePadre]="currentHouse" [charactersPadre]="characters"></app-house-info-modal>
+    <app-house-info-modal class="modal" [housePadre]="currentHouse" [charactersPadre]="characters" (cerrarModal)="cerrarHouse($event)"></app-house-info-modal>
 </div>
 
 <!-- MODAL DE NOMBRE DE JUGADOR -->

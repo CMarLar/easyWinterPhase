@@ -9,6 +9,7 @@ import { YearService } from 'src/app/shared/year.service';
 import { CharacterService } from 'src/app/shared/character.service';
 import { Year } from 'src/app/models/year';
 import { Character } from 'src/app/models/character';
+import { UserService } from 'src/app/shared/user.service';
 
 
 @Component({
@@ -51,7 +52,11 @@ NOTAS IMPORTANTES:
 
   public modifiedPlayer:Player;//para modificar los jugadores al final cambiando el atributo winterPhaseMain
 
-    constructor(public router:Router, public campaignService:CampaignService, public yearService:YearService, public playerService:PlayerService, public houseService:HouseService, public characterService:CharacterService, ){
+    constructor(public router:Router, public campaignService:CampaignService, public yearService:YearService, public playerService:PlayerService, public houseService:HouseService, public characterService:CharacterService, public userService : UserService){
+
+      if(this.userService.logueado==false){
+        this.router.navigateByUrl("/login");
+      }
 
       // this.playersAndHouses = [];
 

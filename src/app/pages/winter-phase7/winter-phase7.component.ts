@@ -7,6 +7,7 @@ import { CampaignService } from 'src/app/shared/campaign.service';
 import { YearService } from 'src/app/shared/year.service';
 import { Router } from '@angular/router';
 import { Character } from 'src/app/models/character';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-winter-phase7',
@@ -36,8 +37,10 @@ export class WinterPhase7Component {
   public currentPlayerName: string;
   public currentHouseCharsWinterPhase: Character[];
   
-   constructor(public playerService:PlayerService, public houseService:HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService: YearService){
-
+   constructor(public router : Router,public userService : UserService,public playerService:PlayerService, public houseService:HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService: YearService){
+    if(this.userService.logueado==false){
+      this.router.navigateByUrl("/login");
+    }
 /* irene / NO FUNCIONA */
 
 /*   this.characterService.getCharactersName()

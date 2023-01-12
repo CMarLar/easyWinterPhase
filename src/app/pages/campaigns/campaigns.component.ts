@@ -40,6 +40,11 @@ export class CampaignsComponent {
   
 
   constructor(public router : Router, public campaignService:CampaignService,public userService: UserService, public houseService:HouseService, public playerService : PlayerService, public characterService : CharacterService, public yearService : YearService, public adicionalService : AdicionalService){
+    
+    if(this.userService.logueado==false){
+      this.router.navigateByUrl("/login");
+    }
+    
     this.user = {nombre : "Miguel Generoso Valero",
                 correo : "gene17051996@gmail.com",
                 password : "contraseñaMiguel_17",

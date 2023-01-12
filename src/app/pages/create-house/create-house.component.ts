@@ -6,6 +6,7 @@ import { House } from 'src/app/models/house';
 import { Character } from 'src/app/models/character';
 import { CharacterService } from 'src/app/shared/character.service';
 import { PlayerService } from 'src/app/shared/player.service';
+import { UserService } from 'src/app/shared/user.service';
 
 
 @Component({
@@ -81,7 +82,11 @@ export class CreateHouseComponent {
   public showEmptyFieldMessage:boolean;
   public showEmptyCharMessage:boolean;
 
-    constructor(public router:Router, public characterService:CharacterService, public houseService:HouseService, public playerService:PlayerService){
+    constructor(public router:Router, public characterService:CharacterService, public houseService:HouseService, public playerService:PlayerService,public userService : UserService){
+
+      if(this.userService.logueado==false){
+        this.router.navigateByUrl("/login");
+      }
 
       console.log("houseService.currentHouse al iniciar la página" + JSON.stringify(this.houseService.currentHouse));
       

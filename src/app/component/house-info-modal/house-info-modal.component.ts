@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Character } from 'src/app/models/character';
 import { House } from 'src/app/models/house';
 
@@ -11,6 +11,7 @@ export class HouseInfoModalComponent {
 
   @Input() housePadre : House;
   @Input() charactersPadre : Character[];
+  @Output() cerrarModal = new EventEmitter<Boolean>();
 
   public nombreCasa:string;
   public feudo:string;
@@ -24,11 +25,7 @@ export class HouseInfoModalComponent {
   public nombreJugador : string;
 
   constructor(){
-    this.npc = [{nombre : "Carlos",estado : true,rol : "esposa"},{nombre : "Irene",estado : false, rol : "hijo"},{nombre : "Miguel",estado : true, rol : "escudero"},{nombre : "Javier",estado : true, rol : "amante"},
-    
-    // {nombre : "Carlos",estado : true,rol : "esposa"},{nombre : "Irene",estado : false, rol : "hijo"},{nombre : "Miguel",estado : true, rol : "escudero"},{nombre : "Javier",estado : true, rol : "amante"},{nombre : "Carlos",estado : true,rol : "esposa"},{nombre : "Irene",estado : false, rol : "hijo"},{nombre : "Miguel",estado : true, rol : "escudero"},{nombre : "Javier",estado : true, rol : "amante"},{nombre : "Carlos",estado : true,rol : "esposa"},{nombre : "Irene",estado : false, rol : "hijo"},{nombre : "Miguel",estado : true, rol : "escudero"},{nombre : "Javier",estado : true, rol : "amante"},{nombre : "Carlos",estado : true,rol : "esposa"},{nombre : "Irene",estado : false, rol : "hijo"},{nombre : "Miguel",estado : true, rol : "escudero"},{nombre : "Javier",estado : true, rol : "amante"},{nombre : "Carlos",estado : true,rol : "esposa"},{nombre : "Irene",estado : false, rol : "hijo"},{nombre : "Miguel",estado : true, rol : "escudero"},{nombre : "Javier",estado : true, rol : "amante"},{nombre : "Carlos",estado : true,rol : "esposa"},{nombre : "Irene",estado : false, rol : "hijo"},{nombre : "Miguel",estado : true, rol : "escudero"},{nombre : "Javier",estado : true, rol : "amante"},{nombre : "Carlos",estado : true,rol : "esposa"},{nombre : "Irene",estado : false, rol : "hijo"},{nombre : "Miguel",estado : true, rol : "escudero"},{nombre : "Javier",estado : true, rol : "amante"},{nombre : "Carlos",estado : true,rol : "esposa"},{nombre : "Irene",estado : false, rol : "hijo"},{nombre : "Miguel",estado : true, rol : "escudero"},{nombre : "Javier",estado : true, rol : "amante"},{nombre : "Carlos",estado : true,rol : "esposa"},{nombre : "Irene",estado : false, rol : "hijo"},{nombre : "Miguel",estado : true, rol : "escudero"},{nombre : "Javier",estado : true, rol : "amante"},{nombre : "Carlos",estado : true,rol : "esposa"},{nombre : "Irene",estado : false, rol : "hijo"}
-  
-  ];
+    this.npc = [{nombre : "Carlos",estado : true,rol : "esposa"},{nombre : "Irene",estado : false, rol : "hijo"},{nombre : "Miguel",estado : true, rol : "escudero"},{nombre : "Javier",estado : true, rol : "amante"}];
     this.nombrePJ = "Pepe";
     this.nombreJugador = "Miguel";
     this.feudo = "../../../assets/img/escudo1.png";
@@ -43,5 +40,11 @@ export class HouseInfoModalComponent {
       edad:this.edad,
       nombreEscudero:this.nombreEscudero,
       npc:this.npc}
+  }
+
+  public cerrar(){
+    
+    this.cerrarModal.emit(true);
+
   }
 }
