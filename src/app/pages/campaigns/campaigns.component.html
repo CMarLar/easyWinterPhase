@@ -18,6 +18,7 @@
                     <p #campaign>{{campaign.campaign_name}}</p>
                 </button>
                 <span class="calavera">
+                   <!--  <button (click)="abrirModal_confirmacion(campaign.campaign_id)"></button> -->
                     <button (click)="deleteCampaign(campaign.campaign_id)">
                         <img src="../../../assets/img/espada_cruzada.png" alt="">
                     </button>
@@ -42,16 +43,14 @@
     
         </button>
     </div>
-
-     <!--    <div *ngIf="noCampaigns" class="message">
-
-                    NO TIENES CAMPAÑAS EN CURSO<br>
-            <br>PULSA EN "NUEVA CAMPAÑA" PARA COMENZAR<br> 
-        </div> -->
     </div>
-<!-- Modal -->
+<!-- Modales -->
     <div class="modal" [hidden]="hiddenModal">
     <app-campaign-name-modal></app-campaign-name-modal>
-    </div> 
-    
+    </div>
+    <span> <!-- modal confirmación borrado de campaña -->
+    <div class="modal_confimacion" [hidden]="hiddenModal_confirmacion">
+    <app-campaing-confirmdelete></app-campaing-confirmdelete>
+    </div></span>
+ 
 </main>

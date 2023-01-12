@@ -29,6 +29,7 @@ export class CampaignsComponent {
 
     //Modal para meter el nombre de la campaña
     public hiddenModal:boolean;
+    public hiddenModal_confirmacion:boolean;
 
   //Servicio y usuario actual
   
@@ -51,6 +52,7 @@ export class CampaignsComponent {
     this.isHide = true;
 
     this.hiddenModal = true;
+    this.hiddenModal_confirmacion = true;/* modal borrado campaña */
 
     this.currentUser = this.userService.user;
 
@@ -125,11 +127,12 @@ public deleteCampaign(campaign_id:number){
   this.campaignService.deleteCampaign(campaign_id).subscribe((data:any)=>{
     // this.campaignsOfUser=data;//para pasar de nuevo el array por pantalla
     console.log("Dentro del suscribe");
-    
     console.log("Campaña borrada");    
     console.log("Data deletecampaigns" + data);
 
     for (let i = 0; i < this.campaignsOfUser.length; i++) {
+
+     /*  this.hiddenModal_confirmacion = false; *//* esto de aquí */
 
       if(this.campaignsOfUser[i].campaign_id == campaign_id){
 
@@ -139,11 +142,21 @@ public deleteCampaign(campaign_id:number){
         
         console.log(indexOfDeleted);
 
-        this.campaignsOfUser.splice(indexOfDeleted,1)
-        
+        this.campaignsOfUser.splice(indexOfDeleted,1);
       }
-    }
+   
+      
+
+      }
   })
+  }
+  public abrirModal_confirmacion(){
+
+    return this.hiddenModal_confirmacion = false;
+  }
+  public cerrarModal_confirmacion(){
+
+    return this.hiddenModal_confirmacion = true;
   }
 
   //Función nueva

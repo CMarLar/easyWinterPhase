@@ -41,6 +41,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { ModifyProfileComponent } from './pages/modify-profile/modify-profile.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { CampaignNameModalComponent } from './component/campaign-name-modal/campaign-name-modal.component';
+import { CampaingConfirmdeleteComponent } from './component/campaing-confirmdelete/campaing-confirmdelete.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { CampaignNameModalComponent } from './component/campaign-name-modal/camp
     ProfileComponent,
     ModifyProfileComponent,
     AboutUsComponent,
-    CampaignNameModalComponent
+    CampaignNameModalComponent,
+    CampaingConfirmdeleteComponent
   ],
   imports: [
     BrowserModule,

@@ -52,7 +52,7 @@ export class WinterPhase7Component {
 
     this.nombres_personajes = [];
 
-    //Rellenamos de personajes válidos
+    //Rellenamos de personajes vÃ¡lidos
     for (let i = 0; i < this.characterService.currentHouseCharsWinterPhase.length; i++) {
       if(this.characterService.currentHouseCharsWinterPhase[i].character_id != this.houseService.currentHouse.activeChar
          && this.characterService.currentHouseCharsWinterPhase[i].age >= 15 && this.characterService.currentHouseCharsWinterPhase[i].char_status == 1)
@@ -75,4 +75,3 @@ export class WinterPhase7Component {
    }
   
   }
- 

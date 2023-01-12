@@ -20,7 +20,7 @@
 .maincontainer{
     display: flex;
     flex-direction: row;
- /*    border: 5px solid rgb(162, 255, 0); */
+    /* border: 5px solid rgb(162, 255, 0);  */
     width: 100%;
     height: 85%;
     padding-bottom: 1.95vh;
@@ -415,6 +415,7 @@
     align-items: flex-end;
     width: 80%;
     height: 12%;
+    margin-top:1%;
     gap: 2%;
    /*  padding-top: 2%; */
    /*  gap:20px; */
@@ -443,7 +444,7 @@
 
         width: 40%;
         height: 35%;
-        margin-top: 3%;
+        margin-top: 1.6%;
         border-radius: 10px;
         
      
@@ -456,7 +457,7 @@
         font-size: 1.2rem;
         align-self: flex-end;
         border-radius: 8px;
-        margin-top: 1%;
+        margin-top: 2%;
         width:72%;
         height: 14%;
     }
@@ -466,7 +467,7 @@
             font-weight: bold;
             width: 35%;
             height: 90%;
-            margin-top: 3%;
+            margin-top: 1.5%;
             border-radius: 8px;
             /* padding: 5px 10px; */
         }
@@ -511,12 +512,14 @@ label{
 
 select{
     background-color: var(--background-color-input);
-    height: 35px;
+    height: 42px;
     border-radius: 4px;
     font-size: 1.2rem;
     font-weight: bolder;
     text-align: center;
-    color: var( --font-color-hover);
+    color: black;
+    border:none;
+    text-decoration: none;
 }
 .select2{
    
@@ -530,7 +533,7 @@ select{
         align-items: center;
         text-align: center;
         justify-self: center;
-        color: var( --font-color-hover);
+        color: black;
     }
 
 
