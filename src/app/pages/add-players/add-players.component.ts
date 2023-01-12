@@ -29,7 +29,10 @@ export class AddPlayersComponent {
 
 
   constructor(public router : Router, public campaignService:CampaignService, public userService:UserService, public playerService:PlayerService){
-
+    
+    if(this.userService.logueado==false){
+      this.router.navigateByUrl("/login");
+    }
     //Cambiar por la campaña de servicio
     console.log(this.campaignService.currentCampaign);
     

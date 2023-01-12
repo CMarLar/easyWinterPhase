@@ -8,6 +8,7 @@ import { CampaignService } from 'src/app/shared/campaign.service';
 import { YearService } from 'src/app/shared/year.service';
 import { Router } from '@angular/router';
 import { Character } from 'src/app/models/character';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-winter-phase6b',
@@ -38,9 +39,11 @@ export class WinterPhase6bComponent {
   public lover:Character;//no se usa de momento
   public lovers:any;
 
-  constructor(public playerService:PlayerService, public houseService:HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService: YearService){
+  constructor(public router : Router,public userService : UserService,public playerService:PlayerService, public houseService:HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService: YearService){
 
-
+    if(this.userService.logueado==false){
+      this.router.navigateByUrl("/login");
+    }
     console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
     console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
     console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));

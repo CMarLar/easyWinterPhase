@@ -7,6 +7,8 @@ import { HouseService } from 'src/app/shared/house.service';
 import { CharacterService } from 'src/app/shared/character.service';
 import { CampaignService } from 'src/app/shared/campaign.service';
 import { YearService } from 'src/app/shared/year.service';
+import { UserService } from 'src/app/shared/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-winter-phase2',
@@ -25,8 +27,10 @@ export class WinterPhase2Component {
 
   public currentPlayerName:string;
   
-   constructor(private textosService: TextService, public jugadorService: PlayerService, public houseService: HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService:YearService ){
-
+   constructor(public router : Router,public userService : UserService,private textosService: TextService, public jugadorService: PlayerService, public houseService: HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService:YearService ){
+    if(this.userService.logueado==false){
+      this.router.navigateByUrl("/login");
+    }
     //este bloque es para marcar de nuevo el active character:
 
     // for (let index = 0; index < this.characterService.currentHouseCharsWinterPhase.length; index++) {

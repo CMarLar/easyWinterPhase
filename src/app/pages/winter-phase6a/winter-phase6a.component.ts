@@ -7,6 +7,7 @@ import { CharacterService } from 'src/app/shared/character.service';
 import { CampaignService } from 'src/app/shared/campaign.service';
 import { YearService } from 'src/app/shared/year.service';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-winter-phase6a',
@@ -27,8 +28,10 @@ export class WinterPhase6aComponent {
 
   public currentPlayerName:string;
 
-  constructor(public playerService:PlayerService, public houseService:HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService: YearService){
-
+  constructor(public router : Router,public userService : UserService,public playerService:PlayerService, public houseService:HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService: YearService){
+    if(this.userService.logueado==false){
+      this.router.navigateByUrl("/login");
+    }
     console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
     console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
     console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));

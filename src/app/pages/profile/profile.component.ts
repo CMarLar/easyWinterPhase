@@ -26,6 +26,10 @@ export class ProfileComponent {
 
   constructor(public router : Router, private userService : UserService){
 
+    if(this.userService.logueado==false){
+      this.router.navigateByUrl("/login");
+    }
+    
     this.user = this.userService.user;
 
     this.avatares = [this.avatar1, this.avatar2,this.avatar3, this.avatar4,this.avatar5, this.avatar6 ]

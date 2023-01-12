@@ -10,6 +10,7 @@ import { HouseService } from 'src/app/shared/house.service';
 import { CharacterService } from 'src/app/shared/character.service';
 import { Character } from 'src/app/models/character';
 import { AdicionalService } from 'src/app/shared/adicional.service';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-current-campaign',
@@ -48,9 +49,12 @@ export class CurrentCampaignComponent {
 
 
 
-    constructor(public router:Router, public yearService : YearService, public playerService : PlayerService,public campaignService : CampaignService,public houseService : HouseService, public characterService : CharacterService,public adicionalService : AdicionalService){    
+    constructor(public router:Router, public yearService : YearService, public playerService : PlayerService,public campaignService : CampaignService,public houseService : HouseService, public characterService : CharacterService,public adicionalService : AdicionalService,public userService : UserService){    
       
-      
+      if(this.userService.logueado==false){
+        this.router.navigateByUrl("/login");
+      }
+
       console.log("houseService.housesOfCampaign: " + JSON.stringify(this.houseService.housesOfCamapaign));
 
       this.characters = [];
@@ -155,13 +159,16 @@ export class CurrentCampaignComponent {
     public changeName(name : string){
 
       console.log(name);
-      this.playerService.currentPlayer.player_name = name;
-      this.isnewPlayerNameHide = true
-      this.playerService.putPlayer(this.playerService.currentPlayer)
-      .subscribe((data : any) => {
-        console.log(JSON.stringify(data));
-        
-      })
+      if(name != "" && name != null){
+
+        this.playerService.currentPlayer.player_name = name;
+        this.isnewPlayerNameHide = true
+        this.playerService.putPlayer(this.playerService.currentPlayer)
+        .subscribe((data : any) => {
+          console.log(JSON.stringify(data));
+          
+        })
+      }
       
     }
 
@@ -180,6 +187,10 @@ export class CurrentCampaignComponent {
       })
       
       
+    }
+
+    public cerrarHouse(hide : boolean){
+      this.isHouseInfoHide = hide;
     }
 
     public showModalCharacter(house : number = null,mainCharacter : Character){

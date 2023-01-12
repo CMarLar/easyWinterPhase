@@ -29,6 +29,9 @@ export class ModifyProfileComponent {
   public selectedAvatar; /* hace ref.al avatar */
 
   constructor(public router : Router, private userService : UserService){
+    if(this.userService.logueado==false){
+      this.router.navigateByUrl("/login");
+    }
     this.user = this.userService.user;
     this.isHide = true;
 

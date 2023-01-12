@@ -10,6 +10,7 @@ import { CharacterService } from 'src/app/shared/character.service';
 import { Year } from 'src/app/models/year';
 import { Character } from 'src/app/models/character';
 import { AdicionalService } from 'src/app/shared/adicional.service';
+import { UserService } from 'src/app/shared/user.service';
 
 
 @Component({
@@ -54,7 +55,11 @@ NOTAS IMPORTANTES:
 
   public mainCharacters:Character[];
 
-    constructor(public router:Router, public campaignService:CampaignService, public yearService:YearService, public playerService:PlayerService, public houseService:HouseService, public characterService:CharacterService, public adicionalService:AdicionalService){
+    constructor(public router:Router, public campaignService:CampaignService, public yearService:YearService, public playerService:PlayerService, public houseService:HouseService, public characterService:CharacterService, public adicionalService:AdicionalService,public userService : UserService){
+
+      if(this.userService.logueado==false){
+        this.router.navigateByUrl("/login");
+      }
 
       // this.playersAndHouses = [];
 

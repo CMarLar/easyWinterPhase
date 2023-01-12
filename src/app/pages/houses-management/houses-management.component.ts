@@ -45,6 +45,10 @@ export class HousesManagementComponent {
 
   constructor(public router:Router,public playerService : PlayerService, public houseService : HouseService, public yearService : YearService,public campaignService : CampaignService, public characterService:CharacterService,public userService : UserService){
 
+    if(this.userService.logueado==false){
+      this.router.navigateByUrl("/login");
+    }
+    
     this.campaignName="Campaña de Carlos"
     this.shieldImage="../../../assets/img/escudo1.png"
     this.emptyShield="../../../assets/img/emptyshield.png"
