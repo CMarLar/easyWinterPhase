@@ -77,5 +77,6 @@
 
 
 
-
-<app-births-modal class="modal" [hidden]="isHide"></app-births-modal>
+<div *ngIf="showmodal">
+<app-births-modal class="modal"></app-births-modal>
+</div>

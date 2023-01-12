@@ -38,8 +38,14 @@ export class WinterPhase6bComponent {
   public lover:Character;//no se usa de momento
   public lovers:any;
 
+  //MODALES//
+
+  public showmodal:boolean;
+
+
   constructor(public playerService:PlayerService, public houseService:HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService: YearService){
 
+    this.showmodal = false;
 
     console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
     console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
@@ -108,7 +114,7 @@ export class WinterPhase6bComponent {
                       edad : 3,
                       sexo : "hombre"}]}
 
-    this.isHide = true;
+    this.showmodal = true;
     
    }
 
