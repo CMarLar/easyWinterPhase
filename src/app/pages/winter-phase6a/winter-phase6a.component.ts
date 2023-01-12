@@ -26,6 +26,8 @@ export class WinterPhase6aComponent {
   public isHide : boolean;
   public pj : any;
 
+  public datosEsposa: any;
+
   public currentPlayerName:string;
 
   constructor(public router : Router,public userService : UserService,public playerService:PlayerService, public houseService:HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService: YearService){
@@ -38,6 +40,14 @@ export class WinterPhase6aComponent {
     console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
     console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
     console.log("PLAYERSERVICE.playersOfCampaign: " + JSON.stringify(this.playerService.playersOfCampaign));
+
+    this.datosEsposa = {
+      nombreEsposa : null,
+      edadEsposa : null,
+      gloria : null,
+      libras : null,
+      hide: true
+    }
 
 
     
@@ -60,12 +70,8 @@ export class WinterPhase6aComponent {
 
    public matrimonioLealtad(){
 
-    if (this.isHideLoyalty == true){
       this.isHideLoyalty  = false;
-      this.isHideCourtesy  = true;
-    }else{
-      this.isHideLoyalty = true;
-    }
+
   }
   
   public matrimonioCortesia(){
@@ -84,6 +90,14 @@ export class WinterPhase6aComponent {
                       edad : this.newmarried.edad,
                       rol : this.newmarried.rol}
   }
+
+  public resultadoLealtad(datosLealtad:any){
+    this.isHideLoyalty = datosLealtad.hide;
+    this.datosEsposa = datosLealtad;
+    
+  }
+
+
 }
 
 

@@ -37,20 +37,18 @@
                                     <p class="frase1">CASAMIENTOS :</p>  
                                     <div class="prologo1">
                                         
-                                        <button class="boton" (click)="matrimonioLealtad()">MATRIMONIO POR LEALTAD</button>
-                                        <button class="boton" (click)="matrimonioCortesia()">MATRIMONIO POR CORTESÍA</button>
-                                    </div>                                        
-                                        <div [hidden]="isHide">
-                                            <div *ngIf="newmarried.isMarried == true; else noEstaCasado">
-                                                <p>Nombre: {{newmarried.nombre}}</p>
-                                                <p>Edad: {{newmarried.edad}}</p>
-                                            </div>
-                                            <ng-template #noEstaCasado>
-                                                Tu señor te niega el casamiento
-                                            </ng-template>
-                                        </div>
-                                  <div class="prologo2"></div> 
-                                  </div>
+                                        <button class="boton" [disabled]="characterService.currentActiveChar.isMarried == 1" (click)="matrimonioLealtad()">MATRIMONIO POR LEALTAD</button>
+                                        <button class="boton" [disabled]="characterService.currentActiveChar.isMarried == 1" (click)="matrimonioCortesia()">MATRIMONIO POR CORTESÍA</button>
+                                    </div>           
+                                    <div *ngIf="characterService.currentActiveChar.isMarried == 1">    
+
+                                        El personaje principal ya está casado
+
+                                    </div>
+
+
+                                <div class="prologo2"></div> 
+                                </div>
 
 
                             </div> <!-- cierre textolargo -->
@@ -60,6 +58,10 @@
     </div><!-- CIERRE main -->
 </div> <!-- cierre padre--> 
 
+<div *ngIf="!isHideCourtesy">
+    <app-marriage-courtesy-modal class="modal"></app-marriage-courtesy-modal>
+</div>
 
-<app-marriage-courtesy-modal class="modal" [hidden]="isHideCourtesy"></app-marriage-courtesy-modal>
-<app-marriage-loyalty-modal class="modal" [hidden]="isHideLoyalty"></app-marriage-loyalty-modal>
+<div *ngIf="!isHideLoyalty">
+    <app-marriage-loyalty-modal class="modal" (loyaltyHijo)="resultadoLealtad($event)"></app-marriage-loyalty-modal>
+</div>
