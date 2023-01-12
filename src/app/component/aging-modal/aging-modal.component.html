@@ -3,13 +3,15 @@
     <div class="modalContain">
         <p class="text">Tu envejecimiento afecta a las siguientes caracteristicas:</p>
         <div class="contenedorInfo">
-            <div *ngFor="let stat of statschanges">
+            <div *ngFor="let stat of informacionPadre">
                 <p *ngIf="stat != 'No hay perdida' && stat != 'Ninguna caracteristica se ha visto afectada'; else sinPerdida">-Reduce en 1 tu <span class="span">{{stat}}</span></p>
                 <ng-template #sinPerdida>
                     <p class="sinPerdida">-{{stat}}</p>
                 </ng-template>
             </div>
-                    
+            <div>
+                <button (click)="cerrarModal()">Cerrar</button>
+            </div>        
         </div>
     </div>
 

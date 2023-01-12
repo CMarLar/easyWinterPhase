@@ -38,14 +38,14 @@
                         <div class="textolargo"> 
 
                                     <p class="frase1"><b>Todos los personajes envejecen un año.</b></p>
-                                    <p class="frase1">La edad de tu personaje ahora es : <span class="numero">{{pj.edad + 1}} años.</span></p>
-                                    <div *ngIf="pj.edad + 1 >= 34">
+                                    <p class="frase1">La edad de tu personaje ahora es : <span class="numero">{{characterService.currentActiveChar.age}} años.</span></p>
+                                    <div *ngIf="characterService.currentActiveChar.age >= 35">
                                             <button (click)="envejecimientoAutomatico()" class="boton" click>ENVEJECIMIENTO AUTOMÁTICO</button>
                                     </div>
                                         
                                         <p class="frase3">Otros personajes:&nbsp; <span><select class="select" name="" id="">
                                             <option class="select" value=""[selected]="">SELECCIONA PNJ</option>
-                                                <option value="{{npc.nombre}}" *ngFor="let npc of pnj">{{npc.nombre}} {{npc.edad + 1}}</option>
+                                                <option value="{{npc.char_name}}" *ngFor="let npc of nombres_personajes">{{npc.char_name}} {{npc.age}}</option>
                                         </select></span><span> <button class="boton2" (click)="envejecimientoAutomatico()"> AUTO </button></span></p>
                                         <!-- <select class="select" name="" id="">
                                             <option class="input" value=""[selected]="">SELECCIONA PNJ</option>
@@ -55,10 +55,10 @@
 
                                         <p class="frase2">- Si un personaje tiene una característica en 3 o menos, debes retirarlo.<br>
                                         -Si un persojaje tiene una característica en 0, el personaje ha muerto.<br></p>
-                                        <div *ngIf="pj.escudero.edad +1 >= 21">
+                                        <div *ngIf="escudero_personaje.age >= 21">
                                             <p>La edad de tu escudero es: 21 años. Ya es mayor de edad, así que necesitas un nuevo escudero de 15 años:</p>
                                             <p class="colorNombre">Nombre: <span><input class="input" #valor></span></p>
-                                            <button class="boton" (click)="nuevoEscudero(valor.value)"></button>
+                                            <button class="boton" [disabled]="makeNewSquire" (click)="nuevoEscudero(valor.value)" ></button>
                                         </div>
                                       <!--   <div class="marca_agua"></div> -->
                                         
@@ -69,23 +69,7 @@
             </div><!-- cuerro main -->
 </div>  <!-- cierro padre -->
 
+<div *ngIf="!isHide">
+    <app-aging-modal class="modal" [informacionPadre]="statschanges" (cerrar)="cerrarModal($event)"></app-aging-modal>
+</div>
 
-    <!-- hijo 2 -->
-
-    <!--  <div class="dagas">
-
-        <div class="back">
-            <a routerLink = "/phase2" class="daga_derecha"><img src="../../../assets/img/daga-atras.png" alt="" ></a>
-            <a routerLink = "/phase2" class="volver">VOLVER</a>
-
-        </div>
-
-        <div class="next">
-            <a routerLink = "/phase4" class="daga_izquierda"><img src="../../../assets/img/daga-adelante.png" alt="" ></a>
-            <a routerLink = "/phase4" class="siguiente" (click)="sumarAge()">SIGUIENTE</a>
-        </div>
-
-
-    </div> -->
-
-<app-aging-modal class="modal" [hidden]="isHide"></app-aging-modal>

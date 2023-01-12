@@ -98,12 +98,12 @@ public getCharactersNames(house_id: number, year_id: number){
   }
 
   //MODIFICA VARIOS CHARACTER JUNTOS
-  public putCharacters (characters : Character[]){
+  // public putCharacters (characters : Character[]){
 
-    this.url = "http://localhost:3000/housemanagementCharacters"
+  //   this.url = "http://localhost:3000/housemanagementCharacters"
 
-    return this.http.put(this.url, {"characters" : characters})
-  }
+  //   return this.http.put(this.url, {"characters" : characters})
+  // }
   //CREA VARIOS CHARACTERS JUNTOS
   public postCharacters(characters : Character[]){
 
