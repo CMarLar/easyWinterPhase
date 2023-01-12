@@ -59,7 +59,7 @@
 </div> <!-- cierre padre--> 
 
 <div *ngIf="!isHideCourtesy">
-    <app-marriage-courtesy-modal class="modal"></app-marriage-courtesy-modal>
+    <app-marriage-courtesy-modal class="modal" (courtesyHijo)="resultadoCortesia($event)"></app-marriage-courtesy-modal>
 </div>
 
 <div *ngIf="!isHideLoyalty">

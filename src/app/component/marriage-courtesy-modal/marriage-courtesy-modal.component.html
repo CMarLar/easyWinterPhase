@@ -5,17 +5,19 @@
             <label>Introduce el valor de cortesia</label>
             <input class="" type="number" #valorInput [(ngModel)]="objeto">
         </div>
-        <button class="small_button" (click)="calcularMatrimonioCortesia(valorInput.value)"     [disabled]="!objeto">Calcular</button>
+        <button class="small_button" (click)="calcularMatrimonioCortesia(valorInput.value)">Calcular</button>
+
+        <!-- [disabled]="!objeto" -->
         
         
         <div class="resultados">
-            <div *ngIf="resultadoFinal == 'Exito' && isHidden === true" class="resultadoExito">
-                <p>Resultado exito: {{resultadoTirada}}</p>
+            <div *ngIf="resultadoFinal == 'Éxito' && isHidden === true" class="resultadoExito">
+                <p>Resultado éxito: {{resultadoTirada}}</p>
                 <div class="resultadoCentrado">
                     <p *ngIf="botonPulsado == false">¿Quieres casarte?</p>
                     <div *ngIf="botonPulsado == false" class="botones">
                         <button class="small_button" (click)="casarseResult()">Si</button>
-                        <button class="small_button" #noSeCasa (click)="noMarriage()">No</button>
+                        <button class="small_button" (click)="noMarriage()">No</button>
                     </div>
                     <div *ngIf="casarse == true;" style="display: flex; flex-direction: column; align-items: center;height: 100%;">
                         <div class="inputContain">
@@ -28,17 +30,19 @@
                             <p>+{{gloria}} de gloria para el personaje activo</p>
                             <p>+{{libras}} libras para el personaje activo</p>
                             <div class="inputEsp">
-                                <input class="nombreEsp" type="text" placeholder="Nombre">
-                                <input class="edadEsp" type="text" placeholder="Edad">
+                                <input class="nombreEsp" type="text" placeholder="Nombre" #nombreEsposa>
+                                <input class="edadEsp" type="number" placeholder="Edad" #edadEsposa>
                             </div>
-                            <button class="plumaButton" (click)="guardarDatos()">
+                            <button class="plumaButton" (click)="guardarDatos(nombreEsposa.value,edadEsposa.value)">
                                 <img src="../../../assets/img/PLUMA.png" alt="">
                                 <p>Ok</p>
                             </button>
                         </div>
                     </div>
                     <div *ngIf="noSeCasa == 'No'">
-                        <div>Recuerda sumar +1 a la tirada de matrimonio</div>
+                        <div>Modificador de cortesía para el año que viene: {{characterService.currentActiveChar.courtesyMod}}
+                            <button class="small_button" (click)="guardarDatos()" >Ok</button>
+                        </div>
                     </div>
                 </div>
             </div>

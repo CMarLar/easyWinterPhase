@@ -265,6 +265,20 @@
 
                              color: var(--font-color-hover);
                         }
+
+                        button:disabled{
+                            background-color: rgb(29, 62, 47);
+                            color:black;
+                            cursor:default
+                        }
+
+                        button:disabled:hover{
+                            background-color: rgb(29, 62, 47);
+                            color:black;
+                            cursor:default
+                        }
+
+                        
                    
 
                 

@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { ThisReceiver } from '@angular/compiler';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { Character } from 'src/app/models/character';
+import { CharacterService } from 'src/app/shared/character.service';
 
 @Component({
   selector: 'app-marriage-courtesy-modal',
@@ -23,7 +26,9 @@ export class MarriageCourtesyModalComponent {
   public datos : any;
   public modMarriage : number;
 
-  constructor(){
+  @Output() courtesyHijo = new EventEmitter <boolean>()
+
+  constructor(public characterService:CharacterService){
     this.isHidden = true;
     this.casarse = null;
     this.casadoCon = false;
@@ -45,22 +50,33 @@ export class MarriageCourtesyModalComponent {
   //SE TIRA UN DADO RANDOM QUE SI IGUALA O SUPERA EL VALOR DE CORTESIA SALDRA EXITO
   //SI SALE EXITO SE INTRODUCIRA EL VALOR DE UNA TIRADA DE MATRIMONIO
 
-  public calcularMatrimonioCortesia(value : string){
+  public calcularMatrimonioCortesia(value : number){
 
     let dado : number = Math.floor((Math.random() * 20) + 1);
-    if(dado >= parseInt(value)){
-      this.resultadoFinal = "Exito";
+
+    value = (+value + +this.characterService.currentActiveChar.courtesyMod);
+
+    if(dado > value){
+      this.resultadoFinal = "Fallo";
+      this.noSeCasa = "No";      
       console.log(this.resultadoFinal);
       
-    }else if (dado <= parseInt(value)){
-      this.resultadoFinal = "Fallo";
+    }else if (dado <= value){
+      this.resultadoFinal = "Éxito";
+      console.log(this.resultadoFinal);
     }
+
+    console.log("Dado: " + dado);
+    console.log("Value: " + value);
+    console.log("Courtesy Mod" + this.characterService.currentActiveChar.courtesyMod);
+    
 
   }
 
   public casarseResult(){
-    this.casarse = true;
-    this.botonPulsado = true;
+    this.casarse = true;//indica que se va a casar en el back.
+    this.botonPulsado = true;//el jugador decide si se casa o no.
+    this.noSeCasa = "Sí";
   }
 
   public esposaResult(value : string){
@@ -122,22 +138,63 @@ export class MarriageCourtesyModalComponent {
       this.libras = "1 señorío, 1d6+ 10£"
 
     }
-    this.casadoCon = true;  
+    this.casadoCon = true;
+    this.characterService.currentActiveChar.isMarried = 1
+    this.characterService.currentActiveChar.marriageGlory = this.gloria;
+    this.characterService.currentActiveChar.courtesyMod = 0;
+
+    this.characterService.modifyCharacter(this.characterService.currentActiveChar)
+    .subscribe((data)=>{
+      console.log("Data - MarriageGlory y pj se casa: " + JSON.stringify(data));
+      
+    })
+
+
   }
 
   public noMarriage(){
+
     this.noSeCasa = "No";
+    this.characterService.currentActiveChar.courtesyMod +=1;
     this.botonPulsado = true;
-    this.modMarriage += 1;
+
+    this.characterService.modifyCharacter(this.characterService.currentActiveChar)
+    .subscribe((data)=>{
+      console.log("Data - Mod. Cortesía (pj no se casa): " + JSON.stringify(data));
+      
+    })
+
   }
 
-  public guardarDatos(){
+  public guardarDatos(nombre:string=null, edad:number=null){
 
-    if(this.resultadoFinal == "Exito"){
+    if(this.noSeCasa == "No"){
+      console.log("No se ha casado");
+      
+    }else{
 
-      this.datos = {
-        rol : this.rol,
-      }
+      let newWife:Character;
+
+      newWife = new Character(null,this.characterService.currentActiveChar.house_id,this.characterService.currentActiveChar.year_id,nombre,edad,1,1,0,0,"Esposa","Mujer")
+
+      this.characterService.newCharacter(newWife).subscribe((data)=>{
+        console.log("Nueva esposa: " + JSON.stringify(data));
+        
+      })
     }
+
+    this.courtesyHijo.emit(true)
+
+    
+
+    // if(this.resultadoFinal == "Exito"){
+
+    //   this.datos = {
+    //     rol : this.rol,
+    //   }
+    // }
   }
+
+
+
 }

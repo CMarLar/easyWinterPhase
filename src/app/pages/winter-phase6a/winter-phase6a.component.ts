@@ -97,6 +97,12 @@ export class WinterPhase6aComponent {
     
   }
 
+  public resultadoCortesia(datosCortesia:boolean){
+    this.isHideCourtesy = datosCortesia;
+    this.datosEsposa = datosCortesia;
+    
+  }
+
 
 }
 
