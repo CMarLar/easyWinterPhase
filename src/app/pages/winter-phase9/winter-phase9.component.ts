@@ -10,6 +10,7 @@ import { CampaignService } from 'src/app/shared/campaign.service';
 import { YearService } from 'src/app/shared/year.service';
 import { Router } from '@angular/router';
 import { Character } from 'src/app/models/character';
+import { AdicionalService } from 'src/app/shared/adicional.service';
 
 
 @Component({
@@ -30,7 +31,7 @@ export class WinterPhase9Component {
 
   public modifiedPlayer:Player;//Para hacer update de winterphaseMain en la base de datos.
   
-  constructor(private textosService: TextService, private playerService: PlayerService, public houseService:HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService: YearService, public router:Router){
+  constructor(private textosService: TextService, private playerService: PlayerService, public houseService:HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService: YearService, public router:Router, public adicionalService:AdicionalService){
 
     // this.resetMarriageGlory(this.characterService.currentActiveChar);
 
@@ -135,14 +136,13 @@ export class WinterPhase9Component {
       this.playerService.updateWinterPhaseMain(this.modifiedPlayer).subscribe((data:any)=>{
 
         console.log(data);
-        
-        this.router.navigateByUrl("/winterphasemain")
+
+        this.router.navigateByUrl("/winterphasemain");
 
       })
   }
 
-
-
+  
 
 
 

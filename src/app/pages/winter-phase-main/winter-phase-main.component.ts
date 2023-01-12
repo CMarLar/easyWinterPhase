@@ -9,6 +9,7 @@ import { YearService } from 'src/app/shared/year.service';
 import { CharacterService } from 'src/app/shared/character.service';
 import { Year } from 'src/app/models/year';
 import { Character } from 'src/app/models/character';
+import { AdicionalService } from 'src/app/shared/adicional.service';
 
 
 @Component({
@@ -51,9 +52,13 @@ NOTAS IMPORTANTES:
 
   public modifiedPlayer:Player;//para modificar los jugadores al final cambiando el atributo winterPhaseMain
 
-    constructor(public router:Router, public campaignService:CampaignService, public yearService:YearService, public playerService:PlayerService, public houseService:HouseService, public characterService:CharacterService, ){
+  public mainCharacters:Character[];
+
+    constructor(public router:Router, public campaignService:CampaignService, public yearService:YearService, public playerService:PlayerService, public houseService:HouseService, public characterService:CharacterService, public adicionalService:AdicionalService){
 
       // this.playersAndHouses = [];
+
+      //RECOGEMOS PERSONAJES , CASAS Y PERSONAJES:
 
 
       console.log("BLOQUE DE CONTROL");
@@ -65,27 +70,28 @@ NOTAS IMPORTANTES:
       console.log("Houses of Campaign (service): " + JSON.stringify(this.houseService.housesOfCamapaign));
       console.log("//////////////////");
 
+      //NOMBRE DE LA CAMPAÑA IMPORTADA DEL SERVICIO.
       this.campaignName = this.campaignService.currentCampaign.campaign_name;
       console.log("CampaignName: " + this.campaignName);
 
       // console.log("campaignService.currentCampaign: " + JSON.stringify(this.campaignService.currentCampaign)); 
       
-      this.currentYear = this.yearService.currentYear//Esto debería importar el año
+      //AÑO IMPORTADO DEL SERVICIO
+      this.currentYear = this.yearService.currentYear
       console.log("Current year: " + JSON.stringify(this.currentYear));
       
-      console.log("PlayersService.playersOfCampaign: " + JSON.stringify(this.playerService.playersOfCampaign));
-      this.players = this.playerService.playersOfCampaign//Jugadores de la campaña
+      //RECIBIENDO JUGADORES Y CASAS DE LOS SERVICIOS.
+      this.players = this.playerService.playersOfCampaign//Jugadores
       console.log("Players: " + JSON.stringify(this.players));
-
-      this.houses = this.houseService.housesOfCamapaign//Importa todo el array de casas.
+      this.houses = this.houseService.housesOfCamapaign//Casas
       console.log("Houses: " + JSON.stringify(this.houses));
 
-      console.log("Service, next year: " + JSON.stringify(this.yearService.nextYear));
+      // console.log("Service, next year: " + JSON.stringify(this.yearService.nextYear));//igual no hace falta
 
-      // this.playersAndHouses = [];
+      //RECIBIENDO PERSONAJES PRINCIPALES DE LOS SERVICIOS:
+      this.mainCharacters = this.characterService.mainCharacters;
 
-      if(this.playersAndHouses == undefined)//Si no existe el array de jugadores y casas, lo crea por primera vez.
-      {
+      //PlayersAndHouses es un objeto del front que sirve para construir la vista con la tabla de esta página.
         this.playersAndHouses = [];
         //Llenamos el array playersAndHouses
         for (let i = 0; i < this.players.length; i++) {
@@ -121,16 +127,7 @@ NOTAS IMPORTANTES:
 
         console.log("houseService.allPlayersAndAllHouses: " + JSON.stringify(this.houseService.allPlayersAndAllHouses));
         
-      
-      }else{
 
-        console.log("LAS CASAS YA ESTABAN CREADAS ANTES EN");
-
-        this.playersAndHouses = this.houseService.allPlayersAndAllHouses
-
-        console.log("houseService.allPlayersAndAllHouses: " + JSON.stringify(this.houseService.allPlayersAndAllHouses));
-
-      }
 
       console.log("PlayersService.playersOfCampaign: " + JSON.stringify(this.playerService.playersOfCampaign));
 
@@ -147,55 +144,57 @@ NOTAS IMPORTANTES:
     public doWinterPhase(house_id:number){
       
 
-      // console.log("PlayersService.playersOfCampaign: " + JSON.stringify(this.playerService.playersOfCampaign));
+      console.log("PlayersService.playersOfCampaign: " + JSON.stringify(this.playerService.playersOfCampaign));
 
-      // console.log("ALL CHARACTERS OF CAMPAIGN: " + JSON.stringify(this.characterService.allCharactersOfCampaign))
+      console.log("ALL CHARACTERS OF CAMPAIGN: " + JSON.stringify(this.characterService.allCharactersOfCampaign))
 
       console.log("CURRENT YEAR " + JSON.stringify(this.yearService.currentYear))
 
       for (let i = 0; i < this.playersAndHouses.length; i++) {
         
+        //Coge la casa del objeto del front playersAndHouses, le cambia el winterPhaseDone a 1 en el front e iguala el currentplayerdel servicio.
         if(this.playersAndHouses[i].player.house_id == house_id){
-          this.playersAndHouses[i].player.winterPhaseDone = 1//PRUEBA PARA VER EL CAMBIO DEL BOTÓN
+          // this.playersAndHouses[i].player.winterPhaseDone = 1 //esto se cambiará en la fase 9 en front y back
           this.playerService.currentPlayer = this.playersAndHouses[i].player;
 
           //Igualamos la casa del servicio a la casa del componente
-          
           this.houseService.currentHouse = this.playersAndHouses[i].house;
 
-            console.log("Old active char: " + JSON.stringify(this.characterService.currentActiveChar));
+            // console.log("Old active char: " + JSON.stringify(this.characterService.currentActiveChar));
             
         }
       }
 
-          this.characterService.getWinterPhaseChars(this.houseService.currentHouse.house_id,this.yearService.currentYear.year_id).subscribe((data : Character[])=>{//IMPORTANTE: he tenido que poner el +1 porque current campaign sigue uno por detrás
+      this.adicionalService.getHouseAndCharacters(this.houseService.currentHouse.house_id,this.yearService.currentYear.year_id)
+      .subscribe((data:any)=>{
+        
+        console.log(data);
 
-            //Este bloque sobreescribe el activeChar con el mismo del nuevo año
-           
-            let newActiveChar: Character;
+        this.houseService.currentHouse = data.casa[0];
 
-            // for (let i = 0; i < data.length; i++) {
-            //   if(data[i].char_name == this.characterService.currentActiveChar.char_name){
-            //     newActiveChar = data[i]
-            //     console.log("New Active Char for this year: " + newActiveChar);
-                
-            //     this.characterService.currentActiveChar = newActiveChar;
-            //   }
-              
-            // }
+        this.characterService.currentHouseCharsWinterPhase = data.personajes;
 
-            console.log("DATA DE LA BASE DE DATOS: " + JSON.stringify(data));
+        console.log("getHouseAndCharacters - CURRENT HOUSE: " + JSON.stringify(this.houseService.currentHouse));
+        console.log("getHouseAndCharacters - CURRENT HOUSE CHARS (Winter Phase): " + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
+        
+        console.log("data.personajes: "  + JSON.stringify(data.personajes));
 
-            /*
-DATA DE LA BASE DE DATOS: [{"character_id":3088,"house_id":1271,"year_id":756,"char_name":"Primus","age":21,"char_status":1,"isMarried":0,"marriageGlory":0,"courtesyMod":0,"role":null,"sex":"Hombre"},{"character_id":3089,"house_id":1271,"year_id":756,"char_name":"Secundus","age":15,"char_status":1,"isMarried":0,"marriageGlory":0,"courtesyMod":0,"role":"Escudero","sex":"Hombre"}]
-            */
+        for (let i = 0; i < data.personajes.length; i++) {
 
+          if(data.personajes[i].character_id == this.houseService.currentHouse.activeChar){//el [0] es porque currentHouse devuelve un array.
 
-              this.characterService.currentHouseCharsWinterPhase = data;
-              console.log("Current characters (winterPhase): " +  JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
-              this.router.navigateByUrl("/phase1");
-          })
+            this.characterService.currentActiveChar = data.personajes[i];//Marcamos el personaje activo en el servicio.
+            console.log("getHouseAndCharacters, Personaje Activo: " + this.characterService.currentActiveChar);
+            
+
+          }
+          
+        }
+        
+        this.router.navigateByUrl("/phase1");
+      })
       
+
       
       // this.checkPlayersReady()//hace la función de checkeo de nuevo
 
@@ -226,10 +225,6 @@ DATA DE LA BASE DE DATOS: [{"character_id":3088,"house_id":1271,"year_id":756,"c
 
     public nextYear(){
 
-      // for (let i = 0; i < this.houseService.allPlayersAndAllHouses.length; i++) {
-      //   this.houseService.allPlayersAndAllHouses[i].player.winterPhaseDone = 0
-        
-      // }
 
       for (let i = 0; i < this.playerService.playersOfCampaign.length; i++) {
 
@@ -238,14 +233,48 @@ DATA DE LA BASE DE DATOS: [{"character_id":3088,"house_id":1271,"year_id":756,"c
 
       }
 
-          // this.playerService.winterPhaseMainReset(this.playerService.playersOfCampaign).subscribe((data:any)=>{//CAMBIAR EN SERVICIO Y CONTROLLER BACK A ARRAY DE PLAYERS
+          this.playerService.winterPhaseMainReset(this.playerService.playersOfCampaign).subscribe((data:any)=>{//CAMBIAR EN SERVICIO Y CONTROLLER BACK A ARRAY DE PLAYERS
     
-          //   console.log(data);
+            console.log(data);
+
+            this.getAll();
             
-          //   this.router.navigateByUrl("/currentcampaign")
+
     
-          // })
+          })
 
     }
+
+    public getAll(){
+    
+      this.playerService.playersOfCampaign = [];
+      this.houseService.housesOfCamapaign = [];
+      this.characterService.mainCharacters = []
+  
+      this.adicionalService.getCampaignInfo(this.campaignService.currentCampaign.campaign_id)
+      .subscribe((data:any) => {
+        console.log("**************************************************\n" + JSON.stringify(data));
+        for (let i = 0; i < data.length; i++){
+  
+          this.playerService.playersOfCampaign.push(new Player(data[i].player_id,data[i].house_id,this.campaignService.currentCampaign.campaign_id,data[i].player_name,data[i].winterPhaseDone))
+  
+          this.houseService.housesOfCamapaign.push(new House(data[i].house_name,data[i].activeChar,null,null,data[i].shield,null,data[i].house_id))
+  
+          this.characterService.mainCharacters.push(new Character(data[i].activeChar,data[i].house_id,data[i].year_id,data[i].char_name,null,null,null,null,null,null,null));
+  
+        }
+  
+        console.log(JSON.stringify(this.playerService.playersOfCampaign));
+        console.log(JSON.stringify(this.houseService.housesOfCamapaign));
+        console.log(JSON.stringify(this.characterService.mainCharacters));
+
+        this.router.navigateByUrl("/currentcampaign")
+
+      })
+        
+      }
+
+
+
 
 }

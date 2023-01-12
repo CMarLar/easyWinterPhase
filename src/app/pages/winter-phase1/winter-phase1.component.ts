@@ -28,7 +28,7 @@ public textos: Text [];
 
 public currentPlayerName:string;
 
-  constructor(private textosService: TextService, private jugadorService: PlayerService, public houseService: HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService:YearService){
+  constructor(private textosService: TextService, public jugadorService: PlayerService, public houseService: HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService:YearService){
 
     console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
     console.log("Current year: " + JSON.stringify(this.yearService.currentYear));

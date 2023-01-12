@@ -17,12 +17,12 @@ export class AdicionalService {
   }
 
   public getCampaignInfo(campaign_id : number){
-
+    this.url = "http://localhost:3000/";
     return this.http.get(this.url + "currentcampaignInfo?campaign_id=" + campaign_id);
   }
 
   public getYearInfo(campaign_id : number){
-
+    this.url = "http://localhost:3000/";
     return this.http.get(this.url + "currentcampaignYear?campaign_id=" + campaign_id);
   }
 

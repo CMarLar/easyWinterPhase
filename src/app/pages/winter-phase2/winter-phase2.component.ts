@@ -25,7 +25,7 @@ export class WinterPhase2Component {
 
   public currentPlayerName:string;
   
-   constructor(private textosService: TextService, private jugadorService: PlayerService, public houseService: HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService:YearService ){
+   constructor(private textosService: TextService, public jugadorService: PlayerService, public houseService: HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService:YearService ){
 
     //este bloque es para marcar de nuevo el active character:
 

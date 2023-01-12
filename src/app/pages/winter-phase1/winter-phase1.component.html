@@ -8,7 +8,7 @@
                      <div class="cabecera">
 
                         <p class="titulo">FASE DE INVIERNO<br></p>
-                        <p class="nombreUsuario">{{currentPlayerName}}</p><!-- quitar aquí irene -->
+                        <p class="nombreUsuario">{{jugadorService.currentPlayer.player_name}}</p><!-- quitar aquí irene -->
 
                      </div>
 
@@ -17,7 +17,7 @@
                                 <div class="caja_escudo">
 
                                         <div class="escudo">
-                                                 <img class="imagen_escudo" src="{{foto_escudo}}">
+                                                 <img class="imagen_escudo" [src]="foto_escudo">
                                         </div>
                                         <div class="paso">
                                             <p>Paso I:</p><br>

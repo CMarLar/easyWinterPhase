@@ -61,6 +61,7 @@ export class WinterPhase4Component {
 
     this.nivel = "Introduce los valores y pulsa en calcular o selecciona el nivel directamente"
 
+    //NO COMENTAR ESTO o PETA
     this.nivelesModel = 
     {
       nivel:"",

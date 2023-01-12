@@ -109,7 +109,7 @@ export class CurrentCampaignComponent {
       .subscribe((data : any) => {
         console.log("A PARTIR DE AQUI EMPIEZA LO TOCHO DE CURRENT CAMPAIGN");
         console.log("DATA CURRENT: " + JSON.stringify(data));
-        this.yearService.currentYear.year_id = data.año;
+        this.yearService.currentYear.year_id = data.insertId;
         this.yearService.currentYear.yearNumber = this.yearService.currentYear.yearNumber +1;
         this.yearService.currentYear.isFirstYear = 0;
         this.yearService.currentYear.notes = "";

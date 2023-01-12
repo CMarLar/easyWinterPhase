@@ -38,18 +38,7 @@ export class WinterPhase7Component {
   
    constructor(public playerService:PlayerService, public houseService:HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService: YearService){
 
-/* irene / NO FUNCIONA */
 
-/*   this.characterService.getCharactersName()
-    .subscribe((data: Character[])=>{
-
-      this.personajes = data;
-      console.log(data)
-      console.log(JSON.stringify(data))
-
-    }) 
-  
-    /*  */
     
     console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
     console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
@@ -60,32 +49,29 @@ export class WinterPhase7Component {
 
     this.currentPlayerName = this.playerService.currentPlayer.player_name;
     this.foto_escudo = this.houseService.currentHouse.shield;
-  
-    this.characterService.getCharactersNames(this.houseService.currentHouse.house_id,this.yearService.currentYear.year_id)
-    .subscribe((data: Character[])=>{
 
-      this.nombres_personajes = data;
-      console.log(data)
-      console.log(JSON.stringify(data))
+    this.nombres_personajes = [];
 
-    }) 
+    //Rellenamos de personajes válidos
+    for (let i = 0; i < this.characterService.currentHouseCharsWinterPhase.length; i++) {
+      if(this.characterService.currentHouseCharsWinterPhase[i].character_id != this.houseService.currentHouse.activeChar
+         && this.characterService.currentHouseCharsWinterPhase[i].age >= 15 && this.characterService.currentHouseCharsWinterPhase[i].char_status == 1)
 
-    /* this.personajes = ["Alain", "Robert", "Belengarius"]; */
-    
-   /*  this.houseCharacters = 
-    {
-      characters:
-      [
-        {name:"Alain",role:"Hermano",age:14,sex:"Hombre"},
-        {name:"Robert",role:"Hijo/a",age:21,sex:"Hombre"},
-        {name:"Gwynneth",role:"Hijo/a",age:14,sex:"Woman"},
-        {name:"Richard",role:"Escudero",age:18,sex:"Hombre"},
-      ]
+      this.nombres_personajes.push(this.characterService.currentHouseCharsWinterPhase[i])
+
+
     }
+  
+    // this.characterService.getCharactersNames(this.houseService.currentHouse.house_id,this.yearService.currentYear.year_id)
+    // .subscribe((data: Character[])=>{
 
-    console.log(this.houseCharacters);
-    console.log(this.houseCharacters.name); */
-    
+    //   this.nombres_personajes = data;
+    //   console.log(data)
+    //   console.log(JSON.stringify(data))
+
+    // }) 
+
+
    }
   
   }
