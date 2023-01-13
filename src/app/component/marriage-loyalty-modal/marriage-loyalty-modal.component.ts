@@ -77,7 +77,7 @@ export class MarriageLoyaltyModalComponent {
         console.log("Nueva esposa" + JSON.stringify(data));
 
         newWife.character_id = data.insertId
-
+        this.characterService.haveWife = false;
         //No lo metemos en el array de characters porque la esposa, en el año en que se casa, no puede tener hijos.
 
         

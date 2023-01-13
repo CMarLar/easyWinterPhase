@@ -66,6 +66,11 @@ export class WinterPhase6bComponent {
       }
       
     }
+    if(this.wife == null || undefined){
+      this.characterService.haveWife = false;
+    }else{
+      this.characterService.haveWife = true;
+    }
 
     //Bucle para recoger a las amantes:
 

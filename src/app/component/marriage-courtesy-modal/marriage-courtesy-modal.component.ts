@@ -180,6 +180,7 @@ export class MarriageCourtesyModalComponent {
       this.characterService.newCharacter(newWife).subscribe((data : any)=>{
         console.log("Nueva esposa: " + JSON.stringify(data));
         newWife.character_id = data.insertId;
+        this.characterService.haveWife = false;
       })
     }
 

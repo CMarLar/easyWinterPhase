@@ -40,17 +40,17 @@
 
                             <div class="prologo1"><!-- hijo 1 prólogo -->
                                 <p class="frase">NACIMIENTOS</p>
-                                <!-- <p class="frase1">Modificador: Circunstancia Económica: <span class="numero">{{houseService.currentHouse.economyLevels}}</span></p>
-                                <p class="frase1">Modificador: Edad de la madre: <span class="numero">{{wife.age}}</span></p> -->
-
                             </div>
 
                             <div class="prologo3"><!-- hijo 3 prólogo -->
-                                <div class="esposa" *ngIf="characterService.currentActiveChar.isMarried == 1">
+                                <div class="esposa" *ngIf="characterService.currentActiveChar.isMarried == 1 && characterService.haveWife == true;else noHayEsposa">
                                     <p><B>ESPOSA :</B> {{wife.char_name}}</p>
                                     <button (click)="calcularNacimientosEsposa()" class="boton">CALCULAR</button>
                                 </div>
-                                <div class="hijito">
+                                <ng-template #noHayEsposa>
+                                    El personaje no esta casado o no puede tener hijos con su esposa durante este invierno.
+                                </ng-template>
+                                <div class="hijito" *ngIf="lovers.length != 0;else noHayAmantes">
                                     <p><B>AMANTES :</B></p>
                                     <div>
                                         <select class="select" name="" id="" #data >
@@ -58,7 +58,10 @@
                                         </select>
                                         <button (click)="calcularNacimientos(data.value)" class="boton2">CALCULAR</button>    
                                     </div>
-                                    </div>
+                                </div>
+                                <ng-template #noHayAmantes>
+                                    El personaje no tiene ninguna amante.
+                                </ng-template>
                             </div>
                             <div class="prologo4"><!-- hijo 4 prólogo -->
                                 <p class="eventosFamiliares">EVENTOS FAMILIARES</p>

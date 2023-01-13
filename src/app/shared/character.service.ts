@@ -21,7 +21,7 @@ export class CharacterService {
   public mainCharacters : Character[];
 
   public currentHouseCharsWinterPhase: Character[];//Array de personajes de una casa seleccionados para la fase de invierno en curso
-
+  public haveWife : boolean;
 
   constructor(public houseService:HouseService, public http: HttpClient) { 
 
@@ -30,7 +30,7 @@ export class CharacterService {
     this.currentHouseChars = [];
     this.allCharactersOfCampaign = [];
     this.mainCharacters = [];
-
+    this.haveWife = false;
     // this.currentActiveChar.character_id = this.houseService.currentHouse.activeChar //comentado porque jode CREATEHOUSE
 
   }
