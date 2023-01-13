@@ -34,7 +34,7 @@
        height: 100%;
        justify-self: end; 
        align-items: flex-end;
-       padding-left: 20%;
+       padding-left: 17%;
   /*      border: 5px solid yellowgreen;  */
    
    }
@@ -111,7 +111,7 @@
                  background-color: var( --background-color-input);
                  border-radius: 15px;
                 /*  margin-top: 3%; */
-                 justify-content:center;
+                 justify-content:space-between;
                  /* flex-wrap: wrap; */    /* mirar aquí */
                  height: 75%;
                  width: 100%;
@@ -253,6 +253,7 @@
     }
 
     button:hover{
+        border: 1px solid var(--font-color-hover);
         color: var(--font-color-hover);
         cursor: pointer;
     }

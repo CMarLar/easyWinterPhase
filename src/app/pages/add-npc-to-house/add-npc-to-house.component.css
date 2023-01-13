@@ -538,6 +538,12 @@
         }
 
     button:hover{
+        border: 1px solid var(--font-color-hover);
+        color: var(--font-color-hover);
+        cursor: pointer;
+    }
+    .small_button2{
+        border: 1px solid var(--font-color-hover);
         color: var(--font-color-hover);
         cursor: pointer;
     }
@@ -547,6 +553,8 @@
         color:black;
         cursor:default
     }
+   
+   
 
 input{
     background-color: var(--background-color-input);
