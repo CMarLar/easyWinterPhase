@@ -177,9 +177,9 @@ export class MarriageCourtesyModalComponent {
 
       newWife = new Character(null,this.characterService.currentActiveChar.house_id,this.characterService.currentActiveChar.year_id,nombre,edad,1,1,0,0,"Esposa","Mujer")
 
-      this.characterService.newCharacter(newWife).subscribe((data)=>{
+      this.characterService.newCharacter(newWife).subscribe((data : any)=>{
         console.log("Nueva esposa: " + JSON.stringify(data));
-        
+        newWife.character_id = data.insertId;
       })
     }
 

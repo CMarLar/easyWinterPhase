@@ -56,7 +56,7 @@ export class MarriageLoyaltyModalComponent {
     this.isHidden = true;
   }
 
-  public guardarDatos(name : string, age : number){
+  public guardarDatos(name : string = null, age : number = null){
     
 
 
@@ -91,10 +91,10 @@ export class MarriageLoyaltyModalComponent {
         hide: true
       }
 
-      this.loyaltyHijo.emit(this.datos)//pasamos true para cierre el modal
+      
     }
 
-    
+    this.loyaltyHijo.emit(this.datos)//pasamos true para cierre el modal
     
   }
   

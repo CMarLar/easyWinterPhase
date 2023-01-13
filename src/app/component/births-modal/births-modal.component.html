@@ -3,15 +3,54 @@
     <div class="modalContain">
         <p>Tirada de nacimientos:</p>
         <div>
-            <p>Modificador. Circunstancia economica: {{modEconomia}}</p>
-            <p>Modificador. Edad de la madre: {{modEdadMadre}}</p>
+            <p>Modificador. Circunstancia economica: {{personajePadre.modificadorEconomico}}</p>
+            <p>Modificador. Edad de la madre: {{personajePadre.modificadorMadre}}</p>
         </div>
-        <p>Resultado: </p>
-        <p>Ha nacido un/una {{sexo}}</p>
-        <input type="text" placeholder="Introduce su nombre">
-        <button class="plumaButton">
-            <img src="../../../assets/img/PLUMA.png" alt="">
-            <p>Ok</p>
-        </button>
+        <div *ngIf="personajePadre.resultado == 'No has tenido ningun hijo'">
+            <p>Resultado: </p>
+            <p>No has tenido ningun hijo.</p>
+            <button class="plumaButton" (click)="modal(null)">
+                <img src="../../../assets/img/PLUMA.png" alt="">
+                <p>Ok</p>
+            </button>
+        </div>
+        <div *ngIf="personajePadre.resultado == 'Tu mujer y tu hijo mueren durante el parto'">
+            <p>Resultado: </p>
+            <p>Tu esposa y tu hijo han muerto durante el parto.</p>
+            <button class="plumaButton" (click)="modal(null)">
+                <img src="../../../assets/img/PLUMA.png" alt="">
+                <p>Ok</p>
+            </button>
+        </div>
+        <div *ngIf="personajePadre.resultado == 'El hijo vive pero tu mujer muere durante el parto'">
+            <p>Resultado: </p>
+            <p>Su esposa ha muerto</p>
+            <div *ngIf="personajePadre.sexoHijo == 'Hombre';else ninia">
+                Ha nacido un niño.
+            </div>
+            <ng-template>
+                Ha nacido una niña.
+            </ng-template>
+                <input type="text" placeholder="Introduce su nombre" #nombreA>
+        
+                <button class="plumaButton" (click)="modal(nombreA.value)">
+                    <img src="../../../assets/img/PLUMA.png" alt="">
+                    <p>Ok</p>
+                </button>
+        </div>
+        <div *ngIf="personajePadre.resultado == 'Nace un hijo'">
+            <p>Resultado: </p>
+            <p>Ha nacido un/una 
+                <span *ngIf="personajePadre.sexoHijo == 'Hombre'">niño.</span>
+                <span *ngIf="personajePadre.sexoHijo == 'Mujer'">niña.</span></p>
+                <input type="text" placeholder="Introduce su nombre" #nombreB>
+        
+            <button class="plumaButton" (click)="modal(nombreB.value)">
+                <img src="../../../assets/img/PLUMA.png" alt="">
+                <p>Ok</p>
+            </button>
+        </div>
+
+        
     </div>
 </main>

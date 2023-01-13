@@ -37,13 +37,19 @@ export class WinterPhase6bComponent {
 
   public wife:Character
   public lover:Character;//no se usa de momento
-  public lovers:any;
+  public lovers:Character[];
+
+  public circunstanciaEconomica : number;
+  public modificadorMadre : number;
+
+  public datosBirth : any;
 
   constructor(public router : Router,public userService : UserService,public playerService:PlayerService, public houseService:HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService: YearService){
 
     if(this.userService.logueado==false){
       this.router.navigateByUrl("/login");
     }
+
     console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
     console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
     console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
@@ -76,116 +82,153 @@ export class WinterPhase6bComponent {
       
     }
 
+    //CALCULAR MODIFICACION ECONOMICA
+    if(this.houseService.currentHouse.economyLevels == "Indigente"){
+      this.circunstanciaEconomica = -15
+    }
+    if(this.houseService.currentHouse.economyLevels == "Pobre"){
+      this.circunstanciaEconomica = -5
+    }
+    if(this.houseService.currentHouse.economyLevels == "Normal"){
+      this.circunstanciaEconomica = 0
+    }
+    if(this.houseService.currentHouse.economyLevels == "Rico"){
+      this.circunstanciaEconomica = 3
+    }
+    if(this.houseService.currentHouse.economyLevels == "Muy Rico"){
+      this.circunstanciaEconomica = 5
+    }
 
-
-
-
+    //OBJETO QUE SE LE PASA AL HIJO
+    this.datosBirth = {
+      "resultado" : null,
+      "modificadorEconomico" : this.circunstanciaEconomica,
+      "modificadorMadre" : null,
+      "sexoHijo" : ""
+    },
 
     this.currentPlayerName = this.playerService.currentPlayer.player_name;
     this.foto_escudo = this.houseService.currentHouse.shield;
 
     this.mujerRol = ["Esposa", "Amante"]
 
-    this.pj = {nombre : this.characterService.currentActiveChar.char_name,
-              edad : 35,
-              isMarried : true,
-              esposa : {nombre : "Carlos",
-                      edad : 33,
-                      partoLastYear : false,
-                      rol : "Esposa",
-                      isAlive : true},
-              amantes : [{
-                nombre : "Antonia",
-                edad : 29,
-                partoLastYear : true,
-                rol : "Amante",
-                isAlive : true
-              },
-              {
-                nombre : "Paquito",
-                edad : 28,
-                isAlive : true
-              }],
-
-            hijos : [{nombre : "paco",
-                      edad : 3,
-                      sexo : "hombre"}]}
-
     this.isHide = true;
     
    }
 
+   //AQUI AMANTES
    public calcularNacimientos(name : string){
 
-    for (let i = 0; i < this.lovers.length;i++){
+    let dado = Math.floor((Math.random() * 20) + 1);
+    let dadoHijo = Math.floor((Math.random() * 6) + 1);
+    let modificadorMadre;
+    let amante : Character;
+    console.log("ESTE ES EL PARAMETRO: " + name);
+    console.log("ESTE ES LOVER ANTES DE ASIGNARA  AMANTE");
+    
+    
+    console.log("DADOS ANTES DE MODIFICAR: " + dado);
 
-      if(name == this.lovers[i].char_name){
+    for(let i = 0; i < this.lovers.length; i++){
 
-        let dado = Math.floor((Math.random() * 20) + 1);
-        let dadoHijo = Math.floor((Math.random() * 6) + 1);
-
-        if (dado > 0 && dado <=10){
-        
-          console.log("NINGUN HIJO");
-          this.resultadoHijos = "No has tenido ningun hijo";
-          
-    
-        }else if(dado == 11){
-    
-          console.log("Tu amante y tu hijo mueren durante el parto");
-          this.resultadoHijos = "Tu amante y tu hijo mueren durante el parto";
-          this.lovers[i].char_status = 0;
-          
-          this.lovers.splice(i,1);
-  
-    
-        }else if(dado == 12){
-    
-          console.log("EL HIJO VIVE PERO LA MUJER MUERE DURANTE EL PARTO");
-          this.resultadoHijos = "El hijo vive pero tu mujer muere durante el parto";
-          this.lovers[i].char_status = 0;
-          this.lovers.splice(i,1);
-  
-          if (dadoHijo % 2 == 0){
-            this.sexoHijo = "Hombre";
-          }else{
-            this.sexoHijo = "Mujer";
-          }
-          
-          
-        }else if(dado == 13){
-          
-          console.log("NACEN GEMELOS");
-          this.resultadoHijos = "Nacen gemelos";
-          
-    
-        }else{
-    
-          console.log("NACE UN HIJO");
-          this.resultadoHijos = "Nace un hijo";
-          
-        }
-  
+      if(this.lovers[i].char_name == name){
+        amante = this.lovers[i];
+        console.log("ESTA ES LA AMANTE: " + amante);
       }
-
-
     }
     
 
+    if(amante.age > 30){
+      modificadorMadre = amante.age - 30;
+      this.datosBirth.modificadorMadre = modificadorMadre;
+    }
 
+    dado = (dado - modificadorMadre) + this.circunstanciaEconomica;
+    if(dado <= 0){
+      dado = 0;
+    }
+    console.log("DADOS: " + dado);
     
+    
+    
+
+    if (dado <= 10){
+    
+      console.log("NINGUN HIJO");
+      this.resultadoHijos = "No has tenido ningun hijo";
+      this.datosBirth.resultado = this.resultadoHijos;
+      
+
+    }else if(dado == 11){
+
+      console.log("LA MUJER Y EL HIJO MUEREN DURANTE EL PARTO");
+      this.resultadoHijos = "Tu mujer y tu hijo mueren durante el parto";
+      amante.char_status = 0;
+      amante.role = "Amante (muerta)";
+      this.datosBirth.resultado = this.resultadoHijos;
+      this.modificarEsposa(amante);
+      this.modificarPersonajeActivo();
+      // this.pj.esposa = null;
+
+
+    }else if(dado == 12){
+
+      console.log("EL HIJO VIVE PERO LA MUJER MUERE DURANTE EL PARTO");
+      this.resultadoHijos = "El hijo vive pero tu mujer muere durante el parto";
+      this.characterService.currentActiveChar.isMarried = 0;
+      amante.char_status = 0;
+      this.wife.role = "Amante (muerta)";
+      // this.pj.esposa = null;
+
+      if (dadoHijo % 2 == 0){
+        this.datosBirth.sexoHijo = "Hombre";
+      }else{
+        this.datosBirth.sexoHijo = "Mujer";
+      }
+      this.datosBirth.resultado = this.resultadoHijos;
+      this.modificarEsposa(amante);
+      this.modificarPersonajeActivo();
+      
+      
+    }else{
+
+      console.log("NACE UN HIJO");
+      this.resultadoHijos = "Nace un hijo";
+      this.datosBirth.resultado = this.resultadoHijos;
+      
+    }
+
     this.isHide = false;
    }
 
+   //AQUI ESPOSA
    public calcularNacimientosEsposa(){
 
       let dado = Math.floor((Math.random() * 20) + 1);
       let dadoHijo = Math.floor((Math.random() * 6) + 1);
+      let modificadorMadre;
+      console.log("DADOS ANTES DE MODIFICAR: " + dado);
+      
 
-      if (dado > 0 && dado <=10){
+      if(this.wife.age > 30){
+        modificadorMadre = this.wife.age - 30;
+        this.datosBirth.modificadorMadre = modificadorMadre;
+      }
+
+      dado = (dado - modificadorMadre) + this.circunstanciaEconomica;
+      if(dado <= 0){
+        dado = 0;
+      }
+      console.log("DADOS: " + dado);
+      
+      
+      
+
+      if (dado <= 10){
       
         console.log("NINGUN HIJO");
         this.resultadoHijos = "No has tenido ningun hijo";
+        this.datosBirth.resultado = this.resultadoHijos;
         
   
       }else if(dado == 11){
@@ -194,7 +237,10 @@ export class WinterPhase6bComponent {
         this.resultadoHijos = "Tu mujer y tu hijo mueren durante el parto";
         this.characterService.currentActiveChar.isMarried = 0;
         this.wife.char_status = 0;
-        this.wife.role = "Esposa (muerta)"
+        this.wife.role = "Esposa (muerta)";
+        this.datosBirth.resultado = this.resultadoHijos;
+        this.modificarEsposa();
+        this.modificarPersonajeActivo();
         // this.pj.esposa = null;
 
   
@@ -204,6 +250,7 @@ export class WinterPhase6bComponent {
         this.resultadoHijos = "El hijo vive pero tu mujer muere durante el parto";
         this.characterService.currentActiveChar.isMarried = 0;
         this.wife.char_status = 0;
+        this.wife.role = "Esposa (muerta)";
         // this.pj.esposa = null;
 
         if (dadoHijo % 2 == 0){
@@ -211,23 +258,68 @@ export class WinterPhase6bComponent {
         }else{
           this.sexoHijo = "Mujer";
         }
+        this.datosBirth.sexoHijo = this.sexoHijo;
+        this.datosBirth.resultado = this.resultadoHijos;
+        this.modificarEsposa();
+        this.modificarPersonajeActivo();
         
         
-      }else if(dado == 13){
-        
-        console.log("NACEN GEMELOS");
-        this.resultadoHijos = "Nacen gemelos";
-        
-  
       }else{
   
         console.log("NACE UN HIJO");
         this.resultadoHijos = "Nace un hijo";
+        this.datosBirth.resultado = this.resultadoHijos;
         
       }
 
       this.isHide = false;
 
+   }
+
+   public modificarPersonajeActivo(){
+    
+    this.characterService.modifyCharacter(this.characterService.currentActiveChar)
+      .subscribe((data : any) => {
+        console.log(data);
+        
+      })
+   }
+
+   public modificarEsposa(amante : Character = null){
+    
+    if(amante == null){
+      for(let i = 0; i < this.characterService.currentHouseCharsWinterPhase.length; i++) {
+      
+        if(this.characterService.currentHouseCharsWinterPhase[i].character_id == this.wife.character_id){
+          this.characterService.currentHouseCharsWinterPhase[i].char_status = this.wife.char_status;
+          this.characterService.currentHouseCharsWinterPhase[i].role = this.wife.role;
+  
+        }
+      }
+      this.characterService.modifyCharacter(this.wife)
+    .subscribe((data : any) => {
+      console.log(data);
+      
+    })
+    }else{
+      for(let i = 0; i < this.characterService.currentHouseCharsWinterPhase.length; i++) {
+      
+        if(this.characterService.currentHouseCharsWinterPhase[i].character_id == amante.character_id){
+          this.characterService.currentHouseCharsWinterPhase[i].char_status = amante.char_status;
+          this.characterService.currentHouseCharsWinterPhase[i].role = amante.role;
+  
+        }
+      }
+      this.characterService.modifyCharacter(amante)
+    .subscribe((data : any) => {
+      console.log(data);
+      
+    })
+    }
+    
+   }
+   public cerrarModal(hide : boolean){
+    this.isHide = hide;
    }
   
 }
