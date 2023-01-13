@@ -50,10 +50,10 @@ export class HeaderComponent {
     this.houseService.currentPlayer = null;
 
     this.characterService.allCharactersOfCampaign = [];
-    this.characterService.currentHouseCharsWinterPhase = null;
+    this.characterService.currentHouseCharsWinterPhase = [];
     this.characterService.currentActiveChar = null;
     this.characterService.currentHouse = null;
-    this.characterService.currentHouseChars = null;
+    this.characterService.currentHouseChars = [];
     this.characterService.mainCharacters = [];
 
     this.yearService.yearsOfCampaign = [];
@@ -80,11 +80,11 @@ export class HeaderComponent {
     this.houseService.currentPlayer = null;
 
     this.characterService.allCharactersOfCampaign = [];
-    this.characterService.currentHouseCharsWinterPhase = null;
+    this.characterService.currentHouseCharsWinterPhase = [];
     this.characterService.currentActiveChar = null;
     this.characterService.currentHouse = null;
-    this.characterService.currentHouseChars = null;
-    this.characterService.mainCharacters = null;
+    this.characterService.currentHouseChars = [];
+    this.characterService.mainCharacters = [];
 
     this.yearService.yearsOfCampaign = [];
     this.yearService.currentYear = null;
