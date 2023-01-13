@@ -67,8 +67,8 @@
     width: 70%;
     height: 12%;
     flex-wrap: wrap;
+    padding-right: 1%;
    /*  border:3px solid green;   */
-    padding-left: 2%;
 }
 
     .header span{
@@ -79,8 +79,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-   /*  padding-left: 2%; */
-  /*   gap:3%; */
+/*  padding-left: 2%; */
+/*   gap:3%; */
     width: 70%;
     height: 8%;
     flex-wrap: wrap;
@@ -161,7 +161,7 @@
 .zonaA_b{
 
     width: 100%;
-    height: 95%;
+    height: 100%;
     flex-direction: row;
     /* border:  4px solid white; */
 
@@ -331,6 +331,7 @@
         }
 
     button:hover{
+        border: 1px solid var(--font-color-hover);
         color: var(--font-color-hover);
         cursor: pointer;
     }
@@ -342,6 +343,11 @@
         cursor:default;
         width: 80%;
         height:90%;
+    }
+    .small_button :hover{
+        border: 1px solid var(--font-color-hover);
+        color: var(--font-color-hover);
+        cursor: pointer;
     }
 
     .buttons{/*  */

@@ -16,7 +16,7 @@
     .modalContain{
         width: 60%;
         height: 70%;
-        /* border: 2px solid red; */
+       /*  border: 2px solid red; */
         position: absolute;
         top: 15%;
 
@@ -35,14 +35,26 @@
             background-color: var(--background-color-input);
             height:10%;
             width: 80%;
-            border-radius: 0.3rem;
+            border-radius: 4px;
             font-size: larger;
             text-align: center;
+            border:none;
+            text-decoration: none;
         }
         .small_button{
             background-color: var(--font-color-h);
-            font-size: large;
+            color: var(--font-color-hover);
+            font-weight: bold;
+            font-size: 1.3rem;
             border: none;
-            border-radius: 3px;
-            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 6px;
+            height:10%;
+            width: 28%;
+            /* padding: 5px 10px; */
+        }
+        .small_button:hover{
+            border: 1px solid var(--font-color-hover);
+            color: var(--font-color-hover);
+            cursor: pointer;
         }
