@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Campaign } from 'src/app/models/campaign';
 import { CampaignService } from 'src/app/shared/campaign.service';
 import { Router } from '@angular/router';
 import { ThisReceiver } from '@angular/compiler';
+import { ModifierFlags } from 'typescript';
 
 @Component({
   selector: 'app-campaing-confirmdelete',
@@ -12,14 +13,20 @@ import { ThisReceiver } from '@angular/compiler';
 
 export class CampaingConfirmdeleteComponent {
 
-  public modal: any;
+/* @Output()borrarCampana: new EventEmitter<Boolean>(); */
 
+public hiddenModal_confirmacion: boolean;
 
   constructor(public campaignService:CampaignService, private router:Router){
 
-
+  
   }
- public cerrarModal(){
+  public cerrarModal_confirmacion(){
+
+    this.hiddenModal_confirmacion = true;
+ }
+}
+ /*  public cerrarModal(){
     this.modal.close()
     this.router.navigateByUrl("/campaings")
  
@@ -33,7 +40,4 @@ export class CampaingConfirmdeleteComponent {
     }
   }
 
-  }
- 
-
-
+  }*/

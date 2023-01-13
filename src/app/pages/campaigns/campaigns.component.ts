@@ -125,10 +125,7 @@ public deleteCampaign(campaign_id:number){
     if(this.campaignsOfUser[i].campaign_id == campaign_id){
     
     }
-
-
   }
-
   this.campaignService.deleteCampaign(campaign_id).subscribe((data:any)=>{
     // this.campaignsOfUser=data;//para pasar de nuevo el array por pantalla
     console.log("Dentro del suscribe");
@@ -155,13 +152,14 @@ public deleteCampaign(campaign_id:number){
       }
   })
   }
+  /* estas maravilllas son de irene full stack developed */
   public abrirModal_confirmacion(){
 
-    return this.hiddenModal_confirmacion = false;
+     this.hiddenModal_confirmacion = false;
   }
   public cerrarModal_confirmacion(){
 
-    return this.hiddenModal_confirmacion = true;
+     this.hiddenModal_confirmacion = true;
   }
 
   //Función nueva

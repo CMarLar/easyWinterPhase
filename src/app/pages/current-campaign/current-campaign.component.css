@@ -13,28 +13,6 @@
     /* border: 2px solid rgb(175, 19, 19); */
 }
 
-/* .profile_pic{
-    position: absolute;
-    top: 12%;
-    right: 10%;
-    width: auto;
-    height: auto;
-    border: 5px solid yellowgreen; 
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    background-image: url(../../../assets/img/lacre1.png);
-    background-size:cover;
-} */
-
-/* .profile_pic img{
-    margin-left: 5px;
-    border-radius: 100%;
-    width: 100px;
-    height: 100px;
-} */
-
 .supercontainer{
     display: flex;
     flex-direction: column;
@@ -45,27 +23,24 @@
     background-size:cover;
     background-repeat: no-repeat;
     /* padding-bottom: 5vh; */
-  /*   border: 5px solid blue; */
+   /*  border: 5px solid blue;  */
 }
 .maincontainer{
     display: flex;
     flex-direction: row;
-    /* border: 5px solid rgb(255, 0, 144); */ 
+   /*  border: 5px solid rgb(0, 72, 255);  */
     height: 65%;
     width: auto;
     padding-top: 3%;
 
 
 }
-
 .page_title{
     color: var(--font-color-hover);
     -webkit-text-stroke: 2px var(--font-color-h);
    /*  text-decoration: line-through; */
     font-size: 4.5rem;
-  /*   border: 2px solid rgb(255, 0, 230); */
     font-weight: bold;
-
    /*  border: 5px solid rgb(243, 9, 146);  */
    
 }
@@ -74,9 +49,8 @@
     color: var(--font-color-warnings);
     font-size: 2rem;
     font-weight: bold;
-    justify-self: flex-end;
-    padding-left: 25%;
-   /*  border: 5px solid rgb(255, 0, 144);  */
+    justify-self: center;
+   /*  border: 5px solid rgb(255, 0, 144);   */
 }
 
 
@@ -133,7 +107,6 @@
         flex-direction: column;
         justify-content: space-evenly;
         width: 90%;
-
         /* border:2px solid white; */
     }
 
@@ -333,9 +306,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
-    /*  border: 2px solid rgb(119, 0, 128);  */
-     align-items: center;
+   /*  border: 2px solid rgb(119, 0, 128);   */
+    align-items: center;
 }
 
 .title{
@@ -345,7 +317,7 @@
     width: 60%;
     height: 100%;
 
-    /* border: 5px solid rgb(136, 165, 42);  */
+   /*  border: 5px solid rgb(136, 165, 42);  */
 }
 
 .image_left{
@@ -471,8 +443,6 @@
     padding-left: 5%;
     padding-top:3%;
     padding-bottom:3%;
-    
-
 }
 
 .buttons{    
@@ -515,6 +485,12 @@
         }
 
     button:hover{
+        border: 1px solid var(--font-color-hover);
+        color: var(--font-color-hover);
+        cursor: pointer;
+    }
+    .small_button :hover{
+        border: 1px solid var(--font-color-hover);
         color: var(--font-color-hover);
         cursor: pointer;
     }
@@ -524,6 +500,7 @@
         color:black;
         cursor:default
     }
+
 
 input{
     background-color: var(--background-color-input);
