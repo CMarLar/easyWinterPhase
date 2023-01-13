@@ -290,7 +290,35 @@
              background-color:var( --backgoud-color-button);
            /*   border:  4px solid rgb(234, 61, 8);  */
             
+
         }
+
+        .small_button{
+            background-color: var(--font-color-h);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            width: 10%;
+            height: 40%;
+            margin-top: 1.5%;
+            border-radius: 8px;
+            /* padding: 5px 10px; */
+        }
+
+        .small_button:hover{
+            background-color: var(--font-color-h);
+            color:var(--font-color-hover);
+            font-size: 1.2rem;
+            font-weight: bold;
+            width: 10%;
+            height: 40%;
+            margin-top: 1.5%;
+            border-radius: 8px;
+            cursor:pointer;
+            /* padding: 5px 10px; */
+        }
+
+
         .boton:hover{
 
             border: 1px solid var(--font-color-hover);
