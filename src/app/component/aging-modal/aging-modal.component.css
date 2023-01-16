@@ -40,3 +40,23 @@
     .sinPerdida{
         text-align: center;
     }
+
+    .small_button{
+        background-color: var(--font-color-h);
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 8px;
+        color: var(--font-color-hover);
+        border: none;
+        text-decoration: none;
+        width: 90%;
+        height: 60%;
+    }
+
+    .close_button_continer{
+        display: flex;
+        direction: row;
+        justify-content: center;
+        align-items: center;
+        /* border: 2px solid red; */
+    }
