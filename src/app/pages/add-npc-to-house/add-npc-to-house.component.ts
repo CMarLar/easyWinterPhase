@@ -406,6 +406,22 @@ export class AddNpcToHouseComponent {
         this.houseService.currentHouse.economyLevels,
         this.houseService.currentHouse.house_id
         )).subscribe((data)=>{
+
+          for (let i = 0; i < this.houseService.housesOfCamapaign.length; i++) {
+
+            if(this.houseService.currentHouse.house_id == this.houseService.housesOfCamapaign[i].house_id){
+        
+              this.houseService.housesOfCamapaign[i].house_name = this.houseService.currentHouse.house_name;
+              this.houseService.housesOfCamapaign[i].activeChar = this.houseService.currentHouse.activeChar;
+              this.houseService.housesOfCamapaign[i].holding_name = this.houseService.currentHouse.holding_name;
+              this.houseService.housesOfCamapaign[i].familyCharacteristic = this.houseService.currentHouse.familyCharacteristic;
+              this.houseService.housesOfCamapaign[i].shield = this.houseService.currentHouse.shield;
+              this.houseService.housesOfCamapaign[i].economyLevels = this.houseService.currentHouse.economyLevels;
+            }
+        
+            // console.log("houseService.housesOfCampaign con la nueva casa: " + JSON.stringify(this.houseService.housesOfCamapaign));
+        
+          }
       
           console.log("ActiveChar antes del cambio al front" + this.houseService.currentHouse.activeChar);
           
@@ -419,8 +435,11 @@ export class AddNpcToHouseComponent {
 
           console.log("houseService.currentHouse al volver a createhouse" + JSON.stringify(this.houseService.currentHouse));
 
-          this.router.navigateByUrl("/createhouse");
-
+          if(this.houseService.backToCurrentCampaign == true){
+            this.router.navigateByUrl("/currentcampaign");
+          }else{
+            this.router.navigateByUrl("/housesmanagement");
+          }
         })
   }
 

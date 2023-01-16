@@ -9,7 +9,7 @@
 <div class="maincontainer">
     <div class="left">
         <div *ngIf="houseService.modifyLayout; else playerchars">
-        <form #activeCharForm = "ngForm" (ngSubmit) = "submitActiveChar(activeCharForm)">
+        <!-- <form #activeCharForm = "ngForm" (ngSubmit) = "submitActiveChar(activeCharForm)">
             <div class="choose_new_character">
                 <label class="texto">Elije un nuevo PJ</label>
                 <select name="new_character" [(ngModel)]="actualHouse.activeChar">
@@ -17,7 +17,7 @@
                 </select><br>
                 <button class="small_button">Ok</button>
             </div>
-        </form>
+        </form> -->
         </div>
 
         <ng-template #playerchars>

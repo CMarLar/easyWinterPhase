@@ -54,8 +54,8 @@
                                         <!-- <button class="boton2" (click)="envejecimientoAutomatico()"> AUTO </button> -->
 
                                         <p class="frase2">- Si un personaje tiene una característica en 3 o menos, debes retirarlo.<br>
-                                        -Si un personaje tiene una característica en 0, el personaje ha muerto.<br></p>
-                                        <div *ngIf="escudero_personaje.age >= 21">
+                                        -Si un personaje tiene una característica en 0, el personaje ha muerto.</p>
+                                        <div class="squire_old" *ngIf="escudero_personaje.age >= 21" >
                                             <p>La edad de tu escudero es: 21 años. Ya es mayor de edad, así que necesitas un nuevo escudero de 15 años:</p>
                                             <p class="colorNombre">Nombre: <span><input class="input" #valor></span></p>
                                             <button class="small_button" [disabled]="makeNewSquire" (click)="nuevoEscudero(valor.value)" >Ok</button>

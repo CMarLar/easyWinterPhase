@@ -391,19 +391,13 @@ public goBack(){
 
     // console.log("houseService.housesOfCampaign con la nueva casa: " + JSON.stringify(this.houseService.housesOfCamapaign));
 
-    if(this.houseService.backToCurrentCampaign == true){
-      this.router.navigateByUrl("/currentcampaign");
-    }else{
-      this.router.navigateByUrl("/housesmanagement");
-    }
-
-
-
-    
-
   }
 
-
+  if(this.houseService.backToCurrentCampaign == true){
+    this.router.navigateByUrl("/currentcampaign");
+  }else{
+    this.router.navigateByUrl("/housesmanagement");
+  }
 
 }
 
