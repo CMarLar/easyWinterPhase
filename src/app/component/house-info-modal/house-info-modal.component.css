@@ -16,8 +16,8 @@
     }
     .modalContain{
         width: 60%;
-        height: 80%;
-    /*     border: 2px solid black; */
+        height: 70%;
+       /*  border: 2px solid black;  */
         position: absolute;
        /*  top: 14%; */
 
@@ -29,6 +29,7 @@
     }
     .nombreCasa{
         font-size: 2rem;
+        font-weight: bold;
         color: var(--font-color-h);
         text-align: center;
         margin-top: 2%;
@@ -58,24 +59,36 @@
         font-size: 0.9rem;
         text-align: center;
     }
-        .small_button{
-            background-color: var(--font-color-h);
-            font-size: large;
-            border: none;
-            border-radius: 3px;
-            padding: 5px 10px;
-        }
+    .button{
+        background-color: var(--font-color-h);
+        color: var(--font-color-hover);
+        font-weight: bold;
+        font-size: 1rem;
+        border: none;
+        text-decoration: none;
+        border-radius: 6px;
+        height: 100%;
+        width: 110%;
+        /* padding: 5px 10px; */
+    }
+    .button:hover{
+        border: 1px solid var(--font-color-hover);
+        color: var(--font-color-hover);
+        cursor: pointer;
+    }
     .infoContain{
        /*  border: 2px solid red; */
         width: 100%;
         height: 50%;
+        padding-top: 2%;
 
         display: flex;
         flex-direction: column;
         align-items: center;
     }
     .infoContain img{
-        width: 30%;
+        width: auto;
+        height: 30%;
         /* height: 40%; */
         /* border: 2px solid red; */
     }

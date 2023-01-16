@@ -136,8 +136,8 @@
             .notas{
                 color: var( --font-color-hover);
                 font-weight: bold;
-                font-size:1rem;
-                margin-block-end: 1%;
+                font-size: 1.5em;
+                margin: 4%;
             }
             .texto{
             
@@ -551,11 +551,12 @@ h3{
 }
 
 textarea{
-    color: rgb(255, 255, 255);
+    color: var(--font-color-hover);
     background-color: var(--background-color-input);
     opacity: 60%;
-    padding-left: 1%;
-    font-size: medium;
+    padding-left: 3%;
+    padding-top: 3%;
+    font-size: 1rem;;
     resize: none;
 }
 

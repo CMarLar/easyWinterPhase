@@ -1,8 +1,8 @@
 .modal{
     width: 30vw;
-    height: 40vh;
+    height: 55vh;
     background-size: cover;
-    /* border: 2px solid red; */
+  /*   border: 2px solid red; */
     position: relative;
     
     display: flex;
@@ -17,21 +17,22 @@
     .modalContain{
         width: 60%;
         height: 60%;
-        /* border: 2px solid black; */
+       /*  border: 2px solid black;  */ 
         position: absolute;
         top: 20%;
-
         display: flex;
         flex-direction: column;
-        align-items: center;
         justify-content: center;
-        gap: 10%;
+        align-items: center;
     }
     .modal p{
+        margin: 2%;
         text-align: center;
+       /*  border: 2px solid rgb(236, 5, 5); */
     }
     .span{
         color: var(--font-color-warnings);
+       /*  border: 2px solid rgb(5, 209, 236); */
     }
     .text{
         font-weight: bold;
@@ -39,4 +40,33 @@
     }
     .sinPerdida{
         text-align: center;
+       /*  border: 2px solid rgb(236, 5, 101); */
+    }
+    .cerrar{
+        justify-content: center;
+        text-align: center;
+        margin: 2%;
+        width: 100%;
+        height: 20%;
+      /*   border: 2px solid rgb(236, 5, 101); */
+    }
+    .boton{
+        justify-content: center;
+        text-align: center;
+        background-color: var(--font-color-h);
+        color: var(--font-color-hover);
+        font-weight: bolder;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 6px;
+        width: 60%;
+        height: 150%;
+
+    }
+
+    .boton:hover{
+
+        border: 1px solid var(--font-color-hover);
+        color: var(--font-color-hover);
+        cursor: pointer;
     }
