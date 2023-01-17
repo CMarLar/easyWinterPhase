@@ -259,11 +259,11 @@ export class WinterPhase6bComponent {
         // this.pj.esposa = null;
 
         if (dadoHijo % 2 == 0){
-          this.sexoHijo = "Hombre";
+          this.datosBirth.sexoHijo = "Hombre";
         }else{
-          this.sexoHijo = "Mujer";
+          this.datosBirth.sexoHijo = "Mujer";
         }
-        this.datosBirth.sexoHijo = this.sexoHijo;
+        // this.datosBirth.sexoHijo = this.sexoHijo;
         this.datosBirth.resultado = this.resultadoHijos;
         this.modificarEsposa();
         this.modificarPersonajeActivo();
@@ -271,12 +271,19 @@ export class WinterPhase6bComponent {
         
       }else{
   
+        if (dadoHijo % 2 == 0){
+          this.datosBirth.sexoHijo = "Hombre";
+        }else{
+          this.datosBirth.sexoHijo = "Mujer";
+        }
+        
         console.log("NACE UN HIJO");
         this.resultadoHijos = "Nace un hijo";
         this.datosBirth.resultado = this.resultadoHijos;
         
       }
-
+      console.log(JSON.stringify(this.datosBirth.sexoHijo));
+      
       this.isHide = false;
 
    }
