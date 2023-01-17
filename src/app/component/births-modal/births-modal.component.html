@@ -26,10 +26,10 @@
             <p>Resultado: </p>
             <p>Su esposa ha muerto</p>
             <div *ngIf="personajePadre.sexoHijo == 'Hombre';else ninia">
-                Ha nacido un niño.
+                Ha nacido un {{personajePadre.sexoHijo}}
             </div>
-            <ng-template>
-                Ha nacido una niña.
+            <ng-template #ninia>
+                Ha nacido una {{personajePadre.sexoHijo}}
             </ng-template>
                 <input type="text" placeholder="Introduce su nombre" #nombreA>
         
@@ -40,9 +40,8 @@
         </div>
         <div *ngIf="personajePadre.resultado == 'Nace un hijo'">
             <p>Resultado: </p>
-            <p>Ha nacido un/una 
-                <span *ngIf="personajePadre.sexoHijo == 'Hombre'">niño.</span>
-                <span *ngIf="personajePadre.sexoHijo == 'Mujer'">niña.</span></p>
+            <p *ngIf="personajePadre.sexoHijo == 'Hombre'">Ha nacido un niño.</p>
+            <p *ngIf="personajePadre.sexoHijo == 'Mujer'">Ha nacido una niña.</p>
                 <input type="text" placeholder="Introduce su nombre" #nombreB>
         
             <button class="plumaButton" (click)="modal(nombreB.value)">

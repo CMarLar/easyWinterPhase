@@ -114,7 +114,7 @@ export class MarriageCourtesyModalComponent {
 
       dadoHija = Math.floor((Math.random() * 6) + 1);
       dadoHermanos = Math.floor((Math.random() * 6) + 1);
-      this.rol = "Hija " + dadoHija + "/" + dadoHermanos + " de caballero vasallo";
+      this.rol = "Hija " + dadoHija + " de " + dadoHermanos + "hermanos de caballero vasallo";
       this.gloria = 100;
       this.libras = "1d6 £";
 
