@@ -47,6 +47,7 @@
                                             <option class="select" value=""[selected]="">SELECCIONA PNJ</option>
                                                 <option value="{{npc.char_name}}" *ngFor="let npc of nombres_personajes">{{npc.char_name}} {{npc.age}}</option>
                                         </select></span><span> <button class="boton2" (click)="envejecimientoAutomatico()"> AUTO </button></span></p>
+                                        <P class="frase3" style="color: var(--backgoud-color-button);">El envejecimiento automático es para persojajes mayores de 34 años.</P>
                                         <!-- <select class="select" name="" id="">
                                             <option class="input" value=""[selected]="">SELECCIONA PNJ</option>
                                                 <option value="{{npc.nombre}}" *ngFor="let npc of pnj">{{npc.nombre}} {{npc.edad + 1}}</option>
