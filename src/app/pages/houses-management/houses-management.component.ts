@@ -136,7 +136,7 @@ export class HousesManagementComponent {
 
       if(form.value[values] != undefined){
 
-        this.yearService.currentYear = new Year (null,parseInt(form.value[values]),1,1,"EJEMPLO DE NOTAS",this.campaignService.currentCampaign.campaign_id);
+        this.yearService.currentYear = new Year (null,parseInt(form.value[values]),1,1,"",this.campaignService.currentCampaign.campaign_id);
         this.yearService.yearsOfCampaign.push(this.yearService.currentYear);
         
         
