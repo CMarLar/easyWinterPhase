@@ -295,7 +295,7 @@
 
         .small_button{
             background-color: var(--font-color-h);
-            color: white;
+            color: var(--font-color-hover);
             font-size: 1.2rem;
             font-weight: bold;
             width: 10%;
@@ -329,7 +329,7 @@
          .boton2{
 
              width: 150%;
-             height: 100%;
+             height: 110%;
           /*    justify-content: flex-end; */
              color: var(--font-color-hover);
              background-color:var( --backgoud-color-button);
