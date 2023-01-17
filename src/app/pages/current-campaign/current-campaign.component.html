@@ -51,7 +51,7 @@
                     <span class="span3"(click)="showModalHouse(houseService.housesOfCamapaign[0].house_id)">{{houseService.housesOfCamapaign[0].house_name}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
-                            <img (click)="goCreateHouse()"src="../../../assets/img/PLUMA.png">
+                            <img (click)="goCreateHouse(notas.value,playerService.playersOfCampaign[0],houseService.housesOfCamapaign[0])"src="../../../assets/img/PLUMA.png">
                         </div>
                     </span>
                 </div>
@@ -62,7 +62,7 @@
                     <span class="span3"(click)="showModalHouse(houseService.housesOfCamapaign[1].house_id)">{{houseService.housesOfCamapaign[1].house_name}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
-                            <img (click)="goCreateHouse()" src="../../../assets/img/PLUMA.png">
+                            <img (click)="goCreateHouse(notas.value)" src="../../../assets/img/PLUMA.png">
                         </div>
                     </span>
                 </div>
@@ -73,7 +73,7 @@
                     <span class="span3"(click)="showModalHouse(houseService.housesOfCamapaign[2].house_id)">{{houseService.housesOfCamapaign[2].house_name}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
-                            <img (click)="goCreateHouse()" src="../../../assets/img/PLUMA.png">
+                            <img (click)="goCreateHouse(notas.value)" src="../../../assets/img/PLUMA.png">
                         </div>
                     </span>
                 </div>
@@ -84,7 +84,7 @@
                     <span class="span3"(click)="showModalHouse(houseService.housesOfCamapaign[3].house_id)">{{houseService.housesOfCamapaign[3].house_name}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
-                            <img (click)="goCreateHouse()" src="../../../assets/img/PLUMA.png">
+                            <img (click)="goCreateHouse(notas.value)" src="../../../assets/img/PLUMA.png">
                         </div>
                     </span>
                 </div>
@@ -95,7 +95,7 @@
                     <span class="span3"(click)="showModalHouse(houseService.housesOfCamapaign[4].house_id)">{{houseService.housesOfCamapaign[4].house_name}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
-                            <img (click)="goCreateHouse()" src="../../../assets/img/PLUMA.png">
+                            <img (click)="goCreateHouse(notas.value)" src="../../../assets/img/PLUMA.png">
                         </div>
                     </span>
                 </div>
@@ -106,7 +106,7 @@
                     <span class="span3"(click)="showModalHouse(houseService.housesOfCamapaign[5].house_id)">{{houseService.housesOfCamapaign[5].house_name}}</span>
                     <span class="editarIcon" style="width: 6%;">                    
                         <div class="editchar">
-                            <img (click)="goCreateHouse()" src="../../../assets/img/PLUMA.png">
+                            <img (click)="goCreateHouse(notas.value)" src="../../../assets/img/PLUMA.png">
                         </div>
                     </span>
                 </div>
@@ -115,7 +115,7 @@
 
             <ng-template #emptyPlayer>
                 <div class="emptycharacter" style="background-color: rgb(130, 23, 25,0.6);">
-                    <span (click)="goNewPlayer()">AÑADIR NUEVO JUGADOR</span>
+                    <span (click)="goNewPlayer(notas.value)">AÑADIR NUEVO JUGADOR</span>
                 </div>
             </ng-template>
 

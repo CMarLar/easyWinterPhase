@@ -54,7 +54,7 @@ export class CurrentCampaignComponent {
       if(this.userService.logueado==false){
         this.router.navigateByUrl("/login");
       }
-
+      console.log("ESTAS SON LAS NOTAS AL CARGAR CURRENTCAMPAIGN: " + this.yearService.currentYear.notes);
       console.log("houseService.housesOfCampaign: " + JSON.stringify(this.houseService.housesOfCamapaign));
 
       this.characters = [];
@@ -123,14 +123,41 @@ export class CurrentCampaignComponent {
       })
     }
 
-    public goNewPlayer(){
+    public goNewPlayer(notas : string){
       this.router.navigateByUrl("/addplayers");
+
+      this.yearService.currentYear.notes = notas;
+      this.yearService.putYear(this.yearService.currentYear)
+      .subscribe((data : any) => {
+        console.log(data);
+        
+      })
     }
 
-    public goCreateHouse(){
+    public goCreateHouse(notas : string, pj : Player, house : House){
       this.houseService.backToCurrentCampaign = true;
       this.houseService.modifyLayout = true;
-      this.router.navigateByUrl("/createhouse")
+      console.log("ESTAS SON LAS NOTAS DEL TEXT AREA: " + notas);
+      
+      console.log("ESTAS SON LAS NOTAS DE CURRENT YEAR QUE PASA EL TEXT AREA: " + this.yearService.currentYear.notes);
+      
+      this.playerService.currentPlayer = pj;
+      this.houseService.currentHouse = house;
+      this.yearService.currentYear.notes = notas;
+      this.yearService.putYear(this.yearService.currentYear)
+      .subscribe((data : any) => {
+        console.log(data);
+        
+      })
+      this.characterService.getCharacters(house.house_id)
+      .subscribe((data : Character[]) => {
+        this.characterService.currentHouseChars = [];
+        for (let i = 0; i < data.length; i++){
+          this.characterService.currentHouseChars.push(data[i]);
+        }
+        this.router.navigateByUrl("/createhouse");
+      })
+      
     }
 
 
