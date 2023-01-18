@@ -16,7 +16,7 @@ export class UserService {
   }
 
   public register(user : User){
-    this.url = "https://easy-winter-phase.vercel.app/register";
+    this.url = "https://api-easy-winter-phase.vercel.app/register";
     
     return this.http.post(this.url,user);
   }
@@ -27,7 +27,7 @@ export class UserService {
   }
 
   public update(user : User){
-    this.url = "https://easy-winter-phase.vercel.app/modifyprofile";
+    this.url = "https://api-easy-winter-phase.vercel.app/modifyprofile";
     return this.http.put(this.url,user)
   }
 }

@@ -12,7 +12,7 @@ export class TextService {
     throw new Error('Method not implemented.');
   }
 
-  private url = "https://easy-winter-phase.vercel.app/phase1"
+  private url = "https://api-easy-winter-phase.vercel.app/phase1"
 
    public textos : Text[];
 

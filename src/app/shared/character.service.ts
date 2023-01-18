@@ -10,7 +10,7 @@ import { Year } from '../models/year';
 })
 export class CharacterService {
 
-  private url:string = "https://easy-winter-phase.vercel.app/";
+  private url:string = "https://api-easy-winter-phase.vercel.app/";
 
   public currentActiveChar:Character;//llama a active char
   public currentHouse:House;//llama a la casa activa
@@ -36,7 +36,7 @@ export class CharacterService {
   }
 
   public newCharacter(character:Character){
-    this.url = "https://easy-winter-phase.vercel.app/createhouse"
+    this.url = "https://api-easy-winter-phase.vercel.app/createhouse"
     return this.http.post(this.url,character)//habría que cambiar esto al formato de arriba
   
   }
@@ -46,14 +46,14 @@ export class CharacterService {
 
     let houseId = house_id;
     
-    this.url = "https://easy-winter-phase.vercel.app/"
+    this.url = "https://api-easy-winter-phase.vercel.app/"
     return this.http.get(this.url + "addnpc?house_id=" + houseId)
   }
 
 /* irene // EL BACK FUNSSIONA */ //mostrar los personajes mayores de 15 años de la casa
 public getCharactersNames(house_id: number, year_id: number){
 
-  this.url = "https://easy-winter-phase.vercel.app/phase7"
+  this.url = "https://api-easy-winter-phase.vercel.app/phase7"
   return this.http.get(this.url + "?house_id=" + house_id + "&year_id=" + year_id)
 }
 /*  */
@@ -61,7 +61,7 @@ public getCharactersNames(house_id: number, year_id: number){
 
     console.log("LLEGA ESTO: " + house_id + " Y " + year_id);
     
-    this.url = "https://easy-winter-phase.vercel.app/"
+    this.url = "https://api-easy-winter-phase.vercel.app/"
     return this.http.get(this.url + "currentcampaignCharacterByYear?house_id=" + house_id + "&year_id=" + year_id)
   }
 
@@ -70,7 +70,7 @@ public getCharactersNames(house_id: number, year_id: number){
 
     let id = character_id;
 
-    this.url = "https://easy-winter-phase.vercel.app/"
+    this.url = "https://api-easy-winter-phase.vercel.app/"
     
     const httpOptions = {header:null, body: {character_id}}
 
@@ -82,7 +82,7 @@ public getCharactersNames(house_id: number, year_id: number){
 
     let id = house_id;
 
-    this.url = "https://easy-winter-phase.vercel.app/housemanagementDeleteHouse"
+    this.url = "https://api-easy-winter-phase.vercel.app/housemanagementDeleteHouse"
     
     const httpOptions = {header:null, body: {house_id}}
 
@@ -92,22 +92,15 @@ public getCharactersNames(house_id: number, year_id: number){
 
   public modifyCharacter (character:Character){
 
-    this.url = "https://easy-winter-phase.vercel.app/"
+    this.url = "https://api-easy-winter-phase.vercel.app/"
 
     return this.http.put(this.url + "addnpc", character)
   }
 
-  //MODIFICA VARIOS CHARACTER JUNTOS
-  // public putCharacters (characters : Character[]){
-
-  //   this.url = "https://easy-winter-phase.vercel.app/housemanagementCharacters"
-
-  //   return this.http.put(this.url, {"characters" : characters})
-  // }
   //CREA VARIOS CHARACTERS JUNTOS
   public postCharacters(characters : Character[]){
 
-    this.url = "https://easy-winter-phase.vercel.app/currentcampaignCharacter"
+    this.url = "https://api-easy-winter-phase.vercel.app/currentcampaignCharacter"
 
     return this.http.post(this.url, characters);
   }
@@ -115,13 +108,13 @@ public getCharactersNames(house_id: number, year_id: number){
   public getMainChar(character_id:number){
 
     let id = character_id;
-    this.url = "https://easy-winter-phase.vercel.app/"
+    this.url = "https://api-easy-winter-phase.vercel.app/"
     return this.http.get(this.url + "phase8?character_id=" + id)
   }
 
   public resetMarriageGlory (character:Character){
 
-    this.url = "https://easy-winter-phase.vercel.app/"
+    this.url = "https://api-easy-winter-phase.vercel.app/"
 
     return this.http.put(this.url + "phase9", character)
   }
@@ -131,7 +124,7 @@ public getCharactersNames(house_id: number, year_id: number){
     let houseId = house_id;
     let yearId = year_id;
     
-    this.url = "https://easy-winter-phase.vercel.app/"
+    this.url = "https://api-easy-winter-phase.vercel.app/"
     return this.http.get(this.url + "winterphasemain?house_id=" + houseId + "&year_id=" + yearId)
   }
 

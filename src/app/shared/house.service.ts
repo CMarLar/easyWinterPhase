@@ -29,13 +29,13 @@ export class HouseService {
   }
 
   public postHouse(house:House){
-    this.url = "https://easy-winter-phase.vercel.app/housesmanagement";
+    this.url = "https://api-easy-winter-phase.vercel.app/housesmanagement";
 
     return this.http.post(this.url,house);
   }
 
   public getHouse(house_id:number){
-    this.url = "https://easy-winter-phase.vercel.app/housesmanagement?house_id=" + house_id;
+    this.url = "https://api-easy-winter-phase.vercel.app/housesmanagement?house_id=" + house_id;
     console.log("House_id: " + house_id);
     
 
@@ -45,6 +45,7 @@ export class HouseService {
   public deleteHouse(house:House){
     let house_id = house.house_id;
 
+    this.url = "https://api-easy-winter-phase.vercel.app/housesmanagement"
   const httpOptions = {header : {"Content-type" : "application/json; charset= UTF-8"}, body : {"house_id" : house_id}}
 
   return this.http.delete(this.url,httpOptions);
@@ -53,14 +54,14 @@ export class HouseService {
 
   public updateHouse(house:House){
     // let house_id = house.house_id;
-    this.url = "https://easy-winter-phase.vercel.app/createhouse";
+    this.url = "https://api-easy-winter-phase.vercel.app/createhouse";
     return this.http.put(this.url,house)
 
   }
 
   public updateEconomyLevels(house:House){
     // let house_id = house.house_id;
-    this.url = "https://easy-winter-phase.vercel.app/phase4";
+    this.url = "https://api-easy-winter-phase.vercel.app/phase4";
     return this.http.put(this.url,house)
 
   }

@@ -20,7 +20,7 @@ export class YearService {
 
   public postYear(year : Year){
 
-    this.url = "https://easy-winter-phase.vercel.app/housesmanagementYear";
+    this.url = "https://api-easy-winter-phase.vercel.app/housesmanagementYear";
 
     return this.http.post(this.url,year);
   }
@@ -28,26 +28,26 @@ export class YearService {
   public getYears(campaign_id : number){
     console.log("QUE COJONES ES ESTO: " + campaign_id);
     
-    this.url = "https://easy-winter-phase.vercel.app/campaignsYears?campaign_id=" + campaign_id;
+    this.url = "https://api-easy-winter-phase.vercel.app/campaignsYears?campaign_id=" + campaign_id;
 
     return this.http.get(this.url)
   }
   
   public postPlayerYear(year : Year,players : Player[]){
 
-    this.url = "https://easy-winter-phase.vercel.app/housesmanagementPlayerYear";
+    this.url = "https://api-easy-winter-phase.vercel.app/housesmanagementPlayerYear";
     return this.http.post(this.url,{"year" : year, "players" : players});
   }
 
   public putYear(year : Year){
 
-    this.url = "https://easy-winter-phase.vercel.app/currentCampaignYear";
+    this.url = "https://api-easy-winter-phase.vercel.app/currentCampaignYear";
     return this.http.put(this.url,year);
   }
 
   public getYearByNumber(campaign_id : number, yearNumber : number){
 
-    this.url = "https://easy-winter-phase.vercel.app/currentcampaignYearNumber";
+    this.url = "https://api-easy-winter-phase.vercel.app/currentcampaignYearNumber";
     return this.http.get(this.url + "?campaign_id=" + campaign_id + "&yearNumber=" + yearNumber);
   }
 }
