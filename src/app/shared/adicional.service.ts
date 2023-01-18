@@ -10,31 +10,31 @@ import { CharacterService } from './character.service';
 })
 export class AdicionalService {
 
-  private url : string = "http://localhost:3000/";
+  private url : string = "https://easy-winter-phase.vercel.app/";
 
   constructor(private http : HttpClient) {
 
   }
 
   public getCampaignInfo(campaign_id : number){
-    this.url = "http://localhost:3000/";
+    this.url = "https://easy-winter-phase.vercel.app/";
     return this.http.get(this.url + "currentcampaignInfo?campaign_id=" + campaign_id);
   }
 
   public getYearInfo(campaign_id : number){
-    this.url = "http://localhost:3000/";
+    this.url = "https://easy-winter-phase.vercel.app/";
     return this.http.get(this.url + "currentcampaignYear?campaign_id=" + campaign_id);
   }
 
   public crearAñoPersonajes(year : Year,mainCharacters : Character[]){
 
-    this.url = "http://localhost:3000/currentcampaignToWinterPhase"
+    this.url = "https://easy-winter-phase.vercel.app/currentcampaignToWinterPhase"
     return this.http.post(this.url,{year,mainCharacters});
   }
 
   public getHouseAndCharacters(house_id : number, year_id : number){
 
-    this.url = "http://localhost:3000/modalInfoCasa";
+    this.url = "https://easy-winter-phase.vercel.app/modalInfoCasa";
 
     return this.http.get(this.url + "?house_id=" + house_id + "&year_id=" + year_id);
   }

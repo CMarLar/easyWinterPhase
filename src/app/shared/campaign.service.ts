@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';//los objetos HttpClient son l
 })
 export class CampaignService {
 
-  private url:string = "http://localhost:3000/"
+  private url:string = "https://easy-winter-phase.vercel.app/"
   //esto habrá que cambiarlo por lo de railway
 
   public campaigns: Campaign[];
@@ -29,7 +29,7 @@ export class CampaignService {
   public getCampaigns(user_id:number) {
     
     let id = user_id;
-    this.url = "http://localhost:3000/";
+    this.url = "https://easy-winter-phase.vercel.app/";
 
     return this.http.get(this.url + "campaigns?user_id=" + id)
 
@@ -40,7 +40,7 @@ export class CampaignService {
 public deleteCampaign(campaign_id:number) {
 
   let id = campaign_id;
-  this.url = "http://localhost:3000/";
+  this.url = "https://easy-winter-phase.vercel.app/";
 
   const httpOptions = {header:null, body: {campaign_id}}
 

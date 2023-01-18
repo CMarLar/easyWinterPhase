@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PlayerService {
 
-  private url:string = "http://localhost:3000/";
+  private url:string = "https://easy-winter-phase.vercel.app/";
   //esto habrá que cambiarlo por lo de railway
 
   public player: Player;//mételo como parámetro en post
@@ -28,7 +28,7 @@ export class PlayerService {
 
 
   public postPlayer(player:Player[]){
-    this.url = "http://localhost:3000/addplayers";
+    this.url = "https://easy-winter-phase.vercel.app/addplayers";
 
     return this.http.post(this.url,player);
   }
@@ -36,7 +36,7 @@ export class PlayerService {
   public getPlayers(player_id:number){  ///revisar que ENDPOINT PONER Y CAMBIAR BACK
     
     let id= player_id;
-    this.url = "http://localhost:3000/phases";
+    this.url = "https://easy-winter-phase.vercel.app/phases";
 
     return this.http.get(this.url + "?id=" + id);
   }
@@ -44,14 +44,14 @@ export class PlayerService {
   public getPlayersByCampaign(campaign_id:number){  ///revisar que ENDPOINT PONER Y CAMBIAR BACK
     
     let id= campaign_id;
-    this.url = "http://localhost:3000/campaignsPlayers";
+    this.url = "https://easy-winter-phase.vercel.app/campaignsPlayers";
 
     return this.http.get(this.url + "?campaign_id=" + id);
   }
   
 
   public putPlayer(player:Player){
-    this.url = "http://localhost:3000/housesmanagement";
+    this.url = "https://easy-winter-phase.vercel.app/housesmanagement";
     console.log("ESTE ES EL JUGADOR A MODIFICAR" + player);
     
 
@@ -59,7 +59,7 @@ export class PlayerService {
   }
   public putPlayers(player : Player){
 
-    this.url = "http://localhost:3000/currentcampaignPlayer";
+    this.url = "https://easy-winter-phase.vercel.app/currentcampaignPlayer";
     console.log("ESTE ES EL JUGADOR A MODIFICAR" + player);
     
 
@@ -69,7 +69,7 @@ export class PlayerService {
 
   public updateWinterPhaseMain(player : Player){//cambia el estado de winterphasemain del current player a 1
 
-    this.url = "http://localhost:3000/phase9";
+    this.url = "https://easy-winter-phase.vercel.app/phase9";
     console.log("ESTE ES EL JUGADOR A MODIFICAR" + player);
     
 
@@ -79,7 +79,7 @@ export class PlayerService {
 
   public winterPhaseMainReset(player : Player[]){//cambia el estado de winterphasemain del current player a 1. Se hace para todos los players.
 
-    this.url = "http://localhost:3000/winterphasemain";
+    this.url = "https://easy-winter-phase.vercel.app/winterphasemain";
     console.log("ESTE ES EL JUGADOR A MODIFICAR" + JSON.stringify(player));
     
 
