@@ -22,7 +22,7 @@ export class UserService {
   }
 
   public login(user : User){
-    this.url = "https://easy-winter-phase.vercel.app/login";
+    this.url = "https://api-easy-winter-phase.vercel.app/login";
     return this.http.post(this.url,user);
   }
 
