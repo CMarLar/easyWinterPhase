@@ -43,15 +43,15 @@ export class WinterPhase5Component {
       if(this.userService.logueado==false){
         this.router.navigateByUrl("/login");
       }
-    console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
-    console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
-    console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
-    console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
-    console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
+    // console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
+    // console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
+    // console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
+    // console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
+    // console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
 
-    console.log("PLAYERSERVICE.playersOfCampaign: " + JSON.stringify(this.playerService.playersOfCampaign));
+    // console.log("PLAYERSERVICE.playersOfCampaign: " + JSON.stringify(this.playerService.playersOfCampaign));
 
-    console.log("NIVELES DE MANUTENCIÓN: " + this.houseService.currentHouse.economyLevels);
+    // console.log("NIVELES DE MANUTENCIÓN: " + this.houseService.currentHouse.economyLevels);
 
     if(this.houseService.currentHouse.economyLevels == "Indigente"){
       this.circunstanciaEconomica = -15
@@ -69,7 +69,7 @@ export class WinterPhase5Component {
       this.circunstanciaEconomica = 2
     }
 
-    console.log("Modificador del nivel de manutención: " + this.circunstanciaEconomica);
+    // console.log("Modificador del nivel de manutención: " + this.circunstanciaEconomica);
     
 
 
@@ -96,21 +96,21 @@ export class WinterPhase5Component {
       caballosInput.push(caballoString + (i+1))
     }
 
-    console.log(caballosInput);
+    // console.log(caballosInput);
 
     for (let i = 0; i < caballosInput.length; i++) {
 
       let tirada = Math.floor((Math.random()*20)+1)
       let modificado = tirada + modificador;
       
-      console.log("Tirada: ");
+      // console.log("Tirada: ");
       
-      console.log(tirada);
+      // console.log(tirada);
 
-      console.log("Modificado");
+      // console.log("Modificado");
       
 
-      console.log(modificado);
+      // console.log(modificado);
       
       
 
@@ -126,7 +126,7 @@ export class WinterPhase5Component {
       
     }
 
-    console.log(this.caballosOutput);
+    // console.log(this.caballosOutput);
     
 
   }

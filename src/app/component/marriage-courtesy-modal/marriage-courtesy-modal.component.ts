@@ -59,16 +59,16 @@ export class MarriageCourtesyModalComponent {
     if(dado > value){
       this.resultadoFinal = "Fallo";
       this.noSeCasa = "No";      
-      console.log(this.resultadoFinal);
+      // console.log(this.resultadoFinal);
       
     }else if (dado <= value){
       this.resultadoFinal = "Éxito";
-      console.log(this.resultadoFinal);
+      // console.log(this.resultadoFinal);
     }
 
-    console.log("Dado: " + dado);
-    console.log("Value: " + value);
-    console.log("Courtesy Mod" + this.characterService.currentActiveChar.courtesyMod);
+    // console.log("Dado: " + dado);
+    // console.log("Value: " + value);
+    // console.log("Courtesy Mod" + this.characterService.currentActiveChar.courtesyMod);
     
 
   }
@@ -145,7 +145,7 @@ export class MarriageCourtesyModalComponent {
 
     this.characterService.modifyCharacter(this.characterService.currentActiveChar)
     .subscribe((data)=>{
-      console.log("Data - MarriageGlory y pj se casa: " + JSON.stringify(data));
+      // console.log("Data - MarriageGlory y pj se casa: " + JSON.stringify(data));
       
     })
 
@@ -160,7 +160,7 @@ export class MarriageCourtesyModalComponent {
 
     this.characterService.modifyCharacter(this.characterService.currentActiveChar)
     .subscribe((data)=>{
-      console.log("Data - Mod. Cortesía (pj no se casa): " + JSON.stringify(data));
+      // console.log("Data - Mod. Cortesía (pj no se casa): " + JSON.stringify(data));
       
     })
 
@@ -169,7 +169,7 @@ export class MarriageCourtesyModalComponent {
   public guardarDatos(nombre:string=null, edad:number=null){
 
     if(this.noSeCasa == "No"){
-      console.log("No se ha casado");
+      // console.log("No se ha casado");
       
     }else{
 
@@ -178,7 +178,7 @@ export class MarriageCourtesyModalComponent {
       newWife = new Character(null,this.characterService.currentActiveChar.house_id,this.characterService.currentActiveChar.year_id,nombre,edad,1,1,0,0,"Esposa","Mujer")
 
       this.characterService.newCharacter(newWife).subscribe((data : any)=>{
-        console.log("Nueva esposa: " + JSON.stringify(data));
+        // console.log("Nueva esposa: " + JSON.stringify(data));
         newWife.character_id = data.insertId;
         this.characterService.haveWife = false;
       })

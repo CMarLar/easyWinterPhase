@@ -27,12 +27,12 @@ export class LoginComponent {
     this.userService.login(new User(password,email,null,null,null))
     .subscribe((data : User[]) => {
 
-      console.log(data);
+      // console.log(data);
       if(data[0] != undefined){
 
         this.userService.user = new User(data[0].password,data[0].email,data[0].avatar,data[0].username,data[0].user_id);
         this.userService.logueado = true;
-        console.log("LOGUEADO");
+        // console.log("LOGUEADO");
         this.goPlace();
         
 

@@ -54,8 +54,8 @@ export class CurrentCampaignComponent {
       if(this.userService.logueado==false){
         this.router.navigateByUrl("/login");
       }
-      console.log("ESTAS SON LAS NOTAS AL CARGAR CURRENTCAMPAIGN: " + this.yearService.currentYear.notes);
-      console.log("houseService.housesOfCampaign: " + JSON.stringify(this.houseService.housesOfCamapaign));
+      // console.log("ESTAS SON LAS NOTAS AL CARGAR CURRENTCAMPAIGN: " + this.yearService.currentYear.notes);
+      // console.log("houseService.housesOfCampaign: " + JSON.stringify(this.houseService.housesOfCamapaign));
 
       this.characters = [];
 
@@ -66,19 +66,19 @@ export class CurrentCampaignComponent {
 
       this.currentPlayers = playerService.playersOfCampaign;
 
-      console.log("PLAYERSERVICE.playersOfCampaign: " + JSON.stringify(this.playerService.playersOfCampaign));
+      // console.log("PLAYERSERVICE.playersOfCampaign: " + JSON.stringify(this.playerService.playersOfCampaign));
 
       this.years = yearService.yearsOfCampaign;
       
       this.actualYear = this.years[this.years.length-1]
 
-      console.log(this.actualYear);
+      // console.log(this.actualYear);
       this.houses = [];
       // this.ordenarArrayCasas();
 
-      console.log("houseService.housesOfCampaign: " + JSON.stringify(this.houseService.housesOfCamapaign));
+      // console.log("houseService.housesOfCampaign: " + JSON.stringify(this.houseService.housesOfCamapaign));
 
-      console.log("All chararcterss of campaign: " + JSON.stringify(this.characterService.allCharactersOfCampaign));
+      // console.log("All chararcterss of campaign: " + JSON.stringify(this.characterService.allCharactersOfCampaign));
 
     //Fin del constructor
     }
@@ -88,7 +88,6 @@ export class CurrentCampaignComponent {
 
       this.yearService.getYearByNumber(this.campaignService.currentCampaign.campaign_id,this.yearService.currentYear.yearNumber - 1)
       .subscribe((data : Year) => {
-        console.log("ESTE ES EL ULTIMO AÑO QUE QUIERO VER" + JSON.stringify(data));
         this.yearService.currentYear = new Year(data[0].year_id,data[0].yearNumber,data[0].isFirstYear,data[0].isLastYear,data[0].notes,data[0].campaign_id)
       })
 
@@ -98,7 +97,6 @@ export class CurrentCampaignComponent {
       //OBTENEMOS DE LA BBDD EL AÑO ANTERIOR Y SE PONE COMO CURRENT YEAR
       this.yearService.getYearByNumber(this.campaignService.currentCampaign.campaign_id,this.yearService.currentYear.yearNumber + 1)
       .subscribe((data : Year) => {
-        console.log("ESTE ES EL ULTIMO AÑO QUE QUIERO VER" + JSON.stringify(data));
         this.yearService.currentYear = new Year(data[0].year_id,data[0].yearNumber,data[0].isFirstYear,data[0].isLastYear,data[0].notes,data[0].campaign_id)
       })
 
@@ -111,8 +109,7 @@ export class CurrentCampaignComponent {
       
       this.adicionalService.crearAñoPersonajes(this.yearService.currentYear,this.characterService.mainCharacters)
       .subscribe((data : any) => {
-        console.log("A PARTIR DE AQUI EMPIEZA LO TOCHO DE CURRENT CAMPAIGN");
-        console.log("DATA CURRENT: " + JSON.stringify(data));
+        // console.log("DATA CURRENT: " + JSON.stringify(data));
         this.yearService.currentYear.year_id = data.insertId;
         this.yearService.currentYear.yearNumber = this.yearService.currentYear.yearNumber +1;
         this.yearService.currentYear.isFirstYear = 0;
@@ -129,7 +126,7 @@ export class CurrentCampaignComponent {
       this.yearService.currentYear.notes = notas;
       this.yearService.putYear(this.yearService.currentYear)
       .subscribe((data : any) => {
-        console.log(data);
+        // console.log(data);
         
       })
     }
@@ -137,16 +134,13 @@ export class CurrentCampaignComponent {
     public goCreateHouse(notas : string, pj : Player, house : House){
       this.houseService.backToCurrentCampaign = true;
       this.houseService.modifyLayout = true;
-      console.log("ESTAS SON LAS NOTAS DEL TEXT AREA: " + notas);
-      
-      console.log("ESTAS SON LAS NOTAS DE CURRENT YEAR QUE PASA EL TEXT AREA: " + this.yearService.currentYear.notes);
       
       this.playerService.currentPlayer = pj;
       this.houseService.currentHouse = house;
       this.yearService.currentYear.notes = notas;
       this.yearService.putYear(this.yearService.currentYear)
       .subscribe((data : any) => {
-        console.log(data);
+        // console.log(data);
         
       })
       this.characterService.getCharacters(house.house_id)
@@ -170,14 +164,14 @@ export class CurrentCampaignComponent {
       // console.log("-----------------------------------------------------------------------");
       this.currentPlayer = jugador;
       this.playerService.currentPlayer = jugador;
-      console.log("JUGADOR ACTUAL: " + JSON.stringify(this.currentPlayer));
+      // console.log("JUGADOR ACTUAL: " + JSON.stringify(this.currentPlayer));
       
       if(this.isnewPlayerNameHide == true){
         this.isnewPlayerNameHide = false;
       }else{
         this.isnewPlayerNameHide = true
       }
-      console.log(this.isnewPlayerNameHide);
+      // console.log(this.isnewPlayerNameHide);
       
       
 
@@ -185,14 +179,14 @@ export class CurrentCampaignComponent {
 
     public changeName(name : string){
 
-      console.log(name);
+      // console.log(name);
       if(name != "" && name != null){
 
         this.playerService.currentPlayer.player_name = name;
         this.isnewPlayerNameHide = true
         this.playerService.putPlayer(this.playerService.currentPlayer)
         .subscribe((data : any) => {
-          console.log(JSON.stringify(data));
+          // console.log(JSON.stringify(data));
           
         })
       }
@@ -203,12 +197,10 @@ export class CurrentCampaignComponent {
       //TENGO QUE HACER UN SELECT EN LA BBDD QUE RECOJA LA CASA Y SUS JUGADORES NO SOLO LOS JUGADORES
       this.adicionalService.getHouseAndCharacters(house_id,this.yearService.currentYear.year_id)
       .subscribe((data : any) => {
-        console.log(JSON.stringify(data));
+        // console.log(JSON.stringify(data));
         
         this.currentHouse = data.casa[0];
-        console.log("ESTA ES MI CIENAGA" + JSON.stringify(this.currentHouse));
         this.characters = data.personajes;
-        console.log("ESTOS SON MIS ESCLAVOS" + JSON.stringify(this.characters));
         
         this.isHouseInfoHide = false;
       })
@@ -221,16 +213,16 @@ export class CurrentCampaignComponent {
     }
 
     public showModalCharacter(house : number = null,mainCharacter : Character){
-      console.log(JSON.stringify(this.yearService.currentYear));
-      console.log(JSON.stringify(house));
-      console.log(JSON.stringify(this.characterService.mainCharacters));
+      // console.log(JSON.stringify(this.yearService.currentYear));
+      // console.log(JSON.stringify(house));
+      // console.log(JSON.stringify(this.characterService.mainCharacters));
       this.characterService.currentActiveChar = mainCharacter;
       
       
       
       this.characterService.getCharactersByYear(house,this.yearService.currentYear.year_id)
       .subscribe((data : Character[]) => {
-        console.log(JSON.stringify(data));
+        // console.log(JSON.stringify(data));
         
         this.characters = data;
       })
@@ -240,7 +232,7 @@ export class CurrentCampaignComponent {
     }
 
     public changeCharacter(newPj : number){
-      console.log("TODOS LOS PNJ ALMACENADOS " + JSON.stringify(this.characters));
+      // console.log("TODOS LOS PNJ ALMACENADOS " + JSON.stringify(this.characters));
       if(newPj != null || newPj != undefined){
 
         //BUSCAMOS LA POSICION DEL PERSONAJE ACTUAL EN EL ARRAY MAINCHARACTERS
@@ -255,7 +247,7 @@ export class CurrentCampaignComponent {
 
             this.houseService.updateHouse(new House(null,this.characters[i].character_id,null,null,null,null,this.characters[i].house_id))
             .subscribe((data : any) => {
-              console.log(JSON.stringify(data));
+              // console.log(JSON.stringify(data));
               
             })
           }

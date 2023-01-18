@@ -64,7 +64,7 @@ export class CampaignsComponent {
 
     //debería mostrar esto por pantalla
     this.campaignsOfUser=this.getCampaigns(this.currentUser.user_id);
-    console.log(this.getCampaigns(this.currentUser.user_id));
+    // console.log(this.getCampaigns(this.currentUser.user_id));
 
 
     this.campaignService.campaigns = this.campaignsOfUser
@@ -83,8 +83,8 @@ public getCampaigns(user_id:number){
   this.campaignService.getCampaigns(user_id).subscribe((data:Campaign[])=>{
     this.campaignsOfUser=data;
     this.campaignService.campaigns=this.campaignsOfUser;
-    console.log("Data getcampaigns: " + JSON.stringify(data));
-    console.log("CampaignsOfUser: " + JSON.stringify(this.campaignsOfUser));
+    // console.log("Data getcampaigns: " + JSON.stringify(data));
+    // console.log("CampaignsOfUser: " + JSON.stringify(this.campaignsOfUser));
     
 
     // for (let i = 0; i < this.campaignsOfUser.length; i++) {
@@ -102,11 +102,11 @@ public getCampaigns(user_id:number){
 
     if(data.length == 0){
       this.noCampaigns = true;
-      console.log("No campaigns: " + this.noCampaigns);
+      // console.log("No campaigns: " + this.noCampaigns);
       
     }else{
       this.noCampaigns = false;
-      console.log("No campaigns: " + this.noCampaigns);
+      // console.log("No campaigns: " + this.noCampaigns);
     }
     
   })//sin suscribe
@@ -117,8 +117,8 @@ public deleteCampaign(campaign_id:number){
 
   //igual tienes que cambiar este data a :any
 
-  console.log("click");
-  console.log("ID de campaña" + campaign_id);
+  // console.log("click");
+  // console.log("ID de campaña" + campaign_id);
   
   for (let i = 0; i < this.campaignsOfUser.length; i++) {
 
@@ -128,9 +128,9 @@ public deleteCampaign(campaign_id:number){
   }
   this.campaignService.deleteCampaign(campaign_id).subscribe((data:any)=>{
     // this.campaignsOfUser=data;//para pasar de nuevo el array por pantalla
-    console.log("Dentro del suscribe");
-    console.log("Campaña borrada");    
-    console.log("Data deletecampaigns" + data);
+    // console.log("Dentro del suscribe");
+    // console.log("Campaña borrada");    
+    // console.log("Data deletecampaigns" + data);
 
     for (let i = 0; i < this.campaignsOfUser.length; i++) {
 
@@ -140,9 +140,9 @@ public deleteCampaign(campaign_id:number){
 
         let indexOfDeleted = this.campaignsOfUser.indexOf(this.campaignsOfUser[i])
 
-        console.log("Indice:");
+        // console.log("Indice:");
         
-        console.log(indexOfDeleted);
+        // console.log(indexOfDeleted);
 
         this.campaignsOfUser.splice(indexOfDeleted,1);
       }
@@ -199,12 +199,12 @@ public deleteCampaign(campaign_id:number){
 
 
   public deleteCampaign2(campaign_id : number){//nombre cambiado para que me funcione a mí, lol
-    console.log(campaign_id);
-    console.log(this.campaignsOfUser);
+    // console.log(campaign_id);
+    // console.log(this.campaignsOfUser);
 
     
     for(let i = 0; i < this.campaignsOfUser.length;i++){
-      console.log("CAMPAÑA " + this.campaignsOfUser[i]);
+      // console.log("CAMPAÑA " + this.campaignsOfUser[i]);
       
       if (this.campaignsOfUser.campaign_id == campaign_id){
         this.campaignsOfUser.splice(i,1);
@@ -229,15 +229,15 @@ public deleteCampaign(campaign_id:number){
     
     this.adicionalService.getYearInfo(this.campaignService.currentCampaign.campaign_id)
     .subscribe((data:Year) => {
-      console.log("AÑO: " + JSON.stringify(data));
+      // console.log("AÑO: " + JSON.stringify(data));
 
       this.yearService.currentYear = new Year(data[0].year_id,data[0].yearNumber,data[0].isFirstYear,data[0].isLastYear,data[0].notes,data[0].campaign_id);
-      console.log(data[0].isFirstYear);
+      // console.log(data[0].isFirstYear);
 
       this.adicionalService.getCampaignInfo(this.campaignService.currentCampaign.campaign_id)
 
     .subscribe((data:any) => {
-      console.log("**************************************************\n" + JSON.stringify(data));
+      // console.log("**************************************************\n" + JSON.stringify(data));
       for (let i = 0; i < data.length; i++){
 
         this.playerService.playersOfCampaign.push(new Player(data[i].player_id,data[i].house_id,this.campaignService.currentCampaign.campaign_id,data[i].player_name,data[i].winterPhaseDone))

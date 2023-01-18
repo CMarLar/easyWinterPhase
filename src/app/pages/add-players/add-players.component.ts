@@ -34,7 +34,7 @@ export class AddPlayersComponent {
       this.router.navigateByUrl("/login");
     }
     //Cambiar por la campaña de servicio
-    console.log(this.campaignService.currentCampaign);
+    // console.log(this.campaignService.currentCampaign);
     
     // this.currentCampaign = this.campaignService.currentCampaign.campaign_name;
 
@@ -66,9 +66,9 @@ export class AddPlayersComponent {
   public onSubmit(form : NgForm){
 
     for (let values in form.value) {
-      console.log(form.value[values]);//Esto se hace porque estaba metiendo las claves, no el valor.
-      console.log("------------------------------");
-      console.log(values);
+      // console.log(form.value[values]);//Esto se hace porque estaba metiendo las claves, no el valor.
+      // console.log("------------------------------");
+      // console.log(values);
       
 
       if(form.value[values] != undefined){
@@ -79,28 +79,28 @@ export class AddPlayersComponent {
 
     }
 
-    console.log(this.players);
+    // console.log(this.players);
     // console.log(this.jugadores.length);
     this.playerService.playersOfCampaign = this.players;
 
-    console.log(this.playerService.playersOfCampaign);
+    // console.log(this.playerService.playersOfCampaign);
 
     this.playerService.postPlayer(this.players)
     .subscribe((data : any) => {
-      console.log(data);
+      // console.log(data);
       let id = data.insertId;
-      console.log(this.players.length);
+      // console.log(this.players.length);
       
       this.sumarId(data.insertId)
       for (let i = 0; i < this.players.length ; i++){
         
-        console.log("LONGITUD DE PLAYERS: " + this.players.length);
-        console.log("I = " + i);
+        // console.log("LONGITUD DE PLAYERS: " + this.players.length);
+        // console.log("I = " + i);
   
         this.players[i].player_id = id + i;
         this.playerService.playersOfCampaign[i].player_id = id + i;
   
-        console.log(this.players[i]);
+        // console.log(this.players[i]);
           
         }
       //PROBLEMA AQUI CON EL ID DE PLAYERS
@@ -114,7 +114,7 @@ export class AddPlayersComponent {
   }
   
   public sumarId(id:number){
-    console.log(id);
+    // console.log(id);
     
   }
 

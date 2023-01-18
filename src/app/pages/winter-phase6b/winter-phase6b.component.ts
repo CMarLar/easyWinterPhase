@@ -50,9 +50,9 @@ export class WinterPhase6bComponent {
       this.router.navigateByUrl("/login");
     }
 
-    console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
-    console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
-    console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
+    // console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
+    // console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
+    // console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
 
 
     //Bucle para recoger a la esposa:
@@ -61,7 +61,7 @@ export class WinterPhase6bComponent {
 
       if (this.characterService.currentHouseCharsWinterPhase[i].role == "Esposa"){
         this.wife = this.characterService.currentHouseCharsWinterPhase[i]
-        console.log("Esposa: " + this.characterService.currentHouseCharsWinterPhase[i].char_name);
+        // console.log("Esposa: " + this.characterService.currentHouseCharsWinterPhase[i].char_name);
         
       }
       
@@ -81,7 +81,7 @@ export class WinterPhase6bComponent {
 
       if (this.characterService.currentHouseCharsWinterPhase[i].role == "Amante"){
         this.lovers.push(this.characterService.currentHouseCharsWinterPhase[i])
-        console.log("Amantes: "  + JSON.stringify(this.characterService.currentHouseCharsWinterPhase[i]));
+        // console.log("Amantes: "  + JSON.stringify(this.characterService.currentHouseCharsWinterPhase[i]));
         
       }
       
@@ -128,17 +128,17 @@ export class WinterPhase6bComponent {
     let dadoHijo = Math.floor((Math.random() * 6) + 1);
     let modificadorMadre;
     let amante : Character;
-    console.log("ESTE ES EL PARAMETRO: " + name);
-    console.log("ESTE ES LOVER ANTES DE ASIGNARA  AMANTE");
+    // console.log("ESTE ES EL PARAMETRO: " + name);
+    // console.log("ESTE ES LOVER ANTES DE ASIGNARA  AMANTE");
     
     
-    console.log("DADOS ANTES DE MODIFICAR: " + dado);
+    // console.log("DADOS ANTES DE MODIFICAR: " + dado);
 
     for(let i = 0; i < this.lovers.length; i++){
 
       if(this.lovers[i].char_name == name){
         amante = this.lovers[i];
-        console.log("ESTA ES LA AMANTE: " + amante);
+        // console.log("ESTA ES LA AMANTE: " + amante);
       }
     }
     
@@ -152,21 +152,21 @@ export class WinterPhase6bComponent {
     if(dado <= 0){
       dado = 0;
     }
-    console.log("DADOS: " + dado);
+    // console.log("DADOS: " + dado);
     
     
     
 
     if (dado <= 10){
     
-      console.log("NINGUN HIJO");
+      // console.log("NINGUN HIJO");
       this.resultadoHijos = "No has tenido ningun hijo";
       this.datosBirth.resultado = this.resultadoHijos;
       
 
     }else if(dado == 11){
 
-      console.log("LA MUJER Y EL HIJO MUEREN DURANTE EL PARTO");
+      // console.log("LA MUJER Y EL HIJO MUEREN DURANTE EL PARTO");
       this.resultadoHijos = "Tu mujer y tu hijo mueren durante el parto";
       amante.char_status = 0;
       amante.role = "Amante (muerta)";
@@ -178,7 +178,7 @@ export class WinterPhase6bComponent {
 
     }else if(dado == 12){
 
-      console.log("EL HIJO VIVE PERO LA MUJER MUERE DURANTE EL PARTO");
+      // console.log("EL HIJO VIVE PERO LA MUJER MUERE DURANTE EL PARTO");
       this.resultadoHijos = "El hijo vive pero tu mujer muere durante el parto";
       this.characterService.currentActiveChar.isMarried = 0;
       amante.char_status = 0;
@@ -197,7 +197,7 @@ export class WinterPhase6bComponent {
       
     }else{
 
-      console.log("NACE UN HIJO");
+      // console.log("NACE UN HIJO");
       this.resultadoHijos = "Nace un hijo";
       this.datosBirth.resultado = this.resultadoHijos;
       
@@ -212,7 +212,7 @@ export class WinterPhase6bComponent {
       let dado = Math.floor((Math.random() * 20) + 1);
       let dadoHijo = Math.floor((Math.random() * 6) + 1);
       let modificadorMadre;
-      console.log("DADOS ANTES DE MODIFICAR: " + dado);
+      // console.log("DADOS ANTES DE MODIFICAR: " + dado);
       
 
       if(this.wife.age > 30){
@@ -224,21 +224,21 @@ export class WinterPhase6bComponent {
       if(dado <= 0){
         dado = 0;
       }
-      console.log("DADOS: " + dado);
+      // console.log("DADOS: " + dado);
       
       
       
 
       if (dado <= 10){
       
-        console.log("NINGUN HIJO");
+        // console.log("NINGUN HIJO");
         this.resultadoHijos = "No has tenido ningun hijo";
         this.datosBirth.resultado = this.resultadoHijos;
         
   
       }else if(dado == 11){
   
-        console.log("LA MUJER Y EL HIJO MUEREN DURANTE EL PARTO");
+        // console.log("LA MUJER Y EL HIJO MUEREN DURANTE EL PARTO");
         this.resultadoHijos = "Tu mujer y tu hijo mueren durante el parto";
         this.characterService.currentActiveChar.isMarried = 0;
         this.wife.char_status = 0;
@@ -251,7 +251,7 @@ export class WinterPhase6bComponent {
   
       }else if(dado == 12){
   
-        console.log("EL HIJO VIVE PERO LA MUJER MUERE DURANTE EL PARTO");
+        // console.log("EL HIJO VIVE PERO LA MUJER MUERE DURANTE EL PARTO");
         this.resultadoHijos = "El hijo vive pero tu mujer muere durante el parto";
         this.characterService.currentActiveChar.isMarried = 0;
         this.wife.char_status = 0;
@@ -277,12 +277,12 @@ export class WinterPhase6bComponent {
           this.datosBirth.sexoHijo = "Mujer";
         }
         
-        console.log("NACE UN HIJO");
+        // console.log("NACE UN HIJO");
         this.resultadoHijos = "Nace un hijo";
         this.datosBirth.resultado = this.resultadoHijos;
         
       }
-      console.log(JSON.stringify(this.datosBirth.sexoHijo));
+      // console.log(JSON.stringify(this.datosBirth.sexoHijo));
       
       this.isHide = false;
 
@@ -292,7 +292,7 @@ export class WinterPhase6bComponent {
     
     this.characterService.modifyCharacter(this.characterService.currentActiveChar)
       .subscribe((data : any) => {
-        console.log(data);
+        // console.log(data);
         
       })
    }
@@ -310,7 +310,7 @@ export class WinterPhase6bComponent {
       }
       this.characterService.modifyCharacter(this.wife)
     .subscribe((data : any) => {
-      console.log(data);
+      // console.log(data);
       
     })
     }else{
@@ -324,7 +324,7 @@ export class WinterPhase6bComponent {
       }
       this.characterService.modifyCharacter(amante)
     .subscribe((data : any) => {
-      console.log(data);
+      // console.log(data);
       
     })
     }

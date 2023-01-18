@@ -34,12 +34,12 @@ export class WinterPhase6aComponent {
     if(this.userService.logueado==false){
       this.router.navigateByUrl("/login");
     }
-    console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
-    console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
-    console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
-    console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
-    console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
-    console.log("PLAYERSERVICE.playersOfCampaign: " + JSON.stringify(this.playerService.playersOfCampaign));
+    // console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
+    // console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
+    // console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
+    // console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
+    // console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
+    // console.log("PLAYERSERVICE.playersOfCampaign: " + JSON.stringify(this.playerService.playersOfCampaign));
 
     this.datosEsposa = {
       nombreEsposa : null,

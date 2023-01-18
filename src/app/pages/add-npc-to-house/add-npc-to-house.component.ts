@@ -58,14 +58,14 @@ export class AddNpcToHouseComponent {
 
   constructor(public router:Router, public characterService:CharacterService, public houseService:HouseService, public yearService:YearService){
 
-    console.log("Casa actual en el servicio: " + JSON.stringify(this.houseService.currentHouse));
+    // console.log("Casa actual en el servicio: " + JSON.stringify(this.houseService.currentHouse));
     
     this.currentHouse = this.houseService.currentHouse;//se lleva la casa del servicio 
 
-    console.log("Casa actual en el componente: " + JSON.stringify(this.currentHouse));
+    // console.log("Casa actual en el componente: " + JSON.stringify(this.currentHouse));
 
-    console.log("Id del personaje activo en el servicio" + this.houseService.currentHouse.activeChar);
-    console.log ("Id de la casa en el servicio: " + this.houseService.currentHouse.house_id)
+    // console.log("Id del personaje activo en el servicio" + this.houseService.currentHouse.activeChar);
+    // console.log ("Id de la casa en el servicio: " + this.houseService.currentHouse.house_id)
     
     // console.log("Id del personaje activo en el componente: " + this.currentHouse.activeChar);
 
@@ -120,7 +120,7 @@ export class AddNpcToHouseComponent {
     }else{
 
       this.characterService.getWinterPhaseChars(id,this.yearService.currentYear.year_id).subscribe((data:Character[])=>{
-        console.log("Data de showHouseChars: " + JSON.stringify(data));
+        // console.log("Data de showHouseChars: " + JSON.stringify(data));
         
         this.currentHouseChars = data;//creo que lo está igualando a data aquí
         this.characterService.currentHouseChars = this.currentHouseChars;//iguala el servicio con el componente
@@ -138,7 +138,7 @@ export class AddNpcToHouseComponent {
 
       
   this.currentHouseChars.splice(id -1,1)
-    console.log(this.currentHouseChars);
+    // console.log(this.currentHouseChars);
     if(this.currentHouseChars.length==0){this.noNpcs=true}
       
     this.currentHouseChars =  this.currentHouseChars
@@ -154,7 +154,7 @@ export class AddNpcToHouseComponent {
         
       }
 
-      console.log(data);
+      // console.log(data);
       
       this.showHouseChars(this.currentHouseId)
 
@@ -167,9 +167,9 @@ export class AddNpcToHouseComponent {
   //Cambia el Estado de un personaje de vivo a muerto.
 
   public deadOrAlive(id:number){
-    console.log("click");
+    // console.log("click");
 
-    console.log(this.currentHouseChars);
+    // console.log(this.currentHouseChars);
 
     for (let i = 0; i < this.currentHouseChars.length; i++) {
       if(this.currentHouseChars[i].character_id == id){
@@ -177,7 +177,7 @@ export class AddNpcToHouseComponent {
         if(this.currentHouseChars[i].char_status == 1){
           
           this.currentHouseChars[i].char_status = 0
-          console.log("Cambiado a muerto");
+          // console.log("Cambiado a muerto");
 
           //cambia en la base de datos
           this.characterService.modifyCharacter(
@@ -195,7 +195,7 @@ export class AddNpcToHouseComponent {
               this.currentHouseChars[i].sex))
               .subscribe((data)=>{
 
-                console.log(data);
+                // console.log(data);
             
               })
 
@@ -203,7 +203,7 @@ export class AddNpcToHouseComponent {
           
         }else if(this.currentHouseChars[i].char_status == 0){
           this.currentHouseChars[i].char_status = 1
-          console.log("Cambiado a vivo");
+          // console.log("Cambiado a vivo");
 
           //cambia en la base de datos
           this.characterService.modifyCharacter(
@@ -221,7 +221,7 @@ export class AddNpcToHouseComponent {
               this.currentHouseChars[i].sex))
               .subscribe((data)=>{
 
-                console.log(data);
+                // console.log(data);
             
               })
 
@@ -235,26 +235,26 @@ export class AddNpcToHouseComponent {
   // }
 
   public onSubmit(form:NgForm){
-    console.log(form.value);
+    // console.log(form.value);
 
     if(form.value.role == form.value.otherRole){
 
       delete form.value.otherRole;
-      console.log("Elegido role del selector:");
-      console.log(form.value);
+      // console.log("Elegido role del selector:");
+      // console.log(form.value);
       
     }else{
 
       form.value.role = form.value.otherRole;
       delete form.value.otherRole;
-      console.log("Aplicado nuevo role del campo");
-      console.log(form.value);
+      // console.log("Aplicado nuevo role del campo");
+      // console.log(form.value);
       
     }
     
     let formNpcCopy = {...form.value}
     
-    console.log("formNpcCopy con spread operator: " + JSON.stringify(formNpcCopy));
+    // console.log("formNpcCopy con spread operator: " + JSON.stringify(formNpcCopy));
 
 ///BLOQUE NO TESTADO PARA CREAR PERSONAJES CON EL AÑO CORRECTO
     let insertedYear:number;
@@ -272,18 +272,18 @@ export class AddNpcToHouseComponent {
     if(formNpcCopy.role == "Esposa"){
       marriedStatus = 1
 
-      console.log("Se ha creado una esposa con marriedStatus " + marriedStatus);
+      // console.log("Se ha creado una esposa con marriedStatus " + marriedStatus);
       
 
       let activeChar:Character;
 
-      console.log("BODA A LA VISTA");
+      // console.log("BODA A LA VISTA");
       
       if(this.characterService.currentActiveChar != null || this.characterService.currentActiveChar != undefined){
 
         this.characterService.currentActiveChar.isMarried = 1;
         activeChar = this.characterService.currentActiveChar;
-        console.log("¿Quién es el activeChar?: "  + JSON.stringify(this.characterService.currentActiveChar));
+        // console.log("¿Quién es el activeChar?: "  + JSON.stringify(this.characterService.currentActiveChar));
 
         
 
@@ -295,21 +295,21 @@ export class AddNpcToHouseComponent {
     
           this.characterService.allCharactersOfCampaign[i].isMarried = 1
           activeChar = this.characterService.allCharactersOfCampaign[i];
-          console.log("¿Quién es el activeChar?: "  + JSON.stringify(this.characterService.currentActiveChar));
+          // console.log("¿Quién es el activeChar?: "  + JSON.stringify(this.characterService.currentActiveChar));
         }
 
       }
 
       this.characterService.modifyCharacter(new Character(activeChar.character_id,activeChar.house_id,activeChar.year_id,activeChar.char_name,activeChar.age,activeChar.char_status,1,activeChar.marriageGlory,activeChar.courtesyMod,activeChar.role,activeChar.sex)).subscribe((data)=>{
 
-        console.log("Data del activeChar con isMarried modificado: " + JSON.stringify(data));
+        // console.log("Data del activeChar con isMarried modificado: " + JSON.stringify(data));
         
       })
 
 
     }else{
       marriedStatus = 0
-      console.log("Se ha creado una persona con marriedStatus " + marriedStatus);
+      // console.log("Se ha creado una persona con marriedStatus " + marriedStatus);
     }
 
 
@@ -320,7 +320,7 @@ export class AddNpcToHouseComponent {
 
     //A la base de datos.
     this.characterService.newCharacter(newCharacter).subscribe((data:any)=>{
-      console.log(data);
+      // console.log(data);
 
       newCharacter.character_id = data.insertId
 
@@ -328,10 +328,10 @@ export class AddNpcToHouseComponent {
       this.currentHouseChars.push(newCharacter);
       this.characterService.allCharactersOfCampaign.push(newCharacter)
 
-      console.log("All chars of campaign: " + this.characterService.allCharactersOfCampaign);
+      // console.log("All chars of campaign: " + this.characterService.allCharactersOfCampaign);
       
 
-      console.log(this.currentHouseChars);
+      // console.log(this.currentHouseChars);
 
         this.showHouseChars(this.currentHouseId)
         
@@ -345,13 +345,13 @@ export class AddNpcToHouseComponent {
   //Marca a un personaje como el personaje activo.
   //El problema de este selector es que no puede mandar ids de los personajes que se crean en el front, porque no tienen ID, con lo cual no se puede elegir el en selector. Por eso, cuando se crea un nuevo personaje, se debe mandar a la base de datos.
   public onSelect(form:NgForm){
-    console.log("Form value:" + JSON.stringify(form.value));
+    // console.log("Form value:" + JSON.stringify(form.value));
     this.activeChar = form.value;
 
-    console.log(this.currentHouse.activeChar)
+    // console.log(this.currentHouse.activeChar)
 
     for (let character in form.value.characters){
-      console.log(character);
+      // console.log(character);
       
     }
 
@@ -384,12 +384,12 @@ export class AddNpcToHouseComponent {
     // }
 
     this.selectedCharMessage = true;
-    console.log("SelectedCharMessage: " + this.selectedCharMessage);
+    // console.log("SelectedCharMessage: " + this.selectedCharMessage);
     
     
     setTimeout(() => {
       this.selectedCharMessage = false;
-      console.log("SelectedCharMessage: " + this.selectedCharMessage);
+      // console.log("SelectedCharMessage: " + this.selectedCharMessage);
     }, 2000);
 
   }
@@ -423,17 +423,17 @@ export class AddNpcToHouseComponent {
         
           }
       
-          console.log("ActiveChar antes del cambio al front" + this.houseService.currentHouse.activeChar);
+          // console.log("ActiveChar antes del cambio al front" + this.houseService.currentHouse.activeChar);
           
           this.houseService.currentHouse = this.currentHouse;
 
-          console.log("ActiveChar antes del cambio al front" + this.houseService.currentHouse.activeChar);
+          // console.log("ActiveChar antes del cambio al front" + this.houseService.currentHouse.activeChar);
 
-          console.log(data);
+          // console.log(data);
           
           this.houseService.modifyLayout = true;
 
-          console.log("houseService.currentHouse al volver a createhouse" + JSON.stringify(this.houseService.currentHouse));
+          // console.log("houseService.currentHouse al volver a createhouse" + JSON.stringify(this.houseService.currentHouse));
 
           if(this.houseService.backToCurrentCampaign == true){
             this.router.navigateByUrl("/currentcampaign");

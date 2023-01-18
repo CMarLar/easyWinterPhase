@@ -45,13 +45,13 @@ export class WinterPhase4Component {
       if(this.userService.logueado==false){
         this.router.navigateByUrl("/login");
       }
-      console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
-      console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
-      console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
-      console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
-      console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
+      // console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
+      // console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
+      // console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
+      // console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
+      // console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
 
-      console.log("--NIVELES DE MANUTENCIÓN ANTES DE LA MODIFICACIÓN: " + this.houseService.currentHouse.economyLevels);
+      // console.log("--NIVELES DE MANUTENCIÓN ANTES DE LA MODIFICACIÓN: " + this.houseService.currentHouse.economyLevels);
       
       
       this.foto_escudo = this.houseService.currentHouse.shield;
@@ -90,28 +90,28 @@ export class WinterPhase4Component {
     if((+tiradaAdmin <= +sumaAdmin)&&((+tiradaAdmin) < 20)){
 
       resultadoTiradaAdmin = "Éxito";
-      console.log("Tirada del jugador: " + resultadoTiradaAdmin);
+      // console.log("Tirada del jugador: " + resultadoTiradaAdmin);
 
     }else if((+tiradaAdmin > sumaAdmin)&&((+tiradaAdmin) < 20)){
       
       resultadoTiradaAdmin = "Fallo"
-      console.log("Tirada del jugador: "+ resultadoTiradaAdmin);
+      // console.log("Tirada del jugador: "+ resultadoTiradaAdmin);
 
 
     }else if((+tiradaAdmin == sumaAdmin)&&(tiradaAdmin < 20)){
 
       resultadoTiradaAdmin = "Crítico"
-      console.log("Tirada del jugador: "+ resultadoTiradaAdmin);
+      // console.log("Tirada del jugador: "+ resultadoTiradaAdmin);
 
     }else if((+tiradaAdmin == 20) && (+sumaAdmin < 20)){
 
       resultadoTiradaAdmin = "Pifia"
-      console.log("Tirada del jugador: "+ resultadoTiradaAdmin);
+      // console.log("Tirada del jugador: "+ resultadoTiradaAdmin);
 
     }else if((+tiradaAdmin == 20) && (+sumaAdmin > 20)){
 
       resultadoTiradaAdmin = "Crítico"
-      console.log("Tirada del jugador: "+ resultadoTiradaAdmin);
+      // console.log("Tirada del jugador: "+ resultadoTiradaAdmin);
     }
 
 
@@ -119,96 +119,96 @@ export class WinterPhase4Component {
     if((+tiradaMaltiempo <= +sumaMalTiempo)&&((+tiradaMaltiempo) < 20)){
 
       resultadoTiradaMalTiempo = "Éxito";
-      console.log("Tirada de mal tiempo: " + resultadoTiradaMalTiempo);
+      // console.log("Tirada de mal tiempo: " + resultadoTiradaMalTiempo);
 
     }else if((+tiradaMaltiempo > sumaMalTiempo)&&((+tiradaMaltiempo) < 20)){
       
       resultadoTiradaMalTiempo = "Fallo"
-      console.log("Tirada de mal tiempo: "+ resultadoTiradaMalTiempo);
+      // console.log("Tirada de mal tiempo: "+ resultadoTiradaMalTiempo);
 
 
     }else if((+tiradaMaltiempo == sumaMalTiempo)&&(tiradaMaltiempo < 20)){
 
       resultadoTiradaMalTiempo = "Crítico"
-      console.log("Tirada de mal tiempo: "+ resultadoTiradaMalTiempo);
+      // console.log("Tirada de mal tiempo: "+ resultadoTiradaMalTiempo);
 
     }else if((+tiradaMaltiempo == 20) && (+sumaMalTiempo < 20)){
 
       resultadoTiradaMalTiempo = "Pifia"
-      console.log("Tirada de mal tiempo: "+ resultadoTiradaMalTiempo);
+      // console.log("Tirada de mal tiempo: "+ resultadoTiradaMalTiempo);
 
     }else if((+tiradaMaltiempo == 20) && (+sumaMalTiempo > 20)){
 
       resultadoTiradaMalTiempo = "Crítico"
-      console.log("Tirada de mal tiempo: "+ resultadoTiradaMalTiempo);
+      // console.log("Tirada de mal tiempo: "+ resultadoTiradaMalTiempo);
 
     }
 
 
     if(resultadoTiradaAdmin == resultadoTiradaMalTiempo){
 
-      console.log("Normal");
+      // console.log("Normal");
       resultadoFinal="Normal";
       
     }else if (resultadoTiradaAdmin == "Crítico" && resultadoTiradaMalTiempo == "Éxito"){
 
-      console.log("Rico");
+      // console.log("Rico");
       resultadoFinal="Rico";
 
     }else if (resultadoTiradaAdmin == "Crítico" && resultadoTiradaMalTiempo == "Fallo"){
 
-      console.log("Muy Rico");
+      // console.log("Muy Rico");
       resultadoFinal="Muy Rico";
 
     }else if (resultadoTiradaAdmin == "Crítico" && resultadoTiradaMalTiempo == "Pifia"){
 
-      console.log("Muy Rico. Además, el caballero vive por encima de los medios de uno de los caballeros más ricos de su estación, ganando al menos 16 £ por año");
+      // console.log("Muy Rico. Además, el caballero vive por encima de los medios de uno de los caballeros más ricos de su estación, ganando al menos 16 £ por año");
       resultadoFinal="Muy Rico. Además, el caballero vive por encima de los medios de uno de los caballeros más ricos de su estación, ganando al menos 16 £ por año";
 
     }else if (resultadoTiradaAdmin == "Éxito" && resultadoTiradaMalTiempo == "Crítico"){
 
-      console.log("Pobre");
+      // console.log("Pobre");
       resultadoFinal="Pobre";
 
     }else if (resultadoTiradaAdmin == "Éxito" && resultadoTiradaMalTiempo == "Fallo"){
 
-      console.log("Rico");
+      // console.log("Rico");
       resultadoFinal="Rico";
 
     }else if (resultadoTiradaAdmin == "Éxito" && resultadoTiradaMalTiempo == "Pifia"){
 
-      console.log("Muy Rico");
+      // console.log("Muy Rico");
       resultadoFinal="Muy Rico";
 
 
     }else if (resultadoTiradaAdmin == "Fallo" && resultadoTiradaMalTiempo == "Crítico"){
 
-      console.log("Indigente");
+      // console.log("Indigente");
       resultadoFinal="Indigente";
 
     }else if (resultadoTiradaAdmin == "Fallo" && resultadoTiradaMalTiempo == "Éxito"){
 
-      console.log("Pobre");
+      // console.log("Pobre");
       resultadoFinal="Pobre";
 
     }else if (resultadoTiradaAdmin == "Fallo" && resultadoTiradaMalTiempo == "Pifia"){
 
-      console.log("Rico");
+      // console.log("Rico");
       resultadoFinal="Rico";
 
     }else if (resultadoTiradaAdmin == "Pifia" && resultadoTiradaMalTiempo == "Crítico"){
 
-      console.log("Indigente");
+      // console.log("Indigente");
       resultadoFinal="Indigente";
 
     }else if (resultadoTiradaAdmin == "Pifia" && resultadoTiradaMalTiempo == "Éxito"){
 
-      console.log("Indigente");
+      // console.log("Indigente");
       resultadoFinal="Indigente";
 
     }else if (resultadoTiradaAdmin == "Pifia" && resultadoTiradaMalTiempo == "Fallo"){
 
-      console.log("Pobre");
+      // console.log("Pobre");
       resultadoFinal="Pobre"
 
     }
@@ -220,7 +220,7 @@ export class WinterPhase4Component {
   }//fin CalcularNivelManutencion
 
   public onSelect(form:NgForm){
-    console.log(form.value.nivelManutencion);
+    // console.log(form.value.nivelManutencion);
     this.nivel = form.value.nivelManutencion;
   }
 
@@ -237,13 +237,13 @@ export class WinterPhase4Component {
       this.houseService.currentHouse.house_id
     )
 
-    console.log("Casa modificada con el nuevo nivel de manutención: " +  JSON.stringify(this.modifiedHouse));
+    // console.log("Casa modificada con el nuevo nivel de manutención: " +  JSON.stringify(this.modifiedHouse));
 
     this.houseService.currentHouse = this.modifiedHouse;//igualamos con la casa del front.
     
 
     this.houseService.updateEconomyLevels(this.modifiedHouse).subscribe((data:any)=>{
-      console.log(data);
+      // console.log(data);
 
       this.router.navigateByUrl("/phase5")
       

@@ -47,12 +47,12 @@ export class WinterPhase3Component {
     if(this.userService.logueado==false){
       this.router.navigateByUrl("/login");
     }
-    console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
-    console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
-    console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
-    console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
-    console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
-    console.log("PLAYERSERVICE.playersOfCampaign: " + JSON.stringify(this.playerService.playersOfCampaign));
+    // console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
+    // console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
+    // console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
+    // console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
+    // console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
+    // console.log("PLAYERSERVICE.playersOfCampaign: " + JSON.stringify(this.playerService.playersOfCampaign));
     
     this.foto_escudo = this.houseService.currentHouse.shield
 
@@ -87,7 +87,7 @@ export class WinterPhase3Component {
           this.escudero_personaje.role = "Caballero";
           this.characterService.modifyCharacter(this.escudero_personaje)
           .subscribe((data : any) => {
-            console.log(data);
+            // console.log(data);
             
           })
         }
@@ -111,14 +111,14 @@ export class WinterPhase3Component {
 
     let newEscudero = new Character(null,this.escudero_personaje.house_id,this.escudero_personaje.year_id,nombreEscudero,15,1,0,0,0,"Escudero","Hombre");
 
-    console.log("PERSONAJES FASE DE INVIERNO: " + this.characterService.currentHouseCharsWinterPhase);
-    console.log("PERSONAJES DE TODA LA CASA: " + this.characterService.currentHouseChars);
+    // console.log("PERSONAJES FASE DE INVIERNO: " + this.characterService.currentHouseCharsWinterPhase);
+    // console.log("PERSONAJES DE TODA LA CASA: " + this.characterService.currentHouseChars);
     
     this.characterService.currentHouseCharsWinterPhase.push(newEscudero);
 
     this.characterService.newCharacter(newEscudero)
     .subscribe((data : any) => {
-      console.log(data);
+      // console.log(data);
       
     })
 
@@ -139,7 +139,7 @@ export class WinterPhase3Component {
     dado1 = Math.floor((Math.random() * 5) +1);
     dado2 = Math.floor((Math.random() * 5) +1);
     result = dado1 + dado2;
-    console.log("RESULTADO PRIMER DADO: " + result)
+    // console.log("RESULTADO PRIMER DADO: " + result)
 
     if(result == 2 || result == 12){
 
@@ -169,7 +169,7 @@ export class WinterPhase3Component {
     for (let i = 0; i < tiradas; i++){
 
       dado1 = Math.floor((Math.random() * 6) +1);
-      console.log("Resultado dado estadisticas: " + dado1);
+      // console.log("Resultado dado estadisticas: " + dado1);
 
       if (dado1 == 1){
         result.push("TAM");
@@ -186,7 +186,7 @@ export class WinterPhase3Component {
       }
     }
 
-    console.log("RESULTADO: " + result);
+    // console.log("RESULTADO: " + result);
     
     return result;
   }

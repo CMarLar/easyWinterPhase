@@ -29,18 +29,18 @@ export class WinterPhase8Component {
 
   public currentPlayerName: string;
   
-   constructor(public router : Router,public userService : UserService,private textosService: TextService, private playerService: PlayerService, public houseService:HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService: YearService){
+   constructor(public router : Router,public userService : UserService,public textosService: TextService, private playerService: PlayerService, public houseService:HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService: YearService){
     if(this.userService.logueado==false){
       this.router.navigateByUrl("/login");
     }
     this.getMarriageGlory(this.characterService.currentActiveChar.character_id)
     
-    console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
-    console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
-    console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
-    console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
-    console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
-    console.log("PLAYERSERVICE.playersOfCampaign: " + JSON.stringify(this.playerService.playersOfCampaign));
+    // console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
+    // console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
+    // console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
+    // console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
+    // console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
+    // console.log("PLAYERSERVICE.playersOfCampaign: " + JSON.stringify(this.playerService.playersOfCampaign));
 
     this.currentPlayerName = this.playerService.currentPlayer.player_name;
     this.foto_escudo = this.houseService.currentHouse.shield;
@@ -51,8 +51,8 @@ export class WinterPhase8Component {
     this.mostrarNombreJugador(1)
     this.jugadores = []
 
-    this.mostrarTextos(3) 
-    this.textos = []
+    // this.mostrarTextos(3) 
+    // this.textos = []
 
    }
    public mostrarTextos(id: number){
@@ -60,8 +60,8 @@ export class WinterPhase8Component {
     this.textosService.getAllTexts(id).subscribe((data: Text[])=>{//Mostrado desde el front, esta no haría falta.
   
       this.textos = data;
-      console.log(data)
-      console.log(JSON.stringify(data))
+      // console.log(data)
+      // console.log(JSON.stringify(data))
     })
   } 
   public mostrarNombreJugador(id: number){  
@@ -69,7 +69,7 @@ export class WinterPhase8Component {
     this.playerService.getPlayers(id).subscribe((data: Player[])=>{
     
     this.jugadores = data;
-    console.log(data)
+    // console.log(data)
     
     })
   } 
@@ -77,7 +77,7 @@ export class WinterPhase8Component {
   public getMarriageGlory(character_id:number){
 
     this.characterService.getMainChar(character_id).subscribe((data:Character)=>{
-      console.log(data);
+      // console.log(data);
       
     })
 

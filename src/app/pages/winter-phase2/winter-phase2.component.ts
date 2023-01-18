@@ -27,7 +27,7 @@ export class WinterPhase2Component {
 
   public currentPlayerName:string;
   
-   constructor(public router : Router,public userService : UserService,private textosService: TextService, public jugadorService: PlayerService, public houseService: HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService:YearService ){
+   constructor(public router : Router,public userService : UserService,public textosService: TextService, public jugadorService: PlayerService, public houseService: HouseService, public characterService:CharacterService, public campaignService:CampaignService, public yearService:YearService ){
     if(this.userService.logueado==false){
       this.router.navigateByUrl("/login");
     }
@@ -40,12 +40,12 @@ export class WinterPhase2Component {
     // }
 
 
-    console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
-    console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
-    console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
-    console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
-    console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
-    console.log("PLAYERSERVICE.playersOfCampaign: " + JSON.stringify(this.jugadorService.playersOfCampaign));
+    // console.log("Current campaign name: " + this.campaignService.currentCampaign.campaign_name);
+    // console.log("Current year: " + JSON.stringify(this.yearService.currentYear));
+    // console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
+    // console.log("Current house characters (winter phase)" + JSON.stringify(this.characterService.currentHouseCharsWinterPhase));
+    // console.log("Active character: " + JSON.stringify(this.characterService.currentActiveChar));
+    // console.log("PLAYERSERVICE.playersOfCampaign: " + JSON.stringify(this.jugadorService.playersOfCampaign));
     
     this.foto_escudo = this.houseService.currentHouse.shield;
 
@@ -54,28 +54,28 @@ export class WinterPhase2Component {
     // this.mostrarNombreJugador(1)//se puede hacer con servicios
     // this.jugadores = []
 
-    this.mostrarTextos(2) 
+    // this.mostrarTextos(2) 
     this.textos = []
   
    }
-   public mostrarTextos(id: number){
+  //  public mostrarTextos(id: number){
 
-    this.textosService.getAllTexts(id).subscribe((data: Text[])=>{
+  //   this.textosService.getAllTexts(id).subscribe((data: Text[])=>{
   
-      this.textos = data;
-      console.log(data)
-      console.log(JSON.stringify(data))
-    })
-  } 
-  public mostrarNombreJugador(id: number){  
+  //     this.textos = data;
+  //     console.log(data)
+  //     console.log(JSON.stringify(data))
+  //   })
+  // } 
+  // public mostrarNombreJugador(id: number){  
 
-    this.jugadorService.getPlayers(id).subscribe((data: Player[])=>{
+  //   this.jugadorService.getPlayers(id).subscribe((data: Player[])=>{
     
-    this.jugadores = data;
-    console.log(data)
+  //   this.jugadores = data;
+  //   console.log(data)
     
-    })
-  } 
+  //   })
+  // } 
   
   }
   

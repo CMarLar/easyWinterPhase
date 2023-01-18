@@ -59,7 +59,7 @@ public getCharactersNames(house_id: number, year_id: number){
 /*  */
   public getCharactersByYear(house_id:number,year_id : number){
 
-    console.log("LLEGA ESTO: " + house_id + " Y " + year_id);
+    // console.log("LLEGA ESTO: " + house_id + " Y " + year_id);
     
     this.url = "https://api-easy-winter-phase.vercel.app/"
     return this.http.get(this.url + "currentcampaignCharacterByYear?house_id=" + house_id + "&year_id=" + year_id)

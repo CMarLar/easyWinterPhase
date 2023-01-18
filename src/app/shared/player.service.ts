@@ -52,7 +52,7 @@ export class PlayerService {
 
   public putPlayer(player:Player){
     this.url = "https://api-easy-winter-phase.vercel.app/housesmanagement";
-    console.log("ESTE ES EL JUGADOR A MODIFICAR" + player);
+    // console.log("ESTE ES EL JUGADOR A MODIFICAR" + player);
     
 
     return this.http.put(this.url,player);
@@ -60,7 +60,7 @@ export class PlayerService {
   public putPlayers(player : Player){
 
     this.url = "https://api-easy-winter-phase.vercel.app/currentcampaignPlayer";
-    console.log("ESTE ES EL JUGADOR A MODIFICAR" + player);
+    // console.log("ESTE ES EL JUGADOR A MODIFICAR" + player);
     
 
     return this.http.put(this.url,player);
@@ -70,7 +70,7 @@ export class PlayerService {
   public updateWinterPhaseMain(player : Player){//cambia el estado de winterphasemain del current player a 1
 
     this.url = "https://api-easy-winter-phase.vercel.app/phase9";
-    console.log("ESTE ES EL JUGADOR A MODIFICAR" + player);
+    // console.log("ESTE ES EL JUGADOR A MODIFICAR" + player);
     
 
     return this.http.put(this.url,player);
@@ -80,7 +80,7 @@ export class PlayerService {
   public winterPhaseMainReset(player : Player[]){//cambia el estado de winterphasemain del current player a 1. Se hace para todos los players.
 
     this.url = "https://api-easy-winter-phase.vercel.app/winterphasemain";
-    console.log("ESTE ES EL JUGADOR A MODIFICAR" + JSON.stringify(player));
+    // console.log("ESTE ES EL JUGADOR A MODIFICAR" + JSON.stringify(player));
     
 
     return this.http.put(this.url,player);

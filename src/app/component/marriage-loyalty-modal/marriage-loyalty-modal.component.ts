@@ -50,7 +50,7 @@ export class MarriageLoyaltyModalComponent {
       this.resultadoFinal = "Fallo";
       this.libras = null;
       this.gloria = null;
-      console.log(this.resultadoFinal);
+      // console.log(this.resultadoFinal);
     }
 
     this.isHidden = true;
@@ -67,14 +67,14 @@ export class MarriageLoyaltyModalComponent {
       this.characterService.currentActiveChar.marriageGlory = this.gloria;
 
       this.characterService.modifyCharacter(this.characterService.currentActiveChar).subscribe((data:any)=>{
-        console.log("ActiveChar modificado: " + JSON.stringify(data));
+        // console.log("ActiveChar modificado: " + JSON.stringify(data));
         
       })
 
       let newWife: Character = new Character(null,this.characterService.currentActiveChar.house_id,this.characterService.currentActiveChar.year_id,name,age,1,1,0,0,"Esposa","Mujer")
 
       this.characterService.newCharacter(newWife).subscribe((data:any)=>{
-        console.log("Nueva esposa" + JSON.stringify(data));
+        // console.log("Nueva esposa" + JSON.stringify(data));
 
         newWife.character_id = data.insertId
         this.characterService.haveWife = false;
@@ -92,6 +92,14 @@ export class MarriageLoyaltyModalComponent {
       }
 
       
+    }else{
+      this.datos = {
+        nombreEsposa : null,
+        edadEsposa : null,
+        gloria : null,
+        libras : null,
+        hide: true
+      }
     }
 
     this.loyaltyHijo.emit(this.datos)//pasamos true para cierre el modal

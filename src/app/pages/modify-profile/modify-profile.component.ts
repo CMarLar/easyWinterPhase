@@ -42,13 +42,13 @@ export class ModifyProfileComponent {
   }
     /* selector de avatar */
     public selectedUserAvatar(avatar: string){
-      console.log(avatar);
+      // console.log(avatar);
       this.selectedAvatar = avatar;
     }
      public onSubmit(form:NgForm){ //* para guardar cambio */
        form.value.avatar = this.selectedAvatar;
 
-       console.log("Form value: "+ form.value);
+      //  console.log("Form value: "+ form.value);
 
       
     } 
@@ -112,16 +112,16 @@ export class ModifyProfileComponent {
 
   public validatePass(pass : string) : boolean{
     let result : boolean = false;
-    console.log("longitud : " + pass.length);
+    // console.log("longitud : " + pass.length);
     
     if(pass.length > 8 && pass.length < 20 ){
-      console.log("ENTRA");
+      // console.log("ENTRA");
       
       let regExp =new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&-_])[A-Za-z\d$@$!%*?&-_]{8,20}[^'\s]/)
-      console.log("REGEX VALUE: " + regExp.test(pass));
+      // console.log("REGEX VALUE: " + regExp.test(pass));
       result = true;
     }else{
-      console.log("NO ENTRA");
+      // console.log("NO ENTRA");
       
     }
     
@@ -131,7 +131,7 @@ export class ModifyProfileComponent {
   public validateEmail(email : string) : boolean{
 
     let regExp = new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
-    console.log("REGEX CORREO VALUE: " + regExp.test(email));
+    // console.log("REGEX CORREO VALUE: " + regExp.test(email));
     
     return regExp.test(email);
   }

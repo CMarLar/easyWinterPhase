@@ -88,9 +88,9 @@ export class CreateHouseComponent {
         this.router.navigateByUrl("/login");
       }
 
-      console.log("houseService.currentHouse al iniciar la página" + JSON.stringify(this.houseService.currentHouse));
+      // console.log("houseService.currentHouse al iniciar la página" + JSON.stringify(this.houseService.currentHouse));
       
-      console.log( "modifyLayout: " + this.houseService.modifyLayout);//Cambia botones en función de si la casa es nueva o se modifica
+      // console.log( "modifyLayout: " + this.houseService.modifyLayout);//Cambia botones en función de si la casa es nueva o se modifica
 
       this.shields = [this.shield1,this.shield2,this.shield3,this.shield4,this.shield5,
                       this.shield6,this.shield7,this.shield8,this.shield9,this.shield10]
@@ -101,7 +101,7 @@ export class CreateHouseComponent {
       this.nivelesManutencion= ["Indigente","Pobre","Normal","Rico","Muy Rico"]
 
       this.currentHouseId = this.houseService.currentHouseId//Recoge el id de la casa que se va a modificar
-      console.log("Current House ID: " + this.currentHouseId);
+      // console.log("Current House ID: " + this.currentHouseId);
 
       this.actualHouse = new House(this.house_name,null,this.holding_name,this.familyCharactersitic,this.selectedShield,this.economyLevels,this.currentHouseId);
 
@@ -115,7 +115,7 @@ export class CreateHouseComponent {
       this.goToNpcForbidden = true;
 
 
-      console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
+      // console.log("Current house: " + JSON.stringify(this.houseService.currentHouse));
       
       this.listOfChars = this.characterService.currentHouseChars;
 
@@ -132,22 +132,22 @@ export class CreateHouseComponent {
 
 //Selector de escudo
 public selectHouseShield(shield:string){
-  console.log(shield);
+  // console.log(shield);
   this.selectedShield = shield;
 }
 
 public submitCharInfo(form:NgForm){
   
-  console.log(form.value);//pasa un objeto con los nombres del caballero y el escudero y la edad del caballero
+  // console.log(form.value);//pasa un objeto con los nombres del caballero y el escudero y la edad del caballero
 
   //LIMPIADORES
   this.knightName = null;
   this.knightAge = null;
   this.squireName = null;
 
-  console.log("Después de los limpiadores: " + this.knightName + " " + this.knightAge + " " + this.squireName);
-  console.log(JSON.stringify(this.knight));//AQUÍ, SIGUE TENIENDO LOS VALORES
-  console.log(JSON.stringify(this.squire));
+  // console.log("Después de los limpiadores: " + this.knightName + " " + this.knightAge + " " + this.squireName);
+  // console.log(JSON.stringify(this.knight));//AQUÍ, SIGUE TENIENDO LOS VALORES
+  // console.log(JSON.stringify(this.squire));
 
   
   
@@ -170,14 +170,14 @@ public submitCharInfo(form:NgForm){
 
       setTimeout(() => {
         this.showEmptyCharMessage = false;
-        console.log("Mensaje: " + this.showEmptyCharMessage);
+        // console.log("Mensaje: " + this.showEmptyCharMessage);
       }, 2000);
 
     }else{//si los campos no están vacíos, sigue con la función
 
-  console.log("Después de los valores: " + this.knightName + " " + this.knightAge + " " + this.squireName);
-  console.log(this.knight);
-  console.log(this.squire);
+  // console.log("Después de los valores: " + this.knightName + " " + this.knightAge + " " + this.squireName);
+  // console.log(this.knight);
+  // console.log(this.squire);
 
   let knightCopy = {...this.knight};
   let squireCopy = {...this.squire};
@@ -186,7 +186,7 @@ public submitCharInfo(form:NgForm){
 
 
   for (let i = 0; i <  this.characterService.currentHouseChars.length; i++) {
-    console.log("Array de personajes de la casa, posición " + i  + ": " + this.characterService.currentHouseChars[i].char_name);
+    // console.log("Array de personajes de la casa, posición " + i  + ": " + this.characterService.currentHouseChars[i].char_name);
   }
   
 
@@ -194,32 +194,32 @@ public submitCharInfo(form:NgForm){
   //Crea caballero
   this.characterService.newCharacter(new Character(null,this.currentHouseId,null,this.knightName,this.knightAge,1,0,0,0,null,"Hombre")).subscribe((data1:any) =>{
 
-    console.log("Data del caballero: " + JSON.stringify(data1));
+    // console.log("Data del caballero: " + JSON.stringify(data1));
     
     knightCopy.character_id = data1.insertId//cambia el id del objeto en el front para la pantalla npcs, pero no lo manda a la base de datos, no obstante, los personajes que se han creado tienen este ID
 
     this.activeChar = data1.insertId//igualo también con activechar
-    console.log("Id del caballero y activeChar de la casa: " + this.activeChar);
+    // console.log("Id del caballero y activeChar de la casa: " + this.activeChar);
 
     this.characterService.currentHouseChars.push(knightCopy)
 
     this.characterService.allCharactersOfCampaign.push(knightCopy)
     this.characterService.mainCharacters.push(knightCopy)
-    console.log("All chars of campaign: " + JSON.stringify(this.characterService.allCharactersOfCampaign));
+    // console.log("All chars of campaign: " + JSON.stringify(this.characterService.allCharactersOfCampaign));
     
   })
 
   //Crea escudero
   this.characterService.newCharacter(new Character (null,this.currentHouseId,null,this.squireName,this.squireAge,1,0,0,0,"Escudero","Hombre")).subscribe((data2:any) =>{
 
-    console.log("Data del escudero: " + JSON.stringify(data2));
+    // console.log("Data del escudero: " + JSON.stringify(data2));
 
     squireCopy.character_id = data2.insertId//cambia el id del objeto en el front para la pantalla npcs
 
     this.characterService.currentHouseChars.push(squireCopy);
 
     this.characterService.allCharactersOfCampaign.push(squireCopy)
-    console.log("All chars of campaign: " + JSON.stringify(this.characterService.allCharactersOfCampaign));
+    // console.log("All chars of campaign: " + JSON.stringify(this.characterService.allCharactersOfCampaign));
   })
 
   
@@ -234,7 +234,7 @@ public onSubmit(form:NgForm){
   form.value.shield = this.selectedShield;
   form.value.house_id = this.currentHouseId;
   
-  console.log("Form value de la casa: " + JSON.stringify(form.value));
+  // console.log("Form value de la casa: " + JSON.stringify(form.value));
 
     //Bloque para evitar que se rellenen cosas vacías cuando se crea la casa. Comprueba si el formulario y currentHouse están a null
   if(
@@ -252,7 +252,7 @@ public onSubmit(form:NgForm){
 
       setTimeout(() => {
         this.showEmptyFieldMessage = false;
-        console.log("Mensaje: " + this.showEmptyFieldMessage);
+        // console.log("Mensaje: " + this.showEmptyFieldMessage);
       }, 2000);
 
     }else{//si los campos no están vacíos, sigue con la función
@@ -269,7 +269,7 @@ public onSubmit(form:NgForm){
       this.currentHouseId))
       .subscribe((data)=>{
 
-        console.log(data);
+        // console.log(data);
 
 
     
@@ -296,8 +296,8 @@ public onSubmit(form:NgForm){
 
         this.houseService.currentHouse = this.actualHouse;
 
-        console.log(this.houseService.currentHouse);
-        console.log(this.actualHouse);
+        // console.log(this.houseService.currentHouse);
+        // console.log(this.actualHouse);
         
         
       })
@@ -323,14 +323,14 @@ public modifyLayoutButtons () {
 }
 
 public submitActiveChar(form:NgForm){
-  console.log("submitActiveChar: " + JSON.stringify(form.value));
-  console.log(JSON.stringify(form.value));
+  // console.log("submitActiveChar: " + JSON.stringify(form.value));
+  // console.log(JSON.stringify(form.value));
 
   this.activeChar = form.value.new_character;
   // this.actualHouse.activeChar = this.activeChar;
 
-  console.log("submitActiveChar: " + this.activeChar);
-  console.log(this.actualHouse.activeChar);
+  // console.log("submitActiveChar: " + this.activeChar);
+  // console.log(this.actualHouse.activeChar);
   
 }
 
@@ -342,16 +342,16 @@ this.houseNotUpdated = false;
 if(this.houseService.currentHouse.house_name != null && this.houseService.currentHouse.holding_name != null && this.houseService.currentHouse.familyCharacteristic != null){
   this.houseService.modifyLayout = true;  //esto sirve para que aparezcan unos botones u otros en función de si la casa se modifica o se crea la primera vez.
 
-  console.log("goAddNpcs condicional: " + this.houseService.modifyLayout);
+  // console.log("goAddNpcs condicional: " + this.houseService.modifyLayout);
   
   
 }else{
   this.houseService.modifyLayout = false;
 
-  console.log("goAddNpcs condicional: " + this.houseService.modifyLayout);
+  // console.log("goAddNpcs condicional: " + this.houseService.modifyLayout);
 }
 
-console.log("houseService.currentHouse al salir hacia addnpc" + JSON.stringify(this.houseService.currentHouse));
+// console.log("houseService.currentHouse al salir hacia addnpc" + JSON.stringify(this.houseService.currentHouse));
 
 this.router.navigateByUrl("/addnpc");
 
@@ -366,14 +366,14 @@ public goBack(){
     
     this.characterService.currentActiveChar = this.characterService.allCharactersOfCampaign[i]
 
-    console.log("ACTIVE CHARACTER MARCADO EN EL FRONT: "  + JSON.stringify(this.characterService.currentActiveChar));
+    // console.log("ACTIVE CHARACTER MARCADO EN EL FRONT: "  + JSON.stringify(this.characterService.currentActiveChar));
     
   }
 
 
 
 
-  console.log("actualHouse: " + JSON.stringify(this.actualHouse));
+  // console.log("actualHouse: " + JSON.stringify(this.actualHouse));
   
   // console.log("houseService.currentHouse al volver a housemanagement" + JSON.stringify(this.houseService.currentHouse));
 

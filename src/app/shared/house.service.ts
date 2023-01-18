@@ -36,7 +36,7 @@ export class HouseService {
 
   public getHouse(house_id:number){
     this.url = "https://api-easy-winter-phase.vercel.app/housesmanagement?house_id=" + house_id;
-    console.log("House_id: " + house_id);
+    // console.log("House_id: " + house_id);
     
 
     return this.http.get(this.url);

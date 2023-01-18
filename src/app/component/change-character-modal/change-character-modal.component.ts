@@ -32,7 +32,7 @@ export class ChangeCharacterModalComponent {
     //   }
     // }
 
-    console.log(JSON.stringify(this.arraySinEscudero));
+    // console.log(JSON.stringify(this.arraySinEscudero));
 
     this.house = {nombreCasa:this.nombreCasa,
       feudo:this.feudo,
@@ -46,9 +46,9 @@ export class ChangeCharacterModalComponent {
 
   public changePJ(newPJ : Character){
 
-    console.log(JSON.stringify(newPJ));
+    // console.log(JSON.stringify(newPJ));
     
-    console.log("NUEVO PJ: " + JSON.stringify(newPJ));
+    // console.log("NUEVO PJ: " + JSON.stringify(newPJ));
     this.eventoChangeCharacter.emit(newPJ);
 
 

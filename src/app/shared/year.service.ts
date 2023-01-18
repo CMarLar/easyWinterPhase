@@ -26,7 +26,7 @@ export class YearService {
   }
 
   public getYears(campaign_id : number){
-    console.log("QUE COJONES ES ESTO: " + campaign_id);
+    // console.log("QUE COJONES ES ESTO: " + campaign_id);
     
     this.url = "https://api-easy-winter-phase.vercel.app/campaignsYears?campaign_id=" + campaign_id;
 

@@ -25,7 +25,6 @@ export class BirthsModalComponent {
     this.sexo = "niño";
     this.modEconomia = -2;
     this.modEdadMadre = -1;
-    console.log("PAPA PITUFO: " + JSON.stringify(this.personajePadre));
     
   }
 
@@ -33,12 +32,12 @@ export class BirthsModalComponent {
 
     if(value != null){
       //AQUI CREAR PERSONAJE HIJO
-      console.log("SEXO DEL HIJ@: " + this.personajePadre.sexoHijo);
+      // console.log("SEXO DEL HIJ@: " + this.personajePadre.sexoHijo);
       
       let newHijo = new Character(null,this.characterService.currentActiveChar.house_id,this.characterService.currentActiveChar.year_id,value,0,1,0,0,0,"Hijo/a",this.personajePadre.sexoHijo)
       this.characterService.newCharacter(newHijo)
       .subscribe((data : any) => {
-        console.log(data);
+        // console.log(data);
         
         newHijo.character_id = data.insertId;
         this.characterService.currentHouseCharsWinterPhase.push(newHijo);

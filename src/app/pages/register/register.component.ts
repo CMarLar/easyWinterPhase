@@ -19,7 +19,7 @@ export class RegisterComponent {
 
   public addUser(user : string, mail : string,pass : string,confirmPass : string){
 
-    console.log(user);
+    // console.log(user);
     
     if(user != ""){
       // console.log("PASO");
@@ -33,9 +33,9 @@ export class RegisterComponent {
   
             this.userService.register(this.userService.user = new User(pass,mail,"../../../assets/img/img_perfil.png",user))
             .subscribe(function (data){
-              console.log(data);
+              // console.log(data);
             })
-            console.log(this.userService.user);
+            // console.log(this.userService.user);
             
             this.goPlace();
 
@@ -74,16 +74,16 @@ export class RegisterComponent {
   // UN DIGITO, Y UN CARACTER ESPECIAL, ADEMAS DE TENER UNA LONGITUD ENTRE 8 y 20
   public validatePass(pass : string) : boolean{
     let result : boolean = false;
-    console.log("longitud : " + pass.length);
+    // console.log("longitud : " + pass.length);
     
     if(pass.length > 8 && pass.length < 20 ){
-      console.log("ENTRA");
+      // console.log("ENTRA");
       
       let regExp =new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&-_])[A-Za-z\d$@$!%*?&-_]{8,20}[^'\s]/)
-      console.log("REGEX VALUE: " + regExp.test(pass));
+      // console.log("REGEX VALUE: " + regExp.test(pass));
       result = true;
     }else{
-      console.log("NO ENTRA");
+      // console.log("NO ENTRA");
       
     }
     
@@ -93,7 +93,7 @@ export class RegisterComponent {
   public validateEmail(email : string) : boolean{
 
     let regExp = new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
-    console.log("REGEX CORREO VALUE: " + regExp.test(email));
+    // console.log("REGEX CORREO VALUE: " + regExp.test(email));
     
     return regExp.test(email);
   }
