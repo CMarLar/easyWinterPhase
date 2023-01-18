@@ -29,14 +29,14 @@ export class HouseService {
   }
 
   public postHouse(house:House){
-    this.url = "http://localhost:3000/housesmanagement";
+    this.url = "https://easy-winter-phase.vercel.app/housesmanagement";
 
     return this.http.post(this.url,house);
   }
 
   public getHouse(house_id:number){
-    this.url = "http://localhost:3000/housesmanagement?house_id=" + house_id;
-    console.log("AQUI QUE COÑO QUIERO VER: " + house_id);
+    this.url = "https://easy-winter-phase.vercel.app/housesmanagement?house_id=" + house_id;
+    console.log("House_id: " + house_id);
     
 
     return this.http.get(this.url);
@@ -53,14 +53,14 @@ export class HouseService {
 
   public updateHouse(house:House){
     // let house_id = house.house_id;
-    this.url = "http://localhost:3000/createhouse";
+    this.url = "https://easy-winter-phase.vercel.app/createhouse";
     return this.http.put(this.url,house)
 
   }
 
   public updateEconomyLevels(house:House){
     // let house_id = house.house_id;
-    this.url = "http://localhost:3000/phase4";
+    this.url = "https://easy-winter-phase.vercel.app/phase4";
     return this.http.put(this.url,house)
 
   }

@@ -16,18 +16,18 @@ export class UserService {
   }
 
   public register(user : User){
-    this.url = "http://localhost:3000/register";
+    this.url = "https://easy-winter-phase.vercel.app/register";
     
     return this.http.post(this.url,user);
   }
 
   public login(user : User){
-    this.url = "http://localhost:3000/login";
+    this.url = "https://easy-winter-phase.vercel.app/login";
     return this.http.post(this.url,user);
   }
 
   public update(user : User){
-    this.url = "http://localhost:3000/modifyprofile";
+    this.url = "https://easy-winter-phase.vercel.app/modifyprofile";
     return this.http.put(this.url,user)
   }
 }
