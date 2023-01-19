@@ -2,9 +2,9 @@
 <main class="modal">
     <img src="../../../assets/backgrounds/bg_modal.png" alt="">
     <div class="modalContain">
-        <p>¿Eliminar campaña?</p>
-       <!--  <input class="input" type="text" name="nombre" id="" placeholder="Nombre de Jugador" #nombre> -->
-        <button class="small_button">ELIMINAR</button>
+        <p>¿Estás seguro que quieres borrar esta campaña?</p>
+        <button class="small_button" (click)="cerrarModal()">CANCELAR</button>
+        <button class="small_button" (click)="borrarCampaing(campaignPadre)">ELIMINAR</button>
         <img class="espaditas" style="width: 100px; height: 100px ;"src="../../../assets/img/espada_cruzada.png">
     </div>
 

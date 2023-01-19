@@ -19,7 +19,7 @@ export class CampaignNameModalComponent {
 
   public changeName(name : string){
 
-    console.log(this.campaignService.campaigns);
+    // console.log(this.campaignService.campaigns);
 
     let newCampaign:Campaign;
 

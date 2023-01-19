@@ -47,9 +47,9 @@
     <div class="modal" [hidden]="hiddenModal">
     <app-campaign-name-modal></app-campaign-name-modal>
     </div>
-   <!--  <span>  --><!-- modal confirmación borrado de campaña -->
-    <!-- <div class="modal_confimacion" *ngIf="!hiddenModal_confirmacion">
-    <app-campaing-confirmdelete ()></app-campaing-confirmdelete>
-    </div></span> -->
- 
+    <div class="modal" *ngIf="!hiddenModal_confirmacion">
+        <app-campaing-confirmdelete [campaignPadre]="campaignIdDelete" (eventoModal)="cerrarDeleteModal($event)"></app-campaing-confirmdelete>
+    </div>
 </main>
+
+

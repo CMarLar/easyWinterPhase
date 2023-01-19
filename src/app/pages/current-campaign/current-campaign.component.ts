@@ -113,7 +113,7 @@ export class CurrentCampaignComponent {
         this.yearService.currentYear.year_id = data.insertId;
         this.yearService.currentYear.yearNumber = this.yearService.currentYear.yearNumber +1;
         this.yearService.currentYear.isFirstYear = 0;
-        this.yearService.currentYear.notes = notas;
+        this.yearService.currentYear.notes = "";
 
         this.router.navigateByUrl("/winterphasemain");
         

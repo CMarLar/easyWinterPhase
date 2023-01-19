@@ -39,6 +39,8 @@ export class CampaignsComponent {
 
   public noCampaigns:boolean;
   
+  //id de campaña a borrar
+  public campaignIdDelete : number;
 
   constructor(public router : Router, public campaignService:CampaignService,public userService: UserService, public houseService:HouseService, public playerService : PlayerService, public characterService : CharacterService, public yearService : YearService, public adicionalService : AdicionalService){
     
@@ -114,44 +116,37 @@ public getCampaigns(user_id:number){
 }
 
 public deleteCampaign(campaign_id:number){
-
-  //igual tienes que cambiar este data a :any
-
-  // console.log("click");
-  // console.log("ID de campaña" + campaign_id);
   
-  for (let i = 0; i < this.campaignsOfUser.length; i++) {
+  this.hiddenModal_confirmacion = false;
+  this.campaignIdDelete = campaign_id;
+  console.log("Parametro " + campaign_id);
+  
+  console.log(this.campaignIdDelete);
+  
+  // for (let i = 0; i < this.campaignsOfUser.length; i++) {
 
-    if(this.campaignsOfUser[i].campaign_id == campaign_id){
+  //   if(this.campaignsOfUser[i].campaign_id == campaign_id){
     
-    }
-  }
-  this.campaignService.deleteCampaign(campaign_id).subscribe((data:any)=>{
-    // this.campaignsOfUser=data;//para pasar de nuevo el array por pantalla
-    // console.log("Dentro del suscribe");
-    // console.log("Campaña borrada");    
-    // console.log("Data deletecampaigns" + data);
+  //   }
+  // }
+  // this.campaignService.deleteCampaign(campaign_id).subscribe((data:any)=>{
 
-    for (let i = 0; i < this.campaignsOfUser.length; i++) {
+  //   for (let i = 0; i < this.campaignsOfUser.length; i++) {
 
-     /*  this.hiddenModal_confirmacion = false; *//* esto de aquí */
 
-      if(this.campaignsOfUser[i].campaign_id == campaign_id){
+  //     if(this.campaignsOfUser[i].campaign_id == campaign_id){
 
-        let indexOfDeleted = this.campaignsOfUser.indexOf(this.campaignsOfUser[i])
+  //       let indexOfDeleted = this.campaignsOfUser.indexOf(this.campaignsOfUser[i])
 
-        // console.log("Indice:");
-        
-        // console.log(indexOfDeleted);
-
-        this.campaignsOfUser.splice(indexOfDeleted,1);
-      }
+  //       this.campaignsOfUser.splice(indexOfDeleted,1);
+  //     }
    
       
 
-      }
-  })
+  //     }
+  // })
   }
+
   /* estas maravilllas son de irene full stack developed */
   public abrirModal_confirmacion(){
 
@@ -255,6 +250,30 @@ public deleteCampaign(campaign_id:number){
 
     
     
+  }
+
+  //EVENTO MODAL BORRAR CAMPAÑA
+  public cerrarDeleteModal(datosEvento : any){
+
+    if (datosEvento.idCampaña != null){
+
+      for (let i = 0; i < this.campaignsOfUser.length; i++) {
+
+
+            if(this.campaignsOfUser[i].campaign_id == datosEvento.idCampaña){
+      
+              let indexOfDeleted = this.campaignsOfUser.indexOf(this.campaignsOfUser[i])
+      
+              this.campaignsOfUser.splice(indexOfDeleted,1);
+            }
+         
+            
+      
+            }
+
+    }
+    
+    this.hiddenModal_confirmacion = datosEvento.hidden;
   }
 }
 
